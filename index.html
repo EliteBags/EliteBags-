@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elite Bags | Premium Fashion Collection</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#faf9f7;
+    color:#171717;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:22px 18px;
+    text-align:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.tagline{
+    margin-top:6px;
+    color:#bbb;
+    font-size:13px;
+}
+
+.hero{
+    text-align:center;
+    padding:65px 20px;
+    background:linear-gradient(135deg,#f3e7e2,#fff);
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#666;
+    max-width:500px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.button{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    background:#111;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+.search{
+    max-width:700px;
+    margin:30px auto 10px;
+    padding:0 18px;
+}
+
+.search input{
+    width:100%;
+    padding:17px 20px;
+    border:1px solid #ddd;
+    border-radius:30px;
+    font-size:16px;
+    outline:none;
+}
+
+.categories{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:18px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.categories button{
+    border:1px solid #ddd;
+    background:white;
+    padding:11px 19px;
+    border-radius:25px;
+    white-space:nowrap;
+}
+
+.categories button.active{
+    background:#111;
+    color:white;
+}
+
+.products{
+    max-width:1100px;
+    margin:auto;
+    padding:10px 18px 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.product{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.product img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    background:#eee;
+}
+
+.info{
+    padding:17px;
+}
+
+.info h3{
+    font-size:17px;
+    margin-bottom:9px;
+}
+
+.details{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:13px 0;
+}
+
+.whatsapp{
+    display:block;
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer p{
+    color:#aaa;
+    font-size:13px;
+    margin-top:8px;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:30px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .info{
+        padding:12px;
+    }
+
+    .info h3{
+        font-size:14px;
+    }
+
+    .price{
+        font-size:17px;
+    }
+
+    .whatsapp{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ELITE BAGS</div>
+    <div class="tagline">Premium Fashion Collection</div>
+</header>
+
+<section class="hero">
+    <h1>Discover Your Style</h1>
+    <p>
+        Explore our curated collection of bags, shoes,
+        watches and fashion accessories.
+    </p>
+
+    <a href="#catalog" class="button">
+        Explore Collection
+    </a>
+</section>
+
+<div class="search" id="catalog">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search products..."
+        onkeyup="searchProducts()"
+    >
+</div>
+
+<div class="categories">
+    <button class="active" onclick="filterProducts('all',this)">
+        All
+    </button>
+
+    <button onclick="filterProducts('bags',this)">
+        Bags
+    </button>
+
+    <button onclick="filterProducts('shoes',this)">
+        Shoes
+    </button>
+
+    <button onclick="filterProducts('watches',this)">
+        Watches
+    </button>
+
+    <button onclick="filterProducts('accessories',this)">
+        Accessories
+    </button>
+</div>
+
+<section class="products">
+
+    <div class="product" data-category="bags"
+         data-name="Nano Speedy Handbag">
+
+        <img src="https://placehold.co/700x700?text=Product+Photo">
+
+        <div class="info">
+            <h3>Nano Speedy Handbag</h3>
+
+            <div class="details">
+                Color: Brown<br>
+                Size: 16 × 10 × 8 cm
+            </div>
+
+            <div class="price">$350</div>
+
+            <a class="whatsapp"
+               href="https://wa.me/12089034508?text=Hi%2C%20I%27m%20interested%20in%20the%20Nano%20Speedy%20Handbag."
+               target="_blank">
+               Order on WhatsApp
+            </a>
+        </div>
+    </div>
+
+
+    <div class="product" data-category="bags"
+         data-name="Mini Shoulder Bag">
+
+        <img src="https://placehold.co/700x700?text=Product+Photo">
+
+        <div class="info">
+            <h3>Mini Shoulder Bag</h3>
+
+            <div class="details">
+                Color: Black<br>
+                Size: 20 × 14 × 7 cm
+            </div>
+
+            <div class="price">$320</div>
+
+            <a class="whatsapp"
+               href="https://wa.me/12089034508?text=Hi%2C%20I%27m%20interested%20in%20the%20Mini%20Shoulder%20Bag."
+               target="_blank">
+               Order on WhatsApp
+            </a>
+        </div>
+    </div>
+
+
+    <div class="product" data-category="shoes"
+         data-name="Classic Heels">
+
+        <img src="https://placehold.co/700x700?text=Product+Photo">
+
+        <div class="info">
+            <h3>Classic Heels</h3>
+
+            <div class="details">
+                Color: Black<br>
+                Sizes: 36–41
+            </div>
+
+            <div class="price">$245</div>
+
+            <a class="whatsapp"
+               href="https://wa.me/12089034508?text=Hi%2C%20I%27m%20interested%20in%20the%20Classic%20Heels."
+               target="_blank">
+               Order on WhatsApp
+            </a>
+        </div>
+    </div>
+
+
+    <div class="product" data-category="watches"
+         data-name="Classic Watch">
+
+        <img src="https://placehold.co/700x700?text=Product+Photo">
+
+        <div class="info">
+            <h3>Classic Watch</h3>
+
+            <div class="details">
+                Dial: Black<br>
+                Case: Stainless Steel
+            </div>
+
+            <div class="price">$395</div>
+
+            <a class="whatsapp"
+               href="https://wa.me/12089034508?text=Hi%2C%20I%27m%20interested%20in%20the%20Classic%20Watch."
+               target="_blank">
+               Order on WhatsApp
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <strong>ELITE BAGS</strong>
+    <p>Premium Fashion Collection</p>
+    <p>Worldwide Shipping • WhatsApp Orders</p>
+</footer>
+
+<script>
+
+function searchProducts(){
+
+    let search =
+        document.getElementById("searchBox")
+        .value.toLowerCase();
+
+    document.querySelectorAll(".product").forEach(function(product){
+
+        let name =
+            product.getAttribute("data-name")
+            .toLowerCase();
+
+        product.style.display =
+            name.includes(search) ? "" : "none";
+    });
+}
+
+
+function filterProducts(category,button){
+
+    document.querySelectorAll(".categories button")
+    .forEach(function(btn){
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".product")
+    .forEach(function(product){
+
+        if(
+            category === "all" ||
+            product.getAttribute("data-category") === category
+        ){
+            product.style.display = "";
+        }else{
+            product.style.display = "none";
+        }
+
+    });
+}
+
+</script>
+
+</body>
+</html>
