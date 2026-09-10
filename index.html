@@ -514,11 +514,24 @@ document.getElementById("grid").innerHTML=list.length?list.map((p)=>
 </article>
 `).join(""):`<p style="grid-column:1/-1;text-align:center;padding:60px;color:#777">No products found.</p>`;
 }
-
 function viewProduct(i){
-window.location.href="product.html?id="+i;
-}
+  const p = products[i];
 
+  if(!p){
+    alert("Product not found.");
+    return;
+  }
+
+  const image = p.images && p.images.length ? p.images[0] : "";
+
+  window.location.href =
+    "product.html?name=" + encodeURIComponent(p.name) +
+    "&category=" + encodeURIComponent(p.category) +
+    "&sub=" + encodeURIComponent(p.subcategory) +
+    "&price=" + encodeURIComponent("$" + p.price) +
+    "&image=" + encodeURIComponent(image);
+}
+l
 function toggleWish(i){
 if(wishlist.includes(i))wishlist=wishlist.filter(x=>x!==i);
 else wishlist.push(i);
