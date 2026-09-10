@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Product Details | Elite Bags</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#fff;
+  color:#171717;
+}
+
+.topbar{
+  background:#b51224;
+  color:#fff;
+  text-align:center;
+  padding:9px 12px;
+  font-size:13px;
+  letter-spacing:.5px;
+}
+
+header{
+  height:82px;
+  border-bottom:1px solid #eadfe1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  background:#fff;
+}
+
+.logo{
+  text-decoration:none;
+  color:#171717;
+  font-family:Georgia,serif;
+  font-size:29px;
+  letter-spacing:5px;
+}
+
+.back{
+  text-decoration:none;
+  color:#171717;
+  font-size:14px;
+  border:1px solid #ddd;
+  padding:11px 18px;
+  transition:.2s;
+}
+
+.back:hover{
+  background:#b51224;
+  color:#fff;
+  border-color:#b51224;
+}
+
+.product-page{
+  max-width:1150px;
+  margin:55px auto;
+  padding:0 25px;
+}
+
+.product-box{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:55px;
+  align-items:start;
+}
+
+.product-image{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border:1px solid #eadfe1;
+}
+
+.product-info{
+  padding-top:15px;
+}
+
+.category{
+  color:#b51224;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.product-name{
+  font-family:Georgia,serif;
+  font-size:44px;
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.price{
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.line{
+  height:1px;
+  background:#eadfe1;
+  margin:25px 0;
+}
+
+.description-title{
+  font-size:16px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
+}
+
+.description{
+  color:#6f6668;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.details{
+  margin-top:25px;
+}
+
+.detail{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #eee;
+  padding:13px 0;
+  font-size:14px;
+}
+
+.detail span:first-child{
+  color:#777;
+}
+
+.whatsapp{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:#b51224;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  margin-top:30px;
+  font-size:14px;
+  letter-spacing:1px;
+  transition:.2s;
+}
+
+.whatsapp:hover{
+  background:#8f0d1b;
+}
+
+.note{
+  text-align:center;
+  margin-top:14px;
+  color:#777;
+  font-size:12px;
+}
+
+footer{
+  margin-top:70px;
+  background:#171717;
+  color:#fff;
+  text-align:center;
+  padding:30px 20px;
+  font-size:13px;
+}
+
+@media(max-width:750px){
+
+  header{
+    height:70px;
+    padding:0 20px;
+  }
+
+  .logo{
+    font-size:22px;
+    letter-spacing:3px;
+  }
+
+  .back{
+    padding:9px 12px;
+    font-size:12px;
+  }
+
+  .product-page{
+    margin:30px auto;
+    padding:0 16px;
+  }
+
+  .product-box{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .product-info{
+    padding-top:0;
+  }
+
+  .product-name{
+    font-size:34px;
+  }
+
+  .price{
+    font-size:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  Worldwide Delivery • Premium Fashion Collection
+</div>
+
+<header>
+  <a href="index.html" class="logo">ELITE BAGS</a>
+
+  <a href="index.html" class="back">
+    ← BACK TO SHOP
+  </a>
+</header>
+
+<main class="product-page">
+
+  <div class="product-box">
+
+    <div>
+      <img id="productImage"
+           class="product-image"
+           src=""
+           alt="Product">
+    </div>
+
+    <div class="product-info">
+
+      <div id="productCategory" class="category">
+        PRODUCT
+      </div>
+
+      <h1 id="productName" class="product-name">
+        Product Name
+      </h1>
+
+      <div id="productPrice" class="price">
+        $0
+      </div>
+
+      <div class="line"></div>
+
+      <h3 class="description-title">
+        Product Details
+      </h3>
+
+      <p class="description">
+        Discover this premium fashion piece from the Elite Bags
+        collection. Please contact us for product availability,
+        additional information and ordering assistance.
+      </p>
+
+      <div class="details">
+
+        <div class="detail">
+          <span>Category</span>
+          <strong id="detailCategory">—</strong>
+        </div>
+
+        <div class="detail">
+          <span>Style</span>
+          <strong id="detailStyle">Premium Fashion</strong>
+        </div>
+
+        <div class="detail">
+          <span>Delivery</span>
+          <strong>Worldwide</strong>
+        </div>
+
+      </div>
+
+      <a id="whatsappButton"
+         class="whatsapp"
+         href="#"
+         target="_blank"
+         rel="noopener">
+        ORDER ON WHATSAPP
+      </a>
+
+      <div class="note">
+        Pre-shipment video available on request
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Elite Bags • Worldwide Delivery
+</footer>
+
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const name =
+  params.get("name") || "Product";
+
+const category =
+  params.get("category") || "Fashion";
+
+const sub =
+  params.get("sub") || "Premium Fashion";
+
+const price =
+  params.get("price") || "$0";
+
+const image =
+  params.get("image") || "";
+
+
+/* PRODUCT INFORMATION */
+
+document.getElementById("productName").textContent = name;
+
+document.getElementById("productCategory").textContent =
+  category;
+
+document.getElementById("detailCategory").textContent =
+  category;
+
+document.getElementById("detailStyle").textContent =
+  sub;
+
+document.getElementById("productPrice").textContent =
+  price;
+
+
+/* PRODUCT IMAGE */
+
+const productImage =
+  document.getElementById("productImage");
+
+productImage.src = image;
+
+productImage.alt = name;
+
+
+/* WHATSAPP */
+
+const message =
+  "Hello Elite Bags!\n\n" +
+  "I am interested in: " + name + "\n" +
+  "Price: " + price + "\n\n" +
+  "Please share the product details and availability.";
+
+const whatsappURL =
+  "https://wa.me/12089034508?text=" +
+  encodeURIComponent(message);
+
+document.getElementById("whatsappButton").href =
+  whatsappURL;
+
+</script>
+
+</body>
+</html>
