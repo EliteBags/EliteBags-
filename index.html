@@ -1616,7 +1616,39 @@ function render(){
 
 render();
 
-</script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
 
+  document.querySelectorAll(".card").forEach(function(card){
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function(e){
+
+      if(e.target.closest(".order")){
+        return;
+      }
+
+      const name = card.querySelector("h3")?.textContent.trim() || "";
+      const price = card.querySelector(".price")?.textContent.trim() || "";
+      const image = card.querySelector("img")?.src || "";
+      const text = card.querySelector("p")?.textContent.trim() || "";
+
+      const parts = text.split("·");
+      const category = parts[0]?.trim() || "Fashion";
+      const sub = parts[1]?.trim() || "Premium Fashion";
+
+      window.location.href =
+        "product.html?name=" + encodeURIComponent(name) +
+        "&category=" + encodeURIComponent(category) +
+        "&sub=" + encodeURIComponent(sub) +
+        "&price=" + encodeURIComponent(price) +
+        "&image=" + encodeURIComponent(image);
+    });
+
+  });
+
+});
+</script>
 </body>
 </html>
