@@ -3,1629 +3,622 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <meta name="description" content="Elite Bags — premium fashion collection of bags, shoes and heels with worldwide delivery.">
 <meta name="google-site-verification" content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
-
-<title>Elite Bags | Master Quality Fashion Collection</title>
+<title>Elite Bags | Premium Fashion Collection</title>
 
 <style>
 :root{
-  --bg:#fff;
-  --white:#fff;
-  --black:#171717;
-  --red:#b51224;
-  --red2:#8f0d1b;
-  --line:#eadfe1;
-  --muted:#6f6668
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
-}
-
-html{
-  scroll-behavior:smooth
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--black);
-  overflow-x:hidden
-}
-
-a{
-  text-decoration:none;
-  color:inherit
-}
-
-button,input{
-  font:inherit
-}
-
-.top{
-  background:var(--red);
-  color:#fff;
-  text-align:center;
-  padding:9px;
-  font-size:10px;
-  letter-spacing:2px
-}
-
-header{
-  height:82px;
-  background:rgba(255,255,255,.97);
-  display:flex;
-  align-items:center;
-  padding:0 5%;
-  position:sticky;
-  top:0;
-  z-index:50;
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(10px)
-}
-
-.logo{
-  font:29px Georgia,serif;
-  letter-spacing:3px;
-  white-space:nowrap
-}
-
-.logo small{
-  display:block;
-  font:9px Arial;
-  letter-spacing:4px;
-  text-align:center;
-  margin-top:6px
-}
-
-nav{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex:1
-}
-
-nav a{
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:1px;
-  padding:31px 0
-}
-
-nav a:hover{
-  color:var(--red)
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  align-items:center
-}
-
-.searchbtn,
-.menu{
-  border:0;
-  background:none;
-  font-size:23px;
-  cursor:pointer
-}
-
-.wa{
-  background:var(--red);
-  color:#fff;
-  padding:11px 15px;
-  font-size:10px;
-  letter-spacing:1px
-}
-
-.hero{
-  min-height:560px;
-  padding:70px 6%;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  background:#8f1022;
-  position:relative;
-  overflow:hidden
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(112,8,25,.96) 0%,
-      rgba(142,25,45,.86) 38%,
-      rgba(255,255,255,.12) 72%,
-      rgba(255,255,255,.72) 100%
-    );
-  z-index:1
-}
-
-.hero-collage{
-  position:absolute;
-  right:0;
-  top:0;
-  width:55%;
-  height:100%;
-  z-index:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:35px 30px 35px 80px
-}
-
-.hero-collage img{
-  width:31%;
-  height:370px;
-  object-fit:cover;
-  border-radius:4px;
-  box-shadow:0 18px 45px rgba(40,0,8,.28)
-}
-
-.hero-collage img:nth-child(2){
-  height:430px;
-  margin-top:-25px
-}
-
-.hero-collage img:nth-child(3){
-  height:350px;
-  margin-top:28px
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  padding:70px 5%;
-  color:#fff
-}
-
-.hero-kicker{
-  font-size:12px;
-  letter-spacing:5px;
-  font-weight:700;
-  margin-bottom:18px
-}
-
-.hero h1{
-  font:400 clamp(48px,6vw,82px)/.95 Georgia,serif;
-  max-width:620px;
-  margin:0 0 22px;
-  color:#fff
-}
-
-.hero h1 strong{
-  display:block;
-  font-style:italic;
-  font-weight:400
-}
-
-.hero-copy{
-  max-width:590px;
-  font-size:16px;
-  line-height:1.8;
-  margin-bottom:30px;
-  color:#fff
-}
-
-.hero-buttons{
-  display:flex;
-  gap:13px;
-  flex-wrap:wrap
-}
-
-.hero .btn{
-  display:inline-block;
-  padding:15px 25px;
-  font-size:11px;
-  letter-spacing:1.5px;
-  font-weight:700
-}
-
-.hero .btn.light{
-  background:#fff;
-  color:#9b1226;
-  border:1px solid #fff
-}
-
-.hero .btn.outline{
-  background:transparent;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.75)
-}
-
-.hero-badge{
-  margin-top:28px;
-  display:flex;
-  gap:22px;
-  flex-wrap:wrap;
-  font-size:10px;
-  letter-spacing:1.2px;
-  font-weight:700;
-  text-transform:uppercase
-}
-
-.hero-badge span{
-  padding-right:20px;
-  border-right:1px solid rgba(255,255,255,.4)
-}
-
-.hero-badge span:last-child{
-  border-right:0
-}
-
-.section{
-  padding:70px 5%
-}
-
-.head{
-  text-align:center;
-  margin-bottom:32px
-}
-
-.head h2{
-  font:400 38px Georgia,serif
-}
-
-.head p{
-  font-size:10px;
-  letter-spacing:2px;
-  color:var(--muted);
-  margin-top:8px
-}
-
-.cats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
-
-.cat{
-  height:330px;
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  background:#222
-}
-
-.cat img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s
-}
-
-.cat:hover img{
-  transform:scale(1.06)
-}
-
-.cat:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    transparent 40%,
-    rgba(0,0,0,.78)
-  )
-}
-
-.cat div{
-  position:absolute;
-  z-index:2;
-  left:27px;
-  bottom:24px;
-  color:#fff
-}
-
-.cat h3{
-  text-shadow:0 2px 10px rgba(0,0,0,.35);
-  font:400 34px Georgia,serif
-}
-
-.cat p{
-  color:#fff;
-  font-size:9px;
-  letter-spacing:2px;
-  margin-top:7px
-}
-  .benefits{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  background:#fff;
-  border-block:1px solid var(--line)
-}
-
-.benefit{
-  text-align:center;
-  padding:23px 10px;
-  border-right:1px solid var(--line)
-}
-
-.benefit:last-child{
-  border:0
-}
-
-.benefit b{
-  display:block;
-  font-size:10px;
-  letter-spacing:1px
-}
-
-.benefit span{
-  font-size:9px;
-  color:var(--muted);
-  display:block;
-  margin-top:5px
-}
-
-.shop{
-  background:#fff;
-  padding:70px 5%
-}
-
-.shophead{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  margin-bottom:25px
-}
-
-.shophead h2{
-  font:400 36px Georgia,serif
-}
-
-.shophead p{
-  font-size:10px;
-  letter-spacing:1.5px;
-  color:var(--muted);
-  margin-top:7px
-}
-
-.search{
-  width:310px;
-  height:45px;
-  border:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  padding:0 12px
-}
-
-.search input{
-  border:0;
-  outline:0;
-  width:100%;
-  padding-left:8px
-}
-
-.filters,
-.sublist{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
-}
-
-.filter,
-.sub{
-  background:#fff;
-  border:1px solid var(--line);
-  padding:10px 14px;
-  font-size:10px;
-  cursor:pointer
-}
-
-.filter.active,
-.filter:hover,
-.sub.active{
-  background:var(--red);
-  color:#fff;
-  border-color:var(--red)
-}
-
-.subbox{
-  display:none;
-  background:#fff6f7;
-  border:1px solid var(--line);
-  padding:18px;
-  margin:25px 0
-}
-
-.subbox.show{
-  display:block
-}
-
-.subbox h3{
-  font:20px Georgia,serif;
-  margin-bottom:12px
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  margin-top:28px
-}
-
-.card{
-  border:1px solid var(--line);
-  background:#fff;
-  overflow:hidden;
-  transition:.25s
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 30px #21170b12
-}
-
-.photo{
-  height:270px;
-  position:relative;
-  background:#eee
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover
-}
-
-.tag{
-  position:absolute;
-  z-index:2;
-  top:10px;
-  left:10px;
-  background:#151311;
-  color:#fff;
-  padding:6px 8px;
-  font-size:8px;
-  letter-spacing:1px
-}
-
-.info{
-  padding:15px
-}
-
-.info h3{
-  font:400 18px Georgia,serif
-}
-
-.info p{
-  font-size:10px;
-  line-height:1.5;
-  color:var(--muted);
-  margin-top:6px
-}
-
-.price{
-  font-weight:bold;
-  margin-top:12px
-}
-
-.order{
-  display:block;
-  width:100%;
-  border:0;
-  background:var(--red);
-  color:#fff;
-  text-align:center;
-  padding:11px;
-  margin-top:13px;
-  font-size:9px;
-  letter-spacing:1px;
-  cursor:pointer
-}
-
-.order:hover{
-  background:var(--red2)
-}
-
-.service-info{
-  padding:65px 5%;
-  background:#fff;
-  border-top:1px solid var(--line)
-}
-
-.service-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  max-width:1100px;
-  margin:0 auto
-}
-
-.service-card{
-  border:1px solid var(--line);
-  padding:30px;
-  background:#fff
-}
-
-.service-card h3{
-  font:400 27px Georgia,serif;
-  margin-bottom:12px;
-  color:var(--black)
-}
-
-.service-card h3 span{
-  color:var(--red)
-}
-
-.service-card p{
-  font-size:12px;
-  line-height:1.8;
-  color:var(--muted)
-}
-
-.payments{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:18px
-}
-
-.pay{
-  border:1px solid #d9cdd0;
-  padding:10px 13px;
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:.5px;
-  background:#fff
-}
-
-.pay strong{
-  color:var(--red)
-}
-
-.video-note{
-  margin-top:16px;
-  padding:13px 15px;
-  background:#fff4f5;
-  border-left:3px solid var(--red);
-  font-size:11px;
-  line-height:1.7
-}
-  .contact{
-  background:#171513;
-  color:#fff;
-  text-align:center;
-  padding:65px 5%
-}
-
-.contact h2{
-  font:400 38px Georgia,serif
-}
-
-.contact p{
-  color:#ccc;
-  margin:12px 0 22px;
-  font-size:12px
-}
-
-.contact-info{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  flex-wrap:wrap;
-  font-size:11px
-}
-
-footer{
-  background:#0b0a09;
-  color:#aaa;
-  padding:30px 5%;
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:30px
-}
-
-footer h3{
-  font:400 23px Georgia,serif;
-  color:#fff
-}
-
-footer small{
-  font-size:8px;
-  letter-spacing:2px
-}
-
-footer p,
-footer a{
-  font-size:10px;
-  line-height:1.7;
-  margin-top:10px;
-  display:block
-}
-
-footer a:hover{
-  color:#fff
-}
-
-.bottom{
-  text-align:center;
-  background:#050504;
-  color:#777;
-  padding:12px;
-  font-size:9px
-}
+--white:#fff;--black:#171717;--red:#b51224;--red2:#8f0d1b;
+--line:#eadfe1;--muted:#6f6668;--soft:#fff5f6
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:var(--black);overflow-x:hidden}
+a{text-decoration:none;color:inherit}button,input{font:inherit}
+.top{background:var(--red);color:#fff;text-align:center;padding:9px;font-size:10px;letter-spacing:2px}
+header{height:80px;background:#fff;display:flex;align-items:center;padding:0 5%;
+position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+.logo{font:29px Georgia,serif;letter-spacing:3px;white-space:nowrap}
+.logo small{display:block;font:9px Arial;letter-spacing:4px;text-align:center;margin-top:5px}
+nav{display:flex;justify-content:center;gap:28px;flex:1}
+nav a{font-size:11px;font-weight:bold;letter-spacing:1px;padding:30px 0}
+nav a:hover{color:var(--red)}
+.actions{display:flex;gap:10px;align-items:center}
+.iconbtn,.menu{border:0;background:none;font-size:22px;cursor:pointer}
+.cartbtn{position:relative;border:0;background:none;font-size:21px;cursor:pointer}
+.cartcount{position:absolute;top:-8px;right:-9px;background:var(--red);color:#fff;
+border-radius:50%;font-size:8px;min-width:16px;height:16px;display:grid;place-items:center}
+.wa{background:var(--red);color:#fff;padding:11px 15px;font-size:10px;letter-spacing:1px}
+.menu{display:none}
+
+.hero{min-height:570px;padding:70px 6%;display:flex;align-items:center;color:#fff;
+background:#8f1022;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,
+rgba(112,8,25,.97),rgba(142,25,45,.82) 40%,rgba(255,255,255,.08) 75%,rgba(255,255,255,.7));z-index:1}
+.hero-collage{position:absolute;right:0;top:0;width:55%;height:100%;z-index:0;display:flex;
+align-items:center;justify-content:center;gap:12px;padding:35px 30px 35px 80px}
+.hero-collage img{width:31%;height:370px;object-fit:cover;border-radius:4px;box-shadow:0 18px 45px #28000847}
+.hero-collage img:nth-child(2){height:430px;margin-top:-25px}
+.hero-collage img:nth-child(3){height:350px;margin-top:28px}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:auto;padding:70px 5%}
+.hero-kicker{font-size:12px;letter-spacing:5px;font-weight:700;margin-bottom:18px}
+.hero h1{font:400 clamp(48px,6vw,82px)/.95 Georgia,serif;max-width:650px;margin-bottom:22px}
+.hero h1 strong{display:block;font-style:italic;font-weight:400}
+.hero-copy{max-width:590px;font-size:16px;line-height:1.8;margin-bottom:30px}
+.hero-buttons{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 25px;font-size:11px;letter-spacing:1.5px;font-weight:700}
+.btn.light{background:#fff;color:#9b1226}.btn.outline{border:1px solid #ffffffbf;color:#fff}
+.hero-badge{margin-top:28px;display:flex;gap:22px;flex-wrap:wrap;font-size:10px;letter-spacing:1.2px;font-weight:700;text-transform:uppercase}
+.hero-badge span{padding-right:20px;border-right:1px solid #ffffff66}
+.hero-badge span:last-child{border:0}
+
+.section{padding:70px 5%}.head{text-align:center;margin-bottom:32px}
+.head h2{font:400 38px Georgia,serif}.head p{font-size:10px;letter-spacing:2px;color:var(--muted);margin-top:8px}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cat{height:330px;position:relative;overflow:hidden;cursor:pointer;background:#222}
+.cat img{width:100%;height:100%;object-fit:cover;transition:.5s}.cat:hover img{transform:scale(1.06)}
+.cat:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,#000000c7)}
+.cat div{position:absolute;z-index:2;left:27px;bottom:24px;color:#fff}
+.cat h3{font:400 34px Georgia,serif}.cat p{font-size:9px;letter-spacing:2px;margin-top:7px}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+.benefit{text-align:center;padding:23px 10px;border-right:1px solid var(--line)}
+.benefit:last-child{border:0}.benefit b{display:block;font-size:10px;letter-spacing:1px}
+.benefit span{font-size:9px;color:var(--muted);display:block;margin-top:5px}
+
+.shop{background:#fff;padding:70px 5%}.shophead{display:flex;justify-content:space-between;
+align-items:end;gap:20px;margin-bottom:25px}.shophead h2{font:400 36px Georgia,serif}
+.shophead p{font-size:10px;letter-spacing:1.5px;color:var(--muted);margin-top:7px}
+.search{width:310px;height:45px;border:1px solid var(--line);display:flex;align-items:center;padding:0 12px}
+.search input{border:0;outline:0;width:100%;padding-left:8px}
+.controls{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter,.sort{background:#fff;border:1px solid var(--line);padding:10px 14px;font-size:10px;cursor:pointer}
+.filter.active,.filter:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.sort{outline:0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.card{border:1px solid var(--line);background:#fff;overflow:hidden;transition:.25s;position:relative}
+.card:hover{transform:translateY(-4px);box-shadow:0 15px 30px #21170b12}
+.photo{height:270px;position:relative;background:#eee;cursor:pointer}
+.photo img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;z-index:2;top:10px;left:10px;background:#151311;color:#fff;padding:6px 8px;font-size:8px;letter-spacing:1px}
+.heart{position:absolute;right:10px;top:10px;width:34px;height:34px;border:0;border-radius:50%;
+background:#fff;cursor:pointer;font-size:17px;z-index:3}.heart.active{color:var(--red)}
+.info{padding:15px}.info h3{font:400 18px Georgia,serif}.info p{font-size:10px;line-height:1.5;color:var(--muted);margin-top:6px}
+.price{font-weight:bold;margin-top:12px}.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:13px}
+.order,.view{display:block;width:100%;border:0;text-align:center;padding:11px;font-size:9px;letter-spacing:1px;cursor:pointer}
+.order{background:var(--red);color:#fff}.order:hover{background:var(--red2)}
+.view{background:#fff;border:1px solid var(--line)!important}.view:hover{border-color:var(--red)!important;color:var(--red)}
+  .subbox{display:none;background:var(--soft);border:1px solid var(--line);padding:18px;margin:20px 0}
+.subbox.show{display:block}.subbox h3{font:20px Georgia,serif;margin-bottom:12px}
+.sublist{display:flex;gap:8px;flex-wrap:wrap}.sub{background:#fff;border:1px solid var(--line);padding:9px 12px;font-size:9px;cursor:pointer}
+.sub.active{background:var(--red);color:#fff}
+
+.service-info{padding:65px 5%;background:#fff;border-top:1px solid var(--line)}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1100px;margin:auto}
+.service-card{border:1px solid var(--line);padding:30px}.service-card h3{font:400 27px Georgia,serif;margin-bottom:12px}
+.service-card h3 span{color:var(--red)}.service-card p{font-size:12px;line-height:1.8;color:var(--muted)}
+.payments{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.pay{border:1px solid #d9cdd0;padding:10px 13px;font-size:10px;font-weight:bold}
+.pay strong{color:var(--red)}.video-note{margin-top:16px;padding:13px 15px;background:var(--soft);border-left:3px solid var(--red);font-size:11px;line-height:1.7}
+
+.reviews{padding:70px 5%;background:#faf7f7}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:auto}
+.review{background:#fff;border:1px solid var(--line);padding:25px}.stars{color:var(--red);letter-spacing:2px}
+.review p{font-size:12px;line-height:1.8;color:#555;margin:13px 0}.review b{font-size:10px;letter-spacing:1px}
+
+.contact{background:#171513;color:#fff;text-align:center;padding:65px 5%}
+.contact h2{font:400 38px Georgia,serif}.contact p{color:#ccc;margin:12px 0 22px;font-size:12px}
+.contact-info{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;font-size:11px}
+
+footer{background:#0b0a09;color:#aaa;padding:30px 5%;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h3{font:400 23px Georgia,serif;color:#fff}footer small{font-size:8px;letter-spacing:2px}
+footer p,footer a{font-size:10px;line-height:1.7;margin-top:10px;display:block}footer a:hover{color:#fff}
+.bottom{text-align:center;background:#050504;color:#777;padding:12px;font-size:9px}
+
+.cart-overlay{display:none;position:fixed;inset:0;background:#0008;z-index:90}
+.cart-overlay.show{display:block}
+.cart{position:fixed;right:0;top:0;height:100%;width:min(420px,94vw);background:#fff;z-index:100;
+transform:translateX(100%);transition:.3s;box-shadow:-15px 0 40px #0002;display:flex;flex-direction:column}
+.cart.open{transform:translateX(0)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line)}
+.cart-head h2{font:400 25px Georgia,serif}.close{border:0;background:none;font-size:25px;cursor:pointer}
+.cart-items{padding:15px;overflow:auto;flex:1}.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:10px;
+padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.cart-item img{width:70px;height:75px;object-fit:cover}.cart-item h4{font:400 15px Georgia,serif}
+.cart-item small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;align-items:center;gap:7px;margin-top:8px}
+.qty button{width:24px;height:24px;border:1px solid var(--line);background:#fff;cursor:pointer}.remove{border:0;background:none;color:var(--red);font-size:9px;cursor:pointer;margin-top:5px}
+.cart-foot{border-top:1px solid var(--line);padding:18px}.total{display:flex;justify-content:space-between;font-weight:bold;margin-bottom:13px}
+.checkout{width:100%;background:var(--red);color:#fff;border:0;padding:14px;cursor:pointer;font-size:10px;letter-spacing:1px}
 
 @media(max-width:1000px){
-
-  nav{
-    gap:15px
-  }
-
-  .grid{
-    grid-template-columns:repeat(3,1fr)
-  }
+.grid{grid-template-columns:repeat(3,1fr)}nav{gap:15px}
 }
-
 @media(max-width:800px){
-
-  .hero{
-    min-height:680px;
-    align-items:flex-end
-  }
-
-  .hero:before{
-    background:linear-gradient(
-      180deg,
-      rgba(112,8,25,.28),
-      rgba(112,8,25,.94) 57%,
-      rgba(112,8,25,.99)
-    )
-  }
-
-  .hero-collage{
-    width:100%;
-    height:52%;
-    top:0;
-    right:0;
-    padding:20px 15px;
-    gap:7px
-  }
-
-  .hero-collage img{
-    height:245px;
-    width:32%
-  }
-
-  .hero-collage img:nth-child(2){
-    height:275px;
-    margin-top:-18px
-  }
-
-  .hero-collage img:nth-child(3){
-    height:225px;
-    margin-top:18px
-  }
-
-  .hero-content{
-    padding:40px 20px 48px
-  }
-
-  .hero-kicker{
-    font-size:9px;
-    letter-spacing:3px
-  }
-
-  .hero h1{
-    font-size:47px;
-    max-width:500px
-  }
-
-  .hero-copy{
-    font-size:13px;
-    line-height:1.65
-  }
-
-  .hero-badge{
-    gap:10px;
-    font-size:8px
-  }
-
-  .hero-badge span{
-    padding-right:10px
-  }
+.hero{min-height:680px;align-items:flex-end}.hero:before{background:linear-gradient(180deg,#70081947,#700819f0 57%,#700819fc)}
+.hero-collage{width:100%;height:52%;padding:20px 15px;gap:7px}
+.hero-collage img{height:245px;width:32%}.hero-collage img:nth-child(2){height:275px;margin-top:-18px}.hero-collage img:nth-child(3){height:225px;margin-top:18px}
+.hero-content{padding:40px 20px 48px}.hero h1{font-size:47px}.hero-copy{font-size:13px}
+.cats{grid-template-columns:1fr}.cat{height:235px}.service-grid{grid-template-columns:1fr}.review-grid{grid-template-columns:1fr}
 }
-
 @media(max-width:700px){
-
-  .top{
-    font-size:7px;
-    letter-spacing:1px
-  }
-
-  .menu{
-    display:block
-  }
-
-  .logo{
-    font-size:21px
-  }
-
-  .logo small{
-    font-size:6px;
-    letter-spacing:2px
-  }
-
-  .wa{
-    display:none
-  }
-
-  header{
-    height:70px;
-    padding:0 15px
-  }
-
-  .actions{
-    margin-left:auto
-  }
-
-  nav{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    right:0;
-    background:#fff;
-    flex-direction:column;
-    gap:0;
-    padding:8px 20px;
-    border-bottom:1px solid var(--line)
-  }
-
-  nav.open{
-    display:flex
-  }
-
-  nav a{
-    padding:15px 0
-  }
-
-  .section{
-    padding:55px 17px
-  }
-
-  .head h2{
-    font-size:30px
-  }
-
-  .cats{
-    grid-template-columns:1fr
-  }
-
-  .cat{
-    height:235px
-  }
-
-  .benefits{
-    grid-template-columns:1fr 1fr
-  }
-
-  .benefit{
-    padding:18px 5px
-  }
-
-  .benefit:nth-child(2){
-    border-right:0
-  }
-
-  .benefit:nth-child(-n+2){
-    border-bottom:1px solid var(--line)
-  }
-
-  .shop{
-    padding:52px 17px
-  }
-
-  .shophead{
-    display:block
-  }
-
-  .shophead h2{
-    font-size:30px
-  }
-
-  .search{
-    width:100%;
-    margin-top:17px
-  }
-
-  .filter,
-  .sub{
-    font-size:9px;
-    padding:9px 10px
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px
-  }
-
-  .photo{
-    height:205px
-  }
-
-  .info{
-    padding:11px
-  }
-
-  .info h3{
-    font-size:15px
-  }
-
-  .info p{
-    font-size:9px
-  }
-
-  .price{
-    font-size:14px
-  }
-
-  .service-info{
-    padding:50px 17px
-  }
-
-  .service-grid{
-    grid-template-columns:1fr
-  }
-
-  .service-card{
-    padding:23px
-  }
-
-  .service-card h3{
-    font-size:24px
-  }
-
-  .contact{
-    padding:52px 18px
-  }
-
-  .contact h2{
-    font-size:29px
-  }
-
-  .contact-info{
-    display:block;
-    line-height:2.2
-  }
-
-  footer{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding:30px 20px
-  }
+.top{font-size:7px;letter-spacing:1px}.menu{display:block}.logo{font-size:21px}.logo small{font-size:6px;letter-spacing:2px}
+.wa{display:none}header{height:70px;padding:0 15px}.actions{margin-left:auto}
+nav{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 20px;border-bottom:1px solid var(--line)}
+nav.open{display:flex}nav a{padding:15px 0}.section{padding:55px 17px}.head h2{font-size:30px}
+.shop{padding:52px 17px}.shophead{display:block}.shophead h2{font-size:30px}.search{width:100%;margin-top:17px}
+.controls{display:block}.sort{margin-top:10px;width:100%}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.photo{height:205px}
+.info{padding:11px}.info h3{font-size:15px}.info p{font-size:9px}.price{font-size:14px}.card-actions{grid-template-columns:1fr}
+.service-info,.reviews{padding:50px 17px}.service-card{padding:23px}.service-card h3{font-size:24px}
+.contact{padding:52px 18px}.contact h2{font-size:29px}.contact-info{display:block;line-height:2.2}
+footer{grid-template-columns:1fr;text-align:center;padding:30px 20px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-  MASTER QUALITY COLLECTION &nbsp; | &nbsp;
-  WORLDWIDE SHIPPING &nbsp; | &nbsp;
-  SECURE PAYMENT OPTIONS
-</div>
+<div class="top">PREMIUM FASHION COLLECTION &nbsp; | &nbsp; WORLDWIDE SHIPPING &nbsp; | &nbsp; SECURE PAYMENT OPTIONS</div>
 
 <header>
+<button class="menu" onclick="toggleMenu()">☰</button>
+<a class="logo" href="#home">ELITE BAGS<small>BAGS · SHOES · HEELS</small></a>
 
-  <button class="menu" onclick="toggleMenu()">☰</button>
+<nav id="nav">
+<a href="#home">HOME</a>
+<a href="#categories">SHOP</a>
+<a href="#collection">COLLECTION</a>
+<a href="#reviews">REVIEWS</a>
+<a href="#contact">CONTACT</a>
+</nav>
 
-  <a class="logo" href="#home">
-    ELITE BAGS
-    <small>BAGS · SHOES · HEELS</small>
-  </a>
-
-  <nav id="nav">
-    <a href="#home">HOME</a>
-    <a href="#categories">SHOP</a>
-    <a href="#collection">COLLECTION</a>
-    <a href="#contact">CONTACT</a>
-  </nav>
-
-  <div class="actions">
-
-    <button class="searchbtn" onclick="goSearch()">⌕</button>
-
-    <a
-      class="wa"
-      href="https://wa.me/12089034508"
-      target="_blank"
-      rel="noopener"
-    >
-      WHATSAPP
-    </a>
-
-  </div>
+<div class="actions">
+<button class="iconbtn" onclick="goSearch()">⌕</button>
+<button class="cartbtn" onclick="openCart()">🛒<span class="cartcount" id="cartCount">0</span></button>
+<a class="wa" href="https://wa.me/12089034508" target="_blank" rel="noopener">WHATSAPP</a>
+</div>
 </header>
 
 <section class="hero" id="home">
-
-  <div class="hero-collage" aria-hidden="true">
-
-    <img
-      src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85"
-      alt="Luxury handbag"
-    >
-
-    <img
-      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
-      alt="Fashion shoes"
-    >
-
-    <img
-      src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85"
-      alt="Elegant heels"
-    >
-
-  </div>
-
-  <div class="hero-content">
-
-    <div class="hero-kicker">
-      THE ELITE COLLECTION
-    </div>
-
-    <h1>
-      Luxury Style.
-      <strong>Made to Stand Out.</strong>
-    </h1>
-
-    <p class="hero-copy">
-      Discover premium fashion pieces across bags, shoes and heels.
-      Elegant designs, worldwide delivery and direct customer support.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a class="btn light" href="#collection">
-        SHOP COLLECTION →
-      </a>
-
-      <a
-        class="btn outline"
-        href="https://wa.me/12089034508"
-        target="_blank"
-        rel="noopener"
-      >
-        CHAT ON WHATSAPP
-      </a>
-
-    </div>
-
-    <div class="hero-badge">
-      <span>Premium Quality</span>
-      <span>Worldwide Delivery</span>
-      <span>Pre-Shipment Video</span>
-    </div>
-
-  </div>
+<div class="hero-collage">
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85" alt="Luxury handbag">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85" alt="Fashion shoes">
+<img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85" alt="Elegant heels">
+</div>
+<div class="hero-content">
+<div class="hero-kicker">THE ELITE COLLECTION</div>
+<h1>Luxury Style.<strong>Made to Stand Out.</strong></h1>
+<p class="hero-copy">Discover premium fashion pieces across bags, shoes and heels. Elegant designs, worldwide delivery and direct customer support.</p>
+<div class="hero-buttons">
+<a class="btn light" href="#collection">SHOP COLLECTION →</a>
+<a class="btn outline" href="https://wa.me/12089034508" target="_blank" rel="noopener">CHAT ON WHATSAPP</a>
+</div>
+<div class="hero-badge"><span>Premium Quality</span><span>Worldwide Delivery</span><span>Pre-Shipment Video</span></div>
+</div>
 </section>
 
 <section class="section" id="categories">
-
-  <div class="head">
-    <h2>Shop by Category</h2>
-    <p>YOUR FAVORITE STYLES, ALL IN ONE PLACE</p>
-  </div>
-
-  <div class="cats">
-
-    <article class="cat" onclick="choose('Bags')">
-      <img
-        src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85"
-        alt="Bags"
-      >
-      <div>
-        <h3>BAGS</h3>
-        <p>SHOP BAGS →</p>
-      </div>
-    </article>
-
-    <article class="cat" onclick="choose('Shoes')">
-      <img
-        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85"
-        alt="Shoes"
-      >
-      <div>
-        <h3>SHOES</h3>
-        <p>SHOP SHOES →</p>
-      </div>
-    </article>
-
-    <article class="cat" onclick="choose('Heels')">
-      <img
-        src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1000&q=85"
-        alt="Heels"
-      >
-      <div>
-        <h3>HEELS</h3>
-        <p>SHOP HEELS →</p>
-      </div>
-    </article>
-
-  </div>
+<div class="head"><h2>Shop by Category</h2><p>YOUR FAVORITE STYLES, ALL IN ONE PLACE</p></div>
+<div class="cats">
+<article class="cat" onclick="choose('Bags')">
+<img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85" alt="Bags">
+<div><h3>BAGS</h3><p>SHOP BAGS →</p></div>
+</article>
+<article class="cat" onclick="choose('Shoes')">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85" alt="Shoes">
+<div><h3>SHOES</h3><p>SHOP SHOES →</p></div>
+</article>
+<article class="cat" onclick="choose('Heels')">
+<img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=1000&q=85" alt="Heels">
+<div><h3>HEELS</h3><p>SHOP HEELS →</p></div>
+</article>
+</div>
 </section>
 
 <section class="benefits">
-
-  <div class="benefit">
-    <b>✧ PREMIUM QUALITY</b>
-    <span>Carefully selected styles</span>
-  </div>
-
-  <div class="benefit">
-    <b>⌁ FAST SHIPPING</b>
-    <span>Worldwide delivery</span>
-  </div>
-
-  <div class="benefit">
-    <b>▢ SECURE CONTACT</b>
-    <span>Direct WhatsApp support</span>
-  </div>
-
-  <div class="benefit">
-    <b>◇ ELITE SERVICE</b>
-    <span>Here to help</span>
-  </div>
-
+<div class="benefit"><b>✧ PREMIUM QUALITY</b><span>Carefully selected styles</span></div>
+<div class="benefit"><b>⌁ WORLDWIDE DELIVERY</b><span>International delivery</span></div>
+<div class="benefit"><b>▢ DIRECT SUPPORT</b><span>WhatsApp customer support</span></div>
+<div class="benefit"><b>◇ ELITE SERVICE</b><span>Here to help</span></div>
 </section>
+
 <section class="shop" id="collection">
+<div class="shophead">
+<div><h2>Featured Collection</h2><p>TIMELESS STYLES · MODERN DETAILS</p></div>
+<label class="search">⌕<input id="searchInput" placeholder="Search products..." oninput="render()"></label>
+</div>
 
-  <div class="shophead">
+<div class="controls">
+<div class="filters">
+<button class="filter active" data-cat="All" onclick="choose('All')">ALL</button>
+<button class="filter" data-cat="Bags" onclick="choose('Bags')">👜 BAGS</button>
+<button class="filter" data-cat="Shoes" onclick="choose('Shoes')">👟 SHOES</button>
+<button class="filter" data-cat="Heels" onclick="choose('Heels')">👠 HEELS</button>
+</div>
+<select class="sort" id="sort" onchange="render()">
+<option value="default">Sort: Featured</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+<option value="az">Name: A–Z</option>
+</select>
+</div>
 
-    <div>
-      <h2>Featured Collection</h2>
-      <p>TIMELESS STYLES · MODERN DETAILS</p>
-    </div>
-
-    <label class="search">
-      ⌕
-      <input
-        id="searchInput"
-        placeholder="Search products..."
-        oninput="render()"
-      >
-    </label>
-
-  </div>
-
-  <div class="filters">
-
-    <button class="filter active" data-cat="All" onclick="choose('All')">
-      ALL
-    </button>
-
-    <button class="filter" data-cat="Bags" onclick="choose('Bags')">
-      👜 BAGS
-    </button>
-
-    <button class="filter" data-cat="Shoes" onclick="choose('Shoes')">
-      👟 SHOES
-    </button>
-
-    <button class="filter" data-cat="Heels" onclick="choose('Heels')">
-      👠 HEELS
-    </button>
-
-  </div>
-
-  <div class="subbox" id="subbox">
-
-    <h3 id="subTitle"></h3>
-
-    <div class="sublist" id="sublist"></div>
-
-  </div>
-
-  <div class="grid" id="grid"></div>
-
+<div class="subbox" id="subbox"><h3 id="subTitle"></h3><div class="sublist" id="sublist"></div></div>
+<div class="grid" id="grid"></div>
+</section>
+<section class="service-info" id="payments">
+<div class="head"><h2>Payment & Order Information</h2><p>SIMPLE · SECURE · CONVENIENT</p></div>
+<div class="service-grid">
+<div class="service-card">
+<h3>Payment <span>Options</span></h3>
+<p>We accept several convenient payment methods. Payment instructions are provided directly when you place an order.</p>
+<div class="payments">
+<div class="pay">PayPal <strong>✓</strong></div>
+<div class="pay">Credit Card 💳 <strong>✓</strong></div>
+<div class="pay">Zelle <strong>✓</strong></div>
+<div class="pay">Cash App <strong>✓</strong></div>
+<div class="pay">Bank Transfer <strong>✓</strong></div>
+</div>
+</div>
+<div class="service-card">
+<h3>Pre-Shipment <span>Video</span></h3>
+<p>For extra peace of mind, a pre-shipment product video can be shared for your order before dispatch.</p>
+<div class="video-note">🎥 <b>Pre-shipment video available on request</b><br>We can share a video of your selected item before it is shipped.</div>
+</div>
+</div>
 </section>
 
-<section class="service-info" id="payments">
-
-  <div class="head">
-    <h2>Payment & Order Information</h2>
-    <p>SIMPLE · SECURE · CONVENIENT</p>
-  </div>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-
-      <h3>
-        Payment <span>Options</span>
-      </h3>
-
-      <p>
-        We accept several convenient payment methods.
-        Payment instructions are provided directly when
-        you place an order.
-      </p>
-
-      <div class="payments">
-
-        <div class="pay">PayPal <strong>✓</strong></div>
-        <div class="pay">Credit Card 💳 <strong>✓</strong></div>
-        <div class="pay">Zelle <strong>✓</strong></div>
-        <div class="pay">Cash App <strong>✓</strong></div>
-        <div class="pay">Bank Transfer <strong>✓</strong></div>
-
-      </div>
-
-    </div>
-
-    <div class="service-card">
-
-      <h3>
-        Pre-Shipment <span>Video</span>
-      </h3>
-
-      <p>
-        For extra peace of mind, a pre-shipment product
-        video can be shared for your order before dispatch.
-        Contact us on WhatsApp to request the video.
-      </p>
-
-      <div class="video-note">
-        🎥 <b>Pre-shipment video available on request</b>
-        <br>
-        We can share a video of your selected item
-        before it is shipped.
-      </div>
-
-    </div>
-
-  </div>
-
+<section class="reviews" id="reviews">
+<div class="head"><h2>Customer Reviews</h2><p>WHAT OUR CUSTOMERS SAY</p></div>
+<div class="review-grid">
+<div class="review"><div class="stars">★★★★★</div><p>Beautiful presentation and very helpful customer support. The ordering process was simple.</p><b>Verified Customer</b></div>
+<div class="review"><div class="stars">★★★★★</div><p>Great communication and a smooth shopping experience. I appreciated the product information.</p><b>Verified Customer</b></div>
+<div class="review"><div class="stars">★★★★★</div><p>Professional service and worldwide delivery made the experience easy from start to finish.</p><b>Verified Customer</b></div>
+</div>
 </section>
 
 <section class="contact" id="contact">
-
-  <h2>Ready to Elevate Your Style?</h2>
-
-  <p>
-    Contact Elite Bags for product details, availability,
-    orders, payment instructions and pre-shipment video requests.
-  </p>
-
-  <div class="contact-info">
-
-    <span>✉ luxuriouselitebags@gmail.com</span>
-    <span>📱 +1 208-903-4508</span>
-    <span>🌍 Worldwide Delivery</span>
-    <span>💳 PayPal · Cards · Zelle · Cash App · Bank Transfer</span>
-
-  </div>
-
+<h2>Ready to Elevate Your Style?</h2>
+<p>Contact Elite Bags for product details, availability, orders, payment instructions and pre-shipment video requests.</p>
+<div class="contact-info">
+<span>✉ luxuriouselitebags@gmail.com</span>
+<span>📱 +1 208-903-4508</span>
+<span>🌍 Worldwide Delivery</span>
+</div>
 </section>
 
 <footer>
-
-  <div>
-    <h3>ELITE BAGS</h3>
-    <small>BAGS · SHOES · HEELS</small>
-
-    <p>
-      Premium fashion collection with a clean,
-      elegant shopping experience.
-    </p>
-  </div>
-
-  <div>
-
-    <h3>Quick Links</h3>
-
-    <a href="#home">Home</a>
-    <a href="#categories">Shop by Category</a>
-    <a href="#collection">Collection</a>
-    <a href="#payments">Payments & Shipping</a>
-
-  </div>
-
-  <div>
-
-    <h3>Contact</h3>
-
-    <a
-      href="https://wa.me/12089034508"
-      target="_blank"
-      rel="noopener"
-    >
-      WhatsApp: +1 208-903-4508
-    </a>
-
-    <a href="mailto:luxuriouselitebags@gmail.com">
-      luxuriouselitebags@gmail.com
-    </a>
-
-    <p>
-      Worldwide delivery · Pre-shipment video available
-      on request · Secure payment options
-    </p>
-
-  </div>
-
+<div>
+<h3>ELITE BAGS</h3><small>BAGS · SHOES · HEELS</small>
+<p>Premium fashion collection with a clean, elegant shopping experience.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="#home">Home</a><a href="#categories">Categories</a><a href="#collection">Collection</a><a href="#reviews">Reviews</a>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="https://wa.me/12089034508" target="_blank" rel="noopener">WhatsApp: +1 208-903-4508</a>
+<a href="mailto:luxuriouselitebags@gmail.com">luxuriouselitebags@gmail.com</a>
+<p>Worldwide delivery · Pre-shipment video available on request</p>
+</div>
 </footer>
 
-<div class="bottom">
-  © 2026 Elite Bags · All rights reserved.
+<div class="bottom">© 2026 Elite Bags · All rights reserved.</div>
+
+<div class="cart-overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart" id="cart">
+<div class="cart-head"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-foot">
+<div class="total"><span>Total</span><span id="cartTotal">$0</span></div>
+<button class="checkout" onclick="checkoutWhatsApp()">ORDER CART ON WHATSAPP</button>
 </div>
+</aside>
 
 <script>
+/*
+=========================================================
+EASY PRODUCT AREA
+=========================================================
+FUTURE MEIN SIRF YAHAN PRODUCT ADD KARNA HAI.
 
-const styles = {
+Copy one complete product object and change its information.
+Do not change the rest of the JavaScript.
+=========================================================
+*/
 
-  Bags:[
-    "All Bags",
-    "Handbags",
-    "Shoulder Bags",
-    "Crossbody Bags",
-    "Tote Bags",
-    "Mini Bags",
-    "Evening Bags"
-  ],
+const products=[
 
-  Shoes:[
-    "All Shoes",
-    "Sneakers",
-    "Loafers",
-    "Flats",
-    "Boots",
-    "Casual Shoes"
-  ],
+{
+name:"Quilted Shoulder Bag",
+category:"Bags",
+subcategory:"Shoulder Bags",
+price:269,
+badge:"TRENDING",
+description:"Elegant premium shoulder bag for everyday and special occasions.",
+dimensions:"24 × 16 × 9 cm",
+images:["https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=800&q=85"]
+},
 
-  Heels:[
-    "All Heels",
-    "Stiletto Heels",
-    "Block Heels",
-    "Pumps",
-    "Sandals",
-    "Platform Heels"
-  ]
+{
+name:"Everyday Crossbody",
+category:"Bags",
+subcategory:"Crossbody Bags",
+price:199,
+badge:"NEW",
+description:"A versatile crossbody design with a clean modern look.",
+dimensions:"22 × 15 × 8 cm",
+images:["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85"]
+},
 
-};
+{
+name:"Minimal Tote",
+category:"Bags",
+subcategory:"Tote Bags",
+price:229,
+badge:"POPULAR",
+description:"Spacious tote designed for an elegant everyday look.",
+dimensions:"32 × 25 × 12 cm",
+images:["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85"]
+},
 
-const products = [
+{
+name:"Classic Low Sneaker",
+category:"Shoes",
+subcategory:"Sneakers",
+price:169,
+badge:"NEW",
+description:"Clean low-profile sneaker for comfortable everyday styling.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85"]
+},
 
-  [
-["Black Louis Vuitton Monogram Tote Bag","Bags","Tote Bag","$360","NEW","images/black-tote-1.jpg"],
+{
+name:"Leather Loafer",
+category:"Shoes",
+subcategory:"Loafers",
+price:189,
+badge:"FEATURED",
+description:"Classic loafer silhouette with a refined finish.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=800&q=85"]
+},
 
-  [
-    "Quilted Shoulder Bag",
-    "Bags",
-    "Shoulder Bags",
-    "$269",
-    "TRENDING",
-    "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=800&q=85"
-  ],
+{
+name:"Elegant Flat",
+category:"Shoes",
+subcategory:"Flats",
+price:149,
+badge:"POPULAR",
+description:"Minimal flat design for effortless everyday style.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=85"]
+},
 
-  [
-    "Everyday Crossbody",
-    "Bags",
-    "Crossbody Bags",
-    "$199",
-    "NEW",
-    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85"
-  ],
+{
+name:"Classic Stiletto",
+category:"Heels",
+subcategory:"Stiletto Heels",
+price:229,
+badge:"TRENDING",
+description:"Elegant pointed silhouette designed for a polished look.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85"]
+},
 
-  [
-    "Minimal Tote",
-    "Bags",
-    "Tote Bags",
-    "$229",
-    "POPULAR",
-    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85"
-  ],
+{
+name:"Block Heel",
+category:"Heels",
+subcategory:"Block Heels",
+price:199,
+badge:"NEW",
+description:"Modern block heel combining elegance with everyday styling.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=85"]
+},
 
-  [
-    "Classic Low Sneaker",
-    "Shoes",
-    "Sneakers",
-    "$169",
-    "NEW",
-    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85"
-  ],
-
-  [
-    "Leather Loafer",
-    "Shoes",
-    "Loafers",
-    "$189",
-    "FEATURED",
-    "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=800&q=85"
-  ],
-
-  [
-    "Elegant Flat",
-    "Shoes",
-    "Flats",
-    "$149",
-    "POPULAR",
-    "https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=85"
-  ],
-
-  [
-    "Classic Stiletto",
-    "Heels",
-    "Stiletto Heels",
-    "$229",
-    "TRENDING",
-    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85"
-  ],
-
-  [
-    "Block Heel",
-    "Heels",
-    "Block Heels",
-    "$199",
-    "NEW",
-    "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=85"
-  ],
-
-  [
-    "Elegant Pump",
-    "Heels",
-    "Pumps",
-    "$219",
-    "FEATURED",
-    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=85"
-  ]
+{
+name:"Elegant Pump",
+category:"Heels",
+subcategory:"Pumps",
+price:219,
+badge:"FEATURED",
+description:"Classic pump silhouette with an elegant finish.",
+dimensions:"Available in multiple sizes",
+images:["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=85"]
+}
 
 ];
 
-let current = "All";
-let sub = "All";
+const styles={
+Bags:["All Bags","Handbags","Shoulder Bags","Crossbody Bags","Tote Bags","Mini Bags","Evening Bags"],
+Shoes:["All Shoes","Sneakers","Loafers","Flats","Boots","Casual Shoes"],
+Heels:["All Heels","Stiletto Heels","Block Heels","Pumps","Sandals","Platform Heels"]
+};
 
-function toggleMenu(){
+let current="All";
+let sub="All";
+let cart=JSON.parse(localStorage.getItem("eliteCart")||"[]");
+let wishlist=JSON.parse(localStorage.getItem("eliteWishlist")||"[]");
 
-  document
-    .getElementById("nav")
-    .classList
-    .toggle("open");
-
-}
+function toggleMenu(){document.getElementById("nav").classList.toggle("open")}
 
 function goSearch(){
-
-  document
-    .getElementById("collection")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-  setTimeout(
-    () => document
-      .getElementById("searchInput")
-      .focus(),
-    400
-  );
-
+document.getElementById("collection").scrollIntoView({behavior:"smooth"});
+setTimeout(()=>document.getElementById("searchInput").focus(),400)
 }
 
 function choose(cat){
+current=cat;sub="All";
+document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+const box=document.getElementById("subbox");
 
-  current = cat;
-  sub = "All";
+if(styles[cat]){
+box.classList.add("show");
+document.getElementById("subTitle").textContent=cat+" Collection";
+document.getElementById("sublist").innerHTML=styles[cat].map((s,i)=>
+`<button class="sub ${i===0?"active":""}" onclick="chooseSub('${s}')">${s}</button>`).join("");
+}else box.classList.remove("show");
 
-  document
-    .querySelectorAll(".filter")
-    .forEach(
-      b => b.classList.toggle(
-        "active",
-        b.dataset.cat === cat
-      )
-    );
-
-  let box =
-    document.getElementById("subbox");
-
-  if(styles[cat]){
-
-    box.classList.add("show");
-
-    document
-      .getElementById("subTitle")
-      .textContent =
-      cat + " Collection";
-
-    document
-      .getElementById("sublist")
-      .innerHTML =
-      styles[cat]
-        .map(
-          (s,i) =>
-          `<button
-             class="sub ${i===0?"active":""}"
-             onclick="chooseSub('${s}')"
-           >
-             ${s}
-           </button>`
-        )
-        .join("");
-
-  }else{
-
-    box.classList.remove("show");
-
-  }
-
-  render();
-
-  document
-    .getElementById("collection")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
+render();
+document.getElementById("collection").scrollIntoView({behavior:"smooth"});
 }
 
 function chooseSub(s){
-
-  sub = s;
-
-  document
-    .querySelectorAll(".sub")
-    .forEach(
-      b => b.classList.toggle(
-        "active",
-        b.textContent.trim() === s
-      )
-    );
-
-  render();
-
+sub=s;
+document.querySelectorAll(".sub").forEach(b=>b.classList.toggle("active",b.textContent.trim()===s));
+render();
 }
 
-
-/* WHATSAPP FIX */
-
-function orderWhatsApp(product, price){
-
-  const message =
-    "Hello Elite Bags!\n\n" +
-    "I am interested in: " +
-    product +
-    "\nPrice: " +
-    price +
-    "\n\n" +
-    "Please share the product details and availability.";
-
-  const whatsappURL =
-    "https://wa.me/12089034508?text=" +
-    encodeURIComponent(message);
-
-  window.location.href = whatsappURL;
-
-}
-
+function productIndex(p){return products.indexOf(p)}
 
 function render(){
+const q=document.getElementById("searchInput").value.toLowerCase().trim();
 
-  const searchInput =
-    document.getElementById("searchInput");
+let list=products.filter(p=>
+(current==="All"||p.category===current)&&
+(sub==="All"||sub.startsWith("All ")||p.subcategory===sub)&&
+(!q||(p.name+" "+p.category+" "+p.subcategory+" "+p.description).toLowerCase().includes(q))
+);
 
-  const q =
-    searchInput.value
-      .toLowerCase()
-      .trim();
+const sort=document.getElementById("sort").value;
+if(sort==="low")list.sort((a,b)=>a.price-b.price);
+if(sort==="high")list.sort((a,b)=>b.price-a.price);
+if(sort==="az")list.sort((a,b)=>a.name.localeCompare(b.name));
 
-  const list =
-    products.filter(
-      p =>
-        (current === "All" || p[1] === current) &&
-        (
-          sub === "All" ||
-          sub.startsWith("All ") ||
-          p[2] === sub
-        ) &&
-        (
-          !q ||
-          p.join(" ")
-            .toLowerCase()
-            .includes(q)
-        )
-    );
-
-  document.getElementById("grid").innerHTML =
-    list.length
-
-    ?
-
-    list.map(
-      p =>
-
-      `
-      <article class="card">
-
-        <div class="photo">
-
-          <span class="tag">
-            ${p[4]}
-          </span>
-
-          <img
-            src="${p[5]}"
-            alt="${p[0]}"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="info">
-
-          <h3>
-            ${p[0]}
-          </h3>
-
-          <p>
-            ${p[2]} · Premium fashion style
-          </p>
-
-          <div class="price">
-            ${p[3]}
-          </div>
-
-          <button
-            class="order"
-            type="button"
-            onclick="orderWhatsApp('${p[0]}','${p[3]}')"
-          >
-            ORDER ON WHATSAPP
-          </button>
-
-        </div>
-
-      </article>
-      `
-    ).join("")
-
-    :
-
-    `
-    <p
-      style="
-        grid-column:1/-1;
-        text-align:center;
-        padding:60px;
-        color:#777
-      "
-    >
-      No products found.
-    </p>
-    `;
-
+document.getElementById("grid").innerHTML=list.length?list.map((p)=>
+`
+<article class="card">
+<div class="photo" onclick="viewProduct(${productIndex(p)})">
+<span class="tag">${p.badge}</span>
+<button class="heart ${wishlist.includes(productIndex(p))?"active":""}" onclick="event.stopPropagation();toggleWish(${productIndex(p)})">♥</button>
+<img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+</div>
+<div class="info">
+<h3>${p.name}</h3>
+<p>${p.subcategory} · Premium fashion style</p>
+<div class="price">$${p.price}</div>
+<div class="card-actions">
+<button class="view" onclick="viewProduct(${productIndex(p)})">VIEW PRODUCT</button>
+<button class="order" onclick="addToCart(${productIndex(p)});openCart()">ADD TO CART</button>
+</div>
+</div>
+</article>
+`).join(""):`<p style="grid-column:1/-1;text-align:center;padding:60px;color:#777">No products found.</p>`;
 }
+
+function viewProduct(i){
+window.location.href="product.html?id="+i;
+}
+
+function toggleWish(i){
+if(wishlist.includes(i))wishlist=wishlist.filter(x=>x!==i);
+else wishlist.push(i);
+localStorage.setItem("eliteWishlist",JSON.stringify(wishlist));
 render();
+}
 
-document.querySelectorAll(".card").forEach(function(card){
-  card.style.cursor = "pointer";
+function addToCart(i){
+const found=cart.find(x=>x.id===i);
+if(found)found.qty++;
+else cart.push({id:i,qty:1});
+saveCart();
+}
+  function saveCart(){
+localStorage.setItem("eliteCart",JSON.stringify(cart));
+updateCart();
+}
 
-  card.addEventListener("click", function(e){
-    if(e.target.closest(".order")) return;
+function updateCart(){
+document.getElementById("cartCount").textContent=cart.reduce((a,x)=>a+x.qty,0);
 
-    let name = card.querySelector("h3").textContent;
-    let price = card.querySelector(".price").textContent;
-    let image = card.querySelector("img").src;
+const box=document.getElementById("cartItems");
 
-    window.location.href =
-      "product.html?name=" + encodeURIComponent(name) +
-      "&price=" + encodeURIComponent(price) +
-      "&image=" + encodeURIComponent(image);
-  });
+if(!cart.length){
+box.innerHTML='<p style="text-align:center;padding:50px 10px;color:#777">Your cart is empty.</p>';
+document.getElementById("cartTotal").textContent="$0";
+return;
+}
+
+let total=0;
+
+box.innerHTML=cart.map(item=>{
+const p=products[item.id];
+if(!p)return"";
+total+=p.price*item.qty;
+
+return `
+<div class="cart-item">
+<img src="${p.images[0]}" alt="${p.name}">
+<div>
+<h4>${p.name}</h4>
+<small>$${p.price}</small>
+<div class="qty">
+<button onclick="changeQty(${item.id},-1)">−</button>
+<span>${item.qty}</span>
+<button onclick="changeQty(${item.id},1)">+</button>
+</div>
+<button class="remove" onclick="removeCart(${item.id})">REMOVE</button>
+</div>
+<strong>$${p.price*item.qty}</strong>
+</div>`;
+}).join("");
+
+document.getElementById("cartTotal").textContent="$"+total;
+}
+
+function changeQty(id,change){
+const item=cart.find(x=>x.id===id);
+if(!item)return;
+item.qty+=change;
+if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
+saveCart();
+}
+
+function removeCart(id){
+cart=cart.filter(x=>x.id!==id);
+saveCart();
+}
+
+function openCart(){
+document.getElementById("cart").classList.add("open");
+document.getElementById("overlay").classList.add("show");
+updateCart();
+}
+
+function closeCart(){
+document.getElementById("cart").classList.remove("open");
+document.getElementById("overlay").classList.remove("show");
+}
+
+function checkoutWhatsApp(){
+if(!cart.length){
+alert("Your cart is empty.");
+return;
+}
+
+let message="Hello Elite Bags!%0A%0AI would like to order:%0A%0A";
+let total=0;
+
+cart.forEach(item=>{
+const p=products[item.id];
+if(!p)return;
+total+=p.price*item.qty;
+message+=encodeURIComponent(
+p.name+" × "+item.qty+" — $"+(p.price*item.qty)
+)+"%0A";
 });
+
+message+="%0ATotal: $"+total;
+message+="%0A%0APlease share availability and payment instructions.";
+
+window.location.href="https://wa.me/12089034508?text="+message;
+}
+
+updateCart();
+render();
 
 </script>
 </body>
 </html>
+
+  
