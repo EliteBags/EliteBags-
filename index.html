@@ -575,17 +575,20 @@ function viewProduct(i){
     p.images && p.images.length
       ? p.images[0]
       : "";
-
-  window.location.href =
-    "product.html?name=" + encodeURIComponent(p.name) +
-    "&category=" + encodeURIComponent(p.category) +
-    "&sub=" + encodeURIComponent(p.subcategory) +
-    "&price=" + encodeURIComponent("$" + p.price) +
-    "&image=" + encodeURIComponent(image) +
-    "&quality=" + encodeURIComponent(p.quality || "Master Quality") +
-    "&shipping=" + encodeURIComponent(p.shipping || "Free Shipping") +
-    "&delivery=" + encodeURIComponent(p.delivery || "9–13 Working Days") +
-    "&payment=" + encodeURIComponent(p.payment || "Secure Payments");
+window.location.href =
+  "product.html?name=" + encodeURIComponent(p.name) +
+  "&category=" + encodeURIComponent(p.category) +
+  "&sub=" + encodeURIComponent(p.subcategory) +
+  "&price=" + encodeURIComponent("$" + p.price) +
+  "&image=" + encodeURIComponent(image) +
+  "&dimensions=" + encodeURIComponent(p.dimensions || p.size || "") +
+  "&color=" + encodeURIComponent(p.color || "") +
+  "&material=" + encodeURIComponent(p.material || "") +
+  "&quality=" + encodeURIComponent(p.quality || "Master Quality") +
+  "&shipping=" + encodeURIComponent(p.shipping || "Free Shipping") +
+  "&delivery=" + encodeURIComponent(p.delivery || "9–13 Working Days") +
+  "&payment=" + encodeURIComponent(p.payment || "Secure Payments") +
+  "&description=" + encodeURIComponent(p.description || "");
 }
 function toggleWish(i){
 if(wishlist.includes(i))wishlist=wishlist.filter(x=>x!==i);
