@@ -14,7 +14,7 @@
 }
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#fff;
   color:#171717;
 }
@@ -128,18 +128,25 @@ header{
 
 .details{
   margin-top:25px;
+  border-top:1px solid #eee;
 }
 
 .detail{
   display:flex;
   justify-content:space-between;
+  gap:20px;
   border-bottom:1px solid #eee;
-  padding:13px 0;
+  padding:14px 0;
   font-size:14px;
 }
 
 .detail span:first-child{
   color:#777;
+}
+
+.detail strong{
+  text-align:right;
+  max-width:65%;
 }
 
 .whatsapp{
@@ -158,6 +165,45 @@ header{
 
 .whatsapp:hover{
   background:#8f0d1b;
+}
+
+.payment-box,
+.video-box{
+  margin-top:22px;
+  border:1px solid #eadfe1;
+  padding:20px;
+  background:#fff;
+}
+
+.box-title{
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  margin-bottom:10px;
+}
+
+.box-text{
+  color:#6f6668;
+  line-height:1.7;
+  font-size:13px;
+}
+
+.payment-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:13px;
+}
+
+.payment-item{
+  border:1px solid #ddd;
+  padding:8px 11px;
+  font-size:12px;
+  background:#fafafa;
+}
+
+.video-box{
+  border-left:3px solid #b51224;
 }
 
 .note{
@@ -214,6 +260,14 @@ footer{
   .price{
     font-size:25px;
   }
+
+  .detail{
+    align-items:flex-start;
+  }
+
+  .detail strong{
+    max-width:60%;
+  }
 }
 </style>
 </head>
@@ -225,11 +279,15 @@ footer{
 </div>
 
 <header>
-  <a href="index.html" class="logo">ELITE BAGS</a>
+
+  <a href="index.html" class="logo">
+    ELITE BAGS
+  </a>
 
   <a href="index.html" class="back">
     ← BACK TO SHOP
   </a>
+
 </header>
 
 <main class="product-page">
@@ -237,10 +295,14 @@ footer{
   <div class="product-box">
 
     <div>
-      <img id="productImage"
-           class="product-image"
-           src=""
-           alt="Product">
+
+      <img
+        id="productImage"
+        class="product-image"
+        src=""
+        alt="Product"
+      >
+
     </div>
 
     <div class="product-info">
@@ -263,7 +325,7 @@ footer{
         Product Details
       </h3>
 
-      <p class="description">
+      <p id="productDescription" class="description">
         Discover this premium fashion piece from the Elite Bags
         collection. Please contact us for product availability,
         additional information and ordering assistance.
@@ -282,22 +344,101 @@ footer{
         </div>
 
         <div class="detail">
+          <span>Size</span>
+          <strong id="detailSize">—</strong>
+        </div>
+
+        <div class="detail">
+          <span>Color</span>
+          <strong id="detailColor">—</strong>
+        </div>
+
+        <div class="detail">
+          <span>Quality</span>
+          <strong id="detailQuality">—</strong>
+        </div>
+
+        <div class="detail">
+          <span>Material</span>
+          <strong id="detailMaterial">—</strong>
+        </div>
+
+        <div class="detail">
+          <span>Shipping</span>
+          <strong id="detailShipping">
+            Free Worldwide Shipping
+          </strong>
+        </div>
+
+        <div class="detail">
           <span>Delivery</span>
-          <strong>Worldwide</strong>
+          <strong id="detailDelivery">
+            9–13 Working Days
+          </strong>
         </div>
 
       </div>
 
-      <a id="whatsappButton"
-         class="whatsapp"
-         href="#"
-         target="_blank"
-         rel="noopener">
+
+      <!-- PAYMENT METHODS -->
+
+      <div class="payment-box">
+
+        <div class="box-title">
+          Payment Methods
+        </div>
+
+        <div class="box-text">
+          We offer secure and convenient payment options.
+          Available payment methods are shown below.
+        </div>
+
+        <div class="payment-list">
+
+          <div class="payment-item">PayPal</div>
+          <div class="payment-item">Credit / Debit Card</div>
+          <div class="payment-item">Zelle</div>
+          <div class="payment-item">Cash App</div>
+          <div class="payment-item">Bank Transfer</div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRE-SHIPMENT VIDEO -->
+
+      <div class="video-box">
+
+        <div class="box-title">
+          Pre-Shipment Video
+        </div>
+
+        <div class="box-text">
+          For your peace of mind, we will send you a detailed
+          pre-shipment video of your actual parcel before it is
+          dispatched. This way, you can verify the quality and
+          see exactly what is being packed for you.
+        </div>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <a
+        id="whatsappButton"
+        class="whatsapp"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
         ORDER ON WHATSAPP
       </a>
 
       <div class="note">
-        Pre-shipment video available on request
+        Contact us for additional photos, product information
+        or ordering assistance.
       </div>
 
     </div>
@@ -331,9 +472,47 @@ const image =
   params.get("image") || "";
 
 
+/*
+   EXTRA PRODUCT INFORMATION
+
+   These work when index.html sends these
+   values in the product URL.
+*/
+
+const size =
+  params.get("dimensions") ||
+  params.get("size") ||
+  "See product details";
+
+const color =
+  params.get("color") ||
+  "See product details";
+
+const quality =
+  params.get("quality") ||
+  "Premium Quality";
+
+const material =
+  params.get("material") ||
+  "See product details";
+
+const shipping =
+  params.get("shipping") ||
+  "Free Worldwide Shipping";
+
+const delivery =
+  params.get("delivery") ||
+  "9–13 Working Days";
+
+const description =
+  params.get("description") ||
+  "Discover this premium fashion piece from the Elite Bags collection. Please contact us for product availability, additional information and ordering assistance.";
+
+
 /* PRODUCT INFORMATION */
 
-document.getElementById("productName").textContent = name;
+document.getElementById("productName").textContent =
+  name;
 
 document.getElementById("productCategory").textContent =
   category;
@@ -347,13 +526,42 @@ document.getElementById("detailStyle").textContent =
 document.getElementById("productPrice").textContent =
   price;
 
+document.getElementById("detailSize").textContent =
+  size;
+
+document.getElementById("detailColor").textContent =
+  color;
+
+document.getElementById("detailQuality").textContent =
+  quality;
+
+document.getElementById("detailMaterial").textContent =
+  material;
+
+document.getElementById("detailShipping").textContent =
+  shipping;
+
+document.getElementById("detailDelivery").textContent =
+  delivery;
+
+document.getElementById("productDescription").textContent =
+  description;
+
 
 /* PRODUCT IMAGE */
 
 const productImage =
   document.getElementById("productImage");
 
-productImage.src = image;
+if(image){
+
+  productImage.src = image;
+
+}else{
+
+  productImage.style.display = "none";
+
+}
 
 productImage.alt = name;
 
@@ -363,7 +571,9 @@ productImage.alt = name;
 const message =
   "Hello Elite Bags!\n\n" +
   "I am interested in: " + name + "\n" +
-  "Price: " + price + "\n\n" +
+  "Price: " + price + "\n" +
+  "Size: " + size + "\n" +
+  "Color: " + color + "\n\n" +
   "Please share the product details and availability.";
 
 const whatsappURL =
