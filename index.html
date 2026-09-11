@@ -151,6 +151,153 @@ nav.open{display:flex}nav a{padding:15px 0}.section{padding:55px 17px}.head h2{f
 .contact{padding:52px 18px}.contact h2{font-size:29px}.contact-info{display:block;line-height:2.2}
 footer{grid-template-columns:1fr;text-align:center;padding:30px 20px}
 }
+  /* ================================
+   ELITE BAGS HERO ANIMATIONS
+   ================================ */
+
+/* Hero section smooth entrance */
+.hero {
+  animation: heroFadeIn 1.2s ease-out both;
+}
+
+/* Hero background subtle movement */
+.hero::before {
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+/* Hero images */
+.hero-collage img {
+  animation: luxuryFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Individual image timing */
+.hero-collage img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero-collage img:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.hero-collage img:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+/* Collection title */
+.hero-kicker {
+  animation: textReveal 1s ease-out 0.4s both;
+}
+
+/* Main heading */
+.hero h1 {
+  animation: textReveal 1s ease-out 0.7s both;
+}
+
+/* Description */
+.hero-copy {
+  animation: textReveal 1s ease-out 1s both;
+}
+
+/* Buttons */
+.hero-buttons {
+  animation: textReveal 1s ease-out 1.3s both;
+}
+
+/* Bottom badges */
+.hero-badge {
+  animation: textReveal 1s ease-out 1.6s both;
+}
+
+
+/* ================================
+   KEYFRAMES
+   ================================ */
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes luxuryFloat {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.025);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes heroGlow {
+  from {
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Button luxury hover */
+.btn {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+
+/* Image hover */
+.hero-collage img {
+  transition: transform 0.5s ease;
+}
+
+.hero-collage img:hover {
+  transform: scale(1.04);
+}
+
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 </style>
 </head>
 
