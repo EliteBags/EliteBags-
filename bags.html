@@ -1,1 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elite Bags | Luxury Bags Collection</title>
+
+<meta name="description" content="Explore the Elite Bags collection of luxury handbags, shoulder bags, crossbody bags, tote bags and more.">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+
+.header-inner{
+  max-width:1250px;
+  margin:auto;
+  min-height:78px;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.logo small{
+  display:block;
+  margin-top:4px;
+  font-size:8px;
+  letter-spacing:2px;
+  color:#888;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:26px;
+}
+
+.nav a{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.nav a:hover{
+  color:#b00020;
+}
+
+.whatsapp{
+  background:#b00020;
+  color:#fff;
+  padding:12px 17px;
+  border-radius:3px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.8px;
+}
+
+.hero{
+  background:
+    linear-gradient(135deg,#fff 0%,#faf7f5 55%,#f3e8e9 100%);
+  padding:70px 20px;
+  text-align:center;
+}
+
+.hero-kicker{
+  color:#b00020;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:52px;
+  line-height:1.05;
+  margin-bottom:16px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#666;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.hero-line{
+  width:60px;
+  height:2px;
+  background:#b00020;
+  margin:25px auto 0;
+}
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-head h2{
+  font-family:Georgia,serif;
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.section-head p{
+  color:#888;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.tools{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.search{
+  flex:1;
+  min-width:220px;
+}
+
+.search input{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:14px;
+}
+
+.search input:focus{
+  border-color:#b00020;
+}
+
+.sort select{
+  padding:14px 16px;
+  border:1px solid #ddd;
+  background:#fff;
+  font-size:13px;
+  outline:none;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.filter{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:11px 15px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.8px;
+  cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+  background:#b00020;
+  color:#fff;
+  border-color:#b00020;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  transition:.3s ease;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,.09);
+}
+
+.photo{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#f6f6f6;
+  overflow:hidden;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+
+.card:hover .photo img{
+  transform:scale(1.04);
+}
+
+.tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:2;
+  background:#b00020;
+  color:#fff;
+  padding:6px 9px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.info{
+  padding:18px;
+}
+
+.info h3{
+  font-family:Georgia,serif;
+  font-size:18px;
+  line-height:1.3;
+  margin-bottom:8px;
+}
+
+.category{
+  color:#888;
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.order{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:#111;
+  color:#fff;
+  padding:12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.order:hover{
+  background:#b00020;
+}
+
+.back{
+  display:inline-block;
+  margin-top:30px;
+  border:1px solid #ddd;
+  padding:12px 18px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.back:hover{
+  border-color:#b00020;
+  color:#b00020;
+}
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:70px 20px;
+  color:#777;
+}
+
+.footer{
+  margin-top:40px;
+  background:#111;
+  color:#fff;
+  padding:40px 20px;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.footer h3{
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.footer p{
+  color:#aaa;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.footer a{
+  color:#fff;
+}
+
+.bottom{
+  max-width:1250px;
+  margin:30px auto 0;
+  padding-top:20px;
+  border-top:1px solid #333;
+  color:#777;
+  font-size:11px;
+}
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .nav{
+    gap:12px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .header-inner{
+    min-height:68px;
+    padding:12px 15px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .whatsapp{
+    padding:10px 12px;
+    font-size:9px;
+  }
+
+  .hero{
+    padding:55px 18px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .section{
+    padding:40px 14px;
+  }
+
+  .section-head h2{
+    font-size:29px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .info{
+    padding:12px;
+  }
+
+  .info h3{
+    font-size:15px;
+  }
+
+  .price{
+    font-size:16px;
+  }
+
+  .order{
+    padding:11px 5px;
+    font-size:9px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-inner">
+
+<a href="index.html" class="logo">
+ELITE BAGS
+<small>BAGS · SHOES · HEELS</small>
+</a>
+
+<nav class="nav">
+
+<a href="index.html">HOME</a>
+<a href="bags.html">BAGS</a>
+<a href="shoes.html">SHOES</a>
+<a href="heels.html">HEELS</a>
+<a href="watches.html">WATCHES</a>
+<a href="accessories.html">ACCESSORIES</a>
+
+</nav>
+
+<a
+class="whatsapp"
+href="https://wa.me/12089034508"
+target="_blank">
+WHATSAPP
+</a>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-kicker">
+ELITE BAGS COLLECTION
+</div>
+
+<h1>Luxury Bags</h1>
+
+<p>
+Explore our carefully selected collection of handbags,
+shoulder bags, crossbody bags, totes and signature styles.
+</p>
+
+<div class="hero-line"></div>
+
+<a href="index.html" class="back">
+← BACK TO HOME
+</a>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-head">
+
+<h2>Shop Bags</h2>
+
+<p>
+HANDBAGS · SHOULDER BAGS · CROSSBODY · TOTES
+</p>
+
+</div>
+
+
+<div class="tools">
+
+<div class="search">
+
+<input
+id="search"
+type="search"
+placeholder="Search bags..."
+oninput="render()">
+
+</div>
+
+<div class="sort">
+
+<select id="sort" onchange="render()">
+
+<option value="default">
+Sort: Featured
+</option>
+
+<option value="low">
+Price: Low to High
+</option>
+
+<option value="high">
+Price: High to Low
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="filters">
+
+<button
+class="filter active"
+onclick="setFilter('All')">
+ALL BAGS
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Handbags')">
+HANDBAGS
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Shoulder Bags')">
+SHOULDER BAGS
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Crossbody Bags')">
+CROSSBODY
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Tote Bags')">
+TOTES
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Mini Bags')">
+MINI BAGS
+</button>
+
+<button
+class="filter"
+onclick="setFilter('Evening Bags')">
+EVENING
+</button>
+
+</div>
+
+
+<div id="grid" class="grid"></div>
+
+</section>
+
+
+<footer class="footer">
+
+<div class="footer-inner">
+
+<div>
+
+<h3>ELITE BAGS</h3>
+
+<p>
+Premium fashion collection with a clean,
+elegant shopping experience.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>CONTACT</h3>
+
+<p>
+WhatsApp:
+<a href="https://wa.me/12089034508" target="_blank">
++1 208-903-4508
+</a>
+</p>
+
+<p>
+<a href="mailto:luxuriouselitebags@gmail.com">
+luxuriouselitebags@gmail.com
+</a>
+</p>
+
+<p>
+Free worldwide delivery ·
+Pre-shipment video available on request.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="bottom">
+
+© 2026 Elite Bags · All rights reserved.
+
+</div>
+
+</footer>
+
+
+<script>
+
+const products = [
+
+{
+name:"Louis Vuitton Speedy Soft 30 Dark Monogram Bag",
+category:"Handbags",
+price:375,
+badge:"TRENDING",
+image:"images/0011.jpg"
+},
+
+{
+name:"Christian Dior Dusty Ivory Macrocannage Calfskin Dior Groove Bag",
+category:"Handbags",
+price:345,
+badge:"TRENDING",
+image:"images/0012.jpg"
+},
+
+{
+name:"Hermès Birkin Bag",
+category:"Handbags",
+price:525,
+badge:"POPULAR",
+image:"images/0013.jpg"
+},
+
+{
+name:"Louis Vuitton Speedy Bandoulière 20 in Damier Ebène Canvas Bag",
+category:"Mini Bags",
+price:335,
+badge:"FEATURED",
+image:"images/0014.jpg"
+},
+
+{
+name:"Goyard Goyardine Sac Cap Vert Black Crossbody Bag",
+category:"Crossbody Bags",
+price:265,
+badge:"NEW",
+image:"images/0015.jpg"
+}
+
+];
+
+let currentFilter = "All";
+
+
+function setFilter(category){
+
+currentFilter = category;
+
+document
+.querySelectorAll(".filter")
+.forEach(button=>{
+button.classList.toggle(
+"active",
+button.textContent.trim().toLowerCase().includes(
+category === "All"
+? "all"
+: category.toLowerCase().split(" ")[0]
+)
+);
+});
+
+render();
+
+}
+
+
+function render(){
+
+const search =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+let list = products.filter(product=>{
+
+const categoryMatch =
+currentFilter === "All" ||
+product.category === currentFilter;
+
+const searchMatch =
+!search ||
+(
+product.name +
+" " +
+product.category +
+" " +
+product.badge
+)
+.toLowerCase()
+.includes(search);
+
+return categoryMatch && searchMatch;
+
+});
+
+
+const sort =
+document
+.getElementById("sort")
+.value;
+
+
+if(sort === "low"){
+
+list.sort((a,b)=>a.price-b.price);
+
+}
+
+if(sort === "high"){
+
+list.sort((a,b)=>b.price-a.price);
+
+}
+
+
+const grid =
+document.getElementById("grid");
+
+
+if(!list.length){
+
+grid.innerHTML = `
+<div class="empty">
+No bags found.
+</div>
+`;
+
+return;
+
+}
+
+
+grid.innerHTML = list.map(product=>`
+
+<article class="card">
+
+<div class="photo">
+
+<span class="tag">
+${product.badge}
+</span>
+
+<img
+src="${product.image}"
+alt="${product.name}"
+loading="lazy"
+onerror="this.style.display='none'">
+
+</div>
+
+
+<div class="info">
+
+<h3>
+${product.name}
+</h3>
+
+<div class="category">
+${product.category} · Master Quality
+</div>
+
+<div class="price">
+$${product.price}
+</div>
+
+<a
+class="order"
+target="_blank"
+href="https://wa.me/12089034508?text=${encodeURIComponent(
+"Hello Elite Bags!%0A%0AI am interested in: "+
+product.name+
+"%0APrice: $"+
+product.price+
+"%0A%0APlease share the product details and availability."
+)}">
+
+ORDER ON WHATSAPP
+
+</a>
+
+</div>
+
+</article>
+
+`).join("");
+
+}
+
+
+render();
+
+</script>
+
+</body>
+</html>
