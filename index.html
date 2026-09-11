@@ -584,7 +584,8 @@ function viewProduct(i){
     "&image=" + encodeURIComponent(image) +
     "&quality=" + encodeURIComponent(p.quality || "Master Quality") +
     "&shipping=" + encodeURIComponent(p.shipping || "Free Shipping") +
-    "&delivery=" + encodeURIComponent(p.delivery || "9–13 Working Days");
+    "&delivery=" + encodeURIComponent(p.delivery || "9–13 Working Days") +
+    "&payment=" + encodeURIComponent(p.payment || "Secure Payments");
 }
 function toggleWish(i){
 if(wishlist.includes(i))wishlist=wishlist.filter(x=>x!==i);
