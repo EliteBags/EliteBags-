@@ -1,1 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Luxury Bags Collection | Elite Bags</title>
+
+<meta name="description" content="Explore the Elite Bags collection featuring premium handbags, shoulder bags, crossbody bags and elegant luxury styles.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.nav{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:Georgia,serif;
+    font-size:27px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#b40000;
+}
+
+.back{
+    color:#b40000;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    border:1px solid #b40000;
+    padding:11px 18px;
+    border-radius:2px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:390px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.12)
+    ),
+    url("https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1800&q=85");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    color:#fff;
+    max-width:600px;
+}
+
+.hero-label{
+    color:#ffb3b3;
+    font-size:11px;
+    letter-spacing:4px;
+    margin-bottom:14px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:58px;
+    font-weight:400;
+    line-height:1.05;
+    margin-bottom:18px;
+}
+
+.hero p{
+    font-size:14px;
+    line-height:1.8;
+    color:#eee;
+    max-width:520px;
+}
+
+/* INFO */
+
+.info{
+    background:#b40000;
+    color:#fff;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
+
+.info-item{
+    text-align:center;
+    padding:19px 10px;
+    border-right:1px solid rgba(255,255,255,.2);
+}
+
+.info-item:last-child{
+    border-right:0;
+}
+
+.info-item strong{
+    display:block;
+    font-size:11px;
+    letter-spacing:1.5px;
+    margin-bottom:5px;
+}
+
+.info-item span{
+    font-size:10px;
+    opacity:.85;
+}
+
+/* SECTION */
+
+.section{
+    padding:65px 0;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-head .small{
+    color:#b40000;
+    font-size:10px;
+    letter-spacing:3px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-family:Georgia,serif;
+    font-size:38px;
+    font-weight:400;
+    margin-bottom:10px;
+}
+
+.section-head p{
+    color:#777;
+    font-size:12px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product{
+    background:#fff;
+    border:1px solid #eee;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 35px rgba(0,0,0,.1);
+}
+
+.product-img{
+    height:310px;
+    background:#f6f6f6;
+    overflow:hidden;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product:hover .product-img img{
+    transform:scale(1.05);
+}
+
+.product-info{
+    padding:18px;
+}
+
+.badge{
+    display:inline-block;
+    background:#b40000;
+    color:#fff;
+    font-size:8px;
+    letter-spacing:1px;
+    padding:5px 8px;
+    margin-bottom:10px;
+}
+
+.product h3{
+    font-family:Georgia,serif;
+    font-size:18px;
+    font-weight:400;
+    line-height:1.3;
+    margin-bottom:8px;
+}
+
+.product .type{
+    color:#888;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+.price{
+    color:#b40000;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+}
+
+.view{
+    flex:1;
+    text-align:center;
+    border:1px solid #111;
+    padding:11px 5px;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.whatsapp{
+    flex:1;
+    text-align:center;
+    background:#b40000;
+    color:#fff;
+    padding:11px 5px;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+/* DELIVERY */
+
+.delivery{
+    background:#f7f7f7;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.delivery h2{
+    font-family:Georgia,serif;
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:12px;
+}
+
+.delivery p{
+    color:#666;
+    font-size:12px;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:#fff;
+    padding:40px 0;
+    text-align:center;
+}
+
+footer .brand{
+    font-family:Georgia,serif;
+    font-size:24px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+footer .brand span{
+    color:#e00000;
+}
+
+footer p{
+    color:#aaa;
+    font-size:10px;
+    line-height:1.8;
+}
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .nav{
+        height:65px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .back{
+        font-size:9px;
+        padding:9px 12px;
+    }
+
+    .hero{
+        min-height:330px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-item{
+        border-right:0;
+        border-bottom:1px solid rgba(255,255,255,.2);
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .product-img{
+        height:220px;
+    }
+
+    .product-info{
+        padding:12px;
+    }
+
+    .product h3{
+        font-size:15px;
+    }
+
+    .price{
+        font-size:16px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .section{
+        padding:45px 0;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a href="index.html" class="logo">
+ELITE <span>BAGS</span>
+</a>
+
+<a href="index.html" class="back">
+← BACK TO HOME
+</a>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+
+<div class="hero-label">
+ELITE BAGS COLLECTION
+</div>
+
+<h1>Luxury Bags</h1>
+
+<p>
+Discover our curated collection of elegant handbags,
+structured silhouettes, shoulder bags and timeless
+everyday styles.
+</p>
+
+</div>
+</section>
+
+<section class="info">
+
+<div class="container info-grid">
+
+<div class="info-item">
+<strong>WORLDWIDE DELIVERY</strong>
+<span>Free worldwide shipping</span>
+</div>
+
+<div class="info-item">
+<strong>9–13 WORKING DAYS</strong>
+<span>Fast international delivery</span>
+</div>
+
+<div class="info-item">
+<strong>DIRECT SUPPORT</strong>
+<span>Order assistance via WhatsApp</span>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="small">
+SHOP OUR COLLECTION
+</div>
+
+<h2>Bags Collection</h2>
+
+<p>
+Elegant styles selected for every occasion.
+</p>
+
+</div>
+
+<div class="products">
+<!-- PRODUCT 1 -->
+<article class="product">
+
+<div class="product-img">
+<img src="images/0011.jpg" alt="Louis Vuitton Speedy Soft 30 Dark Monogram Bag">
+</div>
+
+<div class="product-info">
+
+<span class="badge">TRENDING</span>
+
+<h3>Speedy Soft 30 Dark Monogram Bag</h3>
+
+<div class="type">Handbag</div>
+
+<div class="price">$375</div>
+
+<div class="buttons">
+
+<a class="view"
+href="product.html?name=Louis%20Vuitton%20Speedy%20Soft%2030%20Dark%20Monogram%20Bag&category=Bags&sub=Handbag&price=375&color=Dark%20Monogram&size=30%20%C3%97%2021%20%C3%97%2017%20cm&material=Monogram%20Canvas&quality=Master%20Quality&badge=Trending&image1=images/0011.jpg">
+VIEW PRODUCT
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Speedy%20Soft%2030%20Dark%20Monogram%20Bag.">
+WHATSAPP
+</a>
+
+</div>
+</div>
+</article>
+
+
+<!-- PRODUCT 2 -->
+<article class="product">
+
+<div class="product-img">
+<img src="images/0012.jpg" alt="Christian Dior Dusty Ivory Dior Groove Bag">
+</div>
+
+<div class="product-info">
+
+<span class="badge">TRENDING</span>
+
+<h3>Dusty Ivory Dior Groove Bag</h3>
+
+<div class="type">Dior Groove Bag</div>
+
+<div class="price">$345</div>
+
+<div class="buttons">
+
+<a class="view"
+href="product.html?name=Christian%20Dior%20Dusty%20Ivory%20Macrocannage%20Calfskin%20Dior%20Groove%20Bag&category=Bags&sub=Dior%20Groove%20Bag&price=345&color=Dusty%20Ivory&size=25%20%C3%97%2019%20%C3%97%206%20cm&material=Macrocannage%20Calfskin&quality=Master%20Quality&badge=Trending&image1=images/0012.jpg">
+VIEW PRODUCT
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Dusty%20Ivory%20Dior%20Groove%20Bag.">
+WHATSAPP
+</a>
+
+</div>
+</div>
+</article>
+
+
+<!-- PRODUCT 3 -->
+<article class="product">
+
+<div class="product-img">
+<img src="images/0013.jpg" alt="Hermes Birkin Black Bag">
+</div>
+
+<div class="product-info">
+
+<span class="badge">POPULAR</span>
+
+<h3>Birkin Black Bag</h3>
+
+<div class="type">Birkin</div>
+
+<div class="price">$525</div>
+
+<div class="buttons">
+
+<a class="view"
+href="product.html?name=Hermes%20Birkin%20Bag&category=Bags&sub=Birkin&price=525&color=Black&size=30%20cm&material=Crocodile-Embossed%20Leather&quality=Master%20Quality&badge=Popular&image1=images/0013.jpg">
+VIEW PRODUCT
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Birkin%20Black%20Bag.">
+WHATSAPP
+</a>
+
+</div>
+</div>
+</article>
+
+
+<!-- PRODUCT 4 -->
+<article class="product">
+
+<div class="product-img">
+<img src="images/0014.jpg" alt="Louis Vuitton Speedy Bandouliere 20 Damier Ebene Bag">
+</div>
+
+<div class="product-info">
+
+<span class="badge">FEATURED</span>
+
+<h3>Speedy Bandoulière 20</h3>
+
+<div class="type">Speedy Bandoulière</div>
+
+<div class="price">$335</div>
+
+<div class="buttons">
+
+<a class="view"
+href="product.html?name=Louis%20Vuitton%20Speedy%20Bandouliere%2020%20in%20Damier%20Ebene%20Canvas%20Bag&category=Bags&sub=Speedy%20Bandouliere&price=335&color=Damier%20Ebene&size=20.5%20%C3%97%2013.5%20%C3%97%2012%20cm&material=Damier%20Ebene%20Canvas&quality=Master%20Quality&badge=Featured&image1=images/0014.jpg">
+VIEW PRODUCT
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Speedy%20Bandouliere%2020.">
+WHATSAPP
+</a>
+
+</div>
+</div>
+</article>
+
+
+<!-- PRODUCT 5 -->
+<article class="product">
+
+<div class="product-img">
+<img src="images/0015.jpg" alt="Goyard Sac Cap Vert Black Crossbody Bag">
+</div>
+
+<div class="product-info">
+
+<span class="badge">NEW</span>
+
+<h3>Goyardine Sac Cap Vert</h3>
+
+<div class="type">Crossbody Bag</div>
+
+<div class="price">$265</div>
+
+<div class="buttons">
+
+<a class="view"
+href="product.html?name=Goyard%20Goyardine%20Sac%20Cap%20Vert%20Black%20Crossbody%20Bag&category=Bags&sub=Crossbody%20Bag&price=265&color=Black&size=Standard&material=Goyardine%20Canvas&quality=Master%20Quality&badge=New&image1=images/0015.jpg">
+VIEW PRODUCT
+</a>
+
+<a class="whatsapp"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Goyardine%20Sac%20Cap%20Vert%20Black%20Crossbody%20Bag.">
+WHATSAPP
+</a>
+
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<!-- DELIVERY SECTION -->
+
+<section class="delivery">
+
+<h2>Worldwide Delivery</h2>
+
+<p>
+Enjoy free worldwide delivery on every order.
+Orders are carefully prepared before shipment,
+with an estimated delivery time of 9–13 working days.
+For extra peace of mind, a pre-shipment video can
+be provided before your order is dispatched.
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="brand">
+ELITE <span>BAGS</span>
+</div>
+
+<p>
+Luxury fashion collection · Worldwide Delivery ·
+Direct WhatsApp Support
+</p>
+
+<p>
+© 2026 Elite Bags. All rights reserved.
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
