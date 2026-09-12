@@ -1,1 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Watches | Elite Bags</title>
+
+<meta name="description" content="Explore the Elite Bags luxury watch collection. Discover elegant watches with worldwide delivery.">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#111;
+}
+
+.header{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  border-bottom:1px solid #eee;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:25px;
+  letter-spacing:2px;
+  font-weight:bold;
+  color:#111;
+  text-decoration:none;
+}
+
+.nav{
+  display:flex;
+  gap:28px;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#222;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.nav a:hover{
+  color:#b40000;
+}
+
+.whatsapp{
+  background:#b40000;
+  color:#fff;
+  padding:11px 17px;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.hero{
+  height:330px;
+  background:
+  linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.58)),
+  url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=85")
+  center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:52px;
+  font-weight:400;
+  letter-spacing:3px;
+}
+
+.hero p{
+  margin-top:12px;
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid #eee;
+}
+
+.info div{
+  padding:20px 10px;
+  text-align:center;
+  border-right:1px solid #eee;
+}
+
+.info strong{
+  display:block;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.info span{
+  display:block;
+  margin-top:6px;
+  font-size:10px;
+  color:#777;
+}
+
+.collection{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 6%;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.heading h2{
+  font-family:Georgia,serif;
+  font-size:34px;
+  font-weight:400;
+}
+
+.heading p{
+  margin-top:8px;
+  color:#777;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.product{
+  border:1px solid #eee;
+  background:#fff;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.product img{
+  width:100%;
+  height:330px;
+  object-fit:cover;
+  display:block;
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product-info h3{
+  font-family:Georgia,serif;
+  font-size:18px;
+  font-weight:400;
+}
+
+.product-info p{
+  color:#777;
+  font-size:11px;
+  line-height:1.6;
+  margin:9px 0;
+}
+
+.price{
+  font-size:18px;
+  font-weight:bold;
+  color:#b40000;
+}
+
+.order{
+  display:block;
+  margin-top:15px;
+  padding:12px;
+  text-align:center;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.order:hover{
+  background:#b40000;
+}
+
+.back{
+  text-align:center;
+  padding:10px 20px 50px;
+}
+
+.back a{
+  color:#b40000;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.delivery{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:45px 20px;
+}
+
+.delivery h2{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:28px;
+}
+
+.delivery p{
+  margin-top:10px;
+  color:#ccc;
+  font-size:11px;
+}
+
+@media(max-width:800px){
+
+  .nav{
+    display:none;
+  }
+
+  .header{
+    padding:0 5%;
+  }
+
+  .hero{
+    height:280px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .info{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .info div{
+    border-bottom:1px solid #eee;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product img{
+    height:360px;
+  }
+
+  .collection{
+    padding:50px 5%;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <a href="index.html" class="logo">
+    ELITE BAGS
+  </a>
+
+  <nav class="nav">
+    <a href="index.html">HOME</a>
+    <a href="bags.html">BAGS</a>
+    <a href="shoes.html">SHOES</a>
+    <a href="heels.html">HEELS</a>
+    <a href="watches.html">WATCHES</a>
+    <a href="accessories.html">ACCESSORIES</a>
+  </nav>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/12089034508"
+    target="_blank">
+    WHATSAPP
+  </a>
+
+</header>
+
+<section class="hero">
+
+  <div>
+    <h1>LUXURY WATCHES</h1>
+    <p>TIMELESS STYLE • ELEGANT DETAILS</p>
+  </div>
+
+</section>
+
+<section class="info">
+
+  <div>
+    <strong>PREMIUM QUALITY</strong>
+    <span>Carefully selected pieces</span>
+  </div>
+
+  <div>
+    <strong>WORLDWIDE DELIVERY</strong>
+    <span>Delivery available worldwide</span>
+  </div>
+
+  <div>
+    <strong>DIRECT SUPPORT</strong>
+    <span>Order through WhatsApp</span>
+  </div>
+
+  <div>
+    <strong>ELITE SERVICE</strong>
+    <span>Personal customer support</span>
+  </div>
+
+</section>
+
+<section class="collection">
+
+  <div class="heading">
+    <h2>Watch Collection</h2>
+    <p>EXPLORE OUR LATEST WATCHES</p>
+  </div>
+
+  <div class="products">
+    <div class="product">
+
+  <img
+    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+    alt="Classic Luxury Watch">
+
+  <div class="product-info">
+
+    <h3>Classic Luxury Watch</h3>
+
+    <p>
+      Elegant classic watch with a refined design
+      for everyday luxury styling.
+    </p>
+
+    <div class="price">$185</div>
+
+    <a
+      class="order"
+      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%20am%20interested%20in%20the%20Classic%20Luxury%20Watch%20for%20%24185."
+      target="_blank">
+      ORDER ON WHATSAPP
+    </a>
+
+  </div>
+</div>
+
+
+<div class="product">
+
+  <img
+    src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85"
+    alt="Elegant Gold Watch">
+
+  <div class="product-info">
+
+    <h3>Elegant Gold Watch</h3>
+
+    <p>
+      Sophisticated gold-tone design with
+      a timeless luxury appearance.
+    </p>
+
+    <div class="price">$225</div>
+
+    <a
+      class="order"
+      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%20am%20interested%20in%20the%20Elegant%20Gold%20Watch%20for%20%24225."
+      target="_blank">
+      ORDER ON WHATSAPP
+    </a>
+
+  </div>
+</div>
+
+
+<div class="product">
+
+  <img
+    src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=85"
+    alt="Premium Black Watch">
+
+  <div class="product-info">
+
+    <h3>Premium Black Watch</h3>
+
+    <p>
+      Modern black finish with a clean,
+      sophisticated luxury look.
+    </p>
+
+    <div class="price">$210</div>
+
+    <a
+      class="order"
+      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%20am%20interested%20in%20the%20Premium%20Black%20Watch%20for%20%24210."
+      target="_blank">
+      ORDER ON WHATSAPP
+    </a>
+
+  </div>
+</div>
+    <div class="product">
+
+  <img
+    src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=85"
+    alt="Luxury Silver Watch">
+
+  <div class="product-info">
+
+    <h3>Luxury Silver Watch</h3>
+
+    <p>
+      Refined silver-tone finish with an elegant
+      design for sophisticated everyday styling.
+    </p>
+
+    <div class="price">$235</div>
+
+    <a
+      class="order"
+      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%20am%20interested%20in%20the%20Luxury%20Silver%20Watch%20for%20%24235."
+      target="_blank">
+      ORDER ON WHATSAPP
+    </a>
+
+  </div>
+</div>
+
+
+<div class="product">
+
+  <img
+    src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=85"
+    alt="Premium Chronograph Watch">
+
+  <div class="product-info">
+
+    <h3>Premium Chronograph Watch</h3>
+
+    <p>
+      A bold chronograph-inspired design combining
+      modern details with timeless style.
+    </p>
+
+    <div class="price">$255</div>
+
+    <a
+      class="order"
+      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%20am%20interested%20in%20the%20Premium%20Chronograph%20Watch%20for%20%24255."
+      target="_blank">
+      ORDER ON WHATSAPP
+    </a>
+
+  </div>
+</div>
+
+
+</div>
+</section>
+
+<div class="back">
+
+  <a href="index.html">
+    ← BACK TO HOME
+  </a>
+
+</div>
+  <section class="delivery">
+
+  <h2>Worldwide Delivery</h2>
+
+  <p>
+    Free worldwide delivery on all orders.
+  </p>
+
+  <p>
+    Orders are carefully processed before shipment.
+  </p>
+
+  <p>
+    Estimated delivery: 9–13 days.
+  </p>
+
+  <p>
+    For orders and assistance, contact us on WhatsApp.
+  </p>
+
+</section>
+
+
+<footer class="footer">
+
+  <p>
+    <strong>ELITE BAGS</strong>
+  </p>
+
+  <p>
+    Premium Fashion Collection
+  </p>
+
+  <p>
+    WhatsApp:
+    <a href="https://wa.me/12089034508" target="_blank">
+      +1 208-903-4508
+    </a>
+  </p>
+
+  <p>
+    Email:
+    <a href="mailto:luxuriouselitebags@gmail.com">
+      luxuriouselitebags@gmail.com
+    </a>
+  </p>
+
+  <p>
+    © 2026 Elite Bags. All rights reserved.
+  </p>
+
+</footer>
+
+</body>
+</html>
 
