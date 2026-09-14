@@ -1054,3 +1054,92 @@
 
 
 })();
+/* =========================================================
+   PRODUCT CARD CLICK → PRODUCT DETAILS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  function connectProductCards() {
+
+    const cards = document.querySelectorAll(
+      ".product-card, .product-item, .product, .card"
+    );
+
+    if (!cards.length || !Array.isArray(window.PRODUCTS)) return;
+
+    cards.forEach(function (card) {
+
+      // Don't connect the same card twice
+      if (card.dataset.productConnected === "true") return;
+
+      let product = null;
+
+      // 1. Try product ID from data attributes
+      const id =
+        card.dataset.productId ||
+        card.dataset.id ||
+        card.getAttribute("data-product");
+
+      if (id) {
+        product = window.PRODUCTS.find(function (p) {
+          return String(p.id) === String(id);
+        });
+      }
+
+      // 2. If no ID, find product by its heading/name
+      if (!product) {
+        const titleElement = card.querySelector(
+          "h1, h2, h3, h4, .product-name, .card-title"
+        );
+
+        if (titleElement) {
+          const title = titleElement.textContent.trim().toLowerCase();
+
+          product = window.PRODUCTS.find(function (p) {
+            return (
+              String(p.name).trim().toLowerCase() === title
+            );
+          });
+        }
+      }
+
+      // No matching product found
+      if (!product) return;
+
+      // Mark connected
+      card.dataset.productConnected = "true";
+
+      // Make it look clickable
+      card.style.cursor = "pointer";
+
+      // Open product detail page
+      card.addEventListener("click", function (event) {
+
+        // Don't open product page when clicking buttons/links
+        // such as WhatsApp or Add-to-cart.
+        if (
+          event.target.closest("a") ||
+          event.target.closest("button") ||
+          event.target.closest("input") ||
+          event.target.closest("select")
+        ) {
+          return;
+        }
+
+        window.location.href =
+          "product.html?id=" +
+          encodeURIComponent(product.id);
+      });
+
+    });
+  }
+
+  // Initial connection
+  connectProductCards();
+
+  // Run again after dynamic products are rendered
+  setTimeout(connectProductCards, 300);
+  setTimeout(connectProductCards, 1000);
+
+});
