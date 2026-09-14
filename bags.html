@@ -1,1796 +1,348 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="utf-8">
+<meta name="description" content="Explore the Elite Bags collection of premium bags.">
+<meta name="google-site-verification" content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://elitebagss.com/bags.html">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 <title>Bags Collection | Elite Bags</title>
-
-<meta name="description"
-content="Explore the Elite Bags collection featuring handbags, shoulder bags, crossbody bags, tote bags and evening bags.">
-
-<style>
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:#fafafa;
-  color:#111;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-a{
-  color:inherit;
-}
-
-button,
-input,
-select{
-  font:inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.head{
-  height:72px;
-  background:#fff;
-  border-bottom:1px solid #e5e5e5;
-  display:flex;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-
-.nav{
-  width:92%;
-  max-width:1200px;
-  margin:auto;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  text-decoration:none;
-  font-family:Georgia,serif;
-  font-size:21px;
-  font-weight:700;
-  letter-spacing:3px;
-}
-
-.logo b{
-  color:#b00020;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-.back{
-  text-decoration:none;
-  color:#666;
-  font-size:11px;
-  letter-spacing:1px;
-  font-weight:700;
-}
-
-.back:hover{
-  color:#b00020;
-}
-
-.whatsapp-top{
-  text-decoration:none;
-  background:#b00020;
-  color:#fff;
-  padding:10px 15px;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-/* =========================
-   MAIN WRAP
-========================= */
-
-.wrap{
-  width:92%;
-  max-width:1200px;
-  margin:auto;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  padding:55px 0 25px;
-}
-
-.ey{
-  color:#b00020;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:2px;
-}
-
-h1{
-  font-family:Georgia,serif;
-  font-size:48px;
-  font-weight:500;
-  margin:10px 0 12px;
-}
-
-.hero p{
-  max-width:650px;
-  color:#777;
-  font-size:14px;
-  line-height:1.7;
-  margin:0;
-}
-
-/* =========================
-   SHOP INFO
-========================= */
-
-.info-bar{
-  margin:25px 0 10px;
-
-  display:grid;
-  grid-template-columns:
-  repeat(4,1fr);
-
-  border:1px solid #e1e1e1;
-  background:#fff;
-}
-
-.info-box{
-  padding:18px 15px;
-  text-align:center;
-  border-right:1px solid #e1e1e1;
-}
-
-.info-box:last-child{
-  border-right:0;
-}
-
-.info-box strong{
-  display:block;
-  font-size:10px;
-  letter-spacing:1px;
-  margin-bottom:5px;
-}
-
-.info-box span{
-  color:#777;
-  font-size:10px;
-}
-
-/* =========================
-   COLLECTION TITLE
-========================= */
-
-.collection-head{
-  margin-top:55px;
-  margin-bottom:20px;
-
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.collection-title{
-  margin:0;
-  font-family:Georgia,serif;
-  font-size:32px;
-  font-weight:500;
-}
-
-.collection-subtitle{
-  margin:7px 0 0;
-  color:#777;
-  font-size:12px;
-}
-
-/* =========================
-   SEARCH AREA
-========================= */
-
-.search-area{
-  background:#fff;
-  border:1px solid #ddd;
-  padding:15px;
-  margin-bottom:18px;
-
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.search-icon{
-  font-size:18px;
-  color:#777;
-}
-
-.search-input{
-  flex:1;
-  border:0;
-  outline:none;
-  background:transparent;
-  font-size:13px;
-  color:#111;
-}
-
-.search-input::placeholder{
-  color:#999;
-}
-
-.search-button{
-  border:0;
-  background:#b00020;
-  color:#fff;
-  padding:12px 20px;
-  cursor:pointer;
-
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-.search-button:hover{
-  background:#8d001a;
-}
-
-.clear-button{
-  border:1px solid #ddd;
-  background:#fff;
-  color:#555;
-  padding:11px 15px;
-  cursor:pointer;
-
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-.clear-button:hover{
-  border-color:#b00020;
-  color:#b00020;
-}
-
-/* =========================
-   FILTER BAR
-========================= */
-
-.toolbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:25px;
-}
-
-.filters{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.filter{
-  background:#fff;
-  border:1px solid #ddd;
-  padding:10px 14px;
-
-  cursor:pointer;
-
-  color:#555;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.5px;
-}
-
-.filter:hover,
-.filter.active{
-  background:#b00020;
-  color:#fff;
-  border-color:#b00020;
-}
-
-.sort{
-  background:#fff;
-  border:1px solid #ddd;
-  padding:10px 13px;
-
-  outline:none;
-  color:#444;
-
-  font-size:10px;
-  cursor:pointer;
-}
-
-/* =========================
-   PRODUCT COUNT
-========================= */
-
-.result-count{
-  color:#777;
-  font-size:11px;
-  margin-bottom:18px;
-}
-
-/* =========================
-   PRODUCT GRID
-========================= */
-
-.grid{
-  display:grid;
-
-  grid-template-columns:
-  repeat(3,1fr);
-
-  gap:22px;
-
-  padding-bottom:70px;
-}
-    .card{
-  background:#fff;
-  border:1px solid #e0e0e0;
-  cursor:pointer;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.09);
-  border-color:#c8c8c8;
-}
-
-.photo{
-  height:370px;
-  position:relative;
-  overflow:hidden;
-  background:#f1f1f1;
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-
-  transition:transform .45s ease;
-}
-
-.card:hover .photo img{
-  transform:scale(1.04);
-}
-
-.tag{
-  position:absolute;
-  top:12px;
-  left:12px;
-
-  background:#111;
-  color:#fff;
-
-  padding:7px 10px;
-
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1px;
-
-  z-index:2;
-}
-
-.info{
-  padding:18px;
-}
-
-.category{
-  color:#b00020;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  margin-bottom:7px;
-}
-
-.info h2{
-  font-family:Georgia,serif;
-  font-size:21px;
-  font-weight:500;
-
-  margin:0 0 8px;
-
-  line-height:1.25;
-}
-
-.meta{
-  color:#777;
-  font-size:11px;
-  line-height:1.7;
-}
-
-.price{
-  font-size:18px;
-  font-weight:700;
-  margin:12px 0 15px;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-
-.view,
-.wa{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  min-height:42px;
-
-  text-decoration:none;
-
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1px;
-
-  border:1px solid #ddd;
-
-  cursor:pointer;
-}
-
-.view{
-  background:#fff;
-  color:#111;
-}
-
-.view:hover{
-  border-color:#111;
-  background:#111;
-  color:#fff;
-}
-
-.wa{
-  background:#b00020;
-  color:#fff;
-  border-color:#b00020;
-}
-
-.wa:hover{
-  background:#8d001a;
-}
-
-/* =========================
-   NO RESULTS
-========================= */
-
-.no-results{
-  grid-column:1 / -1;
-
-  padding:60px 20px;
-
-  background:#fff;
-  border:1px solid #ddd;
-
-  text-align:center;
-}
-
-.no-results h3{
-  font-family:Georgia,serif;
-  font-size:24px;
-  font-weight:500;
-  margin:0 0 8px;
-}
-
-.no-results p{
-  color:#777;
-  font-size:12px;
-  margin:0;
-}
-
-/* =========================
-   DELIVERY
-========================= */
-
-.delivery{
-  background:#b00020;
-  color:#fff;
-  text-align:center;
-
-  padding:50px 20px;
-}
-
-.delivery h2{
-  margin:0 0 20px;
-
-  font-family:Georgia,serif;
-  font-size:30px;
-  font-weight:500;
-}
-
-.delivery p{
-  margin:8px 0;
-  font-size:12px;
-  opacity:.95;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  background:#111;
-  color:#aaa;
-  text-align:center;
-
-  padding:35px 20px;
-
-  font-size:11px;
-  line-height:1.8;
-}
-
-.footer strong{
-  color:#fff;
-  letter-spacing:2px;
-}
-
-.footer a{
-  color:#fff;
-  text-decoration:none;
-}
-
-.footer a:hover{
-  color:#b00020;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-  .grid{
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:15px;
-  }
-
-  .photo{
-    height:300px;
-  }
-
-  h1{
-    font-size:40px;
-  }
-
-  .info-bar{
-    grid-template-columns:
-    repeat(2,1fr);
-  }
-
-  .info-box:nth-child(2){
-    border-right:0;
-  }
-
-  .info-box:nth-child(1),
-  .info-box:nth-child(2){
-    border-bottom:1px solid #e1e1e1;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .head{
-    height:64px;
-  }
-
-  .nav{
-    width:94%;
-  }
-
-  .logo{
-    font-size:18px;
-    letter-spacing:2px;
-  }
-
-  .nav-right{
-    gap:8px;
-  }
-
-  .back{
-    font-size:9px;
-  }
-
-  .whatsapp-top{
-    padding:9px 10px;
-    font-size:8px;
-  }
-
-  .wrap{
-    width:94%;
-  }
-
-  .hero{
-    padding:38px 0 20px;
-  }
-
-  h1{
-    font-size:34px;
-  }
-
-  .hero p{
-    font-size:12px;
-  }
-
-  .collection-head{
-    display:block;
-    margin-top:40px;
-  }
-
-  .collection-title{
-    font-size:27px;
-  }
-
-  .search-area{
-    padding:10px;
-    flex-wrap:wrap;
-  }
-
-  .search-icon{
-    display:none;
-  }
-
-  .search-input{
-    min-width:120px;
-    width:100%;
-    flex:1 1 100%;
-    padding:5px;
-  }
-
-  .search-button,
-  .clear-button{
-    flex:1;
-  }
-
-  .toolbar{
-    align-items:stretch;
-  }
-
-  .filters{
-    width:100%;
-  }
-
-  .filter{
-    flex:1;
-    min-width:70px;
-  }
-
-  .sort{
-    width:100%;
-  }
-
-  .grid{
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:10px;
-  }
-
-  .photo{
-    height:230px;
-  }
-
-  .info{
-    padding:11px;
-  }
-
-  .info h2{
-    font-size:15px;
-  }
-
-  .category{
-    font-size:8px;
-  }
-
-  .meta{
-    font-size:9px;
-  }
-
-  .price{
-    font-size:15px;
-    margin:9px 0 11px;
-  }
-
-  .actions{
-    grid-template-columns:1fr;
-    gap:6px;
-  }
-
-  .view,
-  .wa{
-    min-height:37px;
-    font-size:8px;
-  }
-
-  .info-bar{
-    grid-template-columns:
-    repeat(2,1fr);
-  }
-
-  .info-box{
-    padding:14px 8px;
-  }
-
-  .info-box strong{
-    font-size:8px;
-  }
-
-  .info-box span{
-    font-size:8px;
-  }
-
-}
-
-/* =========================
-   VERY SMALL PHONES
-========================= */
-
-@media(max-width:380px){
-
-  .grid{
-    gap:8px;
-  }
-
-  .photo{
-    height:205px;
-  }
-
-  .info h2{
-    font-size:14px;
-  }
-
-  .price{
-    font-size:14px;
-  }
-
-}
-
-/* =========================
-   ACCESSIBILITY
-========================= */
-
-.card:focus{
-  outline:2px solid #b00020;
-  outline-offset:3px;
-}
-
-</style>
-
 </head>
 
 <body>
 
-<header class="head">
-
-  <nav class="nav">
-
-    <a
-      class="logo"
-      href="index.html"
-    >
-      ELITE <b>BAGS</b>
-    </a>
-
-    <div class="nav-right">
-
-      <a
-        class="back"
-        href="index.html"
-      >
-        ← MAIN PAGE
-      </a>
-
-      <a
-        class="whatsapp-top"
-        href="https://wa.me/12089034508"
-        target="_blank"
-      >
-        WHATSAPP
-      </a>
-
-    </div>
-
-  </nav>
-
-</header>
-
-<main class="wrap">
-
-<section class="hero">
-
-  <span class="ey">
-    ELITE BAGS · COLLECTION
-  </span>
-
-  <h1>
-    Bags Collection
-  </h1>
-
-  <p>
-    Discover our curated collection of handbags,
-    shoulder bags, crossbody bags, totes and
-    elegant evening styles.
-  </p>
-
-</section>
-
-<div class="info-bar">
-
-  <div class="info-box">
-    <strong>PREMIUM QUALITY</strong>
-    <span>Carefully selected materials</span>
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <span>Free Worldwide Delivery</span>
+    <span>9–13 Working Days</span>
   </div>
-
-  <div class="info-box">
-    <strong>WORLDWIDE DELIVERY</strong>
-    <span>Free delivery available</span>
-  </div>
-
-  <div class="info-box">
-    <strong>9–13 DAYS</strong>
-    <span>Estimated delivery time</span>
-  </div>
-
-  <div class="info-box">
-    <strong>DIRECT SUPPORT</strong>
-    <span>WhatsApp assistance</span>
-  </div>
-
 </div>
 
-<section>
+<header class="site-header">
+  <div class="container nav-wrap">
 
-  <div class="collection-head">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">EB</span>
+      <span class="brand-text">
+        <strong>ELITE</strong>
+        <small>BAGS</small>
+      </span>
+    </a>
 
-    <div>
+    <button class="menu-button" type="button" data-menu aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <h2 class="collection-title">
-        Shop Bags
-      </h2>
+    <nav class="main-nav" data-nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="bags.html" class="nav-link active">Bags</a>
+      <a href="shoes.html" class="nav-link">Shoes</a>
+      <a href="heels.html" class="nav-link">Heels</a>
+      <a href="watches.html" class="nav-link">Watches</a>
+      <a href="accessories.html" class="nav-link">Accessories</a>
+    </nav>
 
-      <p class="collection-subtitle">
-        Find your perfect style
+    <div class="nav-actions">
+      <a href="https://wa.me/12089034508"
+         target="_blank"
+         rel="noopener"
+         class="nav-whatsapp">
+        WhatsApp
+      </a>
+
+      <button type="button"
+              class="cart-button"
+              data-open-cart>
+        🛍
+        <span>Bag</span>
+        <b data-cart-count>0</b>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="category-hero section">
+    <div class="container category-hero-inner">
+
+      <span class="eyebrow">ELITE COLLECTION</span>
+
+      <h1>Luxury Bags</h1>
+
+      <p>
+        Discover our carefully selected collection of
+        handbags, totes, crossbody bags and more.
       </p>
 
     </div>
+  </section>
 
-  </div>
 
-  <div class="search-area">
+  <section class="section products-section"
+           data-category-page="Bags">
 
-    <span class="search-icon">
-      ⌕
-    </span>
+    <div class="container">
 
-    <input
-      id="searchInput"
-      class="search-input"
-      type="search"
-      placeholder="Search bags, colors, materials..."
-      autocomplete="off"
-    >
+      <div class="section-heading">
 
-    <button
-      id="searchButton"
-      class="search-button"
-      type="button"
-    >
-      SEARCH
-    </button>
+        <div>
+          <span class="eyebrow">BAGS</span>
+          <h2>Shop the Collection</h2>
+        </div>
 
-    <button
-      id="clearButton"
-      class="clear-button"
-      type="button"
-    >
-      CLEAR
-    </button>
+        <div class="category-tools">
 
-  </div>
+          <div class="search-box">
+            <input
+              type="search"
+              placeholder="Search bags..."
+              aria-label="Search bags"
+              data-category-search>
+            <span>⌕</span>
+          </div>
 
-  <div class="toolbar">
+        </div>
 
-    <div class="filters">
+      </div>
 
-      <button
-        class="filter active"
-        data-filter="All"
-        type="button"
-      >
-        ALL
-      </button>
 
-      <button
-        class="filter"
-        data-filter="Handbags"
-        type="button"
-      >
-        HANDBAGS
-      </button>
+      <div class="product-grid"
+           data-product-grid>
 
-      <button
-        class="filter"
-        data-filter="Shoulder Bags"
-        type="button"
-      >
-        SHOULDER
-      </button>
+        <div class="loading-box">
+          <span class="loading-logo">EB</span>
+          <p>Loading collection...</p>
+        </div>
 
-      <button
-        class="filter"
-        data-filter="Crossbody Bags"
-        type="button"
-      >
-        CROSSBODY
-      </button>
+      </div>
 
-      <button
-        class="filter"
-        data-filter="Tote Bags"
-        type="button"
-      >
-        TOTES
-      </button>
 
-      <button
-        class="filter"
-        data-filter="Mini Bags"
-        type="button"
-      >
-        MINI
-      </button>
+      <div class="pagination">
 
-      <button
-        class="filter"
-        data-filter="Evening Bags"
-        type="button"
-      >
-        EVENING
-      </button>
+        <a href="bags.html"
+           class="page-number active">
+          1
+        </a>
+
+        <a href="bags-page-2.html"
+           class="page-number">
+          2
+        </a>
+
+        <a href="bags-page-3.html"
+           class="page-number">
+          3
+        </a>
+
+        <a href="bags-page-4.html"
+           class="page-number">
+          4
+        </a>
+
+        <a href="bags-page-5.html"
+           class="page-number">
+          5
+        </a>
+
+      </div>
 
     </div>
+  </section>
 
-    <select
-      id="sortSelect"
-      class="sort"
-    >
 
-      <option value="featured">
-        Sort: Featured
-      </option>
+  <section class="delivery-banner">
+    <div class="container delivery-inner">
 
-      <option value="low">
-        Price: Low to High
-      </option>
+      <div>
+        <span class="eyebrow">SHOP WITH CONFIDENCE</span>
+        <h2>Free Worldwide Delivery</h2>
+        <p>
+          Estimated delivery time: 9–13 Working Days.
+        </p>
+      </div>
 
-      <option value="high">
-        Price: High to Low
-      </option>
-
-      <option value="az">
-        Name: A–Z
-      </option>
-
-      <option value="za">
-        Name: Z–A
-      </option>
-
-    </select>
-
-  </div>
-
-  <div
-    id="resultCount"
-    class="result-count"
-  >
-    Showing all bags
-  </div>
-
-  <section
-    class="grid"
-    id="grid"
-  >
-      <article
-  class="card"
-  tabindex="0"
-  data-category="Handbags"
-  data-price="249"
-  data-name="Classic Structured Handbag"
-  data-search="classic structured handbag handbags black premium leather featured"
-  data-image1="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"
-  data-image2="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85"
-  onclick="openProduct(this)"
-  onkeydown="if(event.key==='Enter')openProduct(this)"
->
-
-  <div class="photo">
-
-    <img
-      src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"
-      alt="Classic Structured Handbag"
-      loading="lazy"
-    >
-
-    <span class="tag">
-      FEATURED
-    </span>
-
-  </div>
-
-  <div class="info">
-
-    <div class="category">
-      Handbags
-    </div>
-
-    <h2>
-      Classic Structured Handbag
-    </h2>
-
-    <div class="meta">
-      Black · Standard · Premium Leather
-    </div>
-
-    <div class="price">
-      $249
-    </div>
-
-    <div class="actions">
-
-      <button
-        class="view"
-        type="button"
-        onclick="event.stopPropagation();openProduct(this.closest('.card'))"
-      >
-        VIEW PRODUCT
-      </button>
-
-      <a
-        class="wa"
-        href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Classic%20Structured%20Handbag%20-%20%24249."
-        target="_blank"
-        onclick="event.stopPropagation()"
-      >
-        ORDER
+      <a href="https://wa.me/12089034508"
+         target="_blank"
+         rel="noopener"
+         class="btn btn-primary">
+        Ask on WhatsApp
       </a>
 
     </div>
-
-  </div>
-
-</article>
-
-
-<article
-  class="card"
-  tabindex="0"
-  data-category="Shoulder Bags"
-  data-price="269"
-  data-name="Quilted Shoulder Bag"
-  data-search="quilted shoulder bag shoulder bags black quilted leather trending"
-  data-image1="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1000&q=85"
-  data-image2="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85"
-  onclick="openProduct(this)"
-  onkeydown="if(event.key==='Enter')openProduct(this)"
->
-
-  <div class="photo">
-
-    <img
-      src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1000&q=85"
-      alt="Quilted Shoulder Bag"
-      loading="lazy"
-    >
-
-    <span class="tag">
-      TRENDING
-    </span>
-
-  </div>
-
-  <div class="info">
-
-    <div class="category">
-      Shoulder Bags
-    </div>
-
-    <h2>
-      Quilted Shoulder Bag
-    </h2>
-
-    <div class="meta">
-      Black · Standard · Quilted Leather
-    </div>
-
-    <div class="price">
-      $269
-    </div>
-
-    <div class="actions">
-
-      <button
-        class="view"
-        type="button"
-        onclick="event.stopPropagation();openProduct(this.closest('.card'))"
-      >
-        VIEW PRODUCT
-      </button>
-
-      <a
-        class="wa"
-        href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Quilted%20Shoulder%20Bag%20-%20%24269."
-        target="_blank"
-        onclick="event.stopPropagation()"
-      >
-        ORDER
-      </a>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<article
-  class="card"
-  tabindex="0"
-  data-category="Crossbody Bags"
-  data-price="199"
-  data-name="Everyday Crossbody"
-  data-search="everyday crossbody crossbody bags brown premium canvas new"
-  data-image1="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85"
-  data-image2="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85"
-  onclick="openProduct(this)"
-  onkeydown="if(event.key==='Enter')openProduct(this)"
->
-
-  <div class="photo">
-
-    <img
-      src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85"
-      alt="Everyday Crossbody"
-      loading="lazy"
-    >
-
-    <span class="tag">
-      NEW
-    </span>
-
-  </div>
-
-  <div class="info">
-
-    <div class="category">
-      Crossbody Bags
-    </div>
-
-    <h2>
-      Everyday Crossbody
-    </h2>
-
-    <div class="meta">
-      Brown · Standard · Premium Canvas
-    </div>
-
-    <div class="price">
-      $199
-    </div>
-
-    <div class="actions">
-
-      <button
-        class="view"
-        type="button"
-        onclick="event.stopPropagation();openProduct(this.closest('.card'))"
-      >
-        VIEW PRODUCT
-      </button>
-
-      <a
-        class="wa"
-        href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Everyday%20Crossbody%20-%20%24199."
-        target="_blank"
-        onclick="event.stopPropagation()"
-      >
-        ORDER
-      </a>
-
-    </div>
-
-  </div>
-
-</article>
-<article class="card" tabindex="0"
-data-category="Tote Bags"
-data-price="229"
-data-name="Minimal Tote"
-data-search="minimal tote tote bags tan premium leather popular"
-data-image1="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85"
-data-image2="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=85"
-onclick="openProduct(this)"
-onkeydown="if(event.key==='Enter')openProduct(this)">
-
-  <div class="photo">
-    <img
-      src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85"
-      alt="Minimal Tote"
-      loading="lazy">
-    <span class="tag">POPULAR</span>
-  </div>
-
-  <div class="info">
-    <div class="category">Tote Bags</div>
-
-    <h2>Minimal Tote</h2>
-
-    <div class="meta">
-      Tan · Standard · Premium Leather
-    </div>
-
-    <div class="price">$229</div>
-
-    <div class="actions">
-
-      <button class="view" type="button"
-      onclick="event.stopPropagation();openProduct(this.closest('.card'))">
-        VIEW PRODUCT
-      </button>
-
-      <a class="wa"
-      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Minimal%20Tote%20-%20%24229."
-      target="_blank"
-      onclick="event.stopPropagation()">
-        ORDER
-      </a>
-
-    </div>
-  </div>
-
-</article>
-
-
-<article class="card" tabindex="0"
-data-category="Mini Bags"
-data-price="189"
-data-name="Mini Evening Bag"
-data-search="mini evening bag mini bags black premium leather new"
-data-image1="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85"
-data-image2="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85"
-onclick="openProduct(this)"
-onkeydown="if(event.key==='Enter')openProduct(this)">
-
-  <div class="photo">
-    <img
-      src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85"
-      alt="Mini Evening Bag"
-      loading="lazy">
-    <span class="tag">NEW</span>
-  </div>
-
-  <div class="info">
-    <div class="category">Mini Bags</div>
-
-    <h2>Mini Evening Bag</h2>
-
-    <div class="meta">
-      Black · Mini · Premium Leather
-    </div>
-
-    <div class="price">$189</div>
-
-    <div class="actions">
-
-      <button class="view" type="button"
-      onclick="event.stopPropagation();openProduct(this.closest('.card'))">
-        VIEW PRODUCT
-      </button>
-
-      <a class="wa"
-      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Mini%20Evening%20Bag%20-%20%24189."
-      target="_blank"
-      onclick="event.stopPropagation()">
-        ORDER
-      </a>
-
-    </div>
-  </div>
-
-</article>
-
-
-<article class="card" tabindex="0"
-data-category="Evening Bags"
-data-price="179"
-data-name="Elegant Evening Clutch"
-data-search="elegant evening clutch evening bags black satin leather featured"
-data-image1="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85"
-data-image2="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85"
-onclick="openProduct(this)"
-onkeydown="if(event.key==='Enter')openProduct(this)">
-
-  <div class="photo">
-    <img
-      src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=85"
-      alt="Elegant Evening Clutch"
-      loading="lazy">
-    <span class="tag">FEATURED</span>
-  </div>
-
-  <div class="info">
-    <div class="category">Evening Bags</div>
-
-    <h2>Elegant Evening Clutch</h2>
-
-    <div class="meta">
-      Black · One Size · Satin / Leather
-    </div>
-
-    <div class="price">$179</div>
-
-    <div class="actions">
-
-      <button class="view" type="button"
-      onclick="event.stopPropagation();openProduct(this.closest('.card'))">
-        VIEW PRODUCT
-      </button>
-
-      <a class="wa"
-      href="https://wa.me/12089034508?text=Hello%20Elite%20Bags%2C%20I%27m%20interested%20in%20the%20Elegant%20Evening%20Clutch%20-%20%24179."
-      target="_blank"
-      onclick="event.stopPropagation()">
-        ORDER
-      </a>
-
-    </div>
-  </div>
-
-</article>
-
-</section>
-
-</section>
-
-
-<script>
-
-const grid = document.getElementById("grid");
-const searchInput = document.getElementById("searchInput");
-const searchButton = document.getElementById("searchButton");
-const clearButton = document.getElementById("clearButton");
-const sortSelect = document.getElementById("sortSelect");
-const resultCount = document.getElementById("resultCount");
-
-let activeFilter = "All";
-
-
-/* =========================
-   OPEN PRODUCT PAGE
-========================= */
-
-function openProduct(card){
-
-  const name =
-    card.dataset.name || "";
-
-  const price =
-    card.dataset.price || "";
-
-  const image1 =
-    card.dataset.image1 || "";
-
-  const image2 =
-    card.dataset.image2 || "";
-
-  const url =
-    "product.html"
-    + "?name="
-    + encodeURIComponent(name)
-    + "&price="
-    + encodeURIComponent("$" + price)
-    + "&image1="
-    + encodeURIComponent(image1)
-    + "&image2="
-    + encodeURIComponent(image2);
-
-  window.location.href = url;
-}
-
-
-/* =========================
-   FILTER PRODUCTS
-========================= */
-
-function filterProducts(){
-
-  const query =
-    searchInput.value
-    .trim()
-    .toLowerCase();
-
-  const cards =
-    Array.from(
-      grid.querySelectorAll(".card")
-    );
-
-  let visible = 0;
-
-  cards.forEach(card => {
-
-    const category =
-      card.dataset.category || "";
-
-    const search =
-      card.dataset.search || "";
-
-    const name =
-      card.dataset.name || "";
-
-    const matchesCategory =
-      activeFilter === "All"
-      ||
-      category === activeFilter;
-
-    const matchesSearch =
-      !query
-      ||
-      search.toLowerCase().includes(query)
-      ||
-      name.toLowerCase().includes(query)
-      ||
-      category.toLowerCase().includes(query);
-
-    if(
-      matchesCategory
-      &&
-      matchesSearch
-    ){
-
-      card.style.display = "";
-
-      visible++;
-
-    }else{
-
-      card.style.display = "none";
-
-    }
-
-  });
-
-
-  resultCount.textContent =
-    "Showing "
-    + visible
-    + " bag"
-    + (visible === 1 ? "" : "s");
-
-
-  const oldMessage =
-    grid.querySelector(".no-results");
-
-  if(oldMessage){
-    oldMessage.remove();
-  }
-
-
-  if(visible === 0){
-
-    const message =
-      document.createElement("div");
-
-    message.className =
-      "no-results";
-
-    message.innerHTML =
-      "<h3>No bags found</h3>"
-      +
-      "<p>Try another search or category.</p>";
-
-    grid.appendChild(message);
-
-  }
-
-}
-
-
-/* =========================
-   SEARCH BUTTON
-========================= */
-
-searchButton.addEventListener(
-  "click",
-  filterProducts
-);
-
-
-/* =========================
-   LIVE SEARCH
-========================= */
-
-searchInput.addEventListener(
-  "input",
-  filterProducts
-);
-
-
-/* =========================
-   ENTER TO SEARCH
-========================= */
-
-searchInput.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Enter"){
-
-      event.preventDefault();
-
-      filterProducts();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   CLEAR SEARCH
-========================= */
-
-clearButton.addEventListener(
-  "click",
-  function(){
-
-    searchInput.value = "";
-
-    activeFilter = "All";
-
-    document
-      .querySelectorAll(".filter")
-      .forEach(button => {
-
-        button.classList.remove("active");
-
-      });
-
-    document
-      .querySelector('.filter[data-filter="All"]')
-      .classList.add("active");
-
-    filterProducts();
-
-  }
-);
-
-
-/* =========================
-   CATEGORY BUTTONS
-========================= */
-
-document
-.querySelectorAll(".filter")
-.forEach(button => {
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      activeFilter =
-        this.dataset.filter;
-
-      document
-        .querySelectorAll(".filter")
-        .forEach(item => {
-
-          item.classList.remove("active");
-
-        });
-
-      this.classList.add("active");
-
-      filterProducts();
-
-    }
-  );
-
-});
-
-
-/* =========================
-   SORT PRODUCTS
-========================= */
-
-sortSelect.addEventListener(
-  "change",
-  function(){
-
-    const cards =
-      Array.from(
-        grid.querySelectorAll(".card")
-      );
-
-    const type =
-      this.value;
-
-    cards.sort(
-      function(a,b){
-
-        if(type === "low"){
-
-          return Number(a.dataset.price)
-          -
-          Number(b.dataset.price);
-
-        }
-
-        if(type === "high"){
-
-          return Number(b.dataset.price)
-          -
-          Number(a.dataset.price);
-
-        }
-
-        if(type === "az"){
-
-          return a.dataset.name
-          .localeCompare(
-            b.dataset.name
-          );
-
-        }
-
-        if(type === "za"){
-
-          return b.dataset.name
-          .localeCompare(
-            a.dataset.name
-          );
-
-        }
-
-        return 0;
-
-      }
-    );
-
-
-    cards.forEach(card => {
-
-      grid.appendChild(card);
-
-    });
-
-    filterProducts();
-
-  }
-);
-
-
-/* =========================
-   INITIAL LOAD
-========================= */
-
-filterProducts();
-
-</script>
-<div class="back" style="text-align:center;margin:10px 0 55px;">
-  <a
-    href="index.html"
-    style="
-      display:inline-block;
-      padding:13px 22px;
-      border:1px solid #111;
-      text-decoration:none;
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:1px;
-    "
-  >
-    ← BACK TO MAIN PAGE
-  </a>
-</div>
+  </section>
 
 </main>
 
 
-<section class="delivery">
+<div class="cart-shade" data-shade></div>
 
-  <h2>
-    Worldwide Delivery
-  </h2>
+<aside class="cart-drawer"
+       data-drawer
+       aria-label="Shopping bag">
 
-  <p>
-    Free worldwide delivery on all orders.
-  </p>
+  <div class="cart-header">
 
-  <p>
-    Orders are carefully processed before shipment.
-  </p>
+    <div>
+      <span class="eyebrow">YOUR SELECTION</span>
+      <h2>Your Bag</h2>
+    </div>
 
-  <p>
-    Estimated delivery: 9–13 days.
-  </p>
+    <button type="button"
+            class="cart-close"
+            data-close-cart>
+      ×
+    </button>
 
-  <p>
-    For orders and assistance, contact us directly on WhatsApp.
-  </p>
+  </div>
 
-</section>
+  <div class="cart-list" data-cart-list></div>
+
+  <div class="cart-footer">
+
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong data-total>$0</strong>
+    </div>
+
+    <button type="button"
+            class="btn btn-primary cart-order"
+            data-cart-order>
+      Order on WhatsApp
+    </button>
+
+    <p class="cart-note">
+      Final order details will be confirmed directly
+      with Elite Bags.
+    </p>
+
+  </div>
+
+</aside>
+<footer class="site-footer">
+
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+
+      <a href="index.html" class="brand footer-logo">
+        <span class="brand-mark">EB</span>
+
+        <span class="brand-text">
+          <strong>ELITE</strong>
+          <small>BAGS</small>
+        </span>
+      </a>
+
+      <p>
+        Premium fashion pieces with a focus on
+        quality, presentation and worldwide delivery.
+      </p>
+
+      <a href="https://www.tiktok.com/@elite.bagss"
+         target="_blank"
+         rel="noopener"
+         class="footer-tiktok"
+         data-tiktok>
+        TikTok @elite.bagss
+      </a>
+
+    </div>
 
 
-<footer class="footer">
+    <div class="footer-column">
 
-  <p>
-    <strong>ELITE BAGS</strong>
-  </p>
+      <h4>Explore</h4>
 
-  <p>
-    Premium Fashion Collection
-  </p>
+      <a href="index.html">Home</a>
+      <a href="bags.html">Bags</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="heels.html">Heels</a>
+      <a href="watches.html">Watches</a>
+      <a href="accessories.html">Accessories</a>
 
-  <p>
-    WhatsApp:
-    <a
-      href="https://wa.me/12089034508"
-      target="_blank"
-    >
-      +1 208-903-4508
-    </a>
-  </p>
+    </div>
 
-  <p>
-    Email:
-    <a
-      href="mailto:luxuriouselitebags@gmail.com"
-    >
-      luxuriouselitebags@gmail.com
-    </a>
-  </p>
 
-  <p>
-    © 2026 Elite Bags. All rights reserved.
-  </p>
+    <div class="footer-column">
+
+      <h4>Contact</h4>
+
+      <a href="mailto:luxuriouselitebags@gmail.com"
+         data-email>
+        luxuriouselitebags@gmail.com
+      </a>
+
+      <a href="https://wa.me/12089034508"
+         target="_blank"
+         rel="noopener"
+         data-phone>
+        +1 208-903-4508
+      </a>
+
+      <span data-address>
+        Guang Zhou Shi, Guang Dong Sheng, China
+      </span>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>Shopping</h4>
+
+      <span>Free Worldwide Delivery</span>
+      <span>9–13 Working Days</span>
+      <span>Secure Packaging</span>
+      <span>Pre-shipment Processing</span>
+
+    </div>
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <p>
+      © <span data-year></span>
+      Elite Bags. All rights reserved.
+    </p>
+
+    <p>
+      Premium Fashion Collection
+    </p>
+
+  </div>
 
 </footer>
 
+
+<a href="https://wa.me/12089034508"
+   target="_blank"
+   rel="noopener"
+   class="floating-whatsapp"
+   data-float-wa
+   aria-label="Chat on WhatsApp">
+  <span>💬</span>
+</a>
+
+
+<script src="products.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
