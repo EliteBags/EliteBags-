@@ -1,2017 +1,907 @@
 /* =========================================================
-   ELITE BAGS — APP.JS
-   Master catalog + search + filters + cart + wishlist
-   WhatsApp ordering + product gallery + mobile menu
+   ELITE BAGS — MAIN JAVASCRIPT
    ========================================================= */
 
 (() => {
   "use strict";
 
-  /* ---------------------------------------------------------
-     GLOBAL SETTINGS
-     --------------------------------------------------------- */
+  const SITE = window.ELITE_BAGS || {};
+  const CONFIG = SITE.config || {};
+  const PRODUCTS = Array.isArray(SITE.products) ? SITE.products : [];
 
-  const CONFIG = window.ELITE_BAGS_CONFIG || {
-    brand: "Elite Bags",
-    whatsapp: "12089034508",
-    email: "luxuriouselitebags@gmail.com",
-    tiktok: "@elite.bagss",
-    tiktokUrl: "https://www.tiktok.com/@elite.bagss",
-    address: "Guang Zhou Shi, Guang Dong Sheng, China",
-    shipping: "Free Worldwide Shipping",
-    delivery: "9–13 Working Days",
-    currency: "USD"
-  };
+  const $ = (selector, parent = document) =>
+    parent.querySelector(selector);
 
-  const STORAGE = {
-    cart: "elitebags_cart",
-    wishlist: "elitebags_wishlist"
-  };
+  const $$ = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
 
-  let allProducts = Array.isArray(window.PRODUCTS)
-    ? [...window.PRODUCTS]
-    : [];
+  const money = value =>
+    `${CONFIG.currency === "USD" ? "$" : ""}${Number(value || 0).toFixed(0)}`;
 
-  let currentProducts = [...allProducts];
-  let currentPage = 1;
-  let productsPerPage = 12;
-
-  /* ---------------------------------------------------------
-     BASIC HELPERS
-     --------------------------------------------------------- */
-
-  function $(selector, parent = document) {
-    return parent.querySelector(selector);
-  }
-
-  function $$(selector, parent = document) {
-    return Array.from(parent.querySelectorAll(selector));
-  }
-
-  function escapeHTML(value) {
-    return String(value ?? "")
+  const escapeHTML = value =>
+    String(value ?? "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
-  }
-
-  function money(value) {
-    const number = Number(value) || 0;
-
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: CONFIG.currency || "USD",
-      maximumFractionDigits: 0
-    }).format(number);
-  }
-
-  function normalize(value) {
-    return String(value ?? "")
-      .toLowerCase()
-      .trim();
-  }
-
-  function getProduct(id) {
-    const productId = String(id ?? "").trim();
-
-    return allProducts.find(
-      product => String(product.id) === productId
-    ) || null;
-  }
-
-  function getImages(product) {
-    if (!product) return [];
-
-    let images = [];
-
-    if (Array.isArray(product.images)) {
-      images = product.images;
-    } else {
-      images = [
-        product.image1,
-        product.image2,
-        product.image3,
-        product.image4,
-        product.image5
-      ];
-    }
-
-    images = images
-      .filter(Boolean)
-      .map(image => String(image).trim())
-      .filter(Boolean);
-
-    return [...new Set(images)].slice(0, 5);
-  }
-
-  function getProductUrl(product) {
-    if (!product) return "product.html";
-
-    return `product.html?id=${encodeURIComponent(product.id)}`;
-  }
-
-  function getWhatsAppUrl(product = null) {
-    let message = `Hello ${CONFIG.brand}, I would like to know more about your products.`;
-
-    if (product) {
-      message =
-        `Hello ${CONFIG.brand}, I would like to order:\n\n` +
-        `Product: ${product.name}\n` +
-        `Product ID: ${product.id}\n` +
-        `Price: ${money(product.price)}\n\n` +
-        `Please let me know the next steps.`;
-    }
-
-    return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
-  }
 
   /* ---------------------------------------------------------
-     CART
+     CONTACT / SITE INFORMATION
      --------------------------------------------------------- */
 
-  function getCart() {
-    try {
-      const saved = JSON.parse(
-        localStorage.getItem(STORAGE.cart) || "[]"
-      );
-
-      return Array.isArray(saved) ? saved : [];
-    } catch {
-      return [];
+  $$("[data-email]").forEach(el => {
+    el.textContent = CONFIG.email || "";
+    if (el.tagName === "A") {
+      el.href = `mailto:${CONFIG.email || ""}`;
     }
-  }
+  });
 
-  function saveCart(cart) {
-    localStorage.setItem(
-      STORAGE.cart,
-      JSON.stringify(cart)
-    );
-
-    updateCartCount();
-  }
-
-  function addToCart(productId) {
-    const product = getProduct(productId);
-
-    if (!product) return;
-
-    const cart = getCart();
-
-    if (!cart.includes(String(product.id))) {
-      cart.push(String(product.id));
-      saveCart(cart);
-
-      showToast("Added to cart");
-    } else {
-      showToast("Already in your cart");
+  $$("[data-phone]").forEach(el => {
+    el.textContent = CONFIG.whatsappDisplay || "";
+    if (el.tagName === "A") {
+      el.href = CONFIG.whatsapp || "#";
     }
-  }
+  });
 
-  function removeFromCart(productId) {
-    const cart = getCart()
-      .filter(id => String(id) !== String(productId));
+  $$("[data-address]").forEach(el => {
+    el.textContent = CONFIG.address || "";
+  });
 
-    saveCart(cart);
-    renderCartDrawer();
-  }
+  $$("[data-tiktok]").forEach(el => {
+    if (el.tagName === "A") {
+      el.href = CONFIG.tiktok || "#";
+    }
+  });
 
-  function updateCartCount() {
-    const count = getCart().length;
+  $$("[data-year]").forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
 
-    $$(
-      "[data-cart-count], .cart-count, #cartCount"
-    ).forEach(element => {
-      element.textContent = count;
-      element.style.display = count > 0 ? "" : "none";
+  $$("[data-float-wa]").forEach(el => {
+    el.href = CONFIG.whatsapp || "#";
+  });
+
+  /* ---------------------------------------------------------
+     MOBILE MENU
+     --------------------------------------------------------- */
+
+  const menuButton = $("[data-menu]");
+  const nav = $("[data-nav]");
+
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+      nav.classList.toggle("is-open");
+      menuButton.classList.toggle("is-active");
     });
-  }
 
-  /* ---------------------------------------------------------
-     WISHLIST
-     --------------------------------------------------------- */
-
-  function getWishlist() {
-    try {
-      const saved = JSON.parse(
-        localStorage.getItem(STORAGE.wishlist) || "[]"
-      );
-
-      return Array.isArray(saved) ? saved : [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveWishlist(list) {
-    localStorage.setItem(
-      STORAGE.wishlist,
-      JSON.stringify(list)
-    );
-  }
-
-  function isWishlisted(productId) {
-    return getWishlist().includes(String(productId));
-  }
-
-  function toggleWishlist(productId) {
-    const id = String(productId);
-    const wishlist = getWishlist();
-
-    const index = wishlist.indexOf(id);
-
-    if (index === -1) {
-      wishlist.push(id);
-      showToast("Added to wishlist");
-    } else {
-      wishlist.splice(index, 1);
-      showToast("Removed from wishlist");
-    }
-
-    saveWishlist(wishlist);
-
-    refreshWishlistButtons();
-  }
-
-  function refreshWishlistButtons() {
-    $$("[data-wishlist]").forEach(button => {
-      const id = String(button.dataset.wishlist);
-      const active = isWishlisted(id);
-
-      button.classList.toggle("active", active);
-      button.setAttribute(
-        "aria-label",
-        active
-          ? "Remove from wishlist"
-          : "Add to wishlist"
-      );
-
-      const icon = $(".wishlist-icon", button);
-
-      if (icon) {
-        icon.textContent = active ? "♥" : "♡";
-      }
-    });
-  }
-
-  /* ---------------------------------------------------------
-     TOAST
-     --------------------------------------------------------- */
-
-  function showToast(message) {
-    let toast = $("#eliteToast");
-
-    if (!toast) {
-      toast = document.createElement("div");
-      toast.id = "eliteToast";
-      toast.className = "elite-toast";
-
-      Object.assign(toast.style, {
-        position: "fixed",
-        left: "50%",
-        bottom: "28px",
-        transform: "translateX(-50%) translateY(20px)",
-        zIndex: "99999",
-        padding: "13px 20px",
-        borderRadius: "999px",
-        background: "#111",
-        color: "#fff",
-        fontSize: "14px",
-        fontWeight: "600",
-        boxShadow: "0 12px 35px rgba(0,0,0,.18)",
-        opacity: "0",
-        transition: "all .3s ease",
-        pointerEvents: "none"
+    $$(".nav-link", nav).forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        menuButton.classList.remove("is-active");
       });
-
-      document.body.appendChild(toast);
-    }
-
-    toast.textContent = message;
-
-    requestAnimationFrame(() => {
-      toast.style.opacity = "1";
-      toast.style.transform =
-        "translateX(-50%) translateY(0)";
     });
-
-    clearTimeout(window.__eliteToastTimer);
-
-    window.__eliteToastTimer = setTimeout(() => {
-      toast.style.opacity = "0";
-      toast.style.transform =
-        "translateX(-50%) translateY(20px)";
-    }, 2200);
   }
 
   /* ---------------------------------------------------------
-     PRODUCT CARD
+     HEADER SCROLL EFFECT
      --------------------------------------------------------- */
 
-  function productCard(product) {
-    const images = getImages(product);
+  const header = $(".site-header");
 
-    const mainImage =
-      images[0] ||
-      "https://via.placeholder.com/800x1000?text=Elite+Bags";
+  const updateHeader = () => {
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 30);
+    }
+  };
 
-    const category = product.category || "";
-    const subcategory = product.subcategory || "";
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
 
-    const badge =
-      product.badge ||
-      product.tag ||
-      "";
+  /* ---------------------------------------------------------
+     PRODUCT HELPERS
+     --------------------------------------------------------- */
 
-    const wishlisted = isWishlisted(product.id);
+  const getProduct = id =>
+    PRODUCTS.find(product => String(product.id) === String(id));
+
+  const productImage = product => {
+    if (!product) return "";
+
+    if (Array.isArray(product.images) && product.images.length) {
+      return product.images[0];
+    }
+
+    if (product.image) return product.image;
+
+    return "";
+  };
+
+  const productCard = product => {
+    const image = productImage(product);
 
     return `
-      <article
-        class="product-card reveal"
-        data-product-id="${escapeHTML(product.id)}"
-        data-category="${escapeHTML(category)}"
-      >
-
-        <div class="product-card-image">
-
-          <a href="${getProductUrl(product)}"
-             class="product-image-link"
-             aria-label="${escapeHTML(product.name)}">
-
-            <img
-              src="${escapeHTML(mainImage)}"
-              alt="${escapeHTML(product.name)}"
-              loading="lazy"
-              class="product-image"
-              data-product-image
-            >
-
-          </a>
-
+      <article class="product-card reveal">
+        <a class="product-image" href="product.html?id=${encodeURIComponent(product.id)}">
           ${
-            badge
-              ? `
-                <span class="product-badge">
-                  ${escapeHTML(badge)}
-                </span>
-              `
-              : ""
+            image
+              ? `<img src="${escapeHTML(image)}"
+                      alt="${escapeHTML(product.name)}"
+                      loading="lazy"
+                      onerror="this.style.display='none';this.parentElement.classList.add('image-missing');">`
+              : `<span class="image-placeholder">EB</span>`
           }
 
-          <button
-            type="button"
-            class="wishlist-btn ${wishlisted ? "active" : ""}"
-            data-wishlist="${escapeHTML(product.id)}"
-            aria-label="${wishlisted ? "Remove" : "Add"} from wishlist"
-          >
-            <span class="wishlist-icon">
-              ${wishlisted ? "♥" : "♡"}
-            </span>
-          </button>
-
           ${
-            images.length > 1
-              ? `
-                <div class="product-image-dots">
-                  ${images
-                    .map(
-                      (image, index) => `
-                        <button
-                          type="button"
-                          class="image-dot ${index === 0 ? "active" : ""}"
-                          data-image="${escapeHTML(image)}"
-                          data-index="${index}"
-                          aria-label="View image ${index + 1}"
-                        ></button>
-                      `
-                    )
-                    .join("")}
-                </div>
-              `
+            product.badge
+              ? `<span class="product-badge">${escapeHTML(product.badge)}</span>`
               : ""
           }
+        </a>
 
-        </div>
-
-        <div class="product-card-content">
-
+        <div class="product-info">
           <div class="product-category">
-            ${escapeHTML(category)}
-            ${
-              subcategory
-                ? ` · ${escapeHTML(subcategory)}`
-                : ""
-            }
+            ${escapeHTML(product.category || "")}
           </div>
 
-          <h3 class="product-title">
-            <a href="${getProductUrl(product)}">
-              ${escapeHTML(product.name)}
+          <h3>
+            <a href="product.html?id=${encodeURIComponent(product.id)}">
+              ${escapeHTML(product.name || "")}
             </a>
           </h3>
 
-          <div class="product-price">
-            ${money(product.price)}
-          </div>
-
-          <div class="product-card-actions">
-
-            <a
-              href="${getProductUrl(product)}"
-              class="product-view-btn"
-            >
-              View Details
-            </a>
+          <div class="product-bottom">
+            <strong>${money(product.price)}</strong>
 
             <button
+              class="add-cart"
               type="button"
-              class="product-cart-btn"
-              data-add-cart="${escapeHTML(product.id)}"
-            >
-              Add to Cart
+              data-add-cart="${escapeHTML(product.id)}">
+              Add to Bag
             </button>
-
           </div>
-
         </div>
-
       </article>
     `;
+  };
+
+  /* ---------------------------------------------------------
+     FEATURED PRODUCTS
+     --------------------------------------------------------- */
+
+  const featuredContainer = $("[data-featured]");
+
+  if (featuredContainer) {
+    let featured = PRODUCTS.filter(product =>
+      ["Featured", "Popular", "Trending", "New"].includes(product.badge)
+    );
+
+    if (!featured.length) {
+      featured = PRODUCTS;
+    }
+
+    featuredContainer.innerHTML = featured
+      .slice(0, 8)
+      .map(productCard)
+      .join("");
   }
 
   /* ---------------------------------------------------------
-     RENDER PRODUCT GRID
+     CATEGORY PAGE
      --------------------------------------------------------- */
 
-  function renderProducts(products = currentProducts) {
-    const containers = [
-      ...$$("[data-products]"),
-      ...$$(".products-grid"),
-      ...$$("#productsGrid"),
-      ...$$("#productGrid")
-    ];
+  const categoryPage = $("[data-category-page]");
+  const productGrid = $("[data-product-grid]");
 
-    const uniqueContainers = [...new Set(containers)];
+  if (categoryPage && productGrid) {
+    const category = categoryPage.dataset.categoryPage
+      .trim()
+      .toLowerCase();
 
-    uniqueContainers.forEach(container => {
-      const emptyMessage =
-        container.dataset.emptyMessage ||
-        "No products found.";
+    const filtered = PRODUCTS.filter(product =>
+      String(product.category || "").toLowerCase() === category
+    );
 
-      if (!products.length) {
-        container.innerHTML = `
-          <div class="empty-products">
-            <div class="empty-products-icon">⌕</div>
-            <h3>No products found</h3>
-            <p>${escapeHTML(emptyMessage)}</p>
-          </div>
-        `;
-
-        return;
-      }
-
-      container.innerHTML =
-        products.map(productCard).join("");
-
-      setupProductImageHover(container);
-      refreshWishlistButtons();
-    });
-
-    updateResultsCount(products.length);
-  }
-
-  function updateResultsCount(count) {
-    $$(
-      "[data-results-count], #resultsCount, .results-count"
-    ).forEach(element => {
-      element.textContent =
-        `${count} ${count === 1 ? "product" : "products"}`;
-    });
+    productGrid.innerHTML = filtered.length
+      ? filtered.map(productCard).join("")
+      : `
+        <div class="empty-products">
+          <h3>No products found</h3>
+          <p>New arrivals will be added soon.</p>
+        </div>
+      `;
   }
 
   /* ---------------------------------------------------------
      SEARCH
      --------------------------------------------------------- */
 
-  function performSearch(query, category = "") {
-    const q = normalize(query);
-    const cat = normalize(category);
+  const homeSearch = $("[data-home-search]");
+  const searchResults = $("[data-search-results]");
 
-    currentProducts = allProducts.filter(product => {
-      const searchable = [
+  const searchProducts = query => {
+    const q = query.trim().toLowerCase();
+
+    if (!q) return [];
+
+    return PRODUCTS.filter(product => {
+      const text = [
         product.id,
         product.name,
         product.category,
         product.subcategory,
-        product.color,
+        product.colors,
         product.material,
-        product.description,
-        product.badge,
-        product.tag
+        product.description
       ]
         .filter(Boolean)
-        .join(" ");
+        .join(" ")
+        .toLowerCase();
 
-      const matchesSearch =
-        !q || normalize(searchable).includes(q);
-
-      const matchesCategory =
-        !cat ||
-        normalize(product.category) === cat ||
-        normalize(product.subcategory) === cat;
-
-      return matchesSearch && matchesCategory;
+      return text.includes(q);
     });
+  };
 
-    currentPage = 1;
+  const renderSearch = query => {
+    if (!searchResults) return;
 
-    applySort();
+    const results = searchProducts(query);
 
-    renderProducts(currentProducts);
-  }
-
-  function setupSearch() {
-    const inputs = [
-      ...$$("[data-search]"),
-      ...$$("#searchInput"),
-      ...$$(".search-input"),
-      ...$$('input[type="search"]')
-    ];
-
-    const uniqueInputs = [...new Set(inputs)];
-
-    uniqueInputs.forEach(input => {
-      input.addEventListener("input", () => {
-        const category =
-          input.dataset.category ||
-          document.body.dataset.category ||
-          "";
-
-        performSearch(input.value, category);
-      });
-
-      input.addEventListener("keydown", event => {
-        if (event.key === "Enter") {
-          event.preventDefault();
-
-          const category =
-            input.dataset.category ||
-            document.body.dataset.category ||
-            "";
-
-          performSearch(input.value, category);
-        }
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     CATEGORY FILTERS
-     --------------------------------------------------------- */
-
-  function setupCategoryFilters() {
-    $$("[data-category-filter]").forEach(button => {
-      button.addEventListener("click", () => {
-        const category = button.dataset.categoryFilter || "";
-
-        $$("[data-category-filter]").forEach(item => {
-          item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-        const searchInput =
-          $("[data-search]") ||
-          $("#searchInput") ||
-          $(".search-input");
-
-        const query = searchInput
-          ? searchInput.value
-          : "";
-
-        performSearch(query, category);
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     SORT
-     --------------------------------------------------------- */
-
-  let activeSort = "";
-
-  function sortProducts(products, sort) {
-    const sorted = [...products];
-
-    switch (sort) {
-      case "price-low":
-      case "price-asc":
-        sorted.sort(
-          (a, b) =>
-            Number(a.price || 0) -
-            Number(b.price || 0)
-        );
-        break;
-
-      case "price-high":
-      case "price-desc":
-        sorted.sort(
-          (a, b) =>
-            Number(b.price || 0) -
-            Number(a.price || 0)
-        );
-        break;
-
-      case "name":
-      case "name-asc":
-        sorted.sort((a, b) =>
-          String(a.name || "").localeCompare(
-            String(b.name || "")
-          )
-        );
-        break;
-
-      case "newest":
-        sorted.sort((a, b) =>
-          String(b.id || "").localeCompare(
-            String(a.id || ""),
-            undefined,
-            { numeric: true }
-          )
-        );
-        break;
-
-      default:
-        break;
-    }
-
-    return sorted;
-  }
-
-  function applySort() {
-    currentProducts =
-      sortProducts(currentProducts, activeSort);
-  }
-
-  function setupSort() {
-    const selects = [
-      ...$$("[data-sort]"),
-      ...$$("#sortSelect"),
-      ...$$(".sort-select")
-    ];
-
-    [...new Set(selects)].forEach(select => {
-      select.addEventListener("change", () => {
-        activeSort = select.value || "";
-
-        applySort();
-        renderProducts(currentProducts);
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     PRODUCT CATEGORY PAGE
-     --------------------------------------------------------- */
-
-  function detectPageCategory() {
-    const bodyCategory =
-      document.body.dataset.category;
-
-    if (bodyCategory) {
-      return bodyCategory;
-    }
-
-    const path =
-      window.location.pathname.toLowerCase();
-
-    if (path.includes("bags")) return "Bags";
-    if (path.includes("shoes")) return "Shoes";
-    if (path.includes("heels")) return "Heels";
-    if (path.includes("watches")) return "Watches";
-    if (path.includes("accessories")) return "Accessories";
-
-    return "";
-  }
-
-  function initializeCategoryPage() {
-    const category = detectPageCategory();
-
-    if (!category) {
-      currentProducts = [...allProducts];
-      renderProducts(currentProducts);
+    if (!query.trim()) {
+      searchResults.innerHTML = "";
+      searchResults.classList.remove("has-results");
       return;
     }
 
-    currentProducts = allProducts.filter(
-      product =>
-        normalize(product.category) ===
-        normalize(category)
+    searchResults.classList.add("has-results");
+
+    searchResults.innerHTML = results.length
+      ? results.slice(0, 8).map(productCard).join("")
+      : `
+        <div class="empty-products">
+          <h3>No products found</h3>
+          <p>Try another product name or category.</p>
+        </div>
+      `;
+  };
+
+  if (homeSearch) {
+    homeSearch.addEventListener("input", event => {
+      renderSearch(event.target.value);
+    });
+
+    homeSearch.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        homeSearch.value = "";
+        renderSearch("");
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------
+     CART
+     --------------------------------------------------------- */
+
+  const CART_KEY = "elite_bags_cart";
+
+  let cart = [];
+
+  try {
+    cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  } catch {
+    cart = [];
+  }
+
+  const saveCart = () => {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  };
+
+  const addToCart = id => {
+    const product = getProduct(id);
+
+    if (!product) return;
+
+    const existing = cart.find(
+      item => String(item.id) === String(id)
     );
 
-    renderProducts(currentProducts);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({
+        id: product.id,
+        qty: 1
+      });
+    }
+
+    saveCart();
+    renderCart();
+    openCart();
+  };
+
+  const removeFromCart = id => {
+    cart = cart.filter(
+      item => String(item.id) !== String(id)
+    );
+
+    saveCart();
+    renderCart();
+  };
+
+  const changeQty = (id, amount) => {
+    const item = cart.find(
+      item => String(item.id) === String(id)
+    );
+
+    if (!item) return;
+
+    item.qty += amount;
+
+    if (item.qty <= 0) {
+      removeFromCart(id);
+      return;
+    }
+
+    saveCart();
+    renderCart();
+  };
+
+  const drawer = $("[data-drawer]");
+  const shade = $("[data-shade]");
+  const cartList = $("[data-cart-list]");
+  const totalElement = $("[data-total]");
+
+  const cartCountElements = $$("[data-cart-count]");
+
+  const renderCart = () => {
+    cartCountElements.forEach(el => {
+      const count = cart.reduce(
+        (sum, item) => sum + item.qty,
+        0
+      );
+
+      el.textContent = count;
+      el.classList.toggle("has-items", count > 0);
+    });
+
+    if (!cartList) return;
+
+    if (!cart.length) {
+      cartList.innerHTML = `
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🛍</div>
+          <h3>Your bag is empty</h3>
+          <p>Add something you love.</p>
+        </div>
+      `;
+
+      if (totalElement) {
+        totalElement.textContent = money(0);
+      }
+
+      return;
+    }
+
+    let total = 0;
+
+    cartList.innerHTML = cart
+      .map(item => {
+        const product = getProduct(item.id);
+
+        if (!product) return "";
+
+        const subtotal =
+          Number(product.price || 0) * item.qty;
+
+        total += subtotal;
+
+        const image = productImage(product);
+
+        return `
+          <div class="cart-item">
+            <div class="cart-item-image">
+              ${
+                image
+                  ? `<img src="${escapeHTML(image)}"
+                           alt="${escapeHTML(product.name)}"
+                           onerror="this.style.display='none';">`
+                  : `<span>EB</span>`
+              }
+            </div>
+
+            <div class="cart-item-info">
+              <h4>${escapeHTML(product.name)}</h4>
+
+              <strong>${money(product.price)}</strong>
+
+              <div class="cart-quantity">
+                <button type="button"
+                  data-cart-minus="${escapeHTML(product.id)}">−</button>
+
+                <span>${item.qty}</span>
+
+                <button type="button"
+                  data-cart-plus="${escapeHTML(product.id)}">+</button>
+              </div>
+            </div>
+
+            <button
+              class="cart-remove"
+              type="button"
+              data-cart-remove="${escapeHTML(product.id)}">
+              ×
+            </button>
+          </div>
+        `;
+      })
+      .join("");
+
+    if (totalElement) {
+      totalElement.textContent = money(total);
+    }
+  };
+
+  const openCart = () => {
+    if (drawer) drawer.classList.add("is-open");
+    if (shade) shade.classList.add("is-open");
+    document.body.classList.add("cart-open");
+  };
+
+  const closeCart = () => {
+    if (drawer) drawer.classList.remove("is-open");
+    if (shade) shade.classList.remove("is-open");
+    document.body.classList.remove("cart-open");
+  };
+
+  $$("[data-open-cart]").forEach(button => {
+    button.addEventListener("click", openCart);
+  });
+
+  $$("[data-close-cart]").forEach(button => {
+    button.addEventListener("click", closeCart);
+  });
+
+  if (shade) {
+    shade.addEventListener("click", closeCart);
+  }
+
+  document.addEventListener("click", event => {
+    const addButton = event.target.closest("[data-add-cart]");
+
+    if (addButton) {
+      addToCart(addButton.dataset.addCart);
+      return;
+    }
+
+    const removeButton =
+      event.target.closest("[data-cart-remove]");
+
+    if (removeButton) {
+      removeFromCart(removeButton.dataset.cartRemove);
+      return;
+    }
+
+    const plusButton =
+      event.target.closest("[data-cart-plus]");
+
+    if (plusButton) {
+      changeQty(plusButton.dataset.cartPlus, 1);
+      return;
+    }
+
+    const minusButton =
+      event.target.closest("[data-cart-minus]");
+
+    if (minusButton) {
+      changeQty(minusButton.dataset.cartMinus, -1);
+    }
+  });
+
+  renderCart();
+
+})();
+/* =========================================================
+   ELITE BAGS — CART ORDER + PRODUCT PAGE + ANIMATIONS
+   ========================================================= */
+
+(() => {
+  "use strict";
+
+  const SITE = window.ELITE_BAGS || {};
+  const CONFIG = SITE.config || {};
+  const PRODUCTS = Array.isArray(SITE.products) ? SITE.products : [];
+
+  const $ = (selector, parent = document) =>
+    parent.querySelector(selector);
+
+  const escapeHTML = value =>
+    String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  const money = value =>
+    `${CONFIG.currency === "USD" ? "$" : ""}${Number(value || 0).toFixed(0)}`;
+
+  const getProduct = id =>
+    PRODUCTS.find(product => String(product.id) === String(id));
+
+  /* ---------------------------------------------------------
+     CART WHATSAPP ORDER
+     --------------------------------------------------------- */
+
+  const orderButton = $("[data-cart-order]");
+
+  if (orderButton) {
+    orderButton.addEventListener("click", () => {
+      let cart = [];
+
+      try {
+        cart =
+          JSON.parse(localStorage.getItem("elite_bags_cart")) || [];
+      } catch {
+        cart = [];
+      }
+
+      if (!cart.length) {
+        alert("Your shopping bag is empty.");
+        return;
+      }
+
+      let message =
+        "Hello Elite Bags! I would like to order:%0A%0A";
+
+      let total = 0;
+
+      cart.forEach(item => {
+        const product = getProduct(item.id);
+
+        if (!product) return;
+
+        const subtotal =
+          Number(product.price || 0) * item.qty;
+
+        total += subtotal;
+
+        message +=
+          `${encodeURIComponent(product.name)} x${item.qty} — ${encodeURIComponent(money(subtotal))}%0A`;
+      });
+
+      message +=
+        `%0ATotal: ${encodeURIComponent(money(total))}`;
+
+      message +=
+        `%0A%0APlease send me the order details and payment information.`;
+
+      const whatsapp =
+        CONFIG.whatsapp ||
+        "https://wa.me/12089034508";
+
+      window.open(
+        `${whatsapp}?text=${message}`,
+        "_blank",
+        "noopener"
+      );
+    });
   }
 
   /* ---------------------------------------------------------
      PRODUCT DETAIL PAGE
      --------------------------------------------------------- */
 
-  function getProductIdFromUrl() {
-    const params =
-      new URLSearchParams(window.location.search);
+  const productPage = $("[data-product-page]");
 
-    return params.get("id");
-  }
+  if (productPage) {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
 
-  function renderProductDetail() {
-    const productId = getProductIdFromUrl();
-
-    if (!productId) return;
-
-    const product = getProduct(productId);
+    const product = getProduct(id);
 
     if (!product) {
-      renderProductNotFound();
-      return;
-    }
-
-    const images = getImages(product);
-
-    const image =
-      images[0] ||
-      "https://via.placeholder.com/800x1000?text=Elite+Bags";
-
-    const setText = (selectors, value) => {
-      selectors.forEach(selector => {
-        $$(selector).forEach(element => {
-          element.textContent = value || "";
-        });
-      });
-    };
-
-    setText(
-      ["[data-product-name]", "#productName", ".product-name"],
-      product.name
-    );
-
-    setText(
-      ["[data-product-price]", "#productPrice", ".product-price"],
-      money(product.price)
-    );
-
-    setText(
-      ["[data-product-id]", "#productId"],
-      product.id
-    );
-
-    setText(
-      ["[data-product-category]", "#productCategory"],
-      product.category
-    );
-
-    setText(
-      ["[data-product-subcategory]", "#productSubcategory"],
-      product.subcategory
-    );
-
-    setText(
-      ["[data-product-color]", "#productColor"],
-      product.color
-    );
-
-    setText(
-      ["[data-product-material]", "#productMaterial"],
-      product.material
-    );
-
-    setText(
-      ["[data-product-dimensions]", "#productDimensions"],
-      product.dimensions
-    );
-
-    setText(
-      ["[data-product-shipping]", "#productShipping"],
-      product.shipping || CONFIG.shipping
-    );
-
-    setText(
-      ["[data-product-delivery]", "#productDelivery"],
-      product.delivery || CONFIG.delivery
-    );
-
-    setText(
-      ["[data-product-description]", "#productDescription"],
-      product.description
-    );
-
-    $$("[data-product-image]").forEach(element => {
-      element.src = image;
-      element.alt = product.name;
-    });
-
-    const mainImage =
-      $("[data-main-product-image]") ||
-      $("#mainProductImage") ||
-      $(".main-product-image");
-
-    if (mainImage) {
-      mainImage.src = image;
-      mainImage.alt = product.name;
-    }
-
-    const title =
-      document.querySelector("title");
-
-    if (title) {
-      title.textContent =
-        `${product.name} | ${CONFIG.brand}`;
-    }
-
-    const metaDescription =
-      document.querySelector(
-        'meta[name="description"]'
-      );
-
-    if (metaDescription && product.description) {
-      metaDescription.setAttribute(
-        "content",
-        product.description
-      );
-    }
-
-    setupProductGallery(product);
-   $$("[data-product-whatsapp]").forEach(button => {
-      button.setAttribute(
-        "href",
-        getWhatsAppUrl(product)
-      );
-      button.target = "_blank";
-      button.rel = "noopener";
-    });
-
-    $$("[data-order-product]").forEach(button => {
-      button.addEventListener("click", () => {
-        window.open(
-          getWhatsAppUrl(product),
-          "_blank",
-          "noopener"
-        );
-      });
-    });
-
-    $$("[data-detail-add-cart]").forEach(button => {
-      button.addEventListener("click", () => {
-        addToCart(product.id);
-      });
-    });
-
-    $$("[data-detail-wishlist]").forEach(button => {
-      button.dataset.wishlist = product.id;
-
-      button.addEventListener("click", () => {
-        toggleWishlist(product.id);
-      });
-    });
-  }
-
-  function renderProductNotFound() {
-    const containers = [
-      ...$$("[data-product-detail]"),
-      ...$$("#productDetail"),
-      ...$$(".product-detail")
-    ];
-
-    containers.forEach(container => {
-      container.innerHTML = `
+      productPage.innerHTML = `
         <div class="empty-products">
-          <h2>Product Not Found</h2>
-          <p>This product is no longer available.</p>
-          <a href="index.html" class="btn">
+          <h2>Product not found</h2>
+          <p>The product you are looking for is unavailable.</p>
+          <a class="btn btn-primary" href="index.html">
             Back to Home
           </a>
         </div>
       `;
-    });
-  }
+    } else {
+      const images =
+        Array.isArray(product.images) && product.images.length
+          ? product.images
+          : product.image
+          ? [product.image]
+          : [];
 
-  /* ---------------------------------------------------------
-     PRODUCT GALLERY
-     --------------------------------------------------------- */
+      const firstImage = images[0] || "";
 
-  function setupProductGallery(product) {
-    const images = getImages(product);
+      productPage.innerHTML = `
+        <div class="product-detail">
 
-    if (!images.length) return;
+          <div class="product-gallery">
 
-    let index = 0;
+            <div class="product-main-image">
+              ${
+                firstImage
+                  ? `<img
+                      id="mainProductImage"
+                      src="${escapeHTML(firstImage)}"
+                      alt="${escapeHTML(product.name)}"
+                    >`
+                  : `<div class="image-placeholder large">EB</div>`
+              }
+            </div>
 
-    const main =
-      $("[data-main-product-image]") ||
-      $("#mainProductImage") ||
-      $(".main-product-image") ||
-      $("[data-product-image]");
+            ${
+              images.length > 1
+                ? `
+                  <div class="product-thumbs">
+                    ${images
+                      .map(
+                        (image, index) => `
+                          <button
+                            type="button"
+                            class="product-thumb ${
+                              index === 0 ? "active" : ""
+                            }"
+                            data-product-image="${escapeHTML(image)}">
+                            <img
+                              src="${escapeHTML(image)}"
+                              alt="${escapeHTML(product.name)} ${index + 1}"
+                            >
+                          </button>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                `
+                : ""
+            }
 
-    const thumbs =
-      $$("[data-gallery-thumb]");
-
-    const prev =
-      $("[data-gallery-prev]") ||
-      $(".gallery-prev");
-
-    const next =
-      $("[data-gallery-next]") ||
-      $(".gallery-next");
-
-    function showImage(newIndex) {
-      if (!images.length) return;
-
-      index =
-        (newIndex + images.length) %
-        images.length;
-
-      if (main) {
-        main.src = images[index];
-        main.alt = product.name;
-      }
-
-      thumbs.forEach((thumb, thumbIndex) => {
-        thumb.classList.toggle(
-          "active",
-          thumbIndex === index
-        );
-      });
-
-      const counter =
-        $("[data-gallery-counter]");
-
-      if (counter) {
-        counter.textContent =
-          `${index + 1} / ${images.length}`;
-      }
-    }
-
-    thumbs.forEach((thumb, thumbIndex) => {
-      thumb.addEventListener("click", () => {
-        showImage(thumbIndex);
-      });
-    });
-
-    if (prev) {
-      prev.addEventListener("click", () => {
-        showImage(index - 1);
-      });
-    }
-
-    if (next) {
-      next.addEventListener("click", () => {
-        showImage(index + 1);
-      });
-    }
-
-    const gallery =
-      $("[data-product-gallery]") ||
-      $(".product-gallery");
-
-    if (gallery) {
-      gallery.addEventListener(
-        "keydown",
-        event => {
-          if (event.key === "ArrowLeft") {
-            showImage(index - 1);
-          }
-
-          if (event.key === "ArrowRight") {
-            showImage(index + 1);
-          }
-        }
-      );
-
-      gallery.tabIndex = 0;
-    }
-
-    showImage(0);
-  }
-
-  function setupProductImageHover(parent = document) {
-    $$(".product-card", parent).forEach(card => {
-      const image =
-        $("[data-product-image]", card);
-
-      const dots =
-        $$(".image-dot", card);
-
-      if (!image || !dots.length) return;
-
-      dots.forEach(dot => {
-        dot.addEventListener("click", event => {
-          event.preventDefault();
-          event.stopPropagation();
-
-          const src = dot.dataset.image;
-
-          if (!src) return;
-
-          image.src = src;
-
-          dots.forEach(item => {
-            item.classList.remove("active");
-          });
-
-          dot.classList.add("active");
-        });
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     EVENT DELEGATION
-     --------------------------------------------------------- */
-
-  function setupGlobalEvents() {
-    document.addEventListener("click", event => {
-
-      const wishlistButton =
-        event.target.closest("[data-wishlist]");
-
-      if (wishlistButton) {
-        event.preventDefault();
-
-        toggleWishlist(
-          wishlistButton.dataset.wishlist
-        );
-
-        return;
-      }
-
-      const cartButton =
-        event.target.closest("[data-add-cart]");
-
-      if (cartButton) {
-        event.preventDefault();
-
-        addToCart(
-          cartButton.dataset.addCart
-        );
-
-        return;
-      }
-
-      const openCart =
-        event.target.closest(
-          "[data-open-cart], #openCart, .open-cart"
-        );
-
-      if (openCart) {
-        event.preventDefault();
-        openCartDrawer();
-        return;
-      }
-
-      const closeCart =
-        event.target.closest(
-          "[data-close-cart], #closeCart"
-        );
-
-      if (closeCart) {
-        event.preventDefault();
-        closeCartDrawer();
-        return;
-      }
-
-      const cartRemove =
-        event.target.closest(
-          "[data-cart-remove]"
-        );
-
-      if (cartRemove) {
-        event.preventDefault();
-
-        removeFromCart(
-          cartRemove.dataset.cartRemove
-        );
-
-        return;
-      }
-    });
-  }
-  /* ---------------------------------------------------------
-     CART DRAWER
-     --------------------------------------------------------- */
-
-  function createCartDrawer() {
-    if ($("#eliteCartDrawer")) return;
-
-    const drawer =
-      document.createElement("aside");
-
-    drawer.id = "eliteCartDrawer";
-    drawer.className = "elite-cart-drawer";
-
-    drawer.innerHTML = `
-      <div class="elite-cart-overlay"
-           data-close-cart></div>
-
-      <div class="elite-cart-panel">
-
-        <div class="elite-cart-header">
-          <div>
-            <span class="elite-cart-small">
-              YOUR SELECTION
-            </span>
-            <h2>Your Cart</h2>
           </div>
 
-          <button
-            type="button"
-            class="elite-cart-close"
-            data-close-cart
-            aria-label="Close cart"
-          >
-            ×
-          </button>
-        </div>
+          <div class="product-details">
 
-        <div
-          class="elite-cart-items"
-          id="eliteCartItems"
-        ></div>
+            ${
+              product.badge
+                ? `<span class="product-detail-badge">
+                    ${escapeHTML(product.badge)}
+                   </span>`
+                : ""
+            }
 
-        <div class="elite-cart-footer">
+            <div class="product-detail-category">
+              ${escapeHTML(product.category || "")}
+            </div>
 
-          <div class="elite-cart-total">
-            <span>Items</span>
-            <strong id="eliteCartTotal">
-              0
-            </strong>
-          </div>
+            <h1>${escapeHTML(product.name)}</h1>
 
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener"
-            class="elite-cart-whatsapp"
-            id="eliteCartWhatsApp"
-          >
-            Order via WhatsApp
-          </a>
+            <div class="product-detail-price">
+              ${money(product.price)}
+            </div>
 
-        </div>
+            ${
+              product.description
+                ? `<p class="product-description">
+                    ${escapeHTML(product.description)}
+                   </p>`
+                : ""
+            }
 
-      </div>
-    `;
+            <div class="product-specs">
 
-    Object.assign(drawer.style, {
-      position: "fixed",
-      inset: "0",
-      zIndex: "99990",
-      pointerEvents: "none"
-    });
+              ${
+                product.color
+                  ? `<div>
+                      <span>Color</span>
+                      <strong>${escapeHTML(product.color)}</strong>
+                    </div>`
+                  : ""
+              }
 
-    document.body.appendChild(drawer);
-  }
+              ${
+                product.colors
+                  ? `<div>
+                      <span>Colors</span>
+                      <strong>${escapeHTML(product.colors)}</strong>
+                    </div>`
+                  : ""
+              }
 
-  function renderCartDrawer() {
-    createCartDrawer();
+              ${
+                product.sizes
+                  ? `<div>
+                      <span>Size</span>
+                      <strong>${escapeHTML(product.sizes)}</strong>
+                    </div>`
+                  : ""
+              }
 
-    const container =
-      $("#eliteCartItems");
+              ${
+                product.material
+                  ? `<div>
+                      <span>Material</span>
+                      <strong>${escapeHTML(product.material)}</strong>
+                    </div>`
+                  : ""
+              }
 
-    const total =
-      $("#eliteCartTotal");
+              ${
+                product.dimensions
+                  ? `<div>
+                      <span>Dimensions</span>
+                      <strong>${escapeHTML(product.dimensions)}</strong>
+                    </div>`
+                  : ""
+              }
 
-    const whatsapp =
-      $("#eliteCartWhatsApp");
+              ${
+                product.quality
+                  ? `<div>
+                      <span>Quality</span>
+                      <strong>${escapeHTML(product.quality)}</strong>
+                    </div>`
+                  : ""
+              }
 
-    if (!container) return;
+              <div>
+                <span>Shipping</span>
+                <strong>Free Worldwide Delivery</strong>
+              </div>
 
-    const cart = getCart();
+              <div>
+                <span>Delivery</span>
+                <strong>${escapeHTML(
+                  product.delivery ||
+                    CONFIG.delivery ||
+                    "9–13 Working Days"
+                )}</strong>
+              </div>
 
-    const products = cart
-      .map(id => getProduct(id))
-      .filter(Boolean);
+            </div>
 
-    if (!products.length) {
-      container.innerHTML = `
-        <div class="elite-cart-empty">
-          <div class="elite-cart-empty-icon">
-            ♡
-          </div>
-
-          <h3>Your cart is empty</h3>
-
-          <p>
-            Add your favorite pieces to your cart.
-          </p>
-
-          <button
-            type="button"
-            data-close-cart
-          >
-            Continue Shopping
-          </button>
-        </div>
-      `;
-
-      if (total) total.textContent = "0";
-
-      if (whatsapp) {
-        whatsapp.style.display = "none";
-      }
-
-      return;
-    }
-
-    container.innerHTML = products
-      .map(product => {
-        const image =
-          getImages(product)[0] ||
-          "https://via.placeholder.com/120";
-
-        return `
-          <div class="elite-cart-item">
-
-            <img
-              src="${escapeHTML(image)}"
-              alt="${escapeHTML(product.name)}"
-            >
-
-            <div class="elite-cart-item-info">
-
-              <strong>
-                ${escapeHTML(product.name)}
-              </strong>
-
-              <span>
-                ${money(product.price)}
-              </span>
+            <div class="product-actions">
 
               <button
                 type="button"
-                data-cart-remove="${escapeHTML(product.id)}"
-              >
-                Remove
+                class="btn btn-primary"
+                data-product-add="${escapeHTML(product.id)}">
+                Add to Bag
               </button>
+
+              <a
+                class="btn btn-outline"
+                href="${
+                  CONFIG.whatsapp ||
+                  "https://wa.me/12089034508"
+                }?text=${encodeURIComponent(
+                  `Hello Elite Bags! I am interested in ${product.name} (${money(product.price)}). Please send me more details.`
+                )}"
+                target="_blank"
+                rel="noopener">
+                Order on WhatsApp
+              </a>
 
             </div>
 
           </div>
-        `;
-      })
-      .join("");
 
-    if (total) {
-      total.textContent = String(products.length);
+        </div>
+      `;
+
+      const mainImage = $("#mainProductImage");
+
+      document.addEventListener("click", event => {
+        const thumb =
+          event.target.closest("[data-product-image]");
+
+        if (thumb && mainImage) {
+          mainImage.src = thumb.dataset.productImage;
+
+          document
+            .querySelectorAll(".product-thumb")
+            .forEach(item => item.classList.remove("active"));
+
+          thumb.classList.add("active");
+        }
+
+        const add =
+          event.target.closest("[data-product-add]");
+
+        if (add) {
+          let cart = [];
+
+          try {
+            cart =
+              JSON.parse(
+                localStorage.getItem("elite_bags_cart")
+              ) || [];
+          } catch {
+            cart = [];
+          }
+
+          const existing = cart.find(
+            item =>
+              String(item.id) === String(add.dataset.productAdd)
+          );
+
+          if (existing) {
+            existing.qty += 1;
+          } else {
+            cart.push({
+              id: add.dataset.productAdd,
+              qty: 1
+            });
+          }
+
+          localStorage.setItem(
+            "elite_bags_cart",
+            JSON.stringify(cart)
+          );
+
+          add.textContent = "Added ✓";
+
+          setTimeout(() => {
+            add.textContent = "Add to Bag";
+          }, 1400);
+        }
+      });
     }
-
-    if (whatsapp) {
-      const message =
-        `Hello ${CONFIG.brand}, I would like to order these items:\n\n` +
-        products
-          .map(
-            product =>
-              `• ${product.name} — ${money(product.price)} (ID: ${product.id})`
-          )
-          .join("\n") +
-        `\n\nPlease confirm availability and ordering details.`;
-
-      whatsapp.href =
-        `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
-
-      whatsapp.style.display = "";
-    }
-  }
-
-  function openCartDrawer() {
-    createCartDrawer();
-    renderCartDrawer();
-
-    const drawer =
-      $("#eliteCartDrawer");
-
-    if (!drawer) return;
-
-    drawer.style.pointerEvents = "auto";
-
-    requestAnimationFrame(() => {
-      drawer.classList.add("open");
-    });
-
-    document.body.classList.add("cart-open");
-  }
-
-  function closeCartDrawer() {
-    const drawer =
-      $("#eliteCartDrawer");
-
-    if (!drawer) return;
-
-    drawer.classList.remove("open");
-
-    setTimeout(() => {
-      drawer.style.pointerEvents = "none";
-    }, 350);
-
-    document.body.classList.remove("cart-open");
   }
 
   /* ---------------------------------------------------------
-     MOBILE MENU
+     SCROLL REVEAL
      --------------------------------------------------------- */
 
-  function setupMobileMenu() {
-    const buttons = [
-      ...$$("[data-menu-toggle]"),
-      ...$$("#menuToggle"),
-      ...$$(".menu-toggle"),
-      ...$$(".mobile-menu-toggle")
-    ];
+  const revealItems =
+    document.querySelectorAll(".reveal");
 
-    const menus = [
-      ...$$("[data-mobile-menu]"),
-      ...$$("#mobileMenu"),
-      ...$$(".mobile-menu")
-    ];
-
-    if (!buttons.length || !menus.length) return;
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        menus.forEach(menu => {
-          menu.classList.toggle("open");
-        });
-
-        button.classList.toggle("active");
-      });
-    });
-
-    menus.forEach(menu => {
-      $$("a", menu).forEach(link => {
-        link.addEventListener("click", () => {
-          menus.forEach(item => {
-            item.classList.remove("open");
-          });
-
-          buttons.forEach(button => {
-            button.classList.remove("active");
-          });
-        });
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     HEADER / SCROLL
-     --------------------------------------------------------- */
-
-  function setupHeaderScroll() {
-    const header =
-      $("[data-header]") ||
-      $("header");
-
-    if (!header) return;
-
-    const check = () => {
-      header.classList.toggle(
-        "scrolled",
-        window.scrollY > 25
-      );
-    };
-
-    check();
-
-    window.addEventListener(
-      "scroll",
-      check,
-      { passive: true }
-    );
-  }
-
-  /* ---------------------------------------------------------
-     REVEAL ANIMATION
-     --------------------------------------------------------- */
-
-  function setupRevealAnimations() {
-    const elements = [
-      ...$$(".reveal"),
-      ...$$("[data-reveal]")
-    ];
-
-    if (!elements.length) return;
-
-    if (
-      !("IntersectionObserver" in window)
-    ) {
-      elements.forEach(element => {
-        element.classList.add("visible");
-      });
-
-      return;
-    }
-
+  if ("IntersectionObserver" in window) {
     const observer =
       new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.classList.add(
-                "visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
             }
           });
         },
         {
-          threshold: 0.08,
-          rootMargin: "0px 0px -40px 0px"
+          threshold: 0.08
         }
       );
 
-    elements.forEach(element => {
-      observer.observe(element);
-    });
-  }
-
-  /* ---------------------------------------------------------
-     SMOOTH SCROLL
-     --------------------------------------------------------- */
-
-  function setupSmoothScroll() {
-    $$('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", event => {
-        const href =
-          link.getAttribute("href");
-
-        if (
-          !href ||
-          href === "#" ||
-          href.length < 2
-        ) {
-          return;
-        }
-
-        const target =
-          document.querySelector(href);
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      });
-    });
-  }
-
-  /* ---------------------------------------------------------
-     WHATSAPP LINKS
-     --------------------------------------------------------- */
-
-  function setupWhatsAppLinks() {
-    $$("[data-whatsapp]").forEach(link => {
-      link.href =
-        `https://wa.me/${CONFIG.whatsapp}`;
-
-      link.target = "_blank";
-      link.rel = "noopener";
-    });
-
-    $$("[data-whatsapp-general]").forEach(link => {
-      link.href =
-        `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(
-          `Hello ${CONFIG.brand}, I would like to know more about your collection.`
-        )}`;
-
-      link.target = "_blank";
-      link.rel = "noopener";
-    });
-  }
-
-  /* ---------------------------------------------------------
-     TIKTOK LINKS
-     --------------------------------------------------------- */
-
-  function setupTikTokLinks() {
-    $$("[data-tiktok]").forEach(link => {
-      link.href = CONFIG.tiktokUrl;
-      link.target = "_blank";
-      link.rel = "noopener";
-    });
-  }
-
-  /* ---------------------------------------------------------
-     CONTACT INFORMATION
-     --------------------------------------------------------- */
-
-  function setupContactInformation() {
-    $$("[data-contact-email]").forEach(element => {
-      element.textContent = CONFIG.email;
-
-      if (element.tagName === "A") {
-        element.href =
-          `mailto:${CONFIG.email}`;
-      }
-    });
-
-    $$("[data-contact-address]").forEach(element => {
-      element.textContent = CONFIG.address;
-    });
-
-    $$("[data-contact-whatsapp]").forEach(element => {
-      element.textContent =
-        `+${CONFIG.whatsapp}`;
-
-      if (element.tagName === "A") {
-        element.href =
-          `https://wa.me/${CONFIG.whatsapp}`;
-      }
-    });
-
-    $$("[data-shipping-text]").forEach(element => {
-      element.textContent =
-        CONFIG.shipping;
-    });
-
-    $$("[data-delivery-text]").forEach(element => {
-      element.textContent =
-        CONFIG.delivery;
-    });
-  }
-
-  /* ---------------------------------------------------------
-     GLOBAL PRODUCT COUNT
-     --------------------------------------------------------- */
-
-  function updateCatalogCount() {
-    $$("[data-product-count]").forEach(element => {
-      element.textContent =
-        allProducts.length;
-    });
-  }
-
-  /* ---------------------------------------------------------
-     HOME PAGE FEATURED PRODUCTS
-     --------------------------------------------------------- */
-
-  function setupFeaturedProducts() {
-    const containers =
-      $$("[data-featured-products]");
-
-    containers.forEach(container => {
-      let limit =
-        Number(container.dataset.limit) || 8;
-
-      let products = [...allProducts];
-
-      if (
-        container.dataset.category
-      ) {
-        products =
-          products.filter(
-            product =>
-              normalize(product.category) ===
-              normalize(
-                container.dataset.category
-              )
-          );
-      }
-
-      products =
-        products.slice(0, limit);
-
-      container.innerHTML =
-        products.map(productCard).join("");
-
-      setupProductImageHover(container);
-    });
-  }
-
-  /* ---------------------------------------------------------
-     RANDOM / NEW PRODUCTS
-     --------------------------------------------------------- */
-
-  function setupNewProducts() {
-    $$("[data-new-products]").forEach(container => {
-      const limit =
-        Number(container.dataset.limit) || 8;
-
-      const products =
-        [...allProducts]
-          .sort((a, b) =>
-            String(b.id).localeCompare(
-              String(a.id),
-              undefined,
-              { numeric: true }
-            )
-          )
-          .slice(0, limit);
-
-      container.innerHTML =
-        products.map(productCard).join("");
-
-      setupProductImageHover(container);
-    });
-  }
-
-  /* ---------------------------------------------------------
-     PAGINATION
-     --------------------------------------------------------- */
-
-  function renderPagination() {
-    const containers =
-      $$("[data-pagination]");
-
-    containers.forEach(container => {
-      const totalPages =
-        Math.ceil(
-          currentProducts.length /
-          productsPerPage
-        );
-
-      if (totalPages <= 1) {
-        container.innerHTML = "";
-        return;
-      }
-
-      let html = "";
-
-      if (currentPage > 1) {
-        html += `
-          <button
-            type="button"
-            data-page="${currentPage - 1}"
-          >
-            Previous
-          </button>
-        `;
-      }
-
-      for (
-        let page = 1;
-        page <= totalPages;
-        page++
-      ) {
-        html += `
-          <button
-            type="button"
-            data-page="${page}"
-            class="${page === currentPage ? "active" : ""}"
-          >
-            ${page}
-          </button>
-        `;
-      }
-
-      if (currentPage < totalPages) {
-        html += `
-          <button
-            type="button"
-            data-page="${currentPage + 1}"
-          >
-            Next
-          </button>
-        `;
-      }
-
-      container.innerHTML = html;
-
-      $$("[data-page]", container).forEach(button => {
-        button.addEventListener("click", () => {
-          currentPage =
-            Number(button.dataset.page);
-
-          renderPaginatedProducts();
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-        });
-      });
-    });
-  }
-
-  function renderPaginatedProducts() {
-    const start =
-      (currentPage - 1) *
-      productsPerPage;
-
-    const end =
-      start + productsPerPage;
-
-    const pageProducts =
-      currentProducts.slice(start, end);
-
-    renderProducts(pageProducts);
-    renderPagination();
-                }
-/* ---------------------------------------------------------
-     URL CATEGORY SEARCH
-     --------------------------------------------------------- */
-
-  function setupUrlSearch() {
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-    const query =
-      params.get("search") ||
-      params.get("q") ||
-      "";
-
-    if (!query) return;
-
-    const input =
-      $("[data-search]") ||
-      $("#searchInput") ||
-      $(".search-input");
-
-    if (input) {
-      input.value = query;
-    }
-
-    performSearch(
-      query,
-      detectPageCategory()
-    );
-  }
-
-  /* ---------------------------------------------------------
-     KEYBOARD SHORTCUT
-     --------------------------------------------------------- */
-
-  function setupSearchShortcut() {
-    document.addEventListener(
-      "keydown",
-      event => {
-        if (
-          (event.ctrlKey ||
-            event.metaKey) &&
-          event.key.toLowerCase() === "k"
-        ) {
-          event.preventDefault();
-
-          const input =
-            $("[data-search]") ||
-            $("#searchInput") ||
-            $(".search-input");
-
-          if (input) {
-            input.focus();
-            input.select();
-          }
-        }
-      }
-    );
-  }
-
-  /* ---------------------------------------------------------
-     IMAGE ERROR FALLBACK
-     --------------------------------------------------------- */
-
-  function setupImageFallback() {
-    document.addEventListener(
-      "error",
-      event => {
-        const image = event.target;
-
-        if (
-          image &&
-          image.tagName === "IMG" &&
-          !image.dataset.fallbackUsed
-        ) {
-          image.dataset.fallbackUsed = "1";
-
-          image.src =
-            "https://via.placeholder.com/800x1000?text=Elite+Bags";
-        }
-      },
-      true
-    );
-  }
-
-  /* ---------------------------------------------------------
-     PAGE LOADER
-     --------------------------------------------------------- */
-
-  function hideLoader() {
-    const loaders = [
-      ...$$("[data-loader]"),
-      ...$("#pageLoader")
-        ? [$("#pageLoader")]
-        : [],
-      ...$(".page-loader")
-        ? [$(".page-loader")]
-        : []
-    ];
-
-    [...new Set(loaders)].forEach(loader => {
-      loader.classList.add("hidden");
-
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 500);
-    });
-
-    document.body.classList.add(
-      "page-loaded"
-    );
-  }
-
-  /* ---------------------------------------------------------
-     BACK TO TOP
-     --------------------------------------------------------- */
-
-  function setupBackToTop() {
-    const buttons = [
-      ...$$("[data-back-top]"),
-      ...$("#backToTop")
-        ? [$("#backToTop")]
-        : [],
-      ...$(".back-to-top")
-        ? [$(".back-to-top")]
-        : []
-    ];
-
-    const unique =
-      [...new Set(buttons)];
-
-    if (!unique.length) return;
-
-    const check = () => {
-      unique.forEach(button => {
-        button.classList.toggle(
-          "show",
-          window.scrollY > 500
-        );
-      });
-    };
-
-    window.addEventListener(
-      "scroll",
-      check,
-      { passive: true }
-    );
-
-    check();
-
-    unique.forEach(button => {
-      button.addEventListener(
-        "click",
-        () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-        }
-      );
-    });
-  }
-
-  /* ---------------------------------------------------------
-     FOOTER YEAR
-     --------------------------------------------------------- */
-
-  function setupYear() {
-    $$("[data-year]").forEach(element => {
-      element.textContent =
-        new Date().getFullYear();
-    });
-
-    $$("#currentYear").forEach(element => {
-      element.textContent =
-        new Date().getFullYear();
-    });
-  }
-
-  /* ---------------------------------------------------------
-     INITIALIZE
-     --------------------------------------------------------- */
-
-  function init() {
-    if (!Array.isArray(window.PRODUCTS)) {
-      console.warn(
-        "Elite Bags: PRODUCTS array was not found. Make sure products.js loads before app.js."
-      );
-    }
-
-    allProducts =
-      Array.isArray(window.PRODUCTS)
-        ? [...window.PRODUCTS]
-        : [];
-
-    currentProducts =
-      [...allProducts];
-
-    setupGlobalEvents();
-
-    setupSearch();
-    setupCategoryFilters();
-    setupSort();
-
-    setupMobileMenu();
-    setupHeaderScroll();
-
-    setupSmoothScroll();
-    setupWhatsAppLinks();
-    setupTikTokLinks();
-    setupContactInformation();
-
-    setupFeaturedProducts();
-    setupNewProducts();
-
-    setupSearchShortcut();
-    setupImageFallback();
-    setupBackToTop();
-    setupYear();
-
-    updateCatalogCount();
-    updateCartCount();
-
-    createCartDrawer();
-
-    const isProductPage =
-      Boolean(
-        getProductIdFromUrl()
-      );
-
-    if (isProductPage) {
-      renderProductDetail();
-    } else {
-      initializeCategoryPage();
-      setupUrlSearch();
-    }
-
-    requestAnimationFrame(() => {
-      setupRevealAnimations();
-    });
-
-    hideLoader();
-
-    console.log(
-      `Elite Bags loaded: ${allProducts.length} products`
-    );
-  }
-
-  /* ---------------------------------------------------------
-     START
-     --------------------------------------------------------- */
-
-  if (
-    document.readyState === "loading"
-  ) {
-    document.addEventListener(
-      "DOMContentLoaded",
-      init
+    revealItems.forEach(item =>
+      observer.observe(item)
     );
   } else {
-    init();
+    revealItems.forEach(item =>
+      item.classList.add("visible")
+    );
   }
 
   /* ---------------------------------------------------------
-     PUBLIC API
+     ESC KEY
      --------------------------------------------------------- */
 
-  window.EliteBags = {
-    products: () => [...allProducts],
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
 
-    getProduct,
+    const drawer =
+      document.querySelector("[data-drawer]");
 
-    search: performSearch,
+    const shade =
+      document.querySelector("[data-shade]");
 
-    addToCart,
+    if (drawer) drawer.classList.remove("is-open");
+    if (shade) shade.classList.remove("is-open");
 
-    removeFromCart,
-
-    getCart,
-
-    getWishlist,
-
-    toggleWishlist,
-
-    money,
-
-    getImages,
-
-    getWhatsAppUrl,
-
-    refresh: () => {
-      currentProducts =
-        [...allProducts];
-
-      renderProducts(
-        currentProducts
-      );
-
-      updateCartCount();
-      refreshWishlistButtons();
-    }
-  };
+    document.body.classList.remove("cart-open");
+  });
 
 })();
