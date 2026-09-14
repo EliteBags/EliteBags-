@@ -1,1 +1,2457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="View product details, images, pricing and ordering information at Elite Bags."
+  >
+
+  <meta
+    name="google-site-verification"
+    content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI"
+  >
+
+  <link rel="canonical" href="https://elitebagss.com/product.html">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Product | Elite Bags</title>
+
+  <style>
+    /* =========================================================
+       PRODUCT PAGE
+    ========================================================= */
+
+    .product-page {
+      padding: 125px 20px 80px;
+      min-height: 100vh;
+    }
+
+    .product-container {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .product-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+    }
+
+    .product-breadcrumb a {
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+      transition: .25s ease;
+    }
+
+    .product-breadcrumb a:hover {
+      color: #ff1738;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 55px;
+      align-items: start;
+    }
+
+    /* =========================================================
+       GALLERY
+    ========================================================= */
+
+    .product-gallery {
+      position: sticky;
+      top: 100px;
+    }
+
+    .main-image-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 22px;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255,23,56,.08),
+          rgba(255,255,255,.025) 42%,
+          rgba(0,0,0,.25) 100%
+        );
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    }
+
+    .main-product-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition:
+        opacity .3s ease,
+        transform .5s ease;
+    }
+
+    .main-image-wrap:hover .main-product-image {
+      transform: scale(1.025);
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      background: rgba(0,0,0,.62);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      cursor: pointer;
+      z-index: 5;
+      transition: .25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .gallery-arrow:hover {
+      background: #ff1738;
+      border-color: #ff1738;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .gallery-prev {
+      left: 16px;
+    }
+
+    .gallery-next {
+      right: 16px;
+    }
+
+    .gallery-count {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 5;
+      padding: 7px 11px;
+      border-radius: 30px;
+      background: rgba(0,0,0,.62);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .gallery-badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      z-index: 5;
+      padding: 8px 13px;
+      border-radius: 30px;
+      background: #ff1738;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 25px rgba(255,23,56,.22);
+    }
+
+    .thumbnail-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .thumbnail {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      padding: 0;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 13px;
+      overflow: hidden;
+      background: rgba(255,255,255,.025);
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .thumbnail:hover {
+      border-color: rgba(255,23,56,.65);
+      transform: translateY(-2px);
+    }
+
+    .thumbnail.active {
+      border-color: #ff1738;
+      box-shadow: 0 0 0 2px rgba(255,23,56,.16);
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      margin-top: 15px;
+    }
+
+    .gallery-dot {
+      width: 7px;
+      height: 7px;
+      border: 0;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .gallery-dot.active {
+      width: 21px;
+      border-radius: 10px;
+      background: #ff1738;
+    }
+
+    /* =========================================================
+       PRODUCT INFORMATION
+    ========================================================= */
+
+    .product-info {
+      padding-top: 4px;
+    }
+
+    .product-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 13px;
+      color: #ff1738;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .product-category::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: #ff1738;
+    }
+
+    .product-title {
+      margin: 0;
+      color: #fff;
+      font-family: "Cinzel", serif;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -.4px;
+    }
+
+    .product-id {
+      margin-top: 12px;
+      color: rgba(255,255,255,.42);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .product-price {
+      margin-top: 25px;
+      color: #fff;
+      font-size: 31px;
+      font-weight: 800;
+    }
+
+    .product-price span {
+      color: rgba(255,255,255,.42);
+      font-size: 13px;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+
+    .product-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,.09);
+      margin: 27px 0;
+    }
+
+    .product-description {
+      color: rgba(255,255,255,.67);
+      font-size: 15px;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* =========================================================
+       PRODUCT SPECS
+    ========================================================= */
+
+    .product-specs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: 25px;
+    }
+
+    .spec-box {
+      padding: 15px 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.025);
+      border-radius: 14px;
+      min-width: 0;
+    }
+
+    .spec-label {
+      display: block;
+      margin-bottom: 6px;
+      color: rgba(255,255,255,.42);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .spec-value {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    /* =========================================================
+       QUALITY / SHIPPING
+    ========================================================= */
+
+    .product-benefits {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.02);
+    }
+
+    .benefit-icon {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,23,56,.12);
+      color: #ff1738;
+      font-weight: 900;
+    }
+
+    .benefit-content strong {
+      display: block;
+      color: #fff;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .benefit-content span {
+      display: block;
+      color: rgba(255,255,255,.5);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       ORDER BUTTONS
+    ========================================================= */
+
+    .product-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+      margin-top: 27px;
+    }
+
+    .product-action {
+      min-height: 52px;
+      padding: 13px 18px;
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .25s ease;
+      text-align: center;
+    }
+
+    .product-action.primary {
+      color: #fff;
+      background: #ff1738;
+      border-color: #ff1738;
+      box-shadow: 0 12px 30px rgba(255,23,56,.18);
+    }
+
+    .product-action.primary:hover {
+      background: #e91130;
+      transform: translateY(-2px);
+    }
+
+    .product-action.secondary {
+      color: #fff;
+      background: rgba(255,255,255,.04);
+    }
+
+    .product-action.secondary:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+      transform: translateY(-2px);
+    }
+
+    .product-note {
+      margin-top: 14px;
+      text-align: center;
+      color: rgba(255,255,255,.38);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       PAYMENT / DELIVERY INFO
+    ========================================================= */
+
+    .info-strip {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .info-card {
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.025);
+      text-align: center;
+    }
+
+    .info-card-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .info-card span {
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       RELATED PRODUCTS
+    ========================================================= */
+
+    .related-section {
+      margin-top: 80px;
+    }
+
+    .related-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .related-kicker {
+      color: #ff1738;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .related-title {
+      margin: 8px 0 0;
+      color: #fff;
+      font-family: "Cinzel", serif;
+      font-size: clamp(25px, 4vw, 38px);
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .related-card {
+      overflow: hidden;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.025);
+      text-decoration: none;
+      transition: .3s ease;
+    }
+
+    .related-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,23,56,.35);
+      box-shadow: 0 20px 45px rgba(0,0,0,.28);
+    }
+
+    .related-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: block;
+      object-fit: cover;
+      background: rgba(255,255,255,.03);
+    }
+
+    .related-content {
+      padding: 14px;
+    }
+
+    .related-name {
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .related-price {
+      margin-top: 7px;
+      color: #ff1738;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       ERROR STATE
+    ========================================================= */
+
+    .product-error {
+      min-height: 55vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .error-box {
+      max-width: 520px;
+      padding: 40px 25px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.025);
+    }
+
+    .error-logo {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ff1738;
+      color: #fff;
+      font-family: "Cinzel", serif;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .error-box h1 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-family: "Cinzel", serif;
+      font-size: 28px;
+    }
+
+    .error-box p {
+      margin: 0 0 24px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .error-button {
+      display: inline-flex;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: #ff1738;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .product-gallery {
+        position: relative;
+        top: auto;
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-page {
+        padding: 100px 14px 60px;
+      }
+
+      .product-layout {
+        gap: 27px;
+      }
+
+      .main-image-wrap {
+        border-radius: 17px;
+      }
+
+      .gallery-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 19px;
+      }
+
+      .gallery-prev {
+        left: 10px;
+      }
+
+      .gallery-next {
+        right: 10px;
+      }
+
+      .gallery-count,
+      .gallery-badge {
+        top: 10px;
+      }
+
+      .gallery-count {
+        right: 10px;
+      }
+
+      .gallery-badge {
+        left: 10px;
+        padding: 7px 10px;
+        font-size: 9px;
+      }
+
+      .thumbnail-row {
+        gap: 7px;
+      }
+
+      .thumbnail {
+        border-radius: 9px;
+      }
+
+      .product-title {
+        font-size: 29px;
+      }
+
+      .product-price {
+        font-size: 27px;
+        margin-top: 20px;
+      }
+
+      .product-divider {
+        margin: 22px 0;
+      }
+
+      .product-description {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .product-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .product-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 45px;
+      }
+
+      .info-card {
+        padding: 15px 10px;
+      }
+
+      .related-section {
+        margin-top: 60px;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .related-content {
+        padding: 11px;
+      }
+
+      .related-name {
+        font-size: 11px;
+      }
+
+      .related-price {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .thumbnail-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .thumbnail:nth-child(5) {
+        display: none;
+      }
+
+      .product-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <div class="top-bar">
+    <span>FREE WORLDWIDE SHIPPING</span>
+    <span>•</span>
+    <span>9–13 WORKING DAYS</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="index.html" class="brand">
+        <span class="brand-mark">EB</span>
+        <span class="brand-name">ELITE BAGS</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#collections">Collections</a>
+        <a href="index.html#standard">Elite Standard</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <a
+          href="https://wa.me/12089034508"
+          target="_blank"
+          rel="noopener"
+          class="header-whatsapp"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =======================================================
+       PRODUCT AREA
+  ======================================================== -->
+
+  <main class="product-page">
+
+    <div class="product-container">
+
+      <div class="product-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="index.html#featured">Products</a>
+        <span>›</span>
+        <span id="breadcrumbProduct">Product</span>
+      </div>
+
+
+      <!-- PRODUCT WILL BE INSERTED HERE -->
+
+      <section
+        id="productRoot"
+        class="product-layout"
+        data-product-page
+      >
+
+        <!-- =================================================
+             GALLERY
+        ================================================== -->
+
+        <div class="product-gallery">
+
+          <div class="main-image-wrap">
+
+            <span
+              id="productBadge"
+              class="gallery-badge"
+              style="display:none;"
+            ></span>
+
+            <span
+              id="galleryCount"
+              class="gallery-count"
+            >
+              1 / 1
+            </span>
+
+            <button
+              type="button"
+              class="gallery-arrow gallery-prev"
+              id="galleryPrev"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+
+            <img
+              id="mainProductImage"
+              class="main-product-image"
+              src=""
+              alt="Product image"
+            >
+
+            <button
+              type="button"
+              class="gallery-arrow gallery-next"
+              id="galleryNext"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+
+          </div>
+
+
+          <div
+            id="thumbnailRow"
+            class="thumbnail-row"
+          ></div>
+
+
+          <div
+            id="galleryDots"
+            class="gallery-dots"
+          ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRODUCT INFORMATION
+        ================================================== -->
+
+        <div class="product-info">
+
+          <div
+            id="productCategory"
+            class="product-category"
+          >
+            COLLECTION
+          </div>
+
+          <h1
+            id="productTitle"
+            class="product-title"
+          >
+            Loading Product...
+          </h1>
+
+          <div
+            id="productId"
+            class="product-id"
+          >
+            Product ID
+          </div>
+
+          <div
+            id="productPrice"
+            class="product-price"
+          >
+            $0
+          </div>
+
+          <div class="product-divider"></div>
+
+          <p
+            id="productDescription"
+            class="product-description"
+          >
+            Loading product details...
+          </p>
+
+
+          <!-- PRODUCT SPECS -->
+
+          <div class="product-specs">
+
+            <div class="spec-box">
+              <span class="spec-label">Category</span>
+              <span
+                id="specCategory"
+                class="spec-value"
+              >
+                —
+              </span>
+            </div>
+
+            <div class="spec-box">
+                  <span
+                    id="specCategory"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+
+                <div class="spec-box">
+
+                  <span class="spec-label">
+                    Style
+                  </span>
+
+                  <span
+                    id="specStyle"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+
+                <div class="spec-box">
+
+                  <span class="spec-label">
+                    Color
+                  </span>
+
+                  <span
+                    id="specColor"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+
+                <div class="spec-box">
+
+                  <span class="spec-label">
+                    Size
+                  </span>
+
+                  <span
+                    id="specSize"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+
+                <div class="spec-box">
+
+                  <span class="spec-label">
+                    Material
+                  </span>
+
+                  <span
+                    id="specMaterial"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+
+                <div class="spec-box">
+
+                  <span class="spec-label">
+                    Dimensions
+                  </span>
+
+                  <span
+                    id="specDimensions"
+                    class="spec-value"
+                  >
+                    —
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <!-- PRODUCT BENEFITS -->
+
+              <div class="product-benefits">
+
+                <div class="benefit">
+
+                  <div class="benefit-icon">
+                    ✓
+                  </div>
+
+                  <div class="benefit-content">
+
+                    <strong id="qualityText">
+                      Master Quality
+                    </strong>
+
+                    <span>
+                      Carefully selected quality and finishing.
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                  <div class="benefit-icon">
+                    ✓
+                  </div>
+
+                  <div class="benefit-content">
+
+                    <strong>
+                      Free Worldwide Shipping
+                    </strong>
+
+                    <span>
+                      Shipping available to customers worldwide.
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                  <div class="benefit-icon">
+                    ✓
+                  </div>
+
+                  <div class="benefit-content">
+
+                    <strong>
+                      9–13 Working Days
+                    </strong>
+
+                    <span>
+                      Estimated delivery time after order processing.
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- PRODUCT ACTIONS -->
+
+              <div class="product-actions">
+
+                <a
+                  id="whatsappOrder"
+                  class="product-action primary"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span>💬</span>
+                  <span>Order on WhatsApp</span>
+                </a>
+
+
+                <a
+                  href="index.html#featured"
+                  class="product-action secondary"
+                >
+                  <span>←</span>
+                  <span>Continue Shopping</span>
+                </a>
+
+              </div>
+
+
+              <div class="product-note">
+                Message us on WhatsApp for availability, payment options
+                and order assistance.
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               INFORMATION STRIP
+          ================================================== -->
+
+          <section class="info-strip">
+
+            <div class="info-card">
+
+              <div class="info-card-icon">
+                ✦
+              </div>
+
+              <strong>
+                Master Quality
+              </strong>
+
+              <span>
+                Carefully selected products
+              </span>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <div class="info-card-icon">
+                ✈
+              </div>
+
+              <strong>
+                Worldwide Delivery
+              </strong>
+
+              <span>
+                Shipping available worldwide
+              </span>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <div class="info-card-icon">
+                ◷
+              </div>
+
+              <strong>
+                9–13 Days
+              </strong>
+
+              <span>
+                Estimated working days
+              </span>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <div class="info-card-icon">
+                💬
+              </div>
+
+              <strong>
+                Easy Ordering
+              </strong>
+
+              <span>
+                Contact us directly on WhatsApp
+              </span>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               RELATED PRODUCTS
+          ================================================== -->
+
+          <section class="related-section">
+
+            <div class="related-heading">
+
+              <div class="related-kicker">
+                You May Also Like
+              </div>
+
+              <h2 class="related-title">
+                Explore More
+              </h2>
+
+            </div>
+
+            <div
+              id="relatedProducts"
+              class="related-grid"
+            ></div>
+
+          </section>
+
+        </div>
+
+      </main>
+
+
+      <!-- =================================================
+           PRODUCT ERROR
+      ================================================== -->
+
+      <section
+        id="productError"
+        class="product-error"
+        style="display:none;"
+      >
+
+        <div class="error-box">
+
+          <div class="error-logo">
+            EB
+          </div>
+
+          <h1>
+            Product Not Found
+          </h1>
+
+          <p>
+            We couldn't find the product you're looking for.
+            Please return to our collection and choose another product.
+          </p>
+
+          <a
+            href="index.html#featured"
+            class="error-button"
+          >
+            View Products
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           FOOTER
+      ================================================== -->
+
+      <footer
+        id="contact"
+        class="site-footer"
+      >
+
+        <div class="footer-inner">
+
+          <div class="footer-brand">
+
+            <div class="footer-logo">
+              EB
+            </div>
+
+            <h3>
+              ELITE BAGS
+            </h3>
+
+            <p>
+              Curated fashion pieces with quality,
+              presentation and service at the center.
+            </p>
+
+          </div>
+
+
+          <div class="footer-column">
+
+            <h4>
+              Contact
+            </h4>
+
+            <a href="mailto:luxuriouselitebags@gmail.com">
+              luxuriouselitebags@gmail.com
+            </a>
+
+            <a
+              href="https://wa.me/12089034508"
+              target="_blank"
+              rel="noopener"
+            >
+              +1 208-903-4508
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@elite.bagss"
+              target="_blank"
+              rel="noopener"
+            >
+              TikTok: @elite.bagss
+            </a>
+
+          </div>
+
+
+          <div class="footer-column">
+
+            <h4>
+              Information
+            </h4>
+
+            <span>
+              Free Worldwide Shipping
+            </span>
+
+            <span>
+              9–13 Working Days
+            </span>
+
+            <span>
+              Secure Packaging
+            </span>
+
+            <span>
+              Easy WhatsApp Ordering
+            </span>
+
+          </div>
+
+
+          <div class="footer-column">
+
+            <h4>
+              Location
+            </h4>
+
+            <span>
+              Guang Zhou Shi,
+            </span>
+
+            <span>
+              Guang Dong Sheng,
+            </span>
+
+            <span>
+              China
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+          <span>
+            © <span id="currentYear"></span>
+            Elite Bags. All rights reserved.
+          </span>
+
+          <a href="index.html">
+            Back to Home
+          </a>
+
+        </div>
+
+      </footer>
+
+
+      <!-- =================================================
+           PRODUCT DATABASE
+      ================================================== -->
+
+      <script src="products.js"></script>
+
+      <!-- COMMON APP -->
+      <script src="app.js"></script>
+
+
+      <!-- =================================================
+           PRODUCT PAGE JAVASCRIPT
+      ================================================== -->
+
+      <script>
+
+        document.addEventListener(
+          "DOMContentLoaded",
+          function () {
+
+            const $ = function (id) {
+              return document.getElementById(id);
+            };
+
+
+            const productRoot =
+              $("productRoot");
+
+            const productError =
+              $("productError");
+
+            const mainImage =
+              $("mainProductImage");
+
+            const thumbnailRow =
+              $("thumbnailRow");
+
+            const galleryDots =
+              $("galleryDots");
+
+            const galleryPrev =
+              $("galleryPrev");
+
+            const galleryNext =
+              $("galleryNext");
+
+            const galleryCount =
+              $("galleryCount");
+
+            const productTitle =
+              $("productTitle");
+
+            const productCategory =
+              $("productCategory");
+
+            const productId =
+              $("productId");
+
+            const productPrice =
+              $("productPrice");
+
+            const productDescription =
+              $("productDescription");
+
+            const breadcrumbProduct =
+              $("breadcrumbProduct");
+
+            const specCategory =
+              $("specCategory");
+
+            const specStyle =
+              $("specStyle");
+
+            const specColor =
+              $("specColor");
+
+            const specSize =
+              $("specSize");
+
+            const specMaterial =
+              $("specMaterial");
+
+            const specDimensions =
+              $("specDimensions");
+
+            const qualityText =
+              $("qualityText");
+
+            const whatsappOrder =
+              $("whatsappOrder");
+
+            const relatedProducts =
+              $("relatedProducts");
+
+            const currentYear =
+              $("currentYear");
+
+
+            /* =============================================
+               YEAR
+            ============================================== */
+
+            if (currentYear) {
+              currentYear.textContent =
+                new Date().getFullYear();
+            }
+
+
+            /* =============================================
+               GET PRODUCT ID FROM URL
+            ============================================== */
+
+            const params =
+              new URLSearchParams(
+                window.location.search
+              );
+
+            const requestedId =
+              params.get("id") ||
+              params.get("product") ||
+              params.get("pid");
+
+
+            /* =============================================
+               CHECK PRODUCT DATABASE
+            ============================================== */
+
+            if (
+              typeof PRODUCTS === "undefined" ||
+              !Array.isArray(PRODUCTS)
+            ) {
+
+              showError();
+
+              return;
+
+            }
+
+
+            const product =
+              PRODUCTS.find(
+                function (item) {
+
+                  return String(item.id) ===
+                    String(requestedId);
+
+                }
+              );
+
+
+            if (!product) {
+
+              showError();
+
+              return;
+
+            }
+
+
+            /* =============================================
+               PRODUCT DATA
+            ============================================== */
+
+            let images =
+              Array.isArray(product.images)
+                ? product.images.filter(Boolean)
+                : [];
+
+
+            const category =
+              product.category ||
+              "Collection";
+
+
+            const style =
+              product.style ||
+              product.subcategory ||
+              "—";
+
+
+            const color =
+              product.color ||
+              product.colors ||
+              "—";
+
+
+            const size =
+              product.size ||
+              product.sizes ||
+              "—";
+
+
+            const material =
+              product.material ||
+              "—";
+
+
+            const dimensions =
+              product.dimensions ||
+              "—";
+
+
+            const description =
+              product.description ||
+              "A carefully selected Elite Bags piece with attention to quality, presentation and detail.";
+
+
+            const badge =
+              product.badge ||
+              "";
+
+
+            const price =
+              product.price !== undefined &&
+              product.price !== null &&
+              product.price !== ""
+                ? product.price
+                : "Contact us";
+
+
+            const currency =
+              product.currency ||
+              "USD";
+
+
+            /* =============================================
+               PAGE TITLE
+            ============================================== */
+
+            document.title =
+              product.name
+                ? product.name + " | Elite Bags"
+                : "Product | Elite Bags";
+
+
+            /* =============================================
+               PRODUCT TEXT
+            ============================================== */
+
+            productTitle.textContent =
+              product.name ||
+              "Elite Bags Product";
+
+
+            productCategory.textContent =
+              category;
+
+
+            productId.textContent =
+              "Product ID: " +
+              (product.id || "—");
+
+
+            productPrice.innerHTML =
+              typeof price === "number"
+                ? "$" +
+                  price.toLocaleString() +
+                  "<span>" +
+                  currency +
+                  "</span>"
+                : String(price);
+
+
+            productDescription.textContent =
+              description;
+
+
+            breadcrumbProduct.textContent =
+              product.name ||
+              "Product";
+
+
+            /* =============================================
+               PRODUCT SPECS
+            ============================================== */
+
+            specCategory.textContent =
+              category;
+
+
+            specStyle.textContent =
+              style;
+
+
+            specColor.textContent =
+              Array.isArray(color)
+                ? color.join(", ")
+                : color;
+
+
+            specSize.textContent =
+              Array.isArray(size)
+                ? size.join(", ")
+                : size;
+
+
+            specMaterial.textContent =
+              material;
+
+
+            specDimensions.textContent =
+              dimensions;
+
+
+            /* =============================================
+               QUALITY
+            ============================================== */
+
+            if (
+              typeof STORE !== "undefined" &&
+              STORE.quality
+            ) {
+
+              qualityText.textContent =
+                STORE.quality;
+
+            } else if (product.quality) {
+
+              qualityText.textContent =
+                product.quality;
+
+            }
+
+
+            /* =============================================
+               BADGE
+            ============================================== */
+
+            const productBadge =
+              $("productBadge");
+
+
+            if (
+              badge &&
+              productBadge
+            ) {
+
+              productBadge.textContent =
+                badge;
+
+              productBadge.style.display =
+                "inline-flex";
+
+            }
+
+
+            /* =============================================
+               WHATSAPP
+            ============================================== */
+
+            let whatsappNumber =
+              "12089034508";
+
+
+            if (
+              typeof STORE !== "undefined" &&
+              STORE.whatsappLink
+            ) {
+
+              const match =
+                STORE.whatsappLink.match(
+                  /wa\.me\/([0-9]+)/i
+                );
+
+
+              if (match) {
+                whatsappNumber =
+                  match[1];
+              }
+
+            }
+
+
+            const whatsappMessage =
+              "Hello Elite Bags!%0A%0A" +
+              "I am interested in this product:%0A" +
+              "Product: " +
+              encodeURIComponent(
+                product.name || ""
+              ) +
+              "%0A" +
+              "Product ID: " +
+              encodeURIComponent(
+                product.id || ""
+              ) +
+              "%0A" +
+              "Price: " +
+              encodeURIComponent(
+                typeof price === "number"
+                  ? "$" + price
+                  : String(price)
+              ) +
+              "%0A%0A" +
+              "Please send me availability and order details.";
+
+
+            whatsappOrder.href =
+              "https://wa.me/" +
+              whatsappNumber +
+              "?text=" +
+              whatsappMessage;
+
+
+            /* =============================================
+               PLACEHOLDER IMAGE
+            ============================================== */
+
+            function placeholderImage() {
+
+              const svg = `
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 800 800"
+                >
+
+                  <rect
+                    width="800"
+                    height="800"
+                    fill="#080a0c"
+                  />
+
+                  <circle
+                    cx="400"
+                    cy="400"
+                    r="145"
+                    fill="#ff1738"
+                  />
+
+                  <text
+                    x="400"
+                    y="420"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="92"
+                    font-family="Arial"
+                    font-weight="700"
+                  >
+                    EB
+                  </text>
+
+                </svg>
+              `;
+
+
+              return (
+                "data:image/svg+xml;charset=UTF-8," +
+                encodeURIComponent(svg)
+              );
+
+            }
+
+
+            function setImageFallback(img) {
+
+              if (!img) return;
+
+
+              img.onerror =
+                function () {
+
+                  this.onerror = null;
+
+                  this.src =
+                    placeholderImage();
+
+                };
+            img.onerror = function(){
+      this.onerror = null;
+      this.src = placeholderImage();
+    };
+  }
+
+  /* =========================================================
+     PRODUCT IMAGE GALLERY
+  ========================================================= */
+
+  function setupGallery(product){
+
+    const mainImage = document.getElementById("mainProductImage");
+    const thumbs = document.querySelectorAll(".product-thumb");
+    const dots = document.querySelectorAll(".gallery-dot");
+    const prevBtn = document.getElementById("galleryPrev");
+    const nextBtn = document.getElementById("galleryNext");
+
+    if(!mainImage) return;
+
+    const images = Array.isArray(product.images)
+      ? product.images.filter(Boolean)
+      : [];
+
+    let currentIndex = 0;
+
+    function showImage(index){
+
+      if(!images.length){
+        mainImage.src = placeholderImage();
+        currentIndex = 0;
+        return;
+      }
+
+      if(index < 0) index = images.length - 1;
+      if(index >= images.length) index = 0;
+
+      currentIndex = index;
+
+      mainImage.src = images[currentIndex];
+
+      mainImage.onerror = function(){
+        this.onerror = null;
+        this.src = placeholderImage();
+      };
+
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", function(){
+        showImage(index);
+      });
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", function(){
+        showImage(index);
+      });
+    });
+
+    if(prevBtn){
+      prevBtn.addEventListener("click", function(){
+        showImage(currentIndex - 1);
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener("click", function(){
+        showImage(currentIndex + 1);
+      });
+    }
+
+    let startX = 0;
+    let endX = 0;
+
+    mainImage.addEventListener("touchstart", function(e){
+      startX = e.touches[0].clientX;
+    }, {passive:true});
+
+    mainImage.addEventListener("touchend", function(e){
+      endX = e.changedTouches[0].clientX;
+
+      const difference = startX - endX;
+
+      if(Math.abs(difference) > 50){
+        if(difference > 0){
+          showImage(currentIndex + 1);
+        }else{
+          showImage(currentIndex - 1);
+        }
+      }
+    }, {passive:true});
+
+    showImage(0);
+  }
+
+
+  /* =========================================================
+     LOAD PRODUCT INFORMATION
+  ========================================================= */
+
+  function loadProduct(){
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+
+    const product = window.EliteBags
+      && typeof window.EliteBags.getProduct === "function"
+      ? window.EliteBags.getProduct(productId)
+      : null;
+
+    const errorBox = document.getElementById("productError");
+    const productContent = document.getElementById("productContent");
+
+    if(!product){
+
+      if(productContent){
+        productContent.style.display = "none";
+      }
+
+      if(errorBox){
+        errorBox.style.display = "block";
+      }
+
+      return;
+    }
+
+    if(errorBox){
+      errorBox.style.display = "none";
+    }
+
+    if(productContent){
+      productContent.style.display = "";
+    }
+
+
+    /* =====================================================
+       BASIC PRODUCT DATA
+    ===================================================== */
+
+    const nameEl = document.getElementById("productName");
+    const priceEl = document.getElementById("productPrice");
+    const categoryEl = document.getElementById("productCategory");
+    const badgeEl = document.getElementById("productBadge");
+    const descriptionEl = document.getElementById("productDescription");
+
+    if(nameEl){
+      nameEl.textContent = product.name || "Product";
+    }
+
+    if(priceEl){
+      priceEl.textContent =
+        (product.currency || "$") +
+        String(product.price || "");
+    }
+
+    if(categoryEl){
+      categoryEl.textContent =
+        product.category || "Collection";
+    }
+
+    if(badgeEl){
+
+      if(product.badge){
+        badgeEl.textContent = product.badge;
+        badgeEl.style.display = "inline-flex";
+      }else{
+        badgeEl.style.display = "none";
+      }
+    }
+
+    if(descriptionEl){
+      descriptionEl.textContent =
+        product.description ||
+        "A beautifully crafted piece selected from the Elite Bags collection.";
+    }
+
+
+    /* =====================================================
+       PRODUCT ID
+    ===================================================== */
+
+    const idEl = document.getElementById("productId");
+
+    if(idEl){
+      idEl.textContent = product.id || "—";
+    }
+
+
+    /* =====================================================
+       SPECIFICATIONS
+    ===================================================== */
+
+    const specCategory = document.getElementById("specCategory");
+    const specStyle = document.getElementById("specStyle");
+    const specColor = document.getElementById("specColor");
+    const specSize = document.getElementById("specSize");
+    const specMaterial = document.getElementById("specMaterial");
+    const specDimensions = document.getElementById("specDimensions");
+
+    if(specCategory){
+      specCategory.textContent =
+        product.category || "—";
+    }
+
+    if(specStyle){
+      specStyle.textContent =
+        product.subcategory || "—";
+    }
+
+    if(specColor){
+      specColor.textContent =
+        Array.isArray(product.colors)
+          ? product.colors.join(", ")
+          : (product.colors || "—");
+    }
+
+    if(specSize){
+      specSize.textContent =
+        Array.isArray(product.sizes)
+          ? product.sizes.join(", ")
+          : (product.sizes || "—");
+    }
+
+    if(specMaterial){
+      specMaterial.textContent =
+        product.material || "—";
+    }
+
+    if(specDimensions){
+      specDimensions.textContent =
+        product.dimensions || "—";
+    }
+
+
+    /* =====================================================
+       QUALITY / SHIPPING / DELIVERY
+    ===================================================== */
+
+    const qualityEl = document.getElementById("productQuality");
+    const shippingEl = document.getElementById("productShipping");
+    const deliveryEl = document.getElementById("productDelivery");
+
+    if(qualityEl){
+      qualityEl.textContent =
+        (window.EliteBags &&
+         window.EliteBags.store &&
+         window.EliteBags.store.quality)
+          ? window.EliteBags.store.quality
+          : "Master Quality";
+    }
+
+    if(shippingEl){
+      shippingEl.textContent =
+        (window.EliteBags &&
+         window.EliteBags.store &&
+         window.EliteBags.store.shipping)
+          ? window.EliteBags.store.shipping
+          : "Free Worldwide Shipping";
+    }
+
+    if(deliveryEl){
+      deliveryEl.textContent =
+        (window.EliteBags &&
+         window.EliteBags.store &&
+         window.EliteBags.store.delivery)
+          ? window.EliteBags.store.delivery
+          : "9–13 Working Days";
+    }
+
+
+    /* =====================================================
+       PRODUCT PAGE TITLE
+    ===================================================== */
+
+    document.title =
+      (product.name || "Product") +
+      " | Elite Bags";
+
+
+    /* =====================================================
+       META DESCRIPTION
+    ===================================================== */
+
+    const metaDescription =
+      document.querySelector('meta[name="description"]');
+
+    if(metaDescription){
+
+      metaDescription.setAttribute(
+        "content",
+        (product.description || "") +
+        " Shop at Elite Bags."
+      );
+    }
+
+
+    /* =====================================================
+       GALLERY
+    ===================================================== */
+
+    setupGallery(product);
+
+
+    /* =====================================================
+       WHATSAPP ORDER
+    ===================================================== */
+
+    const orderButtons =
+      document.querySelectorAll("[data-product-order]");
+
+    orderButtons.forEach(button => {
+
+      button.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const whatsappNumber =
+          window.EliteBags &&
+          window.EliteBags.store
+            ? window.EliteBags.store.whatsapp
+            : "+12089034508";
+
+        const cleanNumber =
+          String(whatsappNumber).replace(/\D/g, "");
+
+        const message =
+          "Hello Elite Bags! 👋\n\n" +
+          "I am interested in this product:\n\n" +
+          "Product: " + (product.name || "") + "\n" +
+          "Product ID: " + (product.id || "") + "\n" +
+          "Price: " +
+          (product.currency || "$") +
+          String(product.price || "") +
+          "\n\n" +
+          "Please send me availability and order details.";
+
+        const url =
+          "https://wa.me/" +
+          cleanNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        window.open(url, "_blank");
+      });
+
+    });
+
+
+    /* =====================================================
+       RELATED PRODUCTS
+    ===================================================== */
+
+    const relatedGrid =
+      document.getElementById("relatedProducts");
+
+    if(relatedGrid &&
+       window.EliteBags &&
+       Array.isArray(window.EliteBags.products)){
+
+      const related =
+        window.EliteBags.products
+          .filter(item =>
+            item.id !== product.id &&
+            item.category === product.category
+          )
+          .slice(0, 4);
+
+      relatedGrid.innerHTML = "";
+
+      related.forEach(item => {
+
+        const firstImage =
+          Array.isArray(item.images) &&
+          item.images.length
+            ? item.images[0]
+            : placeholderImage();
+
+        const card =
+          document.createElement("a");
+
+        card.className = "related-card";
+        card.href =
+          "product.html?id=" +
+          encodeURIComponent(item.id);
+
+        card.innerHTML = `
+          <div class="related-image">
+            <img
+              src="${firstImage}"
+              alt="${item.name || "Product"}"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="related-info">
+            <span class="related-category">
+              ${item.category || ""}
+            </span>
+
+            <h3>
+              ${item.name || "Product"}
+            </h3>
+
+            <strong>
+              ${item.currency || "$"}${item.price || ""}
+            </strong>
+          </div>
+        `;
+
+        const relatedImg =
+          card.querySelector("img");
+
+        if(relatedImg){
+          setImageFallback(relatedImg);
+        }
+
+        relatedGrid.appendChild(card);
+      });
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATIONS
+    ===================================================== */
+
+    const revealItems =
+      document.querySelectorAll(
+        ".product-page-section, .product-gallery, .product-info, .related-card"
+      );
+
+    revealItems.forEach((element, index) => {
+
+      element.classList.add("elite-reveal");
+
+      element.style.transitionDelay =
+        Math.min(index * 0.05, 0.35) + "s";
+    });
+
+    if("IntersectionObserver" in window){
+
+      const observer =
+        new IntersectionObserver(
+          entries => {
+
+            entries.forEach(entry => {
+
+              if(entry.isIntersecting){
+
+                entry.target.classList.add(
+                  "elite-revealed"
+                );
+
+                observer.unobserve(
+                  entry.target
+                );
+              }
+
+            });
+
+          },
+          {
+            threshold: 0.08
+          }
+        );
+
+      revealItems.forEach(element => {
+        observer.observe(element);
+      });
+
+    }else{
+
+      revealItems.forEach(element => {
+        element.classList.add(
+          "elite-revealed"
+        );
+      });
+
+    }
+
+  }
+
+
+  /* =========================================================
+     MOBILE HEADER
+  ========================================================= */
+
+  function setupMobileMenu(){
+
+    const menuButton =
+      document.querySelector(".menu-toggle");
+
+    const mobileMenu =
+      document.querySelector(".mobile-menu");
+
+    if(!menuButton || !mobileMenu) return;
+
+    menuButton.addEventListener("click", function(){
+
+      mobileMenu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        mobileMenu.classList.contains("open")
+          ? "true"
+          : "false"
+      );
+
+    });
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", function(){
+          mobileMenu.classList.remove("open");
+        });
+
+      });
+
+  }
+
+
+  /* =========================================================
+     CURRENT YEAR
+  ========================================================= */
+
+  function setCurrentYear(){
+
+    document
+      .querySelectorAll("[data-year]")
+      .forEach(el => {
+
+        el.textContent =
+          new Date().getFullYear();
+
+      });
+
+  }
+
+
+  /* =========================================================
+     START PRODUCT PAGE
+  ========================================================= */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+      loadProduct();
+
+      setupMobileMenu();
+
+      setCurrentYear();
+
+    }
+  );
+
+})();
+</script>
+
+</body>
+</html>
