@@ -1055,91 +1055,87 @@
 
 })();
 /* =========================================================
-   PRODUCT CARD CLICK → PRODUCT DETAILS
+   ELITE BAGS — PRODUCT CARD CLICK
+   Opens product.html?id=PRODUCT_ID
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("click", function (event) {
 
-  function connectProductCards() {
+  /* Find the product card that was clicked */
+  const card = event.target.closest(".product-card");
 
-    const cards = document.querySelectorAll(
-      ".product-card, .product-item, .product, .card"
-    );
-
-    if (!cards.length || !Array.isArray(window.PRODUCTS)) return;
-
-    cards.forEach(function (card) {
-
-      // Don't connect the same card twice
-      if (card.dataset.productConnected === "true") return;
-
-      let product = null;
-
-      // 1. Try product ID from data attributes
-      const id =
-        card.dataset.productId ||
-        card.dataset.id ||
-        card.getAttribute("data-product");
-
-      if (id) {
-        product = window.PRODUCTS.find(function (p) {
-          return String(p.id) === String(id);
-        });
-      }
-
-      // 2. If no ID, find product by its heading/name
-      if (!product) {
-        const titleElement = card.querySelector(
-          "h1, h2, h3, h4, .product-name, .card-title"
-        );
-
-        if (titleElement) {
-          const title = titleElement.textContent.trim().toLowerCase();
-
-          product = window.PRODUCTS.find(function (p) {
-            return (
-              String(p.name).trim().toLowerCase() === title
-            );
-          });
-        }
-      }
-
-      // No matching product found
-      if (!product) return;
-
-      // Mark connected
-      card.dataset.productConnected = "true";
-
-      // Make it look clickable
-      card.style.cursor = "pointer";
-
-      // Open product detail page
-      card.addEventListener("click", function (event) {
-
-        // Don't open product page when clicking buttons/links
-        // such as WhatsApp or Add-to-cart.
-        if (
-          event.target.closest("a") ||
-          event.target.closest("button") ||
-          event.target.closest("input") ||
-          event.target.closest("select")
-        ) {
-          return;
-        }
-
-        window.location.href =
-          "product.html?id=" +
-          encodeURIComponent(product.id);
-      });
-
-    });
+  /* Not a product card */
+  if (!card) {
+    return;
   }
 
-  // Initial connection
-  connectProductCards();
+  /* Do NOT redirect when customer clicks buttons */
+  if (
+    event.target.closest("button") ||
+    event.target.closest("a") ||
+    event.target.closest("input") ||
+    event.target.closest("select") ||
+    event.target.closest("textarea")
+  ) {
+    return;
+  }
 
-  // Run again after dynamic products are rendered
-  setTimeout(connectProductCards, 300);
-  setTimeout(connectProductCards, 1000);
+  /* -----------------------------------------
+     Get Product ID
+     ----------------------------------------- */
+
+  let productId =
+    card.getAttribute("data-product-id") ||
+    card.getAttribute("data-id") ||
+    card.getAttribute("data-product");
+
+  /* -----------------------------------------
+     If ID is missing, find product by name
+     ----------------------------------------- */
+
+  if (!productId && Array.isArray(window.PRODUCTS)) {
+
+    const titleElement = card.querySelector(
+      "h1, h2, h3, h4, .product-name, .card-title"
+    );
+
+    if (titleElement) {
+
+      const title =
+        titleElement.textContent
+          .trim()
+          .toLowerCase();
+
+      const foundProduct =
+        window.PRODUCTS.find(function (product) {
+
+          return String(product.name)
+            .trim()
+            .toLowerCase() === title;
+
+        });
+
+      if (foundProduct) {
+        productId = foundProduct.id;
+      }
+    }
+  }
+
+  /* -----------------------------------------
+     Still no product found
+     ----------------------------------------- */
+
+  if (!productId) {
+    console.log("Elite Bags: Product ID not found.");
+    return;
+  }
+
+  /* -----------------------------------------
+     Open Product Details
+     ----------------------------------------- */
+
+  window.location.href =
+    "product.html?id=" +
+    encodeURIComponent(productId);
 
 });
