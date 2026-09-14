@@ -1,164 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>Product Details | Elite Bags</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="View product details, images, price, size, color, shipping and ordering information at Elite Bags.">
+  <meta name="description"
+        content="Elite Bags — premium bags, shoes, watches, jewelry and fashion.">
 
-<meta name="google-site-verification" content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
+  <meta name="google-site-verification"
+        content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical"
+        href="https://elitebagss.com/product.html">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon"
+        type="image/png"
+        href="favicon.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="style.css">
+
+  <title>Product | Elite Bags</title>
 </head>
 
 <body>
 
-<div id="pageLoader" class="page-loader">
-  <div class="loader-logo">EB</div>
-  <div class="loader-line"></div>
-</div>
-
-<div class="announcement-bar">
-  <span>FREE WORLDWIDE SHIPPING</span>
-  <span>•</span>
-  <span>9–13 WORKING DAYS</span>
-  <span>•</span>
-  <span>MASTER QUALITY</span>
-</div>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span>Free Worldwide Delivery</span>
+      <span>9–13 Working Days</span>
+    </div>
+  </div>
 
 
-<header class="site-header">
+  <!-- HEADER -->
+  <header class="site-header">
 
-  <div class="header-inner">
+    <div class="container nav-wrap">
 
-    <a href="index.html" class="brand-logo">
-
-      <span class="brand-mark">EB</span>
-
-      <span class="brand-text">
-        <strong>ELITE</strong>
-        <small>BAGS</small>
-      </span>
-
-    </a>
-
-
-    <button
-      type="button"
-      class="mobile-menu-btn"
-      id="mobileMenuBtn"
-      aria-label="Open menu">
-
-      ☰
-
-    </button>
-
-
-    <nav class="main-nav" id="mainNav">
-
-      <a href="index.html">Home</a>
-
-      <a href="bags.html">Bags</a>
-
-      <a href="shoes.html">Shoes</a>
-
-      <a href="heels.html">Heels</a>
-
-      <a href="watches.html">Watches</a>
-
-      <a href="accessories.html">Accessories</a>
-
-    </nav>
-
-
-    <div class="header-actions">
-
-      <button
-        type="button"
-        class="header-search-btn"
-        id="openSearch"
-        aria-label="Search">
-
-        🔍
-
-      </button>
-
-
-      <a
-        href="https://wa.me/12089034508"
-        target="_blank"
-        rel="noopener"
-        class="header-whatsapp">
-
-        WhatsApp
-
+      <a href="index.html"
+         class="brand">
+        <span class="brand-mark">EB</span>
+        <span class="brand-text">
+          <strong>ELITE</strong>
+          <small>BAGS</small>
+        </span>
       </a>
 
 
       <button
+        class="menu-button"
         type="button"
-        class="cart-btn"
-        id="openCart">
+        data-menu
+        aria-label="Open menu">
 
-        🛍️
-
-        <span id="cartCount">0</span>
+        <span></span>
+        <span></span>
+        <span></span>
 
       </button>
 
+
+      <nav class="main-nav" data-nav>
+
+        <a href="index.html"
+           class="nav-link">
+          Home
+        </a>
+
+        <a href="bags.html"
+           class="nav-link">
+          Bags
+        </a>
+
+        <a href="shoes.html"
+           class="nav-link">
+          Shoes
+        </a>
+
+        <a href="heels.html"
+           class="nav-link">
+          Heels
+        </a>
+
+        <a href="watches.html"
+           class="nav-link">
+          Watches
+        </a>
+
+        <a href="accessories.html"
+           class="nav-link">
+          Accessories
+        </a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <a
+          href="https://wa.me/12089034508"
+          target="_blank"
+          rel="noopener"
+          class="nav-whatsapp">
+
+          WhatsApp
+
+        </a>
+
+
+        <button
+          type="button"
+          class="cart-button"
+          data-open-cart>
+
+          🛍
+          <span>Bag</span>
+          <b data-cart-count>0</b>
+
+        </button>
+
+      </div>
+
     </div>
 
-  </div>
-
-</header>
+  </header>
 
 
-<div class="search-modal" id="searchModal">
+  <!-- PRODUCT PAGE -->
+  <main>
+
+    <section class="product-page section">
+
+      <div class="container">
+
+        <!-- JS WILL LOAD PRODUCT HERE -->
+        <div
+          data-product-page
+          class="product-page-loader">
+
+          <div class="loading-box">
+            <span class="loading-logo">EB</span>
+            <p>Loading product...</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SHIPPING / TRUST -->
+    <section class="product-trust section">
+
+      <div class="container">
+
+        <div class="trust-grid">
+
+          <div class="trust-card">
+            <span>✦</span>
+            <h3>Master Quality</h3>
+            <p>
+              Carefully selected products with attention
+              to quality and finishing.
+            </p>
+          </div>
+
+
+          <div class="trust-card">
+            <span>🚚</span>
+            <h3>Free Shipping</h3>
+            <p>
+              Worldwide delivery included with your order.
+            </p>
+          </div>
+
+
+          <div class="trust-card">
+            <span>⏱</span>
+            <h3>9–13 Days</h3>
+            <p>
+              Estimated delivery time for most orders.
+            </p>
+          </div>
+
+
+          <div class="trust-card">
+            <span>💬</span>
+            <h3>Easy Contact</h3>
+            <p>
+              Contact us directly through WhatsApp
+              for order assistance.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CART DRAWER -->
 
   <div
-    class="search-modal-overlay"
-    data-close-search>
+    class="cart-shade"
+    data-shade>
   </div>
 
 
-  <div class="search-modal-box">
+  <aside
+    class="cart-drawer"
+    data-drawer
+    aria-label="Shopping bag">
 
-    <button
-      type="button"
-      class="search-close"
-      data-close-search>
+    <div class="cart-header">
 
-      ×
+      <div>
+        <span class="eyebrow">
+          YOUR SELECTION
+        </span>
 
-    </button>
-
-
-    <h2>Search Elite Bags</h2>
-
-
-    <div class="search-modal-input">
-
-      <input
-        type="search"
-        id="globalSearchInput"
-        placeholder="Search products..."
-        autocomplete="off">
+        <h2>Your Bag</h2>
+      </div>
 
 
       <button
         type="button"
-        id="globalSearchBtn">
+        class="cart-close"
+        data-close-cart
+        aria-label="Close bag">
 
-        Search
+        ×
 
       </button>
 
@@ -166,211 +255,72 @@
 
 
     <div
-      id="searchResults"
-      class="search-results">
-    </div>
+      class="cart-list"
+      data-cart-list>
 
-  </div>
-
-</div>
-
-
-<main>
-
-  <section class="product-page-section">
-
-    <div
-      id="productPage"
-      class="product-page-container">
-
-      <div class="product-loading">
-
-        <div class="loading-spinner"></div>
-
-        <p>Loading product...</p>
-
-      </div>
+      <!-- CART ITEMS LOAD HERE -->
 
     </div>
 
-  </section>
 
+    <div class="cart-footer">
 
-  <section class="product-trust-section">
+      <div class="cart-total-row">
 
-    <div class="container">
+        <span>Total</span>
 
-      <div class="trust-grid">
-
-        <div class="trust-item">
-
-          <div class="trust-icon">✓</div>
-
-          <div>
-
-            <strong>Premium Quality</strong>
-
-            <span>
-              Carefully selected products
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-icon">🌎</div>
-
-          <div>
-
-            <strong>Worldwide Shipping</strong>
-
-            <span>
-              Free international delivery
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-icon">📦</div>
-
-          <div>
-
-            <strong>Secure Packaging</strong>
-
-            <span>
-              Carefully packed before dispatch
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="trust-item">
-
-          <div class="trust-icon">💬</div>
-
-          <div>
-
-            <strong>Easy Contact</strong>
-
-            <span>
-              WhatsApp support available
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="related-products-section">
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <span class="section-kicker">
-          YOU MAY ALSO LIKE
-        </span>
-
-        <h2>
-          Related Products
-        </h2>
-
-        <p>
-          Discover more pieces from the Elite Bags collection.
-        </p>
+        <strong data-total>
+          $0
+        </strong>
 
       </div>
 
 
-      <div
-        id="relatedProducts"
-        class="product-grid">
+      <button
+        type="button"
+        class="btn btn-primary cart-order"
+        data-cart-order>
 
-      </div>
+        Order on WhatsApp
 
-    </div>
-
-  </section>
-
-
-  <section class="contact-cta">
-
-    <div class="container">
-
-      <div class="contact-cta-inner">
-
-        <div>
-
-          <span class="section-kicker">
-            NEED HELP?
-          </span>
-
-          <h2>
-            Find Your Perfect Piece
-          </h2>
-
-          <p>
-            Contact us directly for product information,
-            sizing, availability or ordering assistance.
-          </p>
-
-        </div>
+      </button>
 
 
-        <div class="contact-cta-buttons">
-
-          <a
-            href="https://wa.me/12089034508"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-primary">
-
-            Chat on WhatsApp
-
-          </a>
-
-
-          <a
-            href="mailto:luxuriouselitebags@gmail.com"
-            class="btn btn-outline">
-
-            Email Us
-
-          </a>
-
-        </div>
-
-      </div>
+      <p class="cart-note">
+        Final payment and order details will be
+        confirmed directly with Elite Bags.
+      </p>
 
     </div>
 
-  </section>
+  </aside>
 
-</main>
-<footer class="site-footer">
 
-  <div class="container">
+  <!-- WHATSAPP FLOATING BUTTON -->
 
-    <div class="footer-grid">
+  <a
+    href="https://wa.me/12089034508"
+    target="_blank"
+    rel="noopener"
+    class="floating-whatsapp"
+    data-float-wa
+    aria-label="Chat on WhatsApp">
+
+    <span>💬</span>
+
+  </a>
+
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
 
       <div class="footer-brand">
 
-        <a href="index.html" class="brand-logo">
+        <a href="index.html"
+           class="brand footer-logo">
 
           <span class="brand-mark">EB</span>
 
@@ -381,19 +331,21 @@
 
         </a>
 
+
         <p>
-          Discover premium fashion pieces with
-          carefully selected quality, secure packaging
-          and worldwide delivery.
+          Premium fashion pieces with a focus on
+          quality, presentation and worldwide delivery.
         </p>
+
 
         <a
           href="https://www.tiktok.com/@elite.bagss"
           target="_blank"
           rel="noopener"
-          class="tiktok-link">
+          class="footer-tiktok"
+          data-tiktok>
 
-          TikTok: @elite.bagss
+          TikTok @elite.bagss
 
         </a>
 
@@ -402,16 +354,13 @@
 
       <div class="footer-column">
 
-        <h3>Shop</h3>
+        <h4>Explore</h4>
 
+        <a href="index.html">Home</a>
         <a href="bags.html">Bags</a>
-
         <a href="shoes.html">Shoes</a>
-
         <a href="heels.html">Heels</a>
-
         <a href="watches.html">Watches</a>
-
         <a href="accessories.html">Accessories</a>
 
       </div>
@@ -419,514 +368,413 @@
 
       <div class="footer-column">
 
-        <h3>Information</h3>
-
-        <a href="index.html">Home</a>
-
-        <a href="index.html#categories">Categories</a>
-
-        <a href="index.html#contact">Contact</a>
-
-        <a href="index.html#featured">Featured</a>
-
-      </div>
-
-
-      <div class="footer-column footer-contact">
-
-        <h3>Contact</h3>
+        <h4>Contact</h4>
 
         <a
-          href="https://wa.me/12089034508"
-          target="_blank"
-          rel="noopener">
-
-          +1 208-903-4508
-
-        </a>
-
-        <a href="mailto:luxuriouselitebags@gmail.com">
+          href="mailto:luxuriouselitebags@gmail.com"
+          data-email>
 
           luxuriouselitebags@gmail.com
 
         </a>
 
-        <span>
-          Guang Zhou Shi,<br>
-          Guang Dong Sheng, China
+
+        <a
+          href="https://wa.me/12089034508"
+          data-phone>
+
+          +1 208-903-4508
+
+        </a>
+
+
+        <span data-address>
+          Guang Zhou Shi, Guang Dong Sheng, China
         </span>
 
       </div>
 
-    </div>
 
+      <div class="footer-column">
 
-    <div class="footer-bottom">
+        <h4>Shopping</h4>
 
-      <span>
-        © <span id="footerYear"></span> Elite Bags.
-        All rights reserved.
-      </span>
-
-      <span>
-        Free Worldwide Shipping • 9–13 Working Days
-      </span>
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<!-- FLOATING WHATSAPP -->
-
-<a
-  href="https://wa.me/12089034508"
-  target="_blank"
-  rel="noopener"
-  class="floating-whatsapp"
-  aria-label="Chat on WhatsApp">
-
-  <span>☘</span>
-
-</a>
-
-
-<!-- CART DRAWER -->
-
-<div
-  id="cartDrawer"
-  class="cart-drawer">
-
-  <div
-    class="cart-overlay"
-    data-close-cart>
-  </div>
-
-
-  <aside class="cart-panel">
-
-    <div class="cart-header">
-
-      <div>
-
-        <span class="section-kicker">
-          YOUR SELECTION
-        </span>
-
-        <h2>
-          Shopping Bag
-        </h2>
+        <span>Free Worldwide Delivery</span>
+        <span>9–13 Working Days</span>
+        <span>Secure Packaging</span>
+        <span>Pre-shipment Processing</span>
 
       </div>
 
-
-      <button
-        type="button"
-        class="cart-close"
-        data-close-cart>
-
-        ×
-
-      </button>
-
     </div>
 
 
-    <div
-      id="cartItems"
-      class="cart-items">
-
-    </div>
-
-
-    <div class="cart-empty" id="cartEmpty">
-
-      <div class="cart-empty-icon">
-        🛍️
-      </div>
-
-      <h3>
-        Your bag is empty
-      </h3>
+    <div class="container footer-bottom">
 
       <p>
-        Add your favorite pieces to your shopping bag.
+        © <span data-year></span>
+        Elite Bags. All rights reserved.
       </p>
 
-      <a
-        href="index.html"
-        class="btn btn-primary"
-        data-close-cart>
-
-        Continue Shopping
-
-      </a>
+      <p>
+        Premium Fashion Collection
+      </p>
 
     </div>
 
+  </footer>
 
-    <div
-      id="cartFooter"
-      class="cart-footer">
 
-      <div class="cart-total-row">
+  <!-- SCRIPTS -->
 
-        <span>
-          Total
-        </span>
+  <script src="products.js"></script>
+  <script src="app.js"></script>
 
-        <strong id="cartTotal">
-          $0.00
-        </strong>
+</body>
+</html>
+<!-- PRODUCT PAGE SUPPORT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const page = document.querySelector("[data-product-page]");
+  if (!page || !window.ELITE_BAGS) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const product = window.ELITE_BAGS.products.find(
+    item => String(item.id) === String(id)
+  );
+
+  if (!product) {
+    page.innerHTML = `
+      <div class="empty-state">
+        <span class="loading-logo">EB</span>
+        <h2>Product Not Found</h2>
+        <p>The product you're looking for is unavailable.</p>
+        <a href="bags.html" class="btn btn-primary">
+          Browse Collection
+        </a>
+      </div>
+    `;
+    return;
+  }
+
+  document.title = product.name + " | Elite Bags";
+
+  const images = Array.isArray(product.images)
+    ? product.images.filter(Boolean)
+    : [];
+
+  const mainImage = images[0] || "";
+
+  page.innerHTML = `
+    <div class="product-detail">
+
+      <div class="product-gallery">
+
+        <div class="product-main-image">
+
+          ${
+            mainImage
+              ? `<img
+                  src="${mainImage}"
+                  alt="${product.name}"
+                  data-product-image
+                  onerror="this.style.display='none';this.parentElement.classList.add('image-fallback')">`
+              : `<div class="image-fallback">EB</div>`
+          }
+
+          ${
+            product.badge
+              ? `<span class="product-badge">${product.badge}</span>`
+              : ""
+          }
+
+        </div>
+
+
+        ${
+          images.length > 1
+            ? `
+              <div class="product-thumbs">
+
+                ${images.map((img, index) => `
+                  <button
+                    type="button"
+                    class="product-thumb ${index === 0 ? "active" : ""}"
+                    data-product-thumb
+                    data-image="${img}">
+
+                    <img
+                      src="${img}"
+                      alt="${product.name} ${index + 1}"
+                      onerror="this.style.display='none'">
+
+                  </button>
+                `).join("")}
+
+              </div>
+            `
+            : ""
+        }
 
       </div>
 
 
-      <a
-        href="https://wa.me/12089034508"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-primary cart-whatsapp">
+      <div class="product-details">
 
-        Order via WhatsApp
+        <span class="eyebrow">
+          ${product.category || "COLLECTION"}
+        </span>
 
-      </a>
+        <h1>${product.name}</h1>
 
-
-      <p class="cart-note">
-
-        Contact us on WhatsApp to confirm
-        availability, payment and delivery details.
-
-      </p>
-
-    </div>
-
-  </aside>
-
-</div>
+        <div class="product-price">
+          ${product.currency || "$"}${Number(product.price).toLocaleString()}
+        </div>
 
 
-<!-- TOAST -->
+        <div class="product-short-info">
 
-<div
-  id="toast"
-  class="toast">
+          ${
+            product.quality
+              ? `<span>✦ ${product.quality}</span>`
+              : ""
+          }
 
-  <span id="toastMessage">
-    Added to your bag
-  </span>
+          ${
+            product.shipping
+              ? `<span>🚚 ${product.shipping}</span>`
+              : ""
+          }
 
-</div>
-
-
-<!-- BACK TO TOP -->
-
-<button
-  type="button"
-  id="backToTop"
-  class="back-to-top"
-  aria-label="Back to top">
-
-  ↑
-
-</button>
+        </div>
 
 
-<!-- MASTER PRODUCT DATABASE -->
-
-<script src="products.js"></script>
-
-
-<!-- MAIN WEBSITE FUNCTIONALITY -->
-
-<script src="app.js"></script>
+        <p class="product-description">
+          ${product.description || "Premium quality fashion piece."}
+        </p>
 
 
-<!-- PRODUCT PAGE FALLBACK -->
+        <div class="product-specs">
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  /*
-   * Product page is controlled by products.js + app.js.
-   * This small fallback prevents the page from remaining
-   * blank if a product ID is missing or incorrect.
-   */
-
-  const params = new URLSearchParams(window.location.search);
-
-  const productId = params.get("id");
-
-  const productContainer =
-    document.getElementById("productPage");
+          ${
+            product.subcategory
+              ? `
+                <div class="spec-row">
+                  <span>Style</span>
+                  <strong>${product.subcategory}</strong>
+                </div>
+              `
+              : ""
+          }
 
 
-  if (!productId) {
+          ${
+            product.colors
+              ? `
+                <div class="spec-row">
+                  <span>Color</span>
+                  <strong>${product.colors}</strong>
+                </div>
+              `
+              : ""
+          }
 
-    if (productContainer) {
 
-      productContainer.innerHTML = `
-        <div class="product-error">
-          <div class="product-error-icon">!</div>
+          ${
+            product.sizes
+              ? `
+                <div class="spec-row">
+                  <span>Size</span>
+                  <strong>${product.sizes}</strong>
+                </div>
+              `
+              : ""
+          }
 
-          <h2>Product Not Found</h2>
+
+          ${
+            product.material
+              ? `
+                <div class="spec-row">
+                  <span>Material</span>
+                  <strong>${product.material}</strong>
+                </div>
+              `
+              : ""
+          }
+
+
+          ${
+            product.dimensions
+              ? `
+                <div class="spec-row">
+                  <span>Dimensions</span>
+                  <strong>${product.dimensions}</strong>
+                </div>
+              `
+              : ""
+          }
+
+
+          ${
+            product.delivery
+              ? `
+                <div class="spec-row">
+                  <span>Delivery</span>
+                  <strong>${product.delivery}</strong>
+                </div>
+              `
+              : ""
+          }
+
+        </div>
+
+
+        <div class="product-actions">
+
+          <button
+            type="button"
+            class="btn btn-primary product-add"
+            data-product-add
+            data-id="${product.id}">
+
+            Add to Bag
+
+          </button>
+
+
+          <a
+            href="https://wa.me/12089034508?text=${encodeURIComponent(
+              "Hello Elite Bags, I'm interested in " +
+              product.name +
+              " (Product ID: " +
+              product.id +
+              "). Please send me the details."
+            )}"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-whatsapp">
+
+            💬 Order on WhatsApp
+
+          </a>
+
+        </div>
+
+
+        <div class="product-note">
+
+          <strong>Need help?</strong>
 
           <p>
-            Please return to the collection and select
-            a product to view its details.
+            Contact us on WhatsApp for product details,
+            sizing, availability and ordering assistance.
           </p>
 
-          <a href="index.html" class="btn btn-primary">
-            Back to Home
-          </a>
         </div>
-      `;
 
-    }
+      </div>
 
-  }
-
-
-  /* Footer year */
-
-  const yearElement =
-    document.getElementById("footerYear");
-
-  if (yearElement) {
-
-    yearElement.textContent =
-      new Date().getFullYear();
-
-  }
+    </div>
+  `;
 
 
-  /* Mobile navigation */
+  /* PRODUCT IMAGE THUMBNAILS */
 
-  const mobileButton =
-    document.getElementById("mobileMenuBtn");
+  const main = page.querySelector("[data-product-image]");
+  const thumbs = page.querySelectorAll("[data-product-thumb]");
 
-  const navigation =
-    document.getElementById("mainNav");
+  thumbs.forEach(function (thumb) {
 
+    thumb.addEventListener("click", function () {
 
-  if (mobileButton && navigation) {
+      const image = this.getAttribute("data-image");
 
-    mobileButton.addEventListener(
-      "click",
-      function () {
-
-        navigation.classList.toggle("active");
-
-        document.body.classList.toggle(
-          "menu-open"
-        );
-
+      if (main && image) {
+        main.src = image;
+        main.style.display = "block";
       }
-    );
 
-
-    navigation
-      .querySelectorAll("a")
-      .forEach(function (link) {
-
-        link.addEventListener(
-          "click",
-          function () {
-
-            navigation.classList.remove("active");
-
-            document.body.classList.remove(
-              "menu-open"
-            );
-
-          }
-        );
-
-      });
-
-  }
-
-
-  /* Search modal */
-
-  const searchButton =
-    document.getElementById("openSearch");
-
-  const searchModal =
-    document.getElementById("searchModal");
-
-  const searchInput =
-    document.getElementById("globalSearchInput");
-
-
-  if (searchButton && searchModal) {
-
-    searchButton.addEventListener(
-      "click",
-      function () {
-
-        searchModal.classList.add("active");
-
-        document.body.classList.add(
-          "search-open"
-        );
-
-        setTimeout(function () {
-
-          if (searchInput) {
-            searchInput.focus();
-          }
-
-        }, 150);
-
-      }
-    );
-
-  }
-
-
-  document
-    .querySelectorAll("[data-close-search]")
-    .forEach(function (element) {
-
-      element.addEventListener(
-        "click",
-        function () {
-
-          if (searchModal) {
-
-            searchModal.classList.remove(
-              "active"
-            );
-
-          }
-
-          document.body.classList.remove(
-            "search-open"
-          );
-
-        }
-      );
+      thumbs.forEach(t => t.classList.remove("active"));
+      this.classList.add("active");
 
     });
 
-
-  /* Back to top */
-
-  const backToTop =
-    document.getElementById("backToTop");
+  });
 
 
-  if (backToTop) {
+  /* ADD TO BAG */
 
-    window.addEventListener(
-      "scroll",
-      function () {
+  const addButton = page.querySelector("[data-product-add]");
 
-        if (window.scrollY > 500) {
+  if (addButton) {
 
-          backToTop.classList.add("show");
+    addButton.addEventListener("click", function () {
 
-        } else {
+      const cartKey = "elite_bags_cart";
 
-          backToTop.classList.remove("show");
+      let cart = [];
 
-        }
-
+      try {
+        cart = JSON.parse(
+          localStorage.getItem(cartKey) || "[]"
+        );
+      } catch (error) {
+        cart = [];
       }
-    );
 
 
-    backToTop.addEventListener(
-      "click",
-      function () {
+      const existing = cart.find(
+        item => String(item.id) === String(product.id)
+      );
 
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
+
+      if (existing) {
+        existing.quantity =
+          Number(existing.quantity || 1) + 1;
+      } else {
+
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: Number(product.price),
+          currency: product.currency || "$",
+          image: mainImage,
+          quantity: 1
         });
 
       }
-    );
-
-  }
 
 
-  /* Close cart */
-
-  document
-    .querySelectorAll("[data-close-cart]")
-    .forEach(function (element) {
-
-      element.addEventListener(
-        "click",
-        function () {
-
-          const drawer =
-            document.getElementById("cartDrawer");
-
-          if (drawer) {
-
-            drawer.classList.remove(
-              "active"
-            );
-
-          }
-
-          document.body.classList.remove(
-            "cart-open"
-          );
-
-        }
+      localStorage.setItem(
+        cartKey,
+        JSON.stringify(cart)
       );
+
+
+      addButton.textContent = "Added ✓";
+
+
+      setTimeout(function () {
+        addButton.textContent = "Add to Bag";
+      }, 1500);
+
+
+      const cartButton =
+        document.querySelector("[data-open-cart]");
+
+      if (cartButton) {
+        cartButton.click();
+      }
 
     });
 
-
-  /* Keyboard shortcuts */
-
-  document.addEventListener(
-    "keydown",
-    function (event) {
-
-      if (event.key === "Escape") {
-
-        if (searchModal) {
-
-          searchModal.classList.remove(
-            "active"
-          );
-
-        }
-
-        const drawer =
-          document.getElementById("cartDrawer");
-
-        if (drawer) {
-
-          drawer.classList.remove(
-            "active"
-          );
-
-        }
-
-        document.body.classList.remove(
-          "search-open",
-          "cart-open",
-          "menu-open"
-        );
-
-      }
-
-    }
-  );
+  }
 
 });
-
 </script>
 
 </body>
