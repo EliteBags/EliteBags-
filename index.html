@@ -1,1 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Elite Bags — Premium fashion bags, shoes, heels, watches, jewelry and clothing.">
+<meta name="google-site-verification" content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
+<link rel="canonical" href="https://elitebagss.com/">
+<title>Elite Bags | Premium Fashion Collection</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#07080b;color:#f5f5f5;
+line-height:1.5;overflow-x:hidden
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+:root{--red:#e51d35;--red2:#ff3048;--dark:#07080b;--card:#101218;--line:#252831;--muted:#a5a8b0}
+.container{width:min(1180px,92%);margin:auto}
+.top{
+background:#e51d35;text-align:center;padding:8px 12px;
+font-size:12px;font-weight:700;letter-spacing:.5px
+}
+.header{
+position:sticky;top:0;z-index:1000;
+background:rgba(7,8,11,.94);backdrop-filter:blur(15px);
+border-bottom:1px solid #20232b
+}
+.nav{
+height:72px;display:flex;align-items:center;gap:28px;
+justify-content:space-between
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800}
+.eb{
+width:42px;height:42px;border-radius:50%;
+display:grid;place-items:center;
+background:#fff;color:#e51d35;font-weight:900;font-size:15px;
+border:2px solid #e51d35;box-shadow:0 0 0 3px rgba(229,29,53,.15)
+}
+.logo span:last-child{font-size:20px;letter-spacing:.5px}
+.links{display:flex;align-items:center;gap:22px;font-size:14px}
+.links a{color:#d9d9dd;transition:.2s}
+.links a:hover{color:#ff3048}
+.actions{display:flex;align-items:center;gap:8px}
+.icon{
+width:42px;height:42px;border:1px solid #343842;
+background:#111319;color:white;border-radius:12px;
+display:grid;place-items:center;cursor:pointer
+}
+.cart-count{
+position:absolute;background:#e51d35;color:#fff;
+font-size:10px;min-width:18px;height:18px;
+border-radius:20px;display:grid;place-items:center;
+transform:translate(13px,-14px)
+}
+.menu-btn{display:none}
+.hero{
+min-height:650px;display:flex;align-items:center;
+position:relative;overflow:hidden;
+background:
+radial-gradient(circle at 75% 30%,rgba(229,29,53,.2),transparent 35%),
+radial-gradient(circle at 20% 80%,rgba(255,255,255,.05),transparent 30%)
+}
+.hero:after{
+content:"";position:absolute;width:500px;height:500px;
+right:-180px;top:80px;border-radius:50%;
+border:1px solid rgba(255,255,255,.08)
+}
+.hero-inner{position:relative;z-index:2;padding:80px 0}
+.eyebrow{
+color:#ff3048;font-size:12px;letter-spacing:3px;
+font-weight:800;text-transform:uppercase;margin-bottom:18px
+}
+.hero h1{
+font-size:clamp(42px,7vw,82px);line-height:.95;
+max-width:760px;letter-spacing:-3px
+}
+.hero h1 strong{color:#ff3048}
+.hero p{
+max-width:590px;color:#b8bbc2;font-size:17px;
+margin:25px 0 32px
+}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+padding:14px 23px;border-radius:9px;font-weight:800;
+border:1px solid #343740;display:inline-flex;
+align-items:center;justify-content:center;cursor:pointer;
+transition:.25s
+}
+.btn.red{background:#e51d35;border-color:#e51d35;color:#fff}
+.btn.red:hover{background:#ff3048;transform:translateY(-2px)}
+.btn.dark{background:#111319;color:#fff}
+.btn.dark:hover{border-color:#e51d35}
+.trust{
+border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+background:#0c0e13
+}
+.trust-grid{
+display:grid;grid-template-columns:repeat(4,1fr)
+}
+.trust-item{padding:22px 15px;text-align:center;border-right:1px solid var(--line)}
+.trust-item:last-child{border:0}
+.trust-item b{display:block;font-size:14px;margin-bottom:4px}
+.trust-item span{color:#90949d;font-size:12px}
+.section{padding:85px 0}
+.heading{text-align:center;margin-bottom:42px}
+.heading small{color:#ff3048;font-weight:800;letter-spacing:2px}
+.heading h2{font-size:36px;margin-top:8px}
+.heading p{color:#92969f;margin:10px auto;max-width:580px}
+.categories{
+display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.cat{
+min-height:190px;border:1px solid var(--line);border-radius:18px;
+padding:28px;position:relative;overflow:hidden;
+background:linear-gradient(145deg,#15171e,#0d0f14);
+transition:.25s
+}
+.cat:hover{transform:translateY(-5px);border-color:#e51d35}
+.cat .num{color:#555b65;font-size:12px}
+.cat h3{font-size:25px;margin-top:50px}
+.cat a{color:#ff3048;font-size:12px;font-weight:800}
+.cat:after{
+content:"";position:absolute;width:130px;height:130px;
+right:-40px;bottom:-50px;border-radius:50%;
+background:rgba(229,29,53,.12)
+}
+.featured{
+display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+}
+.product{
+background:#101218;border:1px solid var(--line);
+border-radius:16px;overflow:hidden;transition:.25s
+}
+.product:hover{transform:translateY(-5px);border-color:#3a3e49}
+.product-img{
+height:260px;background:#171921;position:relative;
+display:grid;place-items:center;overflow:hidden
+}
+.product-img img{
+width:100%;height:100%;object-fit:cover;display:block;
+transition:.4s
+}
+.product:hover img{transform:scale(1.04)}
+.placeholder{
+font-size:34px;font-weight:900;color:#e51d35;
+border:2px solid #e51d35;width:70px;height:70px;
+display:grid;place-items:center;border-radius:50%
+}
+.badge{
+position:absolute;left:12px;top:12px;
+background:#e51d35;color:#fff;border-radius:5px;
+padding:5px 8px;font-size:10px;font-weight:800
+}
+.product-body{padding:16px}
+.product-cat{font-size:10px;color:#ff3048;font-weight:800;text-transform:uppercase}
+.product h3{font-size:15px;margin:7px 0;min-height:42px}
+.price{font-size:18px;font-weight:900;margin-bottom:13px}
+.product-actions{display:grid;grid-template-columns:1fr 42px;gap:7px}
+.product-actions button{
+border:1px solid #343842;background:#171920;color:white;
+border-radius:8px;padding:10px;cursor:pointer;font-weight:700
+}
+.product-actions .order{background:#e51d35;border-color:#e51d35}
+.standard{
+background:linear-gradient(135deg,#14161c,#0a0b0f);
+border:1px solid #292d36;border-radius:22px;
+padding:55px;display:grid;grid-template-columns:1.3fr 1fr;gap:50px;
+align-items:center
+}
+.standard h2{font-size:42px;line-height:1}
+.standard h2 span{color:#ff3048}
+.standard p{color:#9da1aa;margin:18px 0}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.point{
+padding:17px;border:1px solid #292d36;border-radius:12px;
+background:#0d0f14
+}
+.point b{font-size:14px}
+.point span{display:block;color:#858993;font-size:11px;margin-top:4px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{
+padding:30px;border:1px solid var(--line);
+border-radius:16px;background:#0e1015
+}
+.step-num{
+width:38px;height:38px;border-radius:50%;
+display:grid;place-items:center;background:#e51d35;
+font-weight:900;margin-bottom:18px
+}
+.step h3{font-size:17px;margin-bottom:8px}
+.step p{font-size:13px;color:#8e929b}
+.cta{
+text-align:center;padding:85px 20px;
+background:radial-gradient(circle at center,rgba(229,29,53,.18),transparent 55%)
+}
+.cta h2{font-size:42px}
+.cta p{color:#999da6;margin:12px auto 25px}
+.footer{
+border-top:1px solid var(--line);background:#090a0e;padding:55px 0 25px
+}
+.footer-grid{
+display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px
+}
+.footer h3{font-size:14px;margin-bottom:15px}
+.footer p,.footer a{font-size:13px;color:#858993;display:block;margin:8px 0}
+.footer a:hover{color:#ff3048}
+.bottom{
+border-top:1px solid var(--line);margin-top:35px;padding-top:20px;
+display:flex;justify-content:space-between;color:#666b74;font-size:11px
+}
+.wa{
+position:fixed;right:20px;bottom:20px;z-index:900;
+width:56px;height:56px;border-radius:50%;
+background:#20c063;color:#fff;display:grid;place-items:center;
+font-size:25px;box-shadow:0 8px 30px rgba(0,0,0,.4)
+}
+.overlay{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+z-index:1500
+}
+.drawer{
+position:fixed;right:0;top:0;height:100%;width:min(420px,92%);
+background:#0d0f14;border-left:1px solid #292d36;
+z-index:1600;transform:translateX(100%);transition:.3s;
+padding:25px;overflow:auto
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.drawer h2{font-size:24px}
+.close{background:none;border:0;color:white;font-size:28px;cursor:pointer}
+.cart-empty{text-align:center;color:#858993;padding:80px 10px}
+.search-box{
+display:none;position:absolute;left:0;right:0;top:72px;
+background:#0d0f14;border-bottom:1px solid #292d36;padding:15px
+}
+.search-box.open{display:block}
+.search-box input{
+width:100%;padding:14px;border-radius:10px;
+border:1px solid #343842;background:#15171e;color:white;outline:none
+}
+.mobile-menu{
+display:none;background:#0d0f14;border-top:1px solid #292d36;
+padding:10px 20px
+}
+.mobile-menu a{
+display:block;padding:13px 0;border-bottom:1px solid #20232b;
+font-weight:700
+}
+@media(max-width:900px){
+.links{display:none}
+.menu-btn{display:grid}
+.trust-grid{grid-template-columns:repeat(2,1fr)}
+.trust-item:nth-child(2){border-right:0}
+.categories{grid-template-columns:repeat(2,1fr)}
+.featured{grid-template-columns:repeat(2,1fr)}
+.standard{grid-template-columns:1fr;padding:35px}
+.footer-grid{grid-template-columns:1fr 1fr}
+.mobile-menu.open{display:block}
+}
+@media(max-width:560px){
+.nav{height:64px;gap:6px}
+.logo span:last-child{font-size:17px}
+.eb{width:38px;height:38px}
+.icon{width:38px;height:38px}
+.hero{min-height:590px}
+.hero-inner{padding:65px 0}
+.hero h1{font-size:48px;letter-spacing:-2px}
+.hero p{font-size:14px}
+.buttons{display:grid}
+.btn{width:100%}
+.section{padding:62px 0}
+.heading h2{font-size:30px}
+.categories{gap:10px}
+.cat{min-height:145px;padding:18px}
+.cat h3{font-size:20px;margin-top:35px}
+.featured{gap:10px}
+.product-img{height:210px}
+.product-body{padding:12px}
+.product h3{font-size:13px}
+.price{font-size:16px}
+.standard h2{font-size:32px}
+.points{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr}
+.cta h2{font-size:32px}
+.footer-grid{grid-template-columns:1fr}
+.bottom{display:block;text-align:center}
+.bottom span{display:block;margin:6px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">FREE WORLDWIDE SHIPPING • 9–13 WORKING DAYS</div>
+
+<header class="header">
+<div class="container nav">
+
+<button class="icon menu-btn" id="menuBtn">☰</button>
+
+<a class="logo" href="#home">
+<div class="eb">EB</div>
+<span>Elite Bags</span>
+</a>
+
+<nav class="links">
+<a href="#home">Home</a>
+<a href="#categories">Collections</a>
+<a href="#featured">Featured</a>
+<a href="#standard">Our Standard</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="actions">
+<button class="icon" id="searchBtn">⌕</button>
+<button class="icon" id="cartBtn">🛍<span class="cart-count" id="cartCount">0</span></button>
+<a class="icon" href="https://wa.me/12089034508">◉</a>
+</div>
+</div>
+
+<div class="search-box" id="searchBox">
+<div class="container">
+<input id="searchInput" type="search" placeholder="Search bags, shoes, watches, jewelry...">
+</div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#home">Home</a>
+<a href="#categories">Collections</a>
+<a href="#featured">Featured Products</a>
+<a href="#standard">Our Standard</a>
+<a href="#steps">How It Works</a>
+<a href="#contact">Contact</a>
+</div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+<div class="container hero-inner">
+<div class="eyebrow">Elite Bags • Premium Collection</div>
+<h1>STYLE THAT<br><strong>SPEAKS</strong> FOR YOU.</h1>
+<p>
+Discover carefully selected fashion pieces with premium quality,
+secure packaging and worldwide delivery.
+</p>
+<div class="buttons">
+<a class="btn red" href="#categories">SHOP COLLECTION</a>
+<a class="btn dark" href="https://wa.me/12089034508?text=Hello%20Elite%20Bags,%20I%20want%20to%20see%20your%20collection.">CHAT ON WHATSAPP</a>
+</div>
+</div>
+</section>
+
+<section class="trust">
+<div class="container trust-grid">
+<div class="trust-item"><b>MASTER QUALITY</b><span>Premium selected pieces</span></div>
+<div class="trust-item"><b>FREE SHIPPING</b><span>Worldwide delivery</span></div>
+<div class="trust-item"><b>9–13 DAYS</b><span>Working day delivery</span></div>
+<div class="trust-item"><b>SECURE PACKAGING</b><span>Carefully prepared orders</span></div>
+</div>
+</section>
+
+<section class="section" id="categories">
+<div class="container">
+<div class="heading">
+<small>SHOP BY CATEGORY</small>
+<h2>Explore The Collection</h2>
+<p>Find your next favorite piece from our fashion collection.</p>
+</div>
+
+<div class="categories">
+<a class="cat" href="#featured" data-category="Bags">
+<span class="num">01</span><h3>Handbags</h3><span>Explore Bags →</span>
+</a>
+<a class="cat" href="#featured" data-category="Shoes">
+<span class="num">02</span><h3>Shoes</h3><span>Explore Shoes →</span>
+</a>
+<a class="cat" href="#featured" data-category="Heels">
+<span class="num">03</span><h3>Heels</h3><span>Explore Heels →</span>
+</a>
+<a class="cat" href="#featured" data-category="Watches">
+<span class="num">04</span><h3>Watches</h3><span>Explore Watches →</span>
+</a>
+<a class="cat" href="#featured" data-category="Jewelry">
+<span class="num">05</span><h3>Jewelry</h3><span>Explore Jewelry →</span>
+</a>
+<a class="cat" href="#featured" data-category="Clothes">
+<span class="num">06</span><h3>Clothing</h3><span>Explore Clothes →</span>
+</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="featured">
+<div class="container">
+<div class="heading">
+<small>FEATURED PRODUCTS</small>
+<h2>Selected For You</h2>
+<p>Premium fashion pieces ready to discover.</p>
+</div>
+
+<div class="featured" id="products">
+
+<article class="product" data-name="Louis Vuitton Odyssee Monogram Bag" data-category="Bags">
+<div class="product-img">
+<img src="images/0001.jpg" alt="Louis Vuitton Odyssee Monogram Bag"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">NEW</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Bags</div>
+<h3>Louis Vuitton Odyssee Monogram Bag</h3>
+<div class="price">$365</div>
+<div class="product-actions">
+<button class="order" onclick="order('Louis Vuitton Odyssee Monogram Bag','$365')">WhatsApp</button>
+<button onclick="addCart('Louis Vuitton Odyssee Monogram Bag','$365')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Christian Dior Lady Dior Handbag" data-category="Bags">
+<div class="product-img">
+<img src="images/0002.jpg" alt="Christian Dior Lady Dior Handbag"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">TRENDING</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Bags</div>
+<h3>Christian Dior Lady Dior Handbag</h3>
+<div class="price">$335</div>
+<div class="product-actions">
+<button class="order" onclick="order('Christian Dior Lady Dior Handbag','$335')">WhatsApp</button>
+<button onclick="addCart('Christian Dior Lady Dior Handbag','$335')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Chanel Raffia Shopping Tote" data-category="Bags">
+<div class="product-img">
+<img src="images/0003.jpg.jpg" alt="Chanel Raffia Shopping Tote"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">TRENDING</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Bags</div>
+<h3>Chanel Raffia Shopping Tote</h3>
+<div class="price">$345</div>
+<div class="product-actions">
+<button class="order" onclick="order('Chanel Raffia Shopping Tote','$345')">WhatsApp</button>
+<button onclick="addCart('Chanel Raffia Shopping Tote','$345')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Louis Vuitton Alma BB Bag" data-category="Bags">
+<div class="product-img">
+<img src="images/0004.jpg" alt="Louis Vuitton Alma BB Bag"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">POPULAR</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Bags</div>
+<h3>Louis Vuitton Alma BB Bag</h3>
+<div class="price">$335</div>
+<div class="product-actions">
+<button class="order" onclick="order('Louis Vuitton Alma BB Bag','$335')">WhatsApp</button>
+<button onclick="addCart('Louis Vuitton Alma BB Bag','$335')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Louis Vuitton Neverfull MM" data-category="Bags">
+<div class="product-img">
+<img src="images/0005.jpg.jpg" alt="Louis Vuitton Neverfull MM"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">NEW</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Bags</div>
+<h3>Louis Vuitton Neverfull MM</h3>
+<div class="price">$355</div>
+<div class="product-actions">
+<button class="order" onclick="order('Louis Vuitton Neverfull MM','$355')">WhatsApp</button>
+<button onclick="addCart('Louis Vuitton Neverfull MM','$355')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Chanel Caoutchouc CC High Boots" data-category="Shoes">
+<div class="product-img">
+<img src="images/0006.jpg" alt="Chanel Caoutchouc CC High Boots"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+<span class="badge">NEW</span>
+</div>
+<div class="product-body">
+<div class="product-cat">Shoes</div>
+<h3>Chanel Caoutchouc CC High Boots</h3>
+<div class="price">$275</div>
+<div class="product-actions">
+<button class="order" onclick="order('Chanel Caoutchouc CC High Boots','$275')">WhatsApp</button>
+<button onclick="addCart('Chanel Caoutchouc CC High Boots','$275')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Chanel Suede CC Mules" data-category="Shoes">
+<div class="product-img">
+<img src="images/0007.jpg" alt="Chanel Suede CC Mules"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+</div>
+<div class="product-body">
+<div class="product-cat">Shoes</div>
+<h3>Chanel Suede CC Mules</h3>
+<div class="price">$235</div>
+<div class="product-actions">
+<button class="order" onclick="order('Chanel Suede CC Mules','$235')">WhatsApp</button>
+<button onclick="addCart('Chanel Suede CC Mules','$235')">＋</button>
+</div>
+</div>
+</article>
+
+<article class="product" data-name="Saint Laurent Le Loafer" data-category="Shoes">
+<div class="product-img">
+<img src="images/0009.jpg" alt="Saint Laurent Le Loafer"
+onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+<div class="placeholder" style="display:none">EB</div>
+</div>
+<div class="product-body">
+<div class="product-cat">Shoes</div>
+<h3>Saint Laurent Le Loafer</h3>
+<div class="price">$255</div>
+<div class="product-actions">
+<button class="order" onclick="order('Saint Laurent Le Loafer','$255')">WhatsApp</button>
+<button onclick="addCart('Saint Laurent Le Loafer','$255')">＋</button>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="section" id="standard">
+<div class="container">
+<div class="standard">
+<div>
+<div class="eyebrow">THE ELITE STANDARD</div>
+<h2>More Than A<br><span>Shopping Experience.</span></h2>
+<p>
+Every order is prepared with attention to quality, presentation
+and secure packaging from start to delivery.
+</p>
+<a class="btn red" href="https://wa.me/12089034508?text=Hello%20Elite%20Bags,%20I%20need%20help%20choosing%20a%20product.">GET PERSONAL HELP</a>
+</div>
+
+<div class="points">
+<div class="point"><b>✓ Premium Selection</b><span>Carefully selected fashion pieces</span></div>
+<div class="point"><b>✓ Secure Packaging</b><span>Prepared carefully for delivery</span></div>
+<div class="point"><b>✓ Worldwide Delivery</b><span>Free worldwide shipping</span></div>
+<div class="point"><b>✓ Easy Communication</b><span>Direct WhatsApp support</span></div>
+<div class="point"><b>✓ 9–13 Working Days</b><span>Estimated delivery window</span></div>
+<div class="point"><b>✓ Gift Ready</b><span>Perf
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="steps">
+<div class="container">
+
+<div class="heading">
+<small>HOW IT WORKS</small>
+<h2>Simple. Personal. Secure.</h2>
+<p>Shopping with Elite Bags is simple from selection to delivery.</p>
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-num">1</div>
+<h3>Choose Your Piece</h3>
+<p>Browse our collection and select the fashion piece you love.</p>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<h3>Contact Us</h3>
+<p>Message us on WhatsApp for product details, sizes and availability.</p>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<h3>We Prepare Your Order</h3>
+<p>Your order is carefully prepared and shipped worldwide.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<div class="eyebrow">ELITE BAGS</div>
+
+<h2>Looking For Something Special?</h2>
+
+<p>
+Tell us what you're looking for and we'll help you find the right piece.
+</p>
+
+<div class="buttons" style="justify-content:center">
+
+<a class="btn red"
+href="https://wa.me/12089034508?text=Hello%20Elite%20Bags,%20I%20am%20looking%20for%20something%20special.">
+MESSAGE US ON WHATSAPP
+</a>
+
+<a class="btn dark" href="#categories">
+EXPLORE COLLECTION
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer" id="contact">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<a class="logo" href="#home">
+
+<div class="eb">EB</div>
+
+<span>Elite Bags</span>
+
+</a>
+
+<p style="margin-top:16px">
+Premium fashion collection with worldwide delivery and personal customer support.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>SHOP</h3>
+
+<a href="#categories">Bags</a>
+<a href="#categories">Shoes</a>
+<a href="#categories">Heels</a>
+<a href="#categories">Watches</a>
+<a href="#categories">Jewelry</a>
+<a href="#categories">Clothes</a>
+
+</div>
+
+
+<div>
+
+<h3>CONTACT</h3>
+
+<a href="https://wa.me/12089034508">
+WhatsApp: +1 208-903-4508
+</a>
+
+<a href="mailto:luxuriouselitebags@gmail.com">
+luxuriouselitebags@gmail.com
+</a>
+
+<a href="https://www.tiktok.com/@elite.bagss">
+TikTok: @elite.bagss
+</a>
+
+</div>
+
+
+<div>
+
+<h3>INFORMATION</h3>
+
+<p>Free Worldwide Shipping</p>
+
+<p>Delivery: 9–13 Working Days</p>
+
+<p>Secure Packaging</p>
+
+<p>Master Quality Collection</p>
+
+<p>Payment options available — confirm before ordering.</p>
+
+</div>
+
+</div>
+
+
+<div class="bottom">
+
+<span>
+© <span id="year"></span> Elite Bags. All rights reserved.
+</span>
+
+<span>
+Guang Zhou Shi, Guang Dong Sheng, China
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<a
+class="wa"
+href="https://wa.me/12089034508"
+aria-label="WhatsApp">
+◉
+</a>
+
+
+<div class="overlay" id="overlay"></div>
+
+
+<aside class="drawer" id="drawer">
+
+<div class="drawer-head">
+
+<h2>Your Bag</h2>
+
+<button
+class="close"
+id="closeCart">
+×
+</button>
+
+</div>
+
+
+<div
+id="cartItems"
+class="cart-empty">
+Your bag is empty.
+</div>
+
+</aside>
+
+
+<script>
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+
+const searchBtn =
+document.getElementById("searchBtn");
+
+const searchBox =
+document.getElementById("searchBox");
+
+const searchInput =
+document.getElementById("searchInput");
+
+
+const products =
+document.querySelectorAll(".product");
+
+
+const cartBtn =
+document.getElementById("cartBtn");
+
+const drawer =
+document.getElementById("drawer");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeCart =
+document.getElementById("closeCart");
+
+const cartItems =
+document.getElementById("cartItems");
+
+const cartCount =
+document.getElementById("cartCount");
+
+
+let cart = [];
+
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+menuBtn.onclick = function(){
+
+mobileMenu.classList.toggle("open");
+
+};
+
+
+searchBtn.onclick = function(){
+
+searchBox.classList.toggle("open");
+
+if(searchBox.classList.contains("open")){
+
+searchInput.focus();
+
+}
+
+};
+
+
+searchInput.oninput = function(){
+
+const q =
+searchInput.value.toLowerCase().trim();
+
+
+products.forEach(function(product){
+
+const text =
+(
+product.dataset.name +
+" " +
+product.dataset.category
+).toLowerCase();
+
+
+product.style.display =
+(!q || text.includes(q))
+? "block"
+: "none";
+
+});
+
+};
+
+
+document.querySelectorAll(".cat").forEach(function(category){
+
+category.onclick = function(){
+
+const selected =
+category.dataset.category;
+
+
+products.forEach(function(product){
+
+product.style.display =
+product.dataset.category === selected
+? "block"
+: "none";
+
+});
+
+};
+
+});
+
+
+function order(name,price){
+
+const text =
+"Hello Elite Bags,%0A" +
+"I am interested in:%0A" +
+name +
+"%0APrice: " +
+price +
+"%0A%0APlease send me the available details.";
+
+
+window.open(
+"https://wa.me/12089034508?text=" + text,
+"_blank"
+);
+
+}
+
+
+function addCart(name,price){
+
+cart.push({
+
+name:name,
+price:price
+
+});
+
+
+cartCount.textContent =
+cart.length;
+
+
+renderCart();
+
+openCart();
+
+}
+
+
+function renderCart(){
+
+if(!cart.length){
+
+cartItems.className =
+"cart-empty";
+
+cartItems.innerHTML =
+"Your bag is empty.";
+
+return;
+
+}
+
+
+cartItems.className = "";
+
+
+cartItems.innerHTML =
+
+cart.map(function(item,index){
+
+return `
+
+<div style="
+padding:18px 0;
+border-bottom:1px solid #292d36;
+">
+
+<b>${item.name}</b>
+
+<div style="
+color:#ff3048;
+margin:5px 0;
+">
+
+${item.price}
+
+</div>
+
+<button
+onclick="removeCart(${index})"
+style="
+background:none;
+border:0;
+color:#999;
+cursor:pointer;
+padding:0;
+">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+}).join("")
+
+
++
+
+`
+
+<a
+class="btn red"
+style="
+width:100%;
+margin-top:20px;
+"
+href="https://wa.me/12089034508?text=${encodeURIComponent(
+"Hello Elite Bags, I would like to order:\n" +
+cart.map(function(item){
+return item.name + " — " + item.price;
+}).join("\n")
+)}">
+
+ORDER VIA WHATSAPP
+
+</a>
+
+`;
+
+}
+
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+cartCount.textContent =
+cart.length;
+
+renderCart();
+
+}
+
+
+function openCart(){
+
+drawer.classList.add("open");
+
+overlay.style.display =
+"block";
+
+}
+
+
+function closeDrawer(){
+
+drawer.classList.remove("open");
+
+overlay.style.display =
+"none";
+
+}
+
+
+cartBtn.onclick =
+openCart;
+
+
+closeCart.onclick =
+closeDrawer;
+
+
+overlay.onclick =
+closeDrawer;
+
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+link.onclick = function(){
+
+mobileMenu.classList.remove("open");
+
+};
+
+});
+
+</script>
+
+</body>
+</html>
