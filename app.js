@@ -1055,86 +1055,173 @@
 
 })();
 /* =========================================================
-   ELITE BAGS — FORCE PRODUCT CARD NAVIGATION
+   ELITE BAGS — FINAL PRODUCT CLICK FIX
+   Works with the current homepage product cards
    ========================================================= */
 
-document.addEventListener("click", function (event) {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const card = event.target.closest(
-    ".product-card, .card, .product-item, .product"
-  );
+  function connectEliteProductCards() {
 
-  if (!card) return;
+    if (!Array.isArray(window.PRODUCTS)) {
+      console.log("Elite Bags: PRODUCTS not loaded");
+      return;
+    }
 
-  /* WhatsApp / Cart buttons ko normal rehne do */
-  const clickedButton = event.target.closest(
-    "button, .whatsapp, .whatsapp-btn, .order, .add-cart, .cart-btn"
-  );
-
-  if (clickedButton) return;
-
-  /* WhatsApp links ko normal rehne do */
-  const clickedLink = event.target.closest("a");
-
-  if (
-    clickedLink &&
-    clickedLink.href &&
-    clickedLink.href.includes("wa.me")
-  ) {
-    return;
-  }
-
-  let productId =
-    card.getAttribute("data-product-id") ||
-    card.getAttribute("data-id") ||
-    card.getAttribute("data-product");
-
-  /* -----------------------------------------
-     Find product by visible product name
-     ----------------------------------------- */
-
-  if (!productId && Array.isArray(window.PRODUCTS)) {
-
-    const titleElement = card.querySelector(
-      "h1, h2, h3, h4, .product-name, .card-title"
+    const allElements = document.querySelectorAll(
+      "h1, h2, h3, h4, img"
     );
 
-    if (titleElement) {
+    allElements.forEach(function (element) {
 
-      const title = titleElement.textContent
-        .trim()
-        .toLowerCase();
+      let product = null;
 
-      const product = window.PRODUCTS.find(function (p) {
+      /* -----------------------------------------
+         PRODUCT NAME FROM HEADING
+         ----------------------------------------- */
 
-        return String(p.name)
+      if (
+        element.tagName === "H1" ||
+        element.tagName === "H2" ||
+        element.tagName === "H3" ||
+        element.tagName === "H4"
+      ) {
+
+        const title = element.textContent
           .trim()
-          .toLowerCase() === title;
+          .toLowerCase();
+
+        product = window.PRODUCTS.find(function (p) {
+
+          return String(p.name)
+            .trim()
+            .toLowerCase() === title;
+
+        });
+
+      }
+
+      /* -----------------------------------------
+         PRODUCT NAME FROM IMAGE ALT
+         ----------------------------------------- */
+
+      if (
+        !product &&
+        element.tagName === "IMG"
+      ) {
+
+        const alt = (
+          element.getAttribute("alt") || ""
+        )
+          .trim()
+          .toLowerCase();
+
+        product = window.PRODUCTS.find(function (p) {
+
+          return String(p.name)
+            .trim()
+            .toLowerCase() === alt;
+
+        });
+
+      }
+
+      if (!product) return;
+
+      /* Already connected */
+      if (element.dataset.eliteProductConnected === "true") {
+        return;
+      }
+
+      element.dataset.eliteProductConnected = "true";
+
+      /* -----------------------------------------
+         MAKE PRODUCT ELEMENT CLICKABLE
+         ----------------------------------------- */
+
+      element.style.cursor = "pointer";
+
+      element.addEventListener("click", function (event) {
+
+        /* Don't interfere with buttons */
+        if (
+          event.target.closest("button") ||
+          event.target.closest("a") ||
+          event.target.closest("input") ||
+          event.target.closest("select") ||
+          event.target.closest("textarea")
+        ) {
+          return;
+        }
+
+        window.location.href =
+          "./product.html?id=" +
+          encodeURIComponent(product.id);
 
       });
 
-      if (product) {
-        productId = product.id;
+      /* -----------------------------------------
+         ALSO MAKE PRODUCT CARD CLICKABLE
+         ----------------------------------------- */
+
+      let parent = element.parentElement;
+
+      for (let i = 0; i < 5 && parent; i++) {
+
+        const headings = parent.querySelectorAll(
+          "h1, h2, h3, h4"
+        );
+
+        const images = parent.querySelectorAll(
+          "img"
+        );
+
+        /* Find a reasonable product-card container */
+        if (
+          headings.length === 1 &&
+          images.length >= 1
+        ) {
+
+          parent.style.cursor = "pointer";
+
+          parent.addEventListener("click", function (event) {
+
+            if (
+              event.target.closest("button") ||
+              event.target.closest("a") ||
+              event.target.closest("input") ||
+              event.target.closest("select") ||
+              event.target.closest("textarea")
+            ) {
+              return;
+            }
+
+            window.location.href =
+              "./product.html?id=" +
+              encodeURIComponent(product.id);
+
+          });
+
+          break;
+        }
+
+        parent = parent.parentElement;
       }
-    }
-  }
 
-  /* -----------------------------------------
-     Open product page
-     ----------------------------------------- */
-
-  if (productId) {
-
-    window.location.href =
-      "./product.html?id=" +
-      encodeURIComponent(productId);
-
-  } else {
+    });
 
     console.log(
-      "Elite Bags: Could not find Product ID."
+      "Elite Bags: Product click system connected."
     );
-
   }
 
+  /* Run now */
+  connectEliteProductCards();
+
+  /* Run again after page scripts finish */
+  setTimeout(connectEliteProductCards, 500);
+  setTimeout(connectEliteProductCards, 1500);
+  setTimeout(connectEliteProductCards, 3000);
+
 });
+
