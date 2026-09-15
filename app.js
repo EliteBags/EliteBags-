@@ -1055,46 +1055,42 @@
 
 })();
 /* =========================================================
-   ELITE BAGS — PRODUCT CARD CLICK
-   Opens product.html?id=PRODUCT_ID
+   ELITE BAGS — FORCE PRODUCT CARD NAVIGATION
    ========================================================= */
 
 document.addEventListener("click", function (event) {
 
-  /* Find the product card */
   const card = event.target.closest(
     ".product-card, .card, .product-item, .product"
   );
 
-  /* Not a product card */
-  if (!card) {
-    return;
-  }
+  if (!card) return;
 
-  /* Don't redirect when clicking buttons or links */
+  /* WhatsApp / Cart buttons ko normal rehne do */
+  const clickedButton = event.target.closest(
+    "button, .whatsapp, .whatsapp-btn, .order, .add-cart, .cart-btn"
+  );
+
+  if (clickedButton) return;
+
+  /* WhatsApp links ko normal rehne do */
+  const clickedLink = event.target.closest("a");
+
   if (
-    event.target.closest("button") ||
-    event.target.closest("a") ||
-    event.target.closest("input") ||
-    event.target.closest("select") ||
-    event.target.closest("textarea")
+    clickedLink &&
+    clickedLink.href &&
+    clickedLink.href.includes("wa.me")
   ) {
     return;
   }
 
-  let productId = null;
-
-  /* -----------------------------------------
-     1. Try Product ID from card
-     ----------------------------------------- */
-
-  productId =
+  let productId =
     card.getAttribute("data-product-id") ||
     card.getAttribute("data-id") ||
     card.getAttribute("data-product");
 
   /* -----------------------------------------
-     2. If no ID, find product by product name
+     Find product by visible product name
      ----------------------------------------- */
 
   if (!productId && Array.isArray(window.PRODUCTS)) {
@@ -1109,39 +1105,36 @@ document.addEventListener("click", function (event) {
         .trim()
         .toLowerCase();
 
-      const foundProduct = window.PRODUCTS.find(function (product) {
+      const product = window.PRODUCTS.find(function (p) {
 
-        return String(product.name)
+        return String(p.name)
           .trim()
           .toLowerCase() === title;
 
       });
 
-      if (foundProduct) {
-        productId = foundProduct.id;
+      if (product) {
+        productId = product.id;
       }
     }
   }
 
   /* -----------------------------------------
-     3. Still no product ID
+     Open product page
      ----------------------------------------- */
 
-  if (!productId) {
+  if (productId) {
+
+    window.location.href =
+      "./product.html?id=" +
+      encodeURIComponent(productId);
+
+  } else {
 
     console.log(
-      "Elite Bags: Product ID not found for this card."
+      "Elite Bags: Could not find Product ID."
     );
 
-    return;
   }
-
-  /* -----------------------------------------
-     4. Open Product Details
-     ----------------------------------------- */
-
-  window.location.href =
-    "product.html?id=" +
-    encodeURIComponent(productId);
 
 });
