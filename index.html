@@ -1075,6 +1075,52 @@ mobileMenu.classList.remove("open");
   
 <script src="products.js"></script>
 <script src="app.js?v=5"></script>
-  
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const productLinks = {
+    "Louis Vuitton Odyssee Monogram Bag": "0001",
+    "Christian Dior Lady Dior Handbag": "0002",
+    "Chanel Raffia Shopping Tote": "0003",
+    "Louis Vuitton Alma BB Bag": "0004",
+    "Louis Vuitton Neverfull MM in Monogram Empreinte Leather": "0005",
+    "Chanel Caoutchouc CC High Boots": "0006",
+    "Chanel Suede Calfskin CC Mules": "0007",
+    "Chanel Short Biker Boots": "0008",
+    "Saint Laurent Le Loafer": "0009",
+    "Gucci x adidas Gazelle 'GG Monogram' Sneakers": "0010",
+    "Louis Vuitton Speedy Soft 30 Dark Monogram Bag": "0011",
+    "Christian Dior Dusty Ivory Macrocannage Calfskin Dior Groove Bag": "0012",
+    "Hermès Birkin Bag": "0013",
+    "Louis Vuitton Speedy Bandoulière 20 in Damier Ebène Canvas Bag": "0014",
+    "Goyard Goyardine Sac Cap Vert Black Crossbody Bag": "0015"
+  };
+
+  document.querySelectorAll(".product").forEach(function (card) {
+
+    const name = card.getAttribute("data-name");
+
+    const id = productLinks[name];
+
+    if (!id) return;
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function (event) {
+
+      /* WhatsApp / cart buttons ko redirect mat karo */
+      if (event.target.closest("button")) {
+        return;
+      }
+
+      window.location.href =
+        "product.html?id=" + id;
+
+    });
+
+  });
+
+});
+  </script>
 </body>
 </html>
