@@ -1,4 +1,4 @@
-const PRODUCTS = [
+window.PRODUCTS = [
   {
     id: "0001",
     name: "Louis Vuitton Odyssee Monogram Bag",
