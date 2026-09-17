@@ -1290,3 +1290,18 @@ img {
     bottom: 15px;
   }
     }
+/* ELITE BAGS LOGO */
+.site-logo{
+  width:68px;
+  height:68px;
+  object-fit:contain;
+  display:block;
+  flex-shrink:0;
+}
+
+@media (max-width:600px){
+  .site-logo{
+    width:58px;
+    height:58px;
+  }
+}
