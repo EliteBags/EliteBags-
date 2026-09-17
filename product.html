@@ -3,667 +3,430 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description"
-      content="Elite Bags — Premium fashion collection with worldwide delivery.">
+<meta name="description" content="Elite Bags — Premium fashion collection. View product details, images, pricing and order securely via WhatsApp.">
 
-<meta name="google-site-verification"
-      content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
+<meta name="google-site-verification" content="NkMsHpV6_k8epbhDKLO5_Ym7Q4KS-UsJrw7yIXP8FhI">
 
-<link rel="canonical"
-      href="https://elitebagss.com/product.html">
+<link rel="canonical" href="https://elitebagss.com/product.html">
 
-<link rel="icon"
-      type="image/png"
-      href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 
-<link rel="stylesheet"
-      href="style.css">
+<link rel="stylesheet" href="style.css">
 
-<title>Product | Elite Bags</title>
+<title>Elite Bags | Product</title>
 
 <style>
 
-/* =========================================================
-   ELITE BAGS PRODUCT PAGE
-   BLACK / RED LUXURY THEME
-   ========================================================= */
-
 :root{
-  --eb-red:#ff1738;
-  --eb-red-dark:#c90025;
-  --eb-black:#050708;
-  --eb-black-2:#090b0d;
-  --eb-card:#0d1013;
-  --eb-card-2:#111417;
-  --eb-border:rgba(255,255,255,.09);
-  --eb-text:#f7f7f7;
-  --eb-muted:#999da3;
-  --eb-soft:#15191d;
-  --eb-green:#25d366;
+  --black:#050607;
+  --black2:#0a0b0d;
+  --card:#101215;
+  --card2:#15171b;
+  --red:#ff1738;
+  --red2:#d90d2c;
+  --white:#ffffff;
+  --muted:#9b9da3;
+  --line:rgba(255,255,255,.09);
 }
 
 *{
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   margin:0;
-  background:
-    radial-gradient(
-      circle at 80% 15%,
-      rgba(255,23,56,.08),
-      transparent 28%
-    ),
-    #050708;
-  color:var(--eb-text);
-  font-family:Montserrat,Arial,sans-serif;
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* =========================================================
-   PAGE WRAPPER
-   ========================================================= */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+}
 
 .product-page{
-  width:100%;
-  overflow:hidden;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(255,23,56,.08),transparent 30%),
+    var(--black);
 }
 
-/* =========================================================
-   TOP ANNOUNCEMENT
-   ========================================================= */
+/* TOP BAR */
 
-.product-topbar{
-  background:#000;
-  border-bottom:1px solid rgba(255,23,56,.18);
-  color:#fff;
+.eb-topbar{
+  background:var(--red);
+  color:white;
   text-align:center;
-  padding:9px 14px;
-  font-size:10px;
+  font-size:12px;
   font-weight:800;
-  letter-spacing:1.5px;
+  letter-spacing:.8px;
+  padding:9px 15px;
 }
 
-/* =========================================================
-   PRODUCT HEADER
-   ========================================================= */
+/* HEADER */
 
-.product-header{
+.eb-header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(5,7,8,.92);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--eb-border);
+  background:rgba(5,6,7,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
 }
 
-.product-nav{
-  width:min(1240px,92%);
+.eb-nav{
+  max-width:1250px;
   margin:auto;
-  min-height:76px;
+  min-height:78px;
+  padding:0 22px;
   display:flex;
   align-items:center;
-  gap:28px;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.product-logo{
+.eb-brand{
   display:flex;
   align-items:center;
   gap:11px;
-  text-decoration:none;
-  color:#fff;
-  min-width:max-content;
+  font-weight:900;
+  letter-spacing:1.4px;
 }
 
-.product-logo-mark{
-  width:42px;
-  height:42px;
+.eb-logo{
+  width:43px;
+  height:43px;
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:
-    radial-gradient(circle at 35% 30%,#ff5369,#ff1738 48%,#9f001c);
-  color:#fff;
+  background:linear-gradient(145deg,#ff1738,#a90020);
+  color:white;
   font-family:Georgia,serif;
-  font-weight:900;
-  font-size:14px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.1),
-    0 8px 30px rgba(255,23,56,.25);
-}
-
-.product-logo-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1;
-}
-
-.product-logo-text strong{
-  font-family:Cinzel,Georgia,serif;
   font-size:17px;
-  letter-spacing:1.5px;
-}
-
-.product-logo-text span{
-  margin-top:5px;
-  color:#8e9298;
-  font-size:8px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.product-nav-links{
-  margin-left:auto;
-  display:flex;
-  align-items:center;
-  gap:22px;
-}
-
-.product-nav-links a{
-  color:#c6c9cd;
-  text-decoration:none;
-  font-size:11px;
-  font-weight:700;
-  transition:.25s ease;
-}
-
-.product-nav-links a:hover{
-  color:#fff;
-}
-
-.product-nav-actions{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.product-nav-btn{
-  width:38px;
-  height:38px;
-  border:1px solid var(--eb-border);
-  border-radius:50%;
-  background:#0b0e10;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-  text-decoration:none;
-  transition:.25s ease;
-}
-
-.product-nav-btn:hover{
-  border-color:var(--eb-red);
-  color:var(--eb-red);
-  transform:translateY(-2px);
-}
-
-.product-whatsapp-mini{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:var(--eb-red);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  text-decoration:none;
-  font-size:14px;
   font-weight:900;
-  box-shadow:0 8px 25px rgba(255,23,56,.25);
+  box-shadow:0 0 25px rgba(255,23,56,.25);
 }
 
-.product-menu-btn{
+.eb-brand-text{
+  line-height:1.05;
+}
+
+.eb-brand-text strong{
+  display:block;
+  font-size:15px;
+}
+
+.eb-brand-text span{
+  display:block;
+  margin-top:4px;
+  color:#aaa;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.eb-nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.eb-nav-links a{
+  color:#ddd;
+  font-size:13px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.eb-nav-links a:hover{
+  color:var(--red);
+}
+
+.eb-wa{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--red);
+  color:white;
+  padding:11px 16px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 8px 25px rgba(255,23,56,.18);
+}
+
+.eb-mobile{
   display:none;
 }
 
-/* =========================================================
-   BREADCRUMB
-   ========================================================= */
+/* BREADCRUMB */
 
-.product-breadcrumb-wrap{
-  width:min(1240px,92%);
-  margin:0 auto;
-  padding:28px 0 8px;
+.eb-breadcrumb{
+  max-width:1250px;
+  margin:auto;
+  padding:25px 22px 5px;
+  color:#85878d;
+  font-size:12px;
 }
 
-.product-breadcrumb{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px;
-  color:#777c82;
-  font-size:10px;
-  letter-spacing:.5px;
+.eb-breadcrumb a{
+  color:#aaa;
 }
 
-.product-breadcrumb a{
-  color:#a7abb0;
-  text-decoration:none;
+.eb-breadcrumb a:hover{
+  color:var(--red);
 }
 
-.product-breadcrumb a:hover{
-  color:var(--eb-red);
+.eb-breadcrumb span{
+  margin:0 8px;
 }
 
-.product-breadcrumb .current{
-  color:#fff;
-  max-width:260px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
+/* PRODUCT */
 
-.product-breadcrumb .separator{
-  color:#44484d;
+.product-wrap{
+  max-width:1250px;
+  margin:auto;
+  padding:25px 22px 70px;
 }
-
-/* =========================================================
-   MAIN PRODUCT AREA
-   ========================================================= */
 
 .product-main{
-  width:min(1240px,92%);
-  margin:0 auto;
-  padding:30px 0 90px;
-}
-
-.product-layout{
   display:grid;
-  grid-template-columns:
-    minmax(0,1.08fr)
-    minmax(360px,.92fr);
-  gap:60px;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+  gap:55px;
   align-items:start;
 }
 
-/* =========================================================
-   GALLERY
-   ========================================================= */
+/* GALLERY */
 
 .product-gallery{
-  position:relative;
+  position:sticky;
+  top:105px;
 }
 
-.gallery-main{
+.main-image-box{
   position:relative;
   width:100%;
   aspect-ratio:1/1;
-  min-height:500px;
   overflow:hidden;
-  border-radius:24px;
-  border:1px solid var(--eb-border);
+  border:1px solid var(--line);
+  border-radius:22px;
   background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(255,23,56,.10),
-      transparent 38%
-    ),
-    linear-gradient(
-      145deg,
-      #111417,
-      #07090a
-    );
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.35),
-    inset 0 0 60px rgba(255,255,255,.015);
+    radial-gradient(circle at center,rgba(255,23,56,.08),transparent 45%),
+    #0d0f12;
 }
 
-.gallery-main::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.035),
-      transparent 35%
-    );
-  z-index:1;
-}
-
-.gallery-image{
-  position:absolute;
-  inset:0;
+.main-image{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:0;
+  display:block;
+  cursor:zoom-in;
+  transition:transform .45s ease;
+}
+
+.main-image:hover{
   transform:scale(1.025);
-  transition:
-    opacity .45s ease,
-    transform .7s ease;
-  z-index:2;
-}
-
-.gallery-image.active{
-  opacity:1;
-  transform:scale(1);
-}
-
-.gallery-placeholder{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  z-index:2;
-}
-
-.placeholder-inner{
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:13px;
-}
-
-.placeholder-logo{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      #ff5068,
-      #ff1738 48%,
-      #8c0018
-    );
-  color:#fff;
-  font-family:Georgia,serif;
-  font-size:31px;
-  font-weight:900;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.12),
-    0 20px 60px rgba(255,23,56,.22);
-}
-
-.placeholder-inner strong{
-  font-family:Cinzel,Georgia,serif;
-  font-size:13px;
-  letter-spacing:3px;
-}
-
-.placeholder-inner span{
-  color:#6f747a;
-  font-size:9px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-
-.gallery-badge{
-  position:absolute;
-  top:20px;
-  left:20px;
-  z-index:5;
-  padding:8px 13px;
-  border-radius:30px;
-  background:var(--eb-red);
-  color:#fff;
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  box-shadow:0 8px 25px rgba(255,23,56,.28);
-}
-
-.gallery-counter{
-  position:absolute;
-  right:20px;
-  top:20px;
-  z-index:5;
-  padding:8px 12px;
-  border-radius:20px;
-  background:rgba(0,0,0,.65);
-  border:1px solid rgba(255,255,255,.12);
-  color:#fff;
-  font-size:10px;
-  font-weight:800;
-  backdrop-filter:blur(10px);
 }
 
 .gallery-arrow{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  z-index:8;
-  width:44px;
-  height:44px;
+  width:43px;
+  height:43px;
+  border:1px solid rgba(255,255,255,.14);
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  display:grid;
-  place-items:center;
+  background:rgba(0,0,0,.7);
+  color:white;
+  font-size:22px;
   cursor:pointer;
-  font-size:19px;
-  transition:.25s ease;
-  backdrop-filter:blur(10px);
+  z-index:3;
+  transition:.25s;
 }
 
 .gallery-arrow:hover{
-  background:var(--eb-red);
-  border-color:var(--eb-red);
-  transform:translateY(-50%) scale(1.06);
+  background:var(--red);
+  border-color:var(--red);
 }
 
-.gallery-arrow.prev{
-  left:16px;
+.gallery-prev{
+  left:14px;
 }
 
-.gallery-arrow.next{
-  right:16px;
+.gallery-next{
+  right:14px;
 }
 
-.gallery-thumbs{
+.gallery-count{
+  position:absolute;
+  right:14px;
+  top:14px;
+  z-index:3;
+  background:rgba(0,0,0,.72);
+  border:1px solid rgba(255,255,255,.1);
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:11px;
+  color:#ddd;
+}
+
+.image-placeholder{
+  width:100%;
+  height:100%;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  place-items:center;
+  text-align:center;
+  color:#777;
+}
+
+.image-placeholder-inner{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,23,56,.35);
+  background:rgba(255,23,56,.06);
+}
+
+.image-placeholder-inner b{
+  color:var(--red);
+  font-family:Georgia,serif;
+  font-size:38px;
+}
+
+.thumbs{
+  display:flex;
   gap:10px;
-  margin-top:12px;
+  margin-top:14px;
+  overflow-x:auto;
+  padding-bottom:3px;
 }
 
-.gallery-thumb{
-  position:relative;
-  aspect-ratio:1;
-  border-radius:13px;
+.thumb{
+  flex:0 0 78px;
+  width:78px;
+  height:78px;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:12px;
   overflow:hidden;
-  border:1px solid var(--eb-border);
-  background:#0b0e10;
+  background:#101114;
   cursor:pointer;
-  transition:.25s ease;
+  opacity:.55;
+  transition:.25s;
 }
 
-.gallery-thumb.active{
-  border-color:var(--eb-red);
-  box-shadow:
-    0 0 0 1px var(--eb-red),
-    0 8px 25px rgba(255,23,56,.14);
+.thumb.active{
+  opacity:1;
+  border-color:var(--red);
+  box-shadow:0 0 0 1px var(--red);
 }
 
-.gallery-thumb img{
+.thumb img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.thumb-placeholder{
-  width:100%;
-  height:100%;
-  display:grid;
-  place-items:center;
-  color:var(--eb-red);
-  font-family:Georgia,serif;
-  font-weight:900;
-  font-size:18px;
-}
-
-/* =========================================================
-   PRODUCT INFO
-   ========================================================= */
+/* INFO */
 
 .product-info{
-  padding-top:8px;
+  padding-top:5px;
+}
+
+.product-badge{
+  display:inline-flex;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,23,56,.1);
+  border:1px solid rgba(255,23,56,.28);
+  color:#ff6078;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
 }
 
 .product-category{
-  color:var(--eb-red);
-  font-size:10px;
+  margin-top:18px;
+  color:var(--red);
+  font-size:11px;
   font-weight:900;
   letter-spacing:2px;
   text-transform:uppercase;
-  margin-bottom:13px;
 }
 
 .product-title{
-  margin:0;
-  color:#fff;
-  font-family:Cinzel,Georgia,serif;
-  font-size:clamp(28px,4vw,48px);
-  line-height:1.12;
-  letter-spacing:.5px;
+  margin:9px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(32px,4vw,52px);
+  line-height:1.04;
+  letter-spacing:-1px;
 }
 
 .product-subtitle{
-  margin:15px 0 0;
-  color:#777c82;
-  font-size:11px;
-  letter-spacing:.5px;
-}
-
-.product-price-row{
-  margin-top:25px;
-  display:flex;
-  align-items:center;
-  gap:16px;
-  flex-wrap:wrap;
+  color:#aaa;
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:18px;
 }
 
 .product-price{
-  color:#fff;
-  font-size:27px;
+  font-size:28px;
   font-weight:900;
-  letter-spacing:.5px;
+  margin:15px 0 25px;
 }
 
 .product-id{
-  color:#777c82;
-  font-size:10px;
-  padding-left:15px;
-  border-left:1px solid var(--eb-border);
-}
-
-.product-divider{
-  height:1px;
-  background:var(--eb-border);
-  margin:27px 0;
+  color:#777;
+  font-size:11px;
+  margin-bottom:22px;
 }
 
 .product-description{
-  color:#a4a8ad;
-  font-size:13px;
-  line-height:1.9;
+  color:#c5c5c8;
+  font-size:14px;
+  line-height:1.8;
+  padding:20px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-.product-description p{
-  margin:0 0 10px;
-}
-
-.product-description strong{
-  color:#fff;
-}
-
-/* =========================================================
-   SPECS
-   ========================================================= */
-
-.product-specs{
+.spec-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-top:25px;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--line);
+  margin-top:24px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  overflow:hidden;
 }
 
-.spec-box{
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.035),
-    rgba(255,255,255,.012)
-  );
-  border:1px solid var(--eb-border);
-  border-radius:13px;
-  padding:14px;
-  min-width:0;
+.spec{
+  background:#0d0f12;
+  padding:15px;
 }
 
-.spec-label{
+.spec small{
   display:block;
-  color:#686d73;
-  font-size:8px;
+  color:#777;
+  font-size:10px;
   text-transform:uppercase;
-  letter-spacing:1.3px;
-  margin-bottom:7px;
+  letter-spacing:1px;
+  margin-bottom:6px;
 }
 
-.spec-value{
-  display:block;
-  color:#e7e8e9;
-  font-size:11px;
-  line-height:1.45;
-  word-break:break-word;
-}
-
-/* =========================================================
-   BENEFITS
-   ========================================================= */
-
-.product-benefits{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:9px;
-  margin-top:25px;
-}
-
-.benefit{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  padding:12px;
-  border-radius:12px;
-  background:#0a0d0f;
-  border:1px solid var(--eb-border);
-}
-
-.benefit-icon{
-  width:28px;
-  height:28px;
-  flex:0 0 28px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:rgba(255,23,56,.11);
-  color:var(--eb-red);
-  font-size:11px;
-}
-
-.benefit-text strong{
-  display:block;
+.spec strong{
   color:#eee;
-  font-size:9px;
-  margin-bottom:4px;
-}
-
-.benefit-text span{
-  display:block;
-  color:#666c72;
-  font-size:8px;
-  line-height:1.4;
+  font-size:13px;
 }
 
 </style>
@@ -673,705 +436,372 @@ body{
 
 <div class="product-page">
 
-<!-- =======================================================
-     TOP BAR
-     ======================================================= -->
-
-<div class="product-topbar">
-  FREE WORLDWIDE SHIPPING • 9–13 WORKING DAYS
+<div class="eb-topbar">
+  FREE WORLDWIDE SHIPPING • MASTER QUALITY • 9–13 WORKING DAYS
 </div>
 
-<!-- =======================================================
-     HEADER
-     ======================================================= -->
+<header class="eb-header">
+  <nav class="eb-nav">
 
-<header class="product-header">
-
-  <nav class="product-nav">
-
-    <a href="index.html" class="product-logo">
-
-      <div class="product-logo-mark">
-        EB
-      </div>
-
-      <div class="product-logo-text">
+    <a href="index.html" class="eb-brand">
+      <div class="eb-logo">EB</div>
+      <div class="eb-brand-text">
         <strong>ELITE BAGS</strong>
-        <span>Premium Collection</span>
+        <span>LUXURY COLLECTION</span>
       </div>
-
     </a>
 
-    <div class="product-nav-links">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <a href="index.html#collections">
-        Collections
-      </a>
-
-      <a href="index.html#featured">
-        Featured
-      </a>
-
-      <a href="index.html#standard">
-        Our Standard
-      </a>
-
-      <a href="index.html#contact">
-        Contact
-      </a>
-
+    <div class="eb-nav-links">
+      <a href="index.html">Home</a>
+      <a href="bags.html">Bags</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="watches.html">Watches</a>
+      <a href="accessories.html">Accessories</a>
     </div>
 
-    <div class="product-nav-actions">
-
-      <a
-        class="product-nav-btn"
-        href="index.html#products"
-        aria-label="Search products">
-        ⌕
-      </a>
-
-      <a
-        class="product-nav-btn"
-        href="index.html#cart"
-        aria-label="Shopping bag">
-        🛍
-      </a>
-
-      <a
-        class="product-whatsapp-mini"
-        href="https://wa.me/12089034508"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp">
-        WA
-      </a>
-
-    </div>
+    <a
+      class="eb-wa"
+      href="https://wa.me/12089034508"
+      target="_blank"
+      rel="noopener">
+      WhatsApp
+    </a>
 
   </nav>
-
 </header>
 
-<!-- =======================================================
-     BREADCRUMB
-     ======================================================= -->
+<div class="eb-breadcrumb">
+  <a href="index.html">Home</a>
+  <span>›</span>
+  <a href="bags.html">Collection</a>
+  <span>›</span>
+  <strong id="breadcrumbName">Product</strong>
+</div>
 
-<div class="product-breadcrumb-wrap">
+<main class="product-wrap">
 
-  <div class="product-breadcrumb">
+<section class="product-main">
 
-    <a href="index.html">
-      Home
+<!-- GALLERY -->
+
+<div class="product-gallery">
+
+  <div class="main-image-box">
+
+    <div class="image-placeholder" id="imagePlaceholder">
+      <div class="image-placeholder-inner">
+        <b>EB</b>
+      </div>
+    </div>
+
+    <img
+      id="mainImage"
+      class="main-image"
+      src=""
+      alt=""
+      style="display:none;">
+
+    <button
+      class="gallery-arrow gallery-prev"
+      id="prevBtn"
+      type="button">
+      ‹
+    </button>
+
+    <button
+      class="gallery-arrow gallery-next"
+      id="nextBtn"
+      type="button">
+      ›
+    </button>
+
+    <div class="gallery-count" id="galleryCount">
+      0 / 0
+    </div>
+
+  </div>
+
+  <div class="thumbs" id="thumbs"></div>
+
+</div>
+
+<!-- PRODUCT INFO -->
+
+<div class="product-info">
+
+  <div class="product-badge" id="productBadge">
+    NEW
+  </div>
+
+  <div class="product-category" id="productCategory">
+    COLLECTION
+  </div>
+
+  <h1 class="product-title" id="productTitle">
+    Loading Product...
+  </h1>
+
+  <div class="product-subtitle" id="productSubtitle">
+    Premium selected fashion piece from Elite Bags.
+  </div>
+
+  <div class="product-price" id="productPrice">
+    —
+  </div>
+
+  <div class="product-id">
+    Product ID:
+    <strong id="productId">—</strong>
+  </div>
+
+  <div class="product-description" id="productDescription">
+    Loading product details...
+  </div>
+
+  <div class="spec-grid">
+
+    <div class="spec">
+      <small>Category</small>
+      <strong id="specCategory">—</strong>
+    </div>
+
+    <div class="spec">
+      <small>Style</small>
+      <strong id="specStyle">—</strong>
+    </div>
+
+    <div class="spec">
+      <small>Color</small>
+      <strong id="specColor">—</strong>
+    </div>
+
+    <div class="spec">
+      <small>Size</small>
+      <strong id="specSize">—</strong>
+    </div>
+
+    <div class="spec">
+      <small>Material</small>
+      <strong id="specMaterial">—</strong>
+    </div>
+
+    <div class="spec">
+      <small>Quality</small>
+      <strong id="specQuality">—</strong>
+    </div>
+
+  </div>
+    <div class="product-benefits">
+
+    <div class="benefit">
+      <span>✓</span>
+      <div>
+        <strong>Free Worldwide Shipping</strong>
+        <small>Delivery in 9–13 working days</small>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <span>✓</span>
+      <div>
+        <strong>Master Quality</strong>
+        <small>Carefully selected premium pieces</small>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <span>✓</span>
+      <div>
+        <strong>Secure Packaging</strong>
+        <small>Beautifully prepared and protected</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="product-actions">
+
+    <a
+      href="#"
+      id="whatsappOrder"
+      class="order-btn"
+      target="_blank"
+      rel="noopener">
+      <span>Order on WhatsApp</span>
+      <b>→</b>
     </a>
 
-    <span class="separator">/</span>
+    <button
+      type="button"
+      id="addToCart"
+      class="cart-btn">
+      Add to Cart
+    </button>
 
-    <a href="index.html#products">
-      Products
-    </a>
+  </div>
 
-    <span class="separator">/</span>
-
-    <span
-      class="current"
-      id="breadcrumbProduct">
-      Product
-    </span>
-
+  <div class="order-note">
+    <span>●</span>
+    <div>
+      <strong>Need help?</strong>
+      <p>Message us on WhatsApp for product details, sizes and ordering.</p>
+    </div>
   </div>
 
 </div>
 
-<!-- =======================================================
-     MAIN PRODUCT
-     ======================================================= -->
+</section>
 
-<main class="product-main">
-
-  <div class="product-layout">
-
-    <!-- ===================================================
-         GALLERY
-         =================================================== -->
-
-    <section class="product-gallery">
-
-      <div
-        class="gallery-main"
-        id="galleryMain">
-
-        <div
-          class="gallery-placeholder"
-          id="galleryPlaceholder">
-
-          <div class="placeholder-inner">
-
-            <div class="placeholder-logo">
-              EB
-            </div>
-
-            <strong>
-              ELITE BAGS
-            </strong>
-
-            <span>
-              Product image coming soon
-            </span>
-
-          </div>
-
-        </div>
-
-        <img
-          id="mainImage"
-          class="gallery-image"
-          src=""
-          alt=""
-          style="display:none;">
-
-        <div
-          class="gallery-badge"
-          id="galleryBadge">
-          NEW
-        </div>
-
-        <div
-          class="gallery-counter"
-          id="galleryCounter">
-          1 / 1
-        </div>
-
-        <button
-          class="gallery-arrow prev"
-          id="prevImage"
-          type="button"
-          aria-label="Previous image">
-          ‹
-        </button>
-
-        <button
-          class="gallery-arrow next"
-          id="nextImage"
-          type="button"
-          aria-label="Next image">
-          ›
-        </button>
-
-      </div>
-
-      <div
-        class="gallery-thumbs"
-        id="galleryThumbs">
-      </div>
-
-    </section>
-
-    <!-- ===================================================
-         PRODUCT INFORMATION
-         =================================================== -->
-
-    <section class="product-info">
-
-      <div
-        class="product-category"
-        id="productCategory">
-        BAGS
-      </div>
-
-      <h1
-        class="product-title"
-        id="productTitle">
-        Product
-      </h1>
-
-      <div
-        class="product-subtitle"
-        id="productSubtitle">
-        Premium selected fashion piece
-      </div>
-
-      <div class="product-price-row">
-
-        <div
-          class="product-price"
-          id="productPrice">
-          —
-        </div>
-
-        <div
-          class="product-id"
-          id="productId">
-          Product ID: —
-        </div>
-
-      </div>
-
-      <div class="product-divider"></div>
-
-      <div
-        class="product-description"
-        id="productDescription">
-
-        <p>
-          Discover this carefully selected piece
-          from the Elite Bags collection.
-        </p>
-
-      </div>
-
-      <div class="product-specs">
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Category
-          </span>
-
-          <span
-            class="spec-value"
-            id="specCategory">
-            —
-          </span>
-        </div>
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Style
-          </span>
-
-          <span
-            class="spec-value"
-            id="specStyle">
-            —
-          </span>
-        </div>
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Color
-          </span>
-
-          <span
-            class="spec-value"
-            id="specColor">
-            —
-          </span>
-        </div>
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Size
-          </span>
-
-          <span
-            class="spec-value"
-            id="specSize">
-            —
-          </span>
-        </div>
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Material
-          </span>
-
-          <span
-            class="spec-value"
-            id="specMaterial">
-            —
-          </span>
-        </div>
-
-        <div class="spec-box">
-          <span class="spec-label">
-            Dimensions
-          </span>
-
-          <span
-            class="spec-value"
-            id="specDimensions">
-            —
-          </span>
-        </div>
-
-      </div>
-
-      <div class="product-benefits">
-
-        <div class="benefit">
-
-          <div class="benefit-icon">
-            ✓
-          </div>
-
-          <div class="benefit-text">
-            <strong>
-              Master Quality
-            </strong>
-
-            <span>
-              Premium selected quality
-            </span>
-          </div>
-
-        </div>
-
-        <div class="benefit">
-
-          <div class="benefit-icon">
-            →
-          </div>
-
-          <div class="benefit-text">
-            <strong>
-              Free Shipping
-            </strong>
-
-            <span>
-              Worldwide delivery
-            </span>
-          </div>
-
-        </div>
-
-        <div class="benefit">
-
-          <div class="benefit-icon">
-            9
-          </div>
-
-          <div class="benefit-text">
-            <strong>
-              9–13 Working Days
-            </strong>
-
-            <span>
-              Estimated delivery
-            </span>
-          </div>
-
-        </div>
-
-        <div class="benefit">
-
-          <div class="benefit-icon">
-            ◈
-          </div>
-
-          <div class="benefit-text">
-            <strong>
-              Secure Packaging
-            </strong>
-
-            <span>
-              Carefully prepared orders
-            </span>
-          </div>
-
-        </div>
-
-      </div>
-            <div class="product-actions-area">
-
-        <button
-          type="button"
-          class="product-order-btn"
-          id="whatsappOrder">
-
-          <span class="order-icon">WA</span>
-
-          <span class="order-text">
-            <strong>Order on WhatsApp</strong>
-            <small>Quick & easy ordering</small>
-          </span>
-
-          <span class="order-arrow">→</span>
-
-        </button>
-
-        <button
-          type="button"
-          class="product-cart-btn"
-          id="addToCart">
-
-          <span>＋</span>
-          Add to Shopping Bag
-
-        </button>
-
-      </div>
-
-      <div class="product-note">
-
-        <span class="note-icon">✓</span>
-
-        <span>
-          Contact us on WhatsApp for product availability,
-          payment options and order assistance.
-        </span>
-
-      </div>
-
-    </section>
-
-  </div>
-
-</main>
-
+<!-- QUICK INFORMATION -->
 
 <section class="product-info-strip">
 
-  <div class="product-info-strip-inner">
+  <div>
+    <strong>FREE SHIPPING</strong>
+    <span>Worldwide delivery</span>
+  </div>
 
-    <div class="info-strip-item">
+  <div>
+    <strong>9–13 DAYS</strong>
+    <span>Working day delivery</span>
+  </div>
 
-      <div class="info-strip-icon">
-        ✓
-      </div>
+  <div>
+    <strong>MASTER QUALITY</strong>
+    <span>Premium selection</span>
+  </div>
 
-      <div>
-        <strong>Master Quality</strong>
-        <span>Premium selected quality</span>
-      </div>
-
-    </div>
-
-    <div class="info-strip-item">
-
-      <div class="info-strip-icon">
-        →
-      </div>
-
-      <div>
-        <strong>Worldwide Shipping</strong>
-        <span>Free worldwide delivery</span>
-      </div>
-
-    </div>
-
-    <div class="info-strip-item">
-
-      <div class="info-strip-icon">
-        9
-      </div>
-
-      <div>
-        <strong>9–13 Working Days</strong>
-        <span>Estimated delivery time</span>
-      </div>
-
-    </div>
-
-    <div class="info-strip-item">
-
-      <div class="info-strip-icon">
-        ◈
-      </div>
-
-      <div>
-        <strong>Secure Packaging</strong>
-        <span>Carefully prepared orders</span>
-      </div>
-
-    </div>
-
+  <div>
+    <strong>WHATSAPP</strong>
+    <span>Easy ordering</span>
   </div>
 
 </section>
+
+<!-- RELATED PRODUCTS -->
+
 <section class="related-section">
 
-  <div class="related-container">
-
-    <div class="section-heading">
-
-      <span>
-        EXPLORE MORE
-      </span>
-
-      <h2>
-        YOU MAY ALSO LIKE
-      </h2>
-
-      <p>
-        Discover more pieces from the Elite Bags collection.
-      </p>
-
+  <div class="section-heading">
+    <div>
+      <span>YOU MAY ALSO LIKE</span>
+      <h2>More From The Collection</h2>
     </div>
 
-    <div
-      class="related-grid"
-      id="relatedProducts">
-    </div>
+    <a href="bags.html">
+      View Collection →
+    </a>
+  </div>
 
-    <div class="related-bottom">
-
-      <a
-        href="index.html#products"
-        class="view-all-products">
-
-        View All Products
-        <span>→</span>
-
-      </a>
-
-    </div>
-
+  <div
+    class="related-grid"
+    id="relatedProducts">
   </div>
 
 </section>
 
+<!-- CTA -->
 
 <section class="product-cta">
 
-  <div class="product-cta-glow"></div>
+  <div class="cta-content">
 
-  <div class="product-cta-content">
-
-    <span class="cta-small">
-      NEED HELP?
-    </span>
+    <span>ELITE BAGS</span>
 
     <h2>
-      LET'S FIND YOUR
-      <span>PERFECT PIECE.</span>
+      Looking for something<br>
+      <em>special?</em>
     </h2>
 
     <p>
-      Have a question about this product?
-      Our team is ready to help you.
+      Contact us on WhatsApp and we'll help you
+      find the right piece for you.
     </p>
 
     <a
       href="https://wa.me/12089034508"
       target="_blank"
-      rel="noopener"
-      class="cta-whatsapp">
-
-      <span>WA</span>
-
-      Chat With Us on WhatsApp
-
-      <b>→</b>
-
+      rel="noopener">
+      Chat on WhatsApp →
     </a>
 
   </div>
 
 </section>
-<footer class="product-footer">
+</main>
 
-  <div class="footer-container">
+<!-- FOOTER -->
+
+<footer class="eb-footer">
+
+  <div class="footer-inner">
 
     <div class="footer-brand">
 
-      <a
-        href="index.html"
-        class="footer-logo">
+      <a href="index.html" class="eb-brand">
 
-        <div class="footer-logo-mark">
-          EB
-        </div>
+        <div class="eb-logo">EB</div>
 
-        <div class="footer-logo-text">
-
-          <strong>
-            ELITE BAGS
-          </strong>
-
-          <span>
-            PREMIUM COLLECTION
-          </span>
-
+        <div class="eb-brand-text">
+          <strong>ELITE BAGS</strong>
+          <span>LUXURY COLLECTION</span>
         </div>
 
       </a>
 
       <p>
-        Curated fashion pieces with premium quality,
-        secure packaging and worldwide delivery.
+        Discover carefully selected fashion pieces
+        with premium quality, secure packaging
+        and worldwide delivery.
       </p>
-
-      <a
-        href="https://www.tiktok.com/@elite.bagss"
-        target="_blank"
-        rel="noopener"
-        class="footer-social">
-
-        TikTok
-        <span>@elite.bagss</span>
-
-      </a>
 
     </div>
 
 
     <div class="footer-column">
 
-      <h3>
-        QUICK LINKS
-      </h3>
+      <h4>SHOP</h4>
 
-      <a href="index.html">
-        Home
-      </a>
+      <a href="bags.html">Bags</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="watches.html">Watches</a>
+      <a href="accessories.html">Accessories</a>
 
-      <a href="index.html#collections">
-        Collections
-      </a>
+    </div>
 
-      <a href="index.html#products">
-        Featured Products
-      </a>
 
-      <a href="index.html#standard">
-        Our Standard
+    <div class="footer-column">
+
+      <h4>HELP</h4>
+
+      <a href="index.html#how-it-works">
+        How It Works
       </a>
 
       <a href="index.html#contact">
         Contact
       </a>
 
+      <a
+        href="https://wa.me/12089034508"
+        target="_blank"
+        rel="noopener">
+        WhatsApp
+      </a>
+
+      <a
+        href="https://www.tiktok.com/@elite.bagss"
+        target="_blank"
+        rel="noopener">
+        TikTok
+      </a>
+
     </div>
 
 
     <div class="footer-column">
 
-      <h3>
-        INFORMATION
-      </h3>
-
-      <span>
-        Master Quality
-      </span>
-
-      <span>
-        Free Worldwide Shipping
-      </span>
-
-      <span>
-        9–13 Working Days
-      </span>
-
-      <span>
-        Secure Packaging
-      </span>
-
-      <span>
-        Easy WhatsApp Ordering
-      </span>
-
-    </div>
-
-
-    <div class="footer-column footer-contact">
-
-      <h3>
-        CONTACT
-      </h3>
+      <h4>CONTACT</h4>
 
       <a href="mailto:luxuriouselitebags@gmail.com">
         luxuriouselitebags@gmail.com
@@ -1381,13 +811,11 @@ body{
         href="https://wa.me/12089034508"
         target="_blank"
         rel="noopener">
-
         +1 208-903-4508
-
       </a>
 
       <span>
-        Guang Zhou Shi,
+        Guang Zhou Shi,<br>
         Guang Dong Sheng, China
       </span>
 
@@ -1399,12 +827,11 @@ body{
   <div class="footer-bottom">
 
     <span>
-      © <span id="productYear">2026</span>
-      Elite Bags. All rights reserved.
+      © <span id="year"></span> Elite Bags. All rights reserved.
     </span>
 
     <span>
-      PREMIUM • QUALITY • STYLE
+      Free Worldwide Shipping • 9–13 Working Days
     </span>
 
   </div>
@@ -1412,221 +839,240 @@ body{
 </footer>
 
 
+<!-- FLOATING WHATSAPP -->
+
 <a
   href="https://wa.me/12089034508"
+  class="floating-whatsapp"
   target="_blank"
   rel="noopener"
-  class="floating-whatsapp"
   aria-label="Chat on WhatsApp">
 
-  <span>
-    WA
-  </span>
+  <span>◉</span>
+  <b>WhatsApp</b>
 
 </a>
-<style>
 
-.product-actions-area{
-  margin-top:28px;
+
+<!-- IMAGE ZOOM -->
+
+<div
+  class="image-zoom"
+  id="imageZoom">
+
+  <button
+    type="button"
+    id="closeZoom">
+    ×
+  </button>
+
+  <img
+    id="zoomImage"
+    src=""
+    alt="Product preview">
+
+</div>
+
+
+<!-- PAGE END -->
+      <style>
+
+/* PRODUCT BENEFITS */
+
+.product-benefits{
+  display:grid;
+  gap:10px;
+  margin-top:24px;
 }
 
-.product-order-btn{
-  width:100%;
-  min-height:66px;
-  border:0;
-  border-radius:15px;
-  background:linear-gradient(
-    135deg,
-    #ff1738,
-    #d90025
-  );
-  color:#fff;
+.benefit{
   display:flex;
   align-items:center;
   gap:13px;
-  padding:12px 15px;
-  cursor:pointer;
-  box-shadow:
-    0 15px 40px rgba(255,23,56,.18);
-  transition:.3s ease;
-  text-align:left;
+  padding:13px 15px;
+  background:#0c0e11;
+  border:1px solid var(--line);
+  border-radius:12px;
 }
 
-.product-order-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 20px 45px rgba(255,23,56,.28);
-}
-
-.order-icon{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:rgba(0,0,0,.18);
+.benefit > span{
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
   display:grid;
   place-items:center;
-  font-size:10px;
+  border-radius:50%;
+  background:rgba(255,23,56,.1);
+  color:var(--red);
   font-weight:900;
-  flex:0 0 40px;
 }
 
-.order-text{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-  flex:1;
-}
-
-.order-text strong{
+.benefit strong{
+  display:block;
   font-size:12px;
-  font-weight:900;
+  margin-bottom:4px;
 }
 
-.order-text small{
-  font-size:8px;
-  opacity:.72;
+.benefit small{
+  color:#777;
+  font-size:11px;
 }
 
-.order-arrow{
-  font-size:20px;
+
+/* PRODUCT BUTTONS */
+
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 150px;
+  gap:10px;
+  margin-top:24px;
 }
 
-.product-cart-btn{
-  width:100%;
+.order-btn,
+.cart-btn{
   min-height:52px;
-  margin-top:10px;
-  border-radius:15px;
-  border:1px solid rgba(255,255,255,.12);
-  background:#0c0f11;
-  color:#fff;
-  font-size:11px;
-  font-weight:800;
-  cursor:pointer;
-  transition:.25s ease;
-}
-
-.product-cart-btn:hover{
-  border-color:#ff1738;
-  color:#ff1738;
-}
-
-.product-cart-btn span{
-  color:#ff1738;
-  font-size:17px;
-  margin-right:4px;
-}
-
-.product-note{
-  margin-top:13px;
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-  padding:13px;
   border-radius:12px;
-  background:rgba(255,255,255,.018);
-  border:1px solid rgba(255,255,255,.055);
-  color:#666c72;
-  font-size:8px;
-  line-height:1.6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s;
 }
 
-.note-icon{
-  color:#ff1738;
-  font-weight:900;
+.order-btn{
+  background:var(--red);
+  color:white;
+  border:1px solid var(--red);
+  box-shadow:0 12px 30px rgba(255,23,56,.18);
+}
+
+.order-btn:hover{
+  background:#ff3150;
+  transform:translateY(-2px);
+}
+
+.order-btn b{
+  font-size:19px;
+}
+
+.cart-btn{
+  background:#111317;
+  color:white;
+  border:1px solid var(--line);
+}
+
+.cart-btn:hover{
+  border-color:var(--red);
+  color:var(--red);
+  transform:translateY(-2px);
+}
+
+
+/* ORDER NOTE */
+
+.order-note{
+  display:flex;
+  gap:12px;
+  margin-top:17px;
+  padding:15px;
+  border-radius:12px;
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line);
+}
+
+.order-note > span{
+  color:var(--red);
+  font-size:10px;
+  margin-top:5px;
+}
+
+.order-note strong{
+  font-size:12px;
+}
+
+.order-note p{
+  color:#777;
   font-size:11px;
+  line-height:1.6;
+  margin:5px 0 0;
 }
 
 
 /* INFO STRIP */
 
 .product-info-strip{
-  border-top:1px solid rgba(255,255,255,.08);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:#080a0c;
-}
-
-.product-info-strip-inner{
-  width:min(1240px,92%);
-  margin:auto;
-  padding:28px 0;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  margin-top:55px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:#0b0d10;
 }
 
-.info-strip-item{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.product-info-strip > div{
+  padding:22px 18px;
+  border-right:1px solid var(--line);
+  text-align:center;
 }
 
-.info-strip-icon{
-  width:38px;
-  height:38px;
-  flex:0 0 38px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#ff1738;
-  background:rgba(255,23,56,.08);
-  border:1px solid rgba(255,23,56,.12);
-  font-size:12px;
-  font-weight:900;
+.product-info-strip > div:last-child{
+  border-right:0;
 }
 
-.info-strip-item strong{
+.product-info-strip strong{
   display:block;
   color:#eee;
-  font-size:9px;
-  margin-bottom:5px;
+  font-size:11px;
+  letter-spacing:1px;
+  margin-bottom:6px;
 }
 
-.info-strip-item span{
-  display:block;
-  color:#666c72;
-  font-size:8px;
+.product-info-strip span{
+  color:#707278;
+  font-size:10px;
 }
 
 
 /* RELATED */
 
 .related-section{
-  padding:90px 0 100px;
-}
-
-.related-container{
-  width:min(1240px,92%);
-  margin:auto;
+  padding:80px 0 20px;
 }
 
 .section-heading{
-  text-align:center;
-  margin-bottom:42px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:28px;
 }
 
-.section-heading > span{
-  display:block;
-  color:#ff1738;
-  font-size:9px;
+.section-heading > div > span{
+  color:var(--red);
+  font-size:10px;
   font-weight:900;
-  letter-spacing:2.5px;
-  margin-bottom:11px;
+  letter-spacing:2px;
 }
 
 .section-heading h2{
-  margin:0;
-  color:#fff;
-  font-family:Cinzel,Georgia,serif;
-  font-size:clamp(25px,4vw,39px);
-  letter-spacing:1px;
+  margin:8px 0 0;
+  font-family:Georgia,serif;
+  font-size:34px;
+  font-weight:500;
 }
 
-.section-heading p{
-  margin:12px auto 0;
-  max-width:520px;
-  color:#71767c;
-  font-size:11px;
-  line-height:1.7;
+.section-heading > a{
+  color:#aaa;
+  font-size:12px;
+  font-weight:800;
+}
+
+.section-heading > a:hover{
+  color:var(--red);
 }
 
 .related-grid{
@@ -1637,34 +1083,33 @@ body{
 
 .related-card{
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:18px;
-  background:#0b0e10;
-  transition:.3s ease;
+  background:#0d0f12;
+  border:1px solid var(--line);
+  border-radius:16px;
+  transition:.3s;
 }
 
 .related-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(255,23,56,.32);
+  transform:translateY(-6px);
+  border-color:rgba(255,23,56,.4);
 }
 
-.related-card-image{
-  position:relative;
-  aspect-ratio:1;
+.related-image{
+  aspect-ratio:1/1;
+  background:#111317;
   overflow:hidden;
-  background:#0e1114;
 }
 
-.related-card-image img{
+.related-image img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
-  transition:.5s ease;
+  transition:.4s;
 }
 
-.related-card:hover img{
-  transform:scale(1.05);
+.related-card:hover .related-image img{
+  transform:scale(1.04);
 }
 
 .related-placeholder{
@@ -1674,36 +1119,18 @@ body{
   place-items:center;
 }
 
-.related-placeholder span{
-  width:65px;
-  height:65px;
-  border-radius:50%;
+.related-placeholder div{
+  width:70px;
+  height:70px;
   display:grid;
   place-items:center;
-  background:linear-gradient(
-    145deg,
-    #ff5369,
-    #ff1738,
-    #8c0018
-  );
-  color:#fff;
+  border-radius:50%;
+  color:var(--red);
+  border:1px solid rgba(255,23,56,.3);
+  background:rgba(255,23,56,.06);
   font-family:Georgia,serif;
-  font-size:20px;
+  font-size:23px;
   font-weight:900;
-}
-
-.related-badge{
-  position:absolute;
-  top:11px;
-  left:11px;
-  z-index:3;
-  padding:6px 9px;
-  border-radius:20px;
-  background:#ff1738;
-  color:#fff;
-  font-size:7px;
-  font-weight:900;
-  letter-spacing:1px;
 }
 
 .related-body{
@@ -1711,2061 +1138,1151 @@ body{
 }
 
 .related-category{
-  color:#ff1738;
-  font-size:7px;
+  color:var(--red);
+  font-size:9px;
   font-weight:900;
   letter-spacing:1.5px;
   text-transform:uppercase;
-  margin-bottom:7px;
 }
 
 .related-title{
+  margin:7px 0;
   color:#eee;
-  font-family:Cinzel,Georgia,serif;
-  font-size:12px;
-  line-height:1.45;
-  min-height:35px;
+  font-family:Georgia,serif;
+  font-size:16px;
+  line-height:1.25;
 }
 
 .related-price{
-  margin-top:10px;
-  color:#fff;
+  color:white;
   font-size:14px;
   font-weight:900;
 }
 
-.related-link{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:13px;
-  padding-top:11px;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:#888d93;
-  font-size:8px;
-  text-decoration:none;
-  font-weight:800;
-}
 
-.related-link span{
-  color:#ff1738;
-  font-size:13px;
-}
-
-.related-bottom{
-  text-align:center;
-  margin-top:35px;
-}
-
-.view-all-products{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  color:#fff;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.12);
-  padding:12px 18px;
-  border-radius:30px;
-  font-size:9px;
-  font-weight:900;
-}
-
-.view-all-products:hover{
-  border-color:#ff1738;
-  color:#ff1738;
-}
-
-.view-all-products span{
-  color:#ff1738;
-  font-size:15px;
-}
-
-</style>
-<style>
+/* CTA */
 
 .product-cta{
   position:relative;
   overflow:hidden;
-  border-top:1px solid rgba(255,255,255,.08);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(255,23,56,.13),
-      transparent 45%
-    ),
-    #080a0c;
-  padding:90px 20px;
-  text-align:center;
-}
-
-.product-cta-glow{
-  position:absolute;
-  width:400px;
-  height:400px;
-  border-radius:50%;
-  background:rgba(255,23,56,.06);
-  filter:blur(80px);
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-}
-
-.product-cta-content{
-  position:relative;
-  z-index:2;
-  max-width:650px;
-  margin:auto;
-}
-
-.cta-small{
-  display:block;
-  color:#ff1738;
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:2.5px;
-  margin-bottom:14px;
-}
-
-.product-cta h2{
-  margin:0;
-  color:#fff;
-  font-family:Cinzel,Georgia,serif;
-  font-size:clamp(28px,5vw,48px);
-  line-height:1.15;
-}
-
-.product-cta h2 span{
-  color:#ff1738;
-}
-
-.product-cta p{
-  max-width:470px;
-  margin:17px auto 25px;
-  color:#72777d;
-  font-size:11px;
-  line-height:1.8;
-}
-
-.cta-whatsapp{
-  display:inline-flex;
+  margin:70px 0 30px;
+  min-height:330px;
+  display:flex;
   align-items:center;
-  gap:10px;
-  min-height:48px;
-  padding:0 19px;
-  border-radius:30px;
-  background:#ff1738;
-  color:#fff;
-  text-decoration:none;
-  font-size:9px;
+  border:1px solid rgba(255,23,56,.2);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 80% 50%,rgba(255,23,56,.16),transparent 40%),
+    linear-gradient(120deg,#0d0f12,#08090b);
+}
+
+.cta-content{
+  padding:55px;
+  max-width:650px;
+}
+
+.cta-content > span{
+  color:var(--red);
+  font-size:10px;
   font-weight:900;
-  box-shadow:
-    0 12px 35px rgba(255,23,56,.18);
-  transition:.25s ease;
+  letter-spacing:2px;
 }
 
-.cta-whatsapp:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 17px 40px rgba(255,23,56,.28);
+.cta-content h2{
+  margin:12px 0;
+  font-family:Georgia,serif;
+  font-size:44px;
+  line-height:1.05;
+  font-weight:500;
 }
 
-.cta-whatsapp span{
-  font-size:8px;
-  background:rgba(0,0,0,.17);
-  width:27px;
-  height:27px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
+.cta-content h2 em{
+  color:var(--red);
+  font-style:normal;
 }
 
-.cta-whatsapp b{
-  font-size:15px;
-  font-weight:400;
+.cta-content p{
+  max-width:480px;
+  color:#999;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.cta-content a{
+  display:inline-flex;
+  margin-top:12px;
+  padding:13px 19px;
+  background:var(--red);
+  border-radius:10px;
+  font-size:12px;
+  font-weight:900;
 }
 
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/* FOOTER */
 
-.product-footer{
-  background:#030405;
-  border-top:1px solid rgba(255,255,255,.05);
+.eb-footer{
+  margin-top:30px;
+  border-top:1px solid var(--line);
+  background:#070809;
 }
 
-.footer-container{
-  width:min(1240px,92%);
+.footer-inner{
+  max-width:1250px;
   margin:auto;
-  padding:65px 0 45px;
+  padding:60px 22px 45px;
   display:grid;
-  grid-template-columns:1.5fr 1fr 1.2fr 1.3fr;
+  grid-template-columns:1.5fr .7fr .7fr 1.2fr;
   gap:45px;
 }
 
-.footer-logo{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  color:#fff;
-  text-decoration:none;
-}
-
-.footer-logo-mark{
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(
-      circle at 35% 25%,
-      #ff5369,
-      #ff1738 50%,
-      #8c0018
-    );
-  font-family:Georgia,serif;
-  font-weight:900;
-  font-size:13px;
-}
-
-.footer-logo-text{
-  display:flex;
-  flex-direction:column;
-}
-
-.footer-logo-text strong{
-  font-family:Cinzel,Georgia,serif;
-  font-size:15px;
-  letter-spacing:1.5px;
-}
-
-.footer-logo-text span{
-  margin-top:4px;
-  color:#666c72;
-  font-size:7px;
-  letter-spacing:1.7px;
-}
-
 .footer-brand p{
-  max-width:290px;
-  margin:17px 0;
-  color:#656a70;
-  font-size:9px;
+  max-width:320px;
+  color:#777;
+  font-size:12px;
   line-height:1.8;
-}
-
-.footer-social{
-  display:inline-flex;
-  gap:7px;
-  color:#aaaeb3;
-  text-decoration:none;
-  font-size:9px;
-}
-
-.footer-social span{
-  color:#ff1738;
+  margin-top:18px;
 }
 
 .footer-column{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
-  gap:11px;
+  gap:12px;
 }
 
-.footer-column h3{
+.footer-column h4{
   margin:0 0 7px;
-  color:#fff;
-  font-size:9px;
+  color:white;
+  font-size:10px;
   letter-spacing:1.5px;
 }
 
 .footer-column a,
 .footer-column span{
-  color:#686d73;
-  text-decoration:none;
-  font-size:9px;
-  line-height:1.55;
-  transition:.2s ease;
+  color:#777;
+  font-size:11px;
+  line-height:1.5;
 }
 
 .footer-column a:hover{
-  color:#ff1738;
-}
-
-.footer-contact a{
-  color:#a5a9ae;
+  color:var(--red);
 }
 
 .footer-bottom{
-  width:min(1240px,92%);
+  max-width:1250px;
   margin:auto;
-  padding:18px 0;
-  border-top:1px solid rgba(255,255,255,.06);
+  padding:20px 22px;
+  border-top:1px solid var(--line);
   display:flex;
-  align-items:center;
   justify-content:space-between;
   gap:15px;
-  color:#4e5358;
-  font-size:7px;
-  letter-spacing:.8px;
+  color:#555;
+  font-size:10px;
 }
 
 
-/* =========================================================
-   FLOATING WHATSAPP
-   ========================================================= */
+/* FLOATING WHATSAPP */
 
 .floating-whatsapp{
   position:fixed;
   right:20px;
   bottom:20px;
-  z-index:999;
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  background:#ff1738;
-  color:#fff;
-  display:grid;
-  place-items:center;
-  text-decoration:none;
-  font-size:9px;
+  z-index:2000;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  border-radius:999px;
+  background:#19b957;
+  color:white;
+  font-size:11px;
   font-weight:900;
-  box-shadow:
-    0 12px 35px rgba(255,23,56,.3);
-  animation:floatWhatsapp 2.5s ease-in-out infinite;
+  box-shadow:0 10px 35px rgba(0,0,0,.4);
+  transition:.25s;
 }
 
-@keyframes floatWhatsapp{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-6px);
-  }
-
+.floating-whatsapp:hover{
+  transform:translateY(-3px);
 }
 
-</style>
-<style>
+.floating-whatsapp span{
+  font-size:12px;
+}
+
+
+/* IMAGE ZOOM */
+
+.image-zoom{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:30px;
+  background:rgba(0,0,0,.94);
+}
+
+.image-zoom.open{
+  display:flex;
+}
+
+.image-zoom img{
+  max-width:95%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:12px;
+}
+
+.image-zoom button{
+  position:absolute;
+  top:20px;
+  right:25px;
+  width:45px;
+  height:45px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  background:#111;
+  color:white;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.image-zoom button:hover{
+  background:var(--red);
+}
+
+
+/* MOBILE */
 
 @media(max-width:900px){
 
-  .product-nav{
-    min-height:68px;
-    gap:10px;
-  }
-
-  .product-nav-links{
+  .eb-nav-links{
     display:none;
   }
 
-  .product-nav-actions{
-    margin-left:auto;
+  .eb-nav{
+    min-height:68px;
   }
 
-  .product-layout{
+  .eb-wa{
+    padding:10px 13px;
+  }
+
+  .product-main{
     grid-template-columns:1fr;
-    gap:38px;
+    gap:35px;
   }
 
-  .gallery-main{
-    min-height:0;
+  .product-gallery{
+    position:relative;
+    top:auto;
   }
 
-  .product-info{
-    padding-top:0;
-  }
-
-  .product-info-strip-inner{
-    grid-template-columns:repeat(2,1fr);
+  .product-title{
+    font-size:38px;
   }
 
   .related-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .footer-container{
-    grid-template-columns:repeat(2,1fr);
-    gap:35px 25px;
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
   }
 
 }
 
-
 @media(max-width:600px){
 
-  .product-topbar{
-    font-size:8px;
-    letter-spacing:1px;
+  .eb-topbar{
+    font-size:9px;
+    letter-spacing:.5px;
     padding:8px 10px;
   }
 
-  .product-nav{
-    width:94%;
+  .eb-nav{
+    padding:0 15px;
   }
 
-  .product-logo-mark{
-    width:38px;
-    height:38px;
+  .eb-brand-text{
+    display:none;
   }
 
-  .product-logo-text strong{
-    font-size:14px;
+  .eb-logo{
+    width:40px;
+    height:40px;
   }
 
-  .product-logo-text span{
-    font-size:6px;
+  .product-wrap{
+    padding:18px 15px 45px;
   }
 
-  .product-nav-btn{
-    width:34px;
-    height:34px;
-  }
-
-  .product-whatsapp-mini{
-    width:36px;
-    height:36px;
-    font-size:8px;
-  }
-
-  .product-breadcrumb-wrap{
-    width:94%;
-    padding-top:20px;
-  }
-
-  .product-main{
-    width:94%;
-    padding-top:22px;
-    padding-bottom:65px;
-  }
-
-  .gallery-main{
-    border-radius:18px;
-  }
-
-  .gallery-badge{
-    top:13px;
-    left:13px;
-    padding:7px 10px;
-    font-size:7px;
-  }
-
-  .gallery-counter{
-    right:13px;
-    top:13px;
-    font-size:8px;
-    padding:7px 9px;
-  }
-
-  .gallery-arrow{
-    width:36px;
-    height:36px;
-    font-size:16px;
-  }
-
-  .gallery-arrow.prev{
-    left:10px;
-  }
-
-  .gallery-arrow.next{
-    right:10px;
-  }
-
-  .gallery-thumbs{
-    gap:6px;
-  }
-
-  .placeholder-logo{
-    width:78px;
-    height:78px;
-    font-size:24px;
-  }
-
-  .placeholder-inner strong{
+  .eb-breadcrumb{
+    padding:18px 15px 3px;
     font-size:10px;
-    letter-spacing:2px;
   }
 
-  .placeholder-inner span{
-    font-size:7px;
+  .main-image-box{
+    border-radius:16px;
   }
 
   .product-title{
-    font-size:29px;
+    font-size:31px;
+  }
+
+  .product-subtitle{
+    font-size:13px;
   }
 
   .product-price{
-    font-size:23px;
+    font-size:25px;
   }
 
-  .product-description{
-    font-size:11px;
+  .spec-grid{
+    grid-template-columns:1fr;
   }
 
-  .product-specs{
-    gap:7px;
+  .product-actions{
+    grid-template-columns:1fr;
   }
 
-  .spec-box{
-    padding:11px;
-  }
-
-  .spec-value{
-    font-size:9px;
-  }
-
-  .product-benefits{
-    gap:7px;
-  }
-
-  .benefit{
-    padding:10px;
-  }
-
-  .benefit-text strong{
-    font-size:8px;
-  }
-
-  .benefit-text span{
-    font-size:7px;
-  }
-
-  .product-info-strip-inner{
-    width:94%;
+  .product-info-strip{
     grid-template-columns:1fr 1fr;
-    gap:12px;
-    padding:22px 0;
+    margin-top:35px;
   }
 
-  .info-strip-icon{
-    width:31px;
-    height:31px;
-    flex-basis:31px;
-    font-size:9px;
+  .product-info-strip > div{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
   }
 
-  .info-strip-item{
-    gap:8px;
+  .product-info-strip > div:nth-child(2n){
+    border-right:0;
   }
 
-  .info-strip-item strong{
-    font-size:7px;
-  }
-
-  .info-strip-item span{
-    font-size:6px;
+  .product-info-strip > div:nth-last-child(-n+2){
+    border-bottom:0;
   }
 
   .related-section{
-    padding:65px 0;
-  }
-
-  .related-container{
-    width:94%;
+    padding-top:55px;
   }
 
   .section-heading{
-    margin-bottom:28px;
+    align-items:start;
+    flex-direction:column;
+  }
+
+  .section-heading h2{
+    font-size:28px;
   }
 
   .related-grid{
-    gap:9px;
-  }
-
-  .related-card{
-    border-radius:13px;
+    gap:10px;
   }
 
   .related-body{
-    padding:11px;
+    padding:12px;
   }
 
   .related-title{
-    font-size:9px;
+    font-size:14px;
   }
 
-  .related-price{
-    font-size:12px;
+  .cta-content{
+    padding:35px 25px;
   }
 
-  .product-cta{
-    padding:65px 18px;
+  .cta-content h2{
+    font-size:34px;
   }
 
-  .footer-container{
-    width:94%;
-    grid-template-columns:1fr 1fr;
-    gap:30px 18px;
-  }
-
-  .footer-brand{
-    grid-column:1/-1;
-  }
-
-  .footer-contact{
-    grid-column:1/-1;
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding-top:45px;
   }
 
   .footer-bottom{
-    width:94%;
     flex-direction:column;
-    text-align:center;
-    padding:16px 0 22px;
   }
 
   .floating-whatsapp{
-    width:48px;
-    height:48px;
     right:14px;
     bottom:14px;
   }
 
 }
 
+@media(max-width:380px){
+
+  .product-title{
+    font-size:28px;
+  }
+
+  .related-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-info-strip{
+    grid-template-columns:1fr;
+  }
+
+  .product-info-strip > div,
+  .product-info-strip > div:nth-child(2n){
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .product-info-strip > div:last-child{
+    border-bottom:0;
+  }
+
+}
+
+
+/* ANIMATIONS */
+
+@keyframes ebFadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.product-info,
+.product-gallery{
+  animation:ebFadeUp .7s ease both;
+}
+
+.related-section,
+.product-info-strip,
+.product-cta{
+  animation:ebFadeUp .8s ease both;
+}
+
 </style>
-<script src="products.js"></script>
-<script src="app.js?v=3"></script>
+
+
+<!-- PRODUCT PAGE JAVASCRIPT -->
+
+<script src="products.js?v=4"></script>
+
+<script src="app.js?v=4"></script>
 
 <script>
 
 (function(){
 
-  "use strict";
-
-  /* =======================================================
-     FIND PRODUCT
-     ======================================================= */
-
-  const params = new URLSearchParams(
-    window.location.search
-  );
-
-  const productId = params.get("id");
-
-  const products = Array.isArray(window.PRODUCTS)
-    ? window.PRODUCTS
-    : [];
-
-  const product = products.find(function(item){
-
-    return String(item.id) === String(productId);
-
-  });
-
-
-  /* =======================================================
-     BASIC ELEMENTS
-     ======================================================= */
-
-  const title =
-    document.getElementById("productTitle");
-
-  const price =
-    document.getElementById("productPrice");
-
-  const category =
-    document.getElementById("productCategory");
-
-  const idElement =
-    document.getElementById("productId");
-
-  const breadcrumb =
-    document.getElementById("breadcrumbProduct");
-
-  const description =
-    document.getElementById("productDescription");
-
-  const badge =
-    document.getElementById("galleryBadge");
-
-  const mainImage =
-    document.getElementById("mainImage");
-
-  const placeholder =
-    document.getElementById("galleryPlaceholder");
-
-  const counter =
-    document.getElementById("galleryCounter");
-
-  const thumbs =
-    document.getElementById("galleryThumbs");
-
-  const prevButton =
-    document.getElementById("prevImage");
-
-  const nextButton =
-    document.getElementById("nextImage");
-
-
-  /* =======================================================
-     IF PRODUCT NOT FOUND
-     ======================================================= */
-
-  if(!product){
-
-    if(title){
-      title.textContent = "Product Not Found";
-    }
-
-    if(price){
-      price.textContent = "—";
-    }
-
-    if(category){
-      category.textContent = "ELITE BAGS";
-    }
-
-    if(description){
-
-      description.innerHTML = `
-        <p>
-          This product could not be found.
-          Please return to the collection and choose
-          another product.
-        </p>
-      `;
-
-    }
-
-    if(placeholder){
-
-      placeholder.innerHTML = `
-        <div class="placeholder-inner">
-
-          <div class="placeholder-logo">
-            EB
-          </div>
-
-          <strong>
-            PRODUCT NOT FOUND
-          </strong>
-
-          <span>
-            Please return to Elite Bags
-          </span>
-
-        </div>
-      `;
-
-    }
-
-    if(mainImage){
-      mainImage.style.display = "none";
-    }
-
-    return;
-
-  }
-
-
-  /* =======================================================
-     PRODUCT BASIC INFORMATION
-     ======================================================= */
-
-  document.title =
-    product.name + " | Elite Bags";
-
-
-  if(title){
-    title.textContent =
-      product.name || "Elite Bags Product";
-  }
-
-
-  if(price){
-
-    let productPrice =
-      product.price ?? "—";
-
-    if(
-      typeof productPrice === "number" ||
-      /^[0-9,.]+$/.test(String(productPrice))
-    ){
-
-      productPrice =
-        "$" + productPrice;
-
-    }
-
-    price.textContent = productPrice;
-
-  }
-
-
-  if(category){
-
-    category.textContent =
-      String(
-        product.category || "COLLECTION"
-      ).toUpperCase();
-
-  }
-
-
-  if(idElement){
-
-    idElement.textContent =
-      "Product ID: " +
-      (product.id || "—");
-
-  }
-
-
-  if(breadcrumb){
-
-    breadcrumb.textContent =
-      product.name || "Product";
-
-  }
-
-
-  if(badge){
-
-    if(product.badge){
-
-      badge.textContent =
-        product.badge;
-
-      badge.style.display =
-        "block";
-
-    }else{
-
-      badge.style.display =
-        "none";
-
-    }
-
-  }
-
-
-  /* =======================================================
-     DESCRIPTION
-     ======================================================= */
-
-  if(description){
-
-    const descriptionText =
-      product.description ||
-      "A carefully selected piece from the Elite Bags collection.";
-
-    description.innerHTML = `
-      <p>${escapeHTML(descriptionText)}</p>
-
-      <p>
-        <strong>Shipping:</strong>
-        Free Worldwide Shipping
-      </p>
-
-      <p>
-        <strong>Delivery:</strong>
-        9–13 Working Days
-      </p>
-
-      <p>
-        <strong>Quality:</strong>
-        Master Quality
-      </p>
-    `;
-
-  }
-
-
-  /* =======================================================
-     SPECIFICATIONS
-     ======================================================= */
-
-  setText(
-    "specCategory",
-    product.category
-  );
-
-  setText(
-    "specStyle",
-    product.subcategory ||
-    product.style
-  );
-
-  setText(
-    "specColor",
-    product.colors ||
-    product.color
-  );
-
-  setText(
-    "specSize",
-    product.sizes ||
-    product.size
-  );
-
-  setText(
-    "specMaterial",
-    product.material
-  );
-
-  setText(
-    "specDimensions",
-    product.dimensions
-  );
-
-
-  /* =======================================================
-     GALLERY
-     ======================================================= */
-
-  let images =
-    Array.isArray(product.images)
-      ? product.images.filter(Boolean)
+  function startProductPage(){
+
+    const allProducts =
+      Array.isArray(window.PRODUCTS)
+      ? window.PRODUCTS
       : [];
 
+    const params =
+      new URLSearchParams(window.location.search);
 
-  let currentImage = 0;
+    const requestedId =
+      params.get("id");
+
+    const product =
+      allProducts.find(function(item){
+        return String(item.id) === String(requestedId);
+      });
+
+    const title =
+      document.getElementById("productTitle");
+
+    const price =
+      document.getElementById("productPrice");
+
+    const category =
+      document.getElementById("productCategory");
+
+    const productId =
+      document.getElementById("productId");
+
+    const description =
+      document.getElementById("productDescription");
+
+    const badge =
+      document.getElementById("productBadge");
+
+    const breadcrumb =
+      document.getElementById("breadcrumbName");
+
+    const subtitle =
+      document.getElementById("productSubtitle");
 
 
-  function showImage(index){
+    /* PRODUCT NOT FOUND */
 
-    if(!images.length){
+    if(!product){
 
-      showPlaceholder();
+      document.title =
+        "Product Not Found | Elite Bags";
+
+      if(title)
+        title.textContent =
+          "Product Not Found";
+
+      if(subtitle)
+        subtitle.textContent =
+          "This product could not be found in our current collection.";
+
+      if(price)
+        price.textContent = "—";
+
+      if(productId)
+        productId.textContent =
+          requestedId || "—";
+
+      if(description)
+        description.textContent =
+          "Please return to the collection and choose another product.";
 
       return;
 
     }
 
 
-    if(index < 0){
-      index = images.length - 1;
-    }
+    /* PAGE TITLE */
 
-    if(index >= images.length){
-      index = 0;
-    }
-
-    currentImage = index;
+    document.title =
+      product.name + " | Elite Bags";
 
 
-    const imagePath =
-      images[currentImage];
+    /* BASIC INFO */
 
-
-    if(mainImage){
-
-      mainImage.src =
-        imagePath;
-
-      mainImage.alt =
+    if(title)
+      title.textContent =
         product.name || "Elite Bags Product";
 
-      mainImage.style.display =
-        "block";
+    if(price)
+      price.textContent =
+        product.price
+        ? "$" + product.price
+        : "—";
 
-      mainImage.classList.add("active");
+    if(category)
+      category.textContent =
+        product.category || "COLLECTION";
 
-      mainImage.onerror =
-        function(){
+    if(productId)
+      productId.textContent =
+        product.id || "—";
 
-          this.style.display =
-            "none";
+    if(breadcrumb)
+      breadcrumb.textContent =
+        product.name || "Product";
 
-          showPlaceholder();
+    if(badge)
+      badge.textContent =
+        product.badge || "FEATURED";
 
-        };
+    if(description)
+      description.textContent =
+        product.description ||
+        "Premium selected fashion piece from the Elite Bags collection.";
 
-    }
+    if(subtitle)
+      subtitle.textContent =
+        (product.category || "Premium") +
+        " • " +
+        (product.subcategory || "Selected Collection");
 
 
-    if(placeholder){
+    /* SPECS */
 
-      placeholder.style.display =
-        "none";
+    const specs = {
+      specCategory:
+        product.category,
 
-    }
+      specStyle:
+        product.subcategory,
 
+      specColor:
+        product.colors,
 
-    if(counter){
+      specSize:
+        product.sizes,
 
-      counter.textContent =
-        (currentImage + 1) +
-        " / " +
-        images.length;
+      specMaterial:
+        product.material,
 
-    }
+      specQuality:
+        product.quality || "Master Quality"
+    };
 
+    Object.keys(specs).forEach(function(id){
 
-    updateThumbs();
+      const el =
+        document.getElementById(id);
 
-  }
-
-
-  function showPlaceholder(){
-
-    if(mainImage){
-
-      mainImage.style.display =
-        "none";
-
-      mainImage.classList.remove(
-        "active"
-      );
-
-    }
-
-
-    if(placeholder){
-
-      placeholder.style.display =
-        "grid";
-
-      placeholder.innerHTML = `
-
-        <div class="placeholder-inner">
-
-          <div class="placeholder-logo">
-            EB
-          </div>
-
-          <strong>
-            ELITE BAGS
-          </strong>
-
-          <span>
-            Product image coming soon
-          </span>
-
-        </div>
-
-      `;
-
-    }
-
-
-    if(counter){
-
-      counter.textContent =
-        "1 / 1";
-
-    }
-
-  }
-
-
-  /* =======================================================
-     THUMBNAILS
-     ======================================================= */
-
-  function updateThumbs(){
-
-    if(!thumbs){
-      return;
-    }
-
-
-    thumbs.innerHTML = "";
-
-
-    images.forEach(function(image, index){
-
-      const button =
-        document.createElement("button");
-
-      button.type =
-        "button";
-
-      button.className =
-        "gallery-thumb" +
-        (
-          index === currentImage
-            ? " active"
-            : ""
-        );
-
-
-      const img =
-        document.createElement("img");
-
-      img.src =
-        image;
-
-      img.alt =
-        product.name +
-        " image " +
-        (index + 1);
-
-
-      img.onerror =
-        function(){
-
-          this.style.display =
-            "none";
-
-          const fallback =
-            document.createElement("span");
-
-          fallback.className =
-            "thumb-placeholder";
-
-          fallback.textContent =
-            "EB";
-
-          button.appendChild(
-            fallback
-          );
-
-        };
-
-
-      button.appendChild(img);
-
-
-      button.addEventListener(
-        "click",
-        function(){
-
-          showImage(index);
-
-        }
-      );
-
-
-      thumbs.appendChild(button);
+      if(el){
+        el.textContent =
+          specs[id] || "—";
+      }
 
     });
 
-  }
+
+    /* GALLERY */
+
+    const mainImage =
+      document.getElementById("mainImage");
+
+    const placeholder =
+      document.getElementById("imagePlaceholder");
+
+    const thumbs =
+      document.getElementById("thumbs");
+
+    const count =
+      document.getElementById("galleryCount");
+
+    const prev =
+      document.getElementById("prevBtn");
+
+    const next =
+      document.getElementById("nextBtn");
+
+    let images =
+      Array.isArray(product.images)
+      ? product.images.filter(Boolean)
+      : [];
+
+    let current = 0;
 
 
-  /* =======================================================
-     ARROWS
-     ======================================================= */
+    function showPlaceholder(){
 
-  if(prevButton){
+      if(mainImage){
+        mainImage.style.display =
+          "none";
+      }
 
-    prevButton.addEventListener(
-      "click",
-      function(){
+      if(placeholder){
+        placeholder.style.display =
+          "grid";
+      }
 
-        showImage(
-          currentImage - 1
+      if(count){
+        count.textContent =
+          "No image";
+      }
+
+      if(prev)
+        prev.style.display =
+          "none";
+
+      if(next)
+        next.style.display =
+          "none";
+
+    }
+
+
+    function showImage(index){
+
+      if(!images.length){
+
+        showPlaceholder();
+        return;
+
+      }
+
+      current =
+        (index + images.length) %
+        images.length;
+
+      if(mainImage){
+
+        mainImage.src =
+          images[current];
+
+        mainImage.alt =
+          product.name || "Elite Bags product";
+
+        mainImage.style.display =
+          "block";
+
+        mainImage.onerror =
+          function(){
+
+            this.style.display =
+              "none";
+
+            if(placeholder)
+              placeholder.style.display =
+                "grid";
+
+          };
+
+      }
+
+      if(placeholder)
+        placeholder.style.display =
+          "none";
+
+      if(count)
+        count.textContent =
+          (current + 1) +
+          " / " +
+          images.length;
+
+      if(prev)
+        prev.style.display =
+          images.length > 1
+          ? "block"
+          : "none";
+
+      if(next)
+        next.style.display =
+          images.length > 1
+          ? "block"
+          : "none";
+
+      document
+        .querySelectorAll(".thumb")
+        .forEach(function(item,index){
+
+          item.classList.toggle(
+            "active",
+            index === current
+          );
+
+        });
+
+    }
+
+
+    /* THUMBNAILS */
+
+    if(thumbs){
+
+      thumbs.innerHTML = "";
+
+      images.forEach(function(src,index){
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+
+        button.className =
+          "thumb" +
+          (index === 0 ? " active" : "");
+
+        const img =
+          document.createElement("img");
+
+        img.src = src;
+
+        img.alt =
+          product.name || "Product image";
+
+        img.loading = "lazy";
+
+        img.onerror =
+          function(){
+            button.style.display =
+              "none";
+          };
+
+        button.appendChild(img);
+
+        button.addEventListener(
+          "click",
+          function(){
+            showImage(index);
+          }
         );
+
+        thumbs.appendChild(button);
+
+      });
+
+    }
+
+
+    if(prev){
+
+      prev.onclick =
+        function(){
+          showImage(current - 1);
+        };
+
+    }
+
+
+    if(next){
+
+      next.onclick =
+        function(){
+          showImage(current + 1);
+        };
+
+    }
+
+
+    /* KEYBOARD */
+
+    document.addEventListener(
+      "keydown",
+      function(event){
+
+        if(event.key === "ArrowLeft")
+          showImage(current - 1);
+
+        if(event.key === "ArrowRight")
+          showImage(current + 1);
 
       }
     );
 
-  }
+
+    /* START GALLERY */
+
+    if(images.length)
+      showImage(0);
+    else
+      showPlaceholder();
 
 
-  if(nextButton){
+    /* WHATSAPP */
 
-    nextButton.addEventListener(
-      "click",
-      function(){
+    const orderButton =
+      document.getElementById("whatsappOrder");
 
-        showImage(
-          currentImage + 1
-        );
+    if(orderButton){
+
+      const message =
+        "Hello Elite Bags 👋\n\n" +
+        "I would like to order:\n" +
+        product.name +
+        "\n\n" +
+        "Product ID: " +
+        product.id +
+        "\n" +
+        "Price: $" +
+        product.price +
+        "\n\n" +
+        "Please send me the ordering details.";
+
+      orderButton.href =
+        "https://wa.me/12089034508?text=" +
+        encodeURIComponent(message);
+
+    }
+
+
+    /* CART */
+
+    const cartButton =
+      document.getElementById("addToCart");
+
+    if(cartButton){
+
+      cartButton.onclick =
+        function(){
+
+          let cart = [];
+
+          try{
+            cart =
+              JSON.parse(
+                localStorage.getItem(
+                  "eliteBagsCart"
+                )
+              ) || [];
+          }catch(e){
+            cart = [];
+          }
+
+          const existing =
+            cart.find(function(item){
+              return String(item.id) ===
+                String(product.id);
+            });
+
+          if(existing){
+            existing.quantity =
+              (existing.quantity || 1) + 1;
+          }else{
+
+            cart.push({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              image:
+                images[0] || "",
+              quantity: 1
+            });
+
+          }
+
+          localStorage.setItem(
+            "eliteBagsCart",
+            JSON.stringify(cart)
+          );
+
+          cartButton.textContent =
+            "✓ Added to Cart";
+
+          setTimeout(function(){
+
+            cartButton.textContent =
+              "Add to Cart";
+
+          },1500);
+
+        };
+
+    }
+
+
+    /* IMAGE ZOOM */
+
+    const zoom =
+      document.getElementById("imageZoom");
+
+    const zoomImage =
+      document.getElementById("zoomImage");
+
+    const closeZoom =
+      document.getElementById("closeZoom");
+
+
+    if(mainImage && zoom && zoomImage){
+
+      mainImage.addEventListener(
+        "click",
+        function(){
+
+          if(!images.length)
+            return;
+
+          zoomImage.src =
+            images[current];
+
+          zoom.classList.add("open");
+
+        }
+      );
+
+    }
+
+
+    if(closeZoom && zoom){
+
+      closeZoom.onclick =
+        function(){
+          zoom.classList.remove("open");
+        };
+
+    }
+
+
+    if(zoom){
+
+      zoom.addEventListener(
+        "click",
+        function(event){
+
+          if(event.target === zoom){
+            zoom.classList.remove("open");
+          }
+
+        }
+      );
+
+    }
+    /* RELATED PRODUCTS */
+
+    const related =
+      document.getElementById("relatedProducts");
+
+    if(related){
+
+      related.innerHTML = "";
+
+      const sameCategory =
+        allProducts.filter(function(item){
+
+          return String(item.id) !==
+            String(product.id) &&
+            item.category ===
+            product.category;
+
+        }).slice(0,4);
+
+
+      sameCategory.forEach(function(item){
+
+        const card =
+          document.createElement("a");
+
+        card.className =
+          "related-card";
+
+        card.href =
+          "product.html?id=" +
+          encodeURIComponent(item.id);
+
+
+        let imageHTML =
+          '<div class="related-placeholder">' +
+          '<div>EB</div>' +
+          '</div>';
+
+
+        if(
+          Array.isArray(item.images) &&
+          item.images.length
+        ){
+
+          imageHTML =
+            '<img src="' +
+            item.images[0] +
+            '" alt="' +
+            (item.name || "Product") +
+            '" loading="lazy" ' +
+            'onerror="this.style.display=\'none\'">';
+
+        }
+
+
+        card.innerHTML =
+
+          '<div class="related-image">' +
+            imageHTML +
+          '</div>' +
+
+          '<div class="related-body">' +
+
+            '<div class="related-category">' +
+              (item.category || "Collection") +
+            '</div>' +
+
+            '<div class="related-title">' +
+              (item.name || "Product") +
+            '</div>' +
+
+            '<div class="related-price">' +
+              "$" +
+              (item.price || "—") +
+            '</div>' +
+
+          '</div>';
+
+
+        related.appendChild(card);
+
+      });
+
+
+      if(!sameCategory.length){
+
+        related.innerHTML =
+          '<div style="' +
+          'grid-column:1/-1;' +
+          'padding:35px;' +
+          'text-align:center;' +
+          'color:#777;' +
+          'border:1px solid var(--line);' +
+          'border-radius:15px;' +
+          '">' +
+          'Explore more pieces in our collection.' +
+          '</div>';
 
       }
-    );
+
+    }
+
+
+    /* MOBILE SWIPE */
+
+    let touchStartX = 0;
+
+    if(mainImage){
+
+      mainImage.addEventListener(
+        "touchstart",
+        function(event){
+
+          touchStartX =
+            event.changedTouches[0].screenX;
+
+        },
+        {passive:true}
+      );
+
+
+      mainImage.addEventListener(
+        "touchend",
+        function(event){
+
+          const endX =
+            event.changedTouches[0].screenX;
+
+          const difference =
+            endX - touchStartX;
+
+          if(Math.abs(difference) < 45)
+            return;
+
+          if(difference > 0)
+            showImage(current - 1);
+          else
+            showImage(current + 1);
+
+        },
+        {passive:true}
+      );
+
+    }
+
+
+    /* YEAR */
+
+    const year =
+      document.getElementById("year");
+
+    if(year){
+      year.textContent =
+        new Date().getFullYear();
+    }
 
   }
 
 
-  /* =======================================================
-     START GALLERY
-     ======================================================= */
+  if(
+    document.readyState ===
+    "loading"
+  ){
 
-  if(images.length){
-
-    showImage(0);
+    document.addEventListener(
+      "DOMContentLoaded",
+      startProductPage
+    );
 
   }else{
 
-    showPlaceholder();
-
-    if(thumbs){
-      thumbs.innerHTML = "";
-    }
-
-  }
-
-
-  /* =======================================================
-     HELPER FUNCTIONS
-     ======================================================= */
-
-  function setText(id,value){
-
-    const element =
-      document.getElementById(id);
-
-    if(!element){
-      return;
-    }
-
-    element.textContent =
-      value || "—";
-
-  }
-
-
-  function escapeHTML(value){
-
-    return String(value)
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;")
-      .replace(/'/g,"&#039;");
+    startProductPage();
 
   }
 
 })();
-  </script>
-  <script>
 
-(function(){
-
-  "use strict";
-
-  /* =======================================================
-     WHATSAPP ORDER
-     ======================================================= */
-
-  const orderButton =
-    document.getElementById("whatsappOrder");
-
-  if(orderButton){
-
-    orderButton.addEventListener(
-      "click",
-      function(){
-
-        if(!window.STORE){
-          return;
-        }
-
-        const phone =
-          String(
-            window.STORE.whatsappLink ||
-            "https://wa.me/12089034508"
-          );
-
-        const message = encodeURIComponent(
-          "Hello Elite Bags! 👋\n\n" +
-          "I am interested in:\n" +
-          (product?.name || "this product") +
-          "\n\n" +
-          "Product ID: " +
-          (product?.id || "—") +
-          "\nPrice: $" +
-          (product?.price || "—") +
-          "\n\n" +
-          "Please share the available details."
-        );
-
-        let url = phone;
-
-        if(phone.includes("wa.me")){
-          url =
-            phone +
-            "?text=" +
-            message;
-        }
-
-        window.open(
-          url,
-          "_blank"
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     ADD TO SHOPPING BAG
-     ======================================================= */
-
-  const cartButton =
-    document.getElementById("addToCart");
-
-  if(cartButton){
-
-    cartButton.addEventListener(
-      "click",
-      function(){
-
-        if(!product){
-          return;
-        }
-
-
-        let cart = [];
-
-        try{
-
-          cart =
-            JSON.parse(
-              localStorage.getItem(
-                "eliteBagsCart"
-              )
-            ) || [];
-
-        }catch(error){
-
-          cart = [];
-
-        }
-
-
-        const existing =
-          cart.find(function(item){
-
-            return String(item.id) ===
-              String(product.id);
-
-          });
-
-
-        if(existing){
-
-          existing.quantity =
-            (existing.quantity || 1) + 1;
-
-        }else{
-
-          cart.push({
-
-            id: product.id,
-
-            name: product.name,
-
-            price: product.price,
-
-            image:
-              Array.isArray(product.images) &&
-              product.images.length
-                ? product.images[0]
-                : "",
-
-            quantity: 1
-
-          });
-
-        }
-
-
-        localStorage.setItem(
-          "eliteBagsCart",
-          JSON.stringify(cart)
-        );
-
-
-        cartButton.innerHTML =
-          "✓ ADDED TO BAG";
-
-
-        cartButton.classList.add(
-          "added"
-        );
-
-
-        setTimeout(function(){
-
-          cartButton.innerHTML =
-            "ADD TO SHOPPING BAG";
-
-          cartButton.classList.remove(
-            "added"
-          );
-
-        },1800);
-
-
-        updateCartCount();
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     CART COUNT
-     ======================================================= */
-
-  function updateCartCount(){
-
-    let cart = [];
-
-    try{
-
-      cart =
-        JSON.parse(
-          localStorage.getItem(
-            "eliteBagsCart"
-          )
-        ) || [];
-
-    }catch(error){
-
-      cart = [];
-
-    }
-
-
-    const total =
-      cart.reduce(function(sum,item){
-
-        return sum +
-          Number(
-            item.quantity || 1
-          );
-
-      },0);
-
-
-    document
-      .querySelectorAll(
-        "[data-cart-count], #cartCount"
-      )
-      .forEach(function(element){
-
-        element.textContent =
-          total;
-
-      });
-
-  }
-
-
-  updateCartCount();
-
-
-  /* =======================================================
-     KEYBOARD GALLERY CONTROLS
-     ======================================================= */
-
-  document.addEventListener(
-    "keydown",
-    function(event){
-
-      if(event.key === "ArrowLeft"){
-
-        const button =
-          document.getElementById(
-            "prevImage"
-          );
-
-        if(button){
-          button.click();
-        }
-
-      }
-
-
-      if(event.key === "ArrowRight"){
-
-        const button =
-          document.getElementById(
-            "nextImage"
-          );
-
-        if(button){
-          button.click();
-        }
-
-      }
-
-    }
-  );
-
-
-  /* =======================================================
-     TOUCH SWIPE FOR MOBILE
-     ======================================================= */
-
-  const gallery =
-    document.querySelector(
-      ".gallery-main"
-    );
-
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-
-  if(gallery){
-
-    gallery.addEventListener(
-      "touchstart",
-      function(event){
-
-        touchStartX =
-          event.changedTouches[0].screenX;
-
-      },
-      {passive:true}
-    );
-
-
-    gallery.addEventListener(
-      "touchend",
-      function(event){
-
-        touchEndX =
-          event.changedTouches[0].screenX;
-
-        const distance =
-          touchEndX - touchStartX;
-
-
-        if(Math.abs(distance) < 45){
-          return;
-        }
-
-
-        if(distance < 0){
-
-          const button =
-            document.getElementById(
-              "nextImage"
-            );
-
-          if(button){
-            button.click();
-          }
-
-        }else{
-
-          const button =
-            document.getElementById(
-              "prevImage"
-            );
-
-          if(button){
-            button.click();
-          }
-
-        }
-
-      },
-      {passive:true}
-    );
-
-  }
-
-
-  /* =======================================================
-     IMAGE ZOOM
-     ======================================================= */
-
-  if(mainImage){
-
-    mainImage.addEventListener(
-      "click",
-      function(){
-
-        if(!this.src){
-          return;
-        }
-
-        this.classList.toggle(
-          "zoomed"
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     HEADER SCROLL EFFECT
-     ======================================================= */
-
-  window.addEventListener(
-    "scroll",
-    function(){
-
-      const nav =
-        document.querySelector(
-          ".product-nav"
-        );
-
-      if(!nav){
-        return;
-      }
-
-
-      if(window.scrollY > 40){
-
-        nav.classList.add(
-          "scrolled"
-        );
-
-      }else{
-
-        nav.classList.remove(
-          "scrolled"
-        );
-
-      }
-
-    },
-    {passive:true}
-  );
-
-
-  /* =======================================================
-     FADE PAGE IN
-     ======================================================= */
-
-  window.requestAnimationFrame(
-    function(){
-
-      document.body.classList.add(
-        "product-page-ready"
-      );
-
-    }
-  );
-
-
-})();
-
-  </script>
-  <script>
-
-(function(){
-
-  "use strict";
-
-  /* =======================================================
-     RELATED PRODUCTS
-     ======================================================= */
-
-  const relatedGrid =
-    document.getElementById(
-      "relatedProducts"
-    );
-
-  if(
-    !relatedGrid ||
-    !product ||
-    !Array.isArray(window.PRODUCTS)
-  ){
-    return;
-  }
-
-
-  const related =
-    window.PRODUCTS
-      .filter(function(item){
-
-        return String(item.id) !==
-          String(product.id);
-
-      })
-      .filter(function(item){
-
-        return String(item.category || "")
-          .toLowerCase() ===
-          String(product.category || "")
-          .toLowerCase();
-
-      })
-      .slice(0,4);
-
-
-  /* If same category has fewer products,
-     fill remaining cards from the full collection */
-
-  if(related.length < 4){
-
-    window.PRODUCTS
-      .filter(function(item){
-
-        return String(item.id) !==
-          String(product.id);
-
-      })
-      .forEach(function(item){
-
-        if(
-          related.length >= 4 ||
-          related.some(function(existing){
-
-            return String(existing.id) ===
-              String(item.id);
-
-          })
-        ){
-          return;
-        }
-
-        related.push(item);
-
-      });
-
-  }
-
-
-  /* =======================================================
-     CREATE RELATED CARD
-     ======================================================= */
-
-  related.forEach(function(item){
-
-    const card =
-      document.createElement("article");
-
-    card.className =
-      "related-card";
-
-
-    const imageBox =
-      document.createElement("div");
-
-    imageBox.className =
-      "related-image";
-
-
-    const image =
-      document.createElement("img");
-
-    const imageList =
-      Array.isArray(item.images)
-        ? item.images
-        : [];
-
-
-    if(imageList.length){
-
-      image.src =
-        imageList[0];
-
-    }
-
-
-    image.alt =
-      item.name || "Elite Bags Product";
-
-
-    image.loading =
-      "lazy";
-
-
-    image.onerror =
-      function(){
-
-        this.style.display =
-          "none";
-
-        imageBox.classList.add(
-          "related-placeholder"
-        );
-
-        imageBox.innerHTML =
-          '<span>EB</span>';
-
-      };
-
-
-    imageBox.appendChild(
-      image
-    );
-
-
-    if(item.badge){
-
-      const badge =
-        document.createElement("span");
-
-      badge.className =
-        "related-badge";
-
-      badge.textContent =
-        item.badge;
-
-      imageBox.appendChild(
-        badge
-      );
-
-    }
-
-
-    const body =
-      document.createElement("div");
-
-    body.className =
-      "related-body";
-
-
-    const category =
-      document.createElement("span");
-
-    category.className =
-      "related-category";
-
-    category.textContent =
-      item.category || "COLLECTION";
-
-
-    const name =
-      document.createElement("h3");
-
-    name.className =
-      "related-title";
-
-    name.textContent =
-      item.name || "Elite Bags Product";
-
-
-    const price =
-      document.createElement("div");
-
-    price.className =
-      "related-price";
-
-    price.textContent =
-      "$" + (
-        item.price ?? "—"
-      );
-
-
-    const link =
-      document.createElement("a");
-
-    link.className =
-      "related-view";
-
-    link.href =
-      "product.html?id=" +
-      encodeURIComponent(item.id);
-
-    link.textContent =
-      "VIEW PRODUCT →";
-
-
-    body.appendChild(
-      category
-    );
-
-    body.appendChild(
-      name
-    );
-
-    body.appendChild(
-      price
-    );
-
-    body.appendChild(
-      link
-    );
-
-
-    card.appendChild(
-      imageBox
-    );
-
-    card.appendChild(
-      body
-    );
-
-
-    relatedGrid.appendChild(
-      card
-    );
-
-  });
-
-
-})();
-
-  </script>
-  <style>
-
-/* =======================================================
-   FINAL PRODUCT PAGE POLISH
-   ======================================================= */
-
-.product-page-ready{
-  opacity:1;
-}
-
-.product-page{
-  overflow:hidden;
-}
-
-.gallery-main img{
-  cursor:zoom-in;
-  transition:
-    transform .45s ease,
-    opacity .3s ease;
-}
-
-.gallery-main img.zoomed{
-  transform:scale(1.08);
-  cursor:zoom-out;
-}
-
-
-/* =======================================================
-   RELATED PRODUCTS FALLBACK
-   ======================================================= */
-
-.related-placeholder{
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,23,56,.16),
-      rgba(5,7,8,.98) 65%
-    );
-}
-
-.related-placeholder span{
-  width:58px;
-  height:58px;
-  display:grid;
-  place-items:center;
-  border:1px solid rgba(255,23,56,.55);
-  border-radius:50%;
-  color:#ff1738;
-  font-family:Georgia,serif;
-  font-size:20px;
-  font-weight:700;
-}
-
-
-/* =======================================================
-   BUTTON FEEDBACK
-   ======================================================= */
-
-.product-actions-area button{
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-}
-
-.product-actions-area button:hover{
-  transform:translateY(-2px);
-}
-
-.product-actions-area .added{
-  background:#fff !important;
-  color:#050708 !important;
-}
-
-
-/* =======================================================
-   THUMBNAIL PLACEHOLDER
-   ======================================================= */
-
-.thumb-placeholder{
-  width:100%;
-  height:100%;
-  display:grid;
-  place-items:center;
-  color:#ff1738;
-  font-weight:700;
-  font-family:Georgia,serif;
-}
-
-
-/* =======================================================
-   MOBILE FINAL FIX
-   ======================================================= */
-
-@media(max-width:600px){
-
-  .product-layout{
-    overflow:visible;
-  }
-
-  .product-info{
-    width:100%;
-  }
-
-  .product-actions-area{
-    width:100%;
-  }
-
-  .product-actions-area button{
-    width:100%;
-  }
-
-  .related-grid{
-    width:100%;
-  }
-
-  .related-view{
-    font-size:7px;
-  }
-
-}
-
-
-/* =======================================================
-   VERY SMALL PHONES
-   ======================================================= */
-
-@media(max-width:380px){
-
-  .product-title{
-    font-size:25px;
-  }
-
-  .product-price{
-    font-size:21px;
-  }
-
-  .related-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .footer-container{
-    gap:24px 12px;
-  }
-
-}
-
-
-/* =======================================================
-   ACCESSIBILITY
-   ======================================================= */
-
-button,
-a{
-  -webkit-tap-highlight-color:transparent;
-}
-
-button:focus-visible,
-a:focus-visible{
-  outline:2px solid #ff1738;
-  outline-offset:3px;
-}
-
-
-/* =======================================================
-   RED LUXURY SELECTION
-   ======================================================= */
-
-::selection{
-  background:#ff1738;
-  color:#fff;
-}
-
-</style>
+</script>
 
 </body>
 </html>
