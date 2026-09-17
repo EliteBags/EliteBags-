@@ -316,7 +316,7 @@ window.PRODUCTS = [
 ];
 
 /* Website settings */
-const STORE = {
+window.STORE = {
   name: "Elite Bags",
   email: "luxuriouselitebags@gmail.com",
   whatsapp: "+1 208-903-4508",
