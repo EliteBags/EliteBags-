@@ -459,7 +459,30 @@ button{
   .eb-brand-text span{
     font-size:8px;
   }
-}
+  @media (max-width:600px){
+  .eb-brand-text{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    flex-direction:column !important;
+    width:auto !important;
+    max-width:140px !important;
+  }
+
+  .eb-brand-text strong{
+    display:block !important;
+    color:#fff !important;
+    font-size:15px !important;
+    white-space:nowrap !important;
+  }
+
+  .eb-brand-text span{
+    display:block !important;
+    color:#aaa !important;
+    font-size:8px !important;
+    white-space:nowrap !important;
+  }
+  }
 }
 </style>
 </head>
