@@ -1224,4 +1224,72 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(connectEliteProductCards, 3000);
 
 });
+/* SEARCH SYSTEM */
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
 
+if (searchInput && searchResults) {
+  searchInput.addEventListener("input", function () {
+    const query = this.value.trim().toLowerCase();
+
+    if (!query) {
+      searchResults.innerHTML = "";
+      searchResults.classList.remove("show");
+      return;
+    }
+
+    const catalog = Array.isArray(window.PRODUCTS)
+      ? window.PRODUCTS
+      : [];
+
+    const matches = catalog.filter(product => {
+      const searchableText = [
+        product.id,
+        product.productId,
+        product.name,
+        product.title,
+        product.category,
+        product.subcategory,
+        product.style,
+        product.color
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      return searchableText.includes(query);
+    });
+
+    if (!matches.length) {
+      searchResults.innerHTML = `
+        <div class="search-empty">No products found</div>
+      `;
+      searchResults.classList.add("show");
+      return;
+    }
+
+    searchResults.innerHTML = matches
+      .slice(0, 8)
+      .map(product => {
+        const id = product.id || product.productId || "";
+        const name = product.name || product.title || "Product";
+        const price = product.price ? `$${product.price}` : "";
+
+        return `
+          <a class="search-result-item" href="product.html?id=${id}">
+            <span>${name}</span>
+            <b>${price}</b>
+          </a>
+        `;
+      })
+      .join("");
+
+    searchResults.classList.add("show");
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".search-box")) {
+      searchResults.classList.remove("show");
+    }
+  });
+}
