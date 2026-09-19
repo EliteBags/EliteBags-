@@ -429,18 +429,37 @@ button{
   font-size:13px;
 }
 .site-logo{
-  width:68px;
-  height:68px;
-  object-fit:contain;
-  display:block;
-  flex-shrink:0;
+.eb-brand-text{
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  line-height:1.1;
+}
+
+.eb-brand-text strong{
+  display:block !important;
+  color:#fff !important;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+.eb-brand-text span{
+  display:block !important;
+  color:#aaa !important;
+  font-size:10px;
+  margin-top:4px;
+  letter-spacing:1px;
 }
 
 @media(max-width:600px){
-  .site-logo{
-    width:58px;
-    height:58px;
+  .eb-brand-text strong{
+    font-size:15px;
   }
+
+  .eb-brand-text span{
+    font-size:8px;
+  }
+}
 }
 </style>
 </head>
