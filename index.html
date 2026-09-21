@@ -1,1 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Elite Bags — Premium fashion bags, shoes, heels, watches, jewelry and accessories.">
+
+  <title>Elite Bags | Premium Fashion Collection</title>
+
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  FREE WORLDWIDE SHIPPING
+  <span>•</span>
+  9–13 WORKING DAYS
+</div>
+
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="container nav">
+
+    <a href="index.html" class="logo">
+
+      <img src="logo.png"
+           alt="Elite Bags"
+           onerror="this.style.display='none'">
+
+      <span>ELITE BAGS</span>
+
+    </a>
+
+
+    <nav class="desktop-nav">
+
+      <a href="index.html">Home</a>
+
+      <a href="#collections">Collections</a>
+
+      <a href="#featured">Featured</a>
+
+      <a href="#standard">Our Standard</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+      <button id="searchButton"
+              class="header-button">
+        Search
+      </button>
+
+      <button id="cartButton"
+              class="header-button">
+        Bag
+        <span id="cartCount">0</span>
+      </button>
+
+      <a href="https://wa.me/12089034508"
+         class="whatsapp-button">
+        WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- SEARCH -->
+<div id="searchBox" class="search-box">
+
+  <div class="container">
+
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search bags, shoes, heels, watches..."
+    >
+
+    <div id="searchResults"></div>
+
+  </div>
+
+</div>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <div class="hero-label">
+      ELITE BAGS • PREMIUM COLLECTION
+    </div>
+
+    <h1>
+      STYLE THAT
+      <span>SPEAKS</span>
+      FOR YOU.
+    </h1>
+
+    <p>
+      Discover premium fashion pieces selected for
+      timeless style, refined presentation and everyday elegance.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#collections"
+         class="button primary">
+        EXPLORE COLLECTION
+      </a>
+
+      <a href="https://wa.me/12089034508"
+         class="button secondary">
+        CHAT ON WHATSAPP
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRUST -->
+<section class="trust">
+
+  <div class="container trust-grid">
+
+    <div>
+      <strong>MASTER QUALITY</strong>
+      <span>Premium selected pieces</span>
+    </div>
+
+    <div>
+      <strong>FREE SHIPPING</strong>
+      <span>Worldwide delivery</span>
+    </div>
+
+    <div>
+      <strong>9–13 DAYS</strong>
+      <span>Working day delivery</span>
+    </div>
+
+    <div>
+      <strong>SECURE PACKAGING</strong>
+      <span>Carefully prepared orders</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COLLECTIONS -->
+<section id="collections"
+         class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span>SHOP BY CATEGORY</span>
+
+      <h2>
+        Explore The Collection
+      </h2>
+
+      <p>
+        Choose a category and discover the full collection.
+      </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <a href="bags.html"
+         class="category-card">
+
+        <small>01</small>
+
+        <h3>Handbags</h3>
+
+        <span>
+          Explore Bags →
+        </span>
+
+      </a>
+
+
+      <a href="shoes.html"
+         class="category-card">
+
+        <small>02</small>
+
+        <h3>Shoes</h3>
+
+        <span>
+          Explore Shoes →
+        </span>
+
+      </a>
+
+
+      <a href="heels.html"
+         class="category-card">
+
+        <small>03</small>
+
+        <h3>Heels</h3>
+
+        <span>
+          Explore Heels →
+        </span>
+
+      </a>
+
+
+      <a href="watches.html"
+         class="category-card">
+
+        <small>04</small>
+
+        <h3>Watches</h3>
+
+        <span>
+          Explore Watches →
+        </span>
+
+      </a>
+
+
+      <a href="jewelry.html"
+         class="category-card">
+
+        <small>05</small>
+
+        <h3>Jewelry</h3>
+
+        <span>
+          Explore Jewelry →
+        </span>
+
+      </a>
+
+
+      <a href="clothing.html"
+         class="category-card">
+
+        <small>06</small>
+
+        <h3>Clothing</h3>
+
+        <span>
+          Explore Clothing →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURED -->
+<section id="featured"
+         class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span>FEATURED PRODUCTS</span>
+
+      <h2>
+        Selected For You
+      </h2>
+
+      <p>
+        A curated selection from our collection.
+      </p>
+
+    </div>
+
+
+    <div
+      class="products-grid"
+      data-products="featured">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- STANDARD -->
+<section id="standard"
+         class="section">
+
+  <div class="container">
+
+    <div class="standard-box">
+
+      <div class="standard-content">
+
+        <span>
+          THE ELITE STANDARD
+        </span>
+
+        <h2>
+          More Than A
+          <strong>
+            Shopping Experience.
+          </strong>
+        </h2>
+
+        <p>
+          Every order is prepared with attention
+          to quality, presentation and secure packaging.
+        </p>
+
+        <a href="https://wa.me/12089034508"
+           class="button primary">
+          GET PERSONAL HELP
+        </a>
+
+      </div>
+
+
+      <div class="standard-points">
+
+        <div>
+          <strong>✓ Premium Selection</strong>
+          <span>Carefully selected pieces</span>
+        </div>
+
+        <div>
+          <strong>✓ Secure Packaging</strong>
+          <span>Prepared carefully</span>
+        </div>
+
+        <div>
+          <strong>✓ Worldwide Delivery</strong>
+          <span>Free worldwide shipping</span>
+        </div>
+
+        <div>
+          <strong>✓ Easy Communication</strong>
+          <span>Direct WhatsApp support</span>
+        </div>
+
+        <div>
+          <strong>✓ 9–13 Working Days</strong>
+          <span>Estimated delivery window</span>
+        </div>
+
+        <div>
+          <strong>✓ Gift Ready</strong>
+          <span>Beautifully prepared</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <span>HOW IT WORKS</span>
+
+      <h2>
+        Simple. Personal. Secure.
+      </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <b>01</b>
+
+        <h3>
+          Choose Your Piece
+        </h3>
+
+        <p>
+          Browse the collection and select
+          the piece you love.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <b>02</b>
+
+        <h3>
+          Contact Us
+        </h3>
+
+        <p>
+          Message us on WhatsApp for
+          availability and details.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <b>03</b>
+
+        <h3>
+          We Prepare Your Order
+        </h3>
+
+        <p>
+          Your order is carefully prepared
+          and shipped worldwide.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+  <div class="container">
+
+    <span>
+      ELITE BAGS
+    </span>
+
+    <h2>
+      Looking For Something Special?
+    </h2>
+
+    <p>
+      Tell us what you're looking for and
+      we'll help you find the right piece.
+    </p>
+
+    <a href="https://wa.me/12089034508"
+       class="button primary">
+      MESSAGE US ON WHATSAPP
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer id="contact">
+
+  <div class="container footer-grid">
+
+    <div>
+
+      <h3>
+        ELITE BAGS
+      </h3>
+
+      <p>
+        Premium fashion collection with
+        worldwide delivery.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        SHOP
+      </h4>
+
+      <a href="bags.html">Bags</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="heels.html">Heels</a>
+      <a href="watches.html">Watches</a>
+      <a href="jewelry.html">Jewelry</a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        CONTACT
+      </h4>
+
+      <a href="https://wa.me/12089034508">
+        +1 208-903-4508
+      </a>
+
+      <a href="mailto:luxuriouselitebags@gmail.com">
+        luxuriouselitebags@gmail.com
+      </a>
+
+      <a href="https://www.tiktok.com/@elite.bagss">
+        TikTok @elite.bagss
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        INFORMATION
+      </h4>
+
+      <p>
+        Free Worldwide Shipping
+      </p>
+
+      <p>
+        9–13 Working Days
+      </p>
+
+      <p>
+        Secure Packaging
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © <span id="year"></span>
+    Elite Bags. All rights reserved.
+
+  </div>
+
+</footer>
+
+
+<!-- CART -->
+<aside id="cartDrawer"
+       class="cart-drawer">
+
+  <div class="cart-header">
+
+    <h2>
+      Your Bag
+    </h2>
+
+    <button id="closeCart">
+      ×
+    </button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+</aside>
+
+
+<div id="overlay"
+     class="overlay">
+</div>
+
+
+<script src="products.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
