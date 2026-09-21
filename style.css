@@ -641,3 +641,128 @@ details p{padding:0 28px 18px 0;color:#7d8086;font-size:10px;line-height:1.8}
     animation-duration: 28s;
   }
 }
+/* =========================================
+   ELITE BAGS - HERO TEXT ANIMATIONS
+   ========================================= */
+
+.hero-content .eyebrow {
+  animation: heroFadeDown 0.9s ease-out both;
+}
+
+.hero-content h1 {
+  animation: heroTitleReveal 1.1s cubic-bezier(.22,.61,.36,1) 0.15s both;
+}
+
+.hero-content h1 span {
+  display: inline-block;
+  animation: heroRedReveal 1s cubic-bezier(.22,.61,.36,1) 0.45s both;
+}
+
+.hero-content p {
+  animation: heroFeaturesReveal 1s ease-out 0.65s both;
+}
+
+.hero-content .buttons {
+  animation: heroButtonsReveal 1s ease-out 0.85s both;
+}
+
+
+/* Trusted Seller */
+@keyframes heroFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Main heading */
+@keyframes heroTitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+/* Red heading */
+@keyframes heroRedReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Features */
+@keyframes heroFeaturesReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Buttons */
+@keyframes heroButtonsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   SUBTLE PREMIUM EFFECT
+   ========================================= */
+
+.hero-content h1 span {
+  text-shadow: 0 0 0 rgba(201, 24, 47, 0);
+  transition: text-shadow .4s ease;
+}
+
+.hero-content h1 span:hover {
+  text-shadow: 0 0 18px rgba(201, 24, 47, .18);
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content .eyebrow,
+  .hero-content h1,
+  .hero-content h1 span,
+  .hero-content p,
+  .hero-content .buttons {
+    animation: none !important;
+  }
+}
