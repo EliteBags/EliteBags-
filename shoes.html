@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Shop premium bags at Elite Bags.">
+  <link rel="icon" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>shoes | Elite Bags</title>
+</head>
+
+<body data-category="shoes">
+
+  <div class="top-bar">
+    FREE WORLDWIDE SHIPPING • 9–13 WORKING DAYS
+  </div>
+
+  <header class="header">
+
+    <div class="container">
+
+      <nav class="nav">
+
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo.png"
+            alt="Elite Bags"
+            onerror="this.style.display='none'"
+          >
+          <span class="logo-text">ELITE BAGS</span>
+        </a>
+
+        <div class="desktop-nav">
+          <a href="index.html">Home</a>
+          <a href="bags.html">Bags</a>
+          <a href="shoes.html">Shoes</a>
+          <a href="heels.html">Heels</a>
+          <a href="watches.html">Watches</a>
+          <a href="jewelry.html">Jewelry</a>
+        </div>
+
+        <div class="header-actions">
+
+          <div class="search-wrapper">
+
+            <button
+              class="header-button"
+              id="searchButton"
+              type="button"
+            >
+              🔍
+            </button>
+
+            <div class="search-box" id="searchBox">
+
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search products..."
+              >
+
+              <div id="searchResults"></div>
+
+            </div>
+
+          </div>
+
+          <button
+            class="header-button"
+            id="cartButton"
+            type="button"
+          >
+            🛍️
+            <span
+              id="cartCount"
+              style="
+                position:absolute;
+                margin-top:-28px;
+                margin-left:27px;
+                background:#e51d35;
+                color:#fff;
+                min-width:17px;
+                height:17px;
+                border-radius:50%;
+                font-size:9px;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+              "
+            >0</span>
+          </button>
+
+          <a
+            href="https://wa.me/12089034508"
+            target="_blank"
+            class="whatsapp-button"
+          >
+            WhatsApp
+          </a>
+
+          <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+          >
+            ☰
+          </button>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="index.html">Home</a>
+      <a href="bags.html">Bags</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="heels.html">Heels</a>
+      <a href="watches.html">Watches</a>
+      <a href="jewelry.html">Jewelry</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <section class="page-hero">
+
+      <div class="container">
+
+        <span class="eyebrow">
+          Elite Bags Collection
+        </span>
+
+        <h1>
+          Bags
+        </h1>
+
+        <p>
+          Discover our curated collection of premium
+          handbags and everyday statement pieces.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="category-toolbar">
+
+          <div>
+
+            <strong>
+              Bags Collection
+            </strong>
+
+          </div>
+
+          <div class="category-filters">
+
+            <button
+              class="filter-button active"
+              data-filter="all"
+            >
+              All
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="products-grid"
+          id="categoryProducts"
+        ></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>
+        Need Something Special?
+      </h2>
+
+      <p>
+        Contact us on WhatsApp for availability,
+        product details and ordering assistance.
+      </p>
+
+      <div class="cta-buttons">
+
+        <a
+          href="https://wa.me/12089034508"
+          target="_blank"
+          class="button primary"
+        >
+          Chat On WhatsApp
+        </a>
+
+        <a
+          href="index.html"
+          class="button secondary"
+        >
+          Back To Home
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+
+            <img
+              src="images/logo.png"
+              alt="Elite Bags"
+              onerror="this.style.display='none'"
+            >
+
+            <span class="logo-text">
+              ELITE BAGS
+            </span>
+
+          </div>
+
+          <p>
+            Premium fashion bags, shoes, heels, watches,
+            jewelry and clothing for customers worldwide.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>Shop</h4>
+
+          <ul class="footer-links">
+
+            <li><a href="bags.html">Bags</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="heels.html">Heels</a></li>
+            <li><a href="watches.html">Watches</a></li>
+            <li><a href="jewelry.html">Jewelry</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h4>Information</h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="index.html#standard">
+                Our Standard
+              </a>
+            </li>
+
+            <li>
+              <a href="contact.html">
+                Contact
+              </a>
+            </li>
+
+            <li>
+              <a href="faq.html">
+                FAQ
+              </a>
+            </li>
+
+            <li>
+              <a href="shipping.html">
+                Shipping
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h4>Contact</h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="https://wa.me/12089034508">
+                +1 208-903-4508
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:luxuriouselitebags@gmail.com">
+                luxuriouselitebags@gmail.com
+              </a>
+            </li>
+
+            <li>
+              Guang Zhou Shi,
+              Guang Dong Sheng, China
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        <span>
+          © <span data-year></span>
+          Elite Bags. All Rights Reserved.
+        </span>
+
+        <span>
+          Premium Fashion Collection
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <div
+    class="overlay"
+    id="cartOverlay"
+  ></div>
+
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+  >
+
+    <div class="cart-header">
+
+      <h3>Your Cart</h3>
+
+      <button
+        class="cart-close"
+        id="cartClose"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+
+        <span>Total</span>
+
+        <span id="cartTotal">
+          $0
+        </span>
+
+      </div>
+
+      <button
+        class="button primary"
+        id="cartCheckout"
+        type="button"
+        style="width:100%;"
+      >
+        Continue On WhatsApp
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <a
+    href="https://wa.me/12089034508"
+    class="floating-whatsapp"
+    target="_blank"
+    aria-label="WhatsApp"
+  >
+    ☎
+  </a>
+
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+  >
+    ↑
+  </button>
+
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
