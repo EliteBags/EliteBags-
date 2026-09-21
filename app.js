@@ -87,3 +87,145 @@
 
   document.addEventListener('DOMContentLoaded',()=>{initHeader();initHome();initCategory();initCart();initCheckoutClose();initProductPage();initReveal();initFAQ();initBackTop();initFooter();updateCartCount()});
 })();
+/* =========================================
+   ELITE BAGS HERO AUTO IMAGE SLIDER
+   ========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const slider = document.querySelector("[data-hero-slider]");
+
+  if (!slider) return;
+
+  const slides = Array.from(
+    slider.querySelectorAll(".hero-slide")
+  );
+
+  const dots = Array.from(
+    slider.querySelectorAll(".hero-dot")
+  );
+
+  const prevBtn = slider.querySelector(
+    ".hero-slider-prev"
+  );
+
+  const nextBtn = slider.querySelector(
+    ".hero-slider-next"
+  );
+
+  if (!slides.length) return;
+
+  let current = 0;
+  let autoSlide;
+
+  function showSlide(index) {
+
+    current =
+      (index + slides.length) %
+      slides.length;
+
+    slides.forEach(function (slide, i) {
+
+      slide.classList.toggle(
+        "active",
+        i === current
+      );
+
+    });
+
+    dots.forEach(function (dot, i) {
+
+      dot.classList.toggle(
+        "active",
+        i === current
+      );
+
+    });
+  }
+
+  function nextSlide() {
+    showSlide(current + 1);
+  }
+
+  function previousSlide() {
+    showSlide(current - 1);
+  }
+
+  function startAutoSlide() {
+
+    clearInterval(autoSlide);
+
+    autoSlide = setInterval(function () {
+
+      nextSlide();
+
+    }, 3500);
+  }
+
+  function resetAutoSlide() {
+    startAutoSlide();
+  }
+
+  /* Next button */
+
+  if (nextBtn) {
+
+    nextBtn.addEventListener(
+      "click",
+      function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        nextSlide();
+        resetAutoSlide();
+
+      }
+    );
+
+  }
+
+  /* Previous button */
+
+  if (prevBtn) {
+
+    prevBtn.addEventListener(
+      "click",
+      function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        previousSlide();
+        resetAutoSlide();
+
+      }
+    );
+
+  }
+
+  /* Dots */
+
+  dots.forEach(function (dot, index) {
+
+    dot.addEventListener(
+      "click",
+      function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        showSlide(index);
+        resetAutoSlide();
+
+      }
+    );
+
+  });
+
+  /* Start */
+
+  showSlide(0);
+  startAutoSlide();
+
+});
