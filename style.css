@@ -766,3 +766,46 @@ details p{padding:0 28px 18px 0;color:#7d8086;font-size:10px;line-height:1.8}
     animation: none !important;
   }
 }
+/* =========================================
+   PRODUCT PAGE - TOPBAR FIX
+   ========================================= */
+
+.topbar {
+  position: relative !important;
+  z-index: 99999 !important;
+  width: 100%;
+  overflow: hidden;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9990 !important;
+}
+
+/* Make sure product content starts below header */
+.product-page,
+.product-detail,
+.product-layout {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent any product element from covering the announcement bar */
+.product-page *,
+.product-detail *,
+.product-layout * {
+  /* keeps normal stacking unless specifically needed */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .topbar {
+    position: relative !important;
+    z-index: 99999 !important;
+  }
+
+  .site-header {
+    z-index: 9990 !important;
+  }
+}
